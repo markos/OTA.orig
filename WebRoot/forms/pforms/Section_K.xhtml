@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+				<h:panelGrid columns="1" style="text-align:center; margin:0 auto;" cellpadding="10">
+
+					<h:panelGroup>
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="10" align="center">
+								<h:outputLabel value="ΝΟΜΙΜΟΣ ΕΚΠΡΟΣΩΠΟΣ ΤΟΥ ΦΟΡΕΑ (ΣΥΝΤΑΚΤΗΣ)" style="font-weight:bold;"/>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="3"><h:outputText id="rep_firstName" value="#{otaBean.sec_k.legalRepresentativeFirstName}"/></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:outputText id="rep_lastName" value="#{otaBean.sec_k.legalRepresentativeLastName}"/></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:outputText id="rep_position" value="#{otaBean.sec_k.legalRepresentativeTitle}"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:outputFormat escape="false" styleClass="plain_editor" id="rep_address" value="#{otaBean.sec_k.legalRepresentativeAddress}"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:outputText id="rep_city" value="#{otaBean.sec_k.legalRepresentativeCity}"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:outputText id="rep_postcode" value="#{otaBean.sec_k.legalRepresentativePostCode}"/></td>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:outputText id="rep_telephone" value="#{otaBean.sec_k.legalRepresentativePhone}"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:outputText id="rep_fax" value="#{otaBean.sec_k.legalRepresentativeFax}"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:outputText id="rep_email" value="#{otaBean.sec_k.legalRepresentativeEmail}"/></td>
+						</tr>
+					</table>
+					</h:panelGroup>
+									
+					<h:outputLabel value="ΕΝΕΡΓΕΙΕΣ ΣΧΕΤΙΚΕΣ ΜΕ ΤΟΥΣ ΑΝΘΡΩΠΝΟΥΣ ΠΟΡΟΥΣ ΠΟΥ ΟΛΟΚΛΗΡΩΘΗΚΑΝ ΚΑΤΑ ΤΗΝ ΤΕΛΕΥΤΑΙΑ ΠΕΝΤΑΕΤΙΑ ΥΠΟ ΤΗΝ ΕΠΙΒΛΕΨΗ ΤΟΥ ΦΟΡΕΑ" style="font-weight:bold;"/>
+				
+					<h:panelGrid columns="7" style="margin:0 auto; width:100%;">
+						<h:outputText value=""/>
+						<h:outputText value="ΚΑΤΑΡΤΙΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΠΑΣΧΟΛΗΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΜΒΟΥΛΕΥΤΙΚΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΕΚΠΑΙΔΕΥΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΛΛΕΣ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΛΗΘΟΣ" style="font-weight:bold; text-align:right; width:100%;"/>
+						<h:outputText id="c1_1" value="#{otaBean.sec_k.pastVendorActivitiesKatartisisQty}"/>
+						<h:outputText id="c1_2" value="#{otaBean.sec_k.pastVendorActivitiesEmploymentQty}"/>
+						<h:outputText id="c1_3" value="#{otaBean.sec_k.pastVendorActivitiesConsultingQty}"/>
+						<h:outputText id="c1_4" value="#{otaBean.sec_k.pastVendorActivitiesEducationQty}"/>
+						<h:outputText id="c1_5" value="#{otaBean.sec_k.pastVendorActivitiesOtherQty}"/>
+						<h:outputText id="pastVendorActivitiesTotalQty" value="#{otaBean.sec_k.pastVendorActivitiesTotalQty}"/>
+						
+						<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ" style="font-weight:bold;"/>
+						<h:outputText id="c2_1" value="#{otaBean.sec_k.pastVendorActivitiesKatartisisBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c2_2" value="#{otaBean.sec_k.pastVendorActivitiesEmploymentBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c2_3" value="#{otaBean.sec_k.pastVendorActivitiesConsultingBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c2_4" value="#{otaBean.sec_k.pastVendorActivitiesEducationBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c2_5" value="#{otaBean.sec_k.pastVendorActivitiesOtherBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="pastVendorActivitiesTotalBudget" value="#{otaBean.sec_k.pastVendorActivitiesTotalBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+					</h:panelGrid>
+						
+					<h:outputLabel value="ΕΝΕΡΓΕΙΕΣ ΣΧΕΤΙΚΕΣ ΜΕ ΤΟΥΣ ΑΝΘΡΩΠΙΝΟΥΣ ΠΟΡΟΥΣ ΠΟΥ ΥΛΟΠΟΙΟΥΝΤΑΙ ΣΗΜΕΡΑ ΥΠΟ ΤΗΝ ΕΠΙΒΛΕΨΗ ΤΟΥ ΦΟΡΕΑ" style="font-weight:bold;"/>
+					
+					<h:panelGrid columns="7" style="margin:0 auto; width:100%;">
+						<h:outputText value=""/>
+						<h:outputText value="ΚΑΤΑΡΤΙΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΠΑΣΧΟΛΗΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΜΒΟΥΛΕΥΤΙΚΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΕΚΠΑΙΔΕΥΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΛΛΕΣ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΛΗΘΟΣ" style="font-weight:bold;"/>
+						<h:outputText id="c3_1" value="#{otaBean.sec_k.currentVendorActivitiesKatartisisQty}"/>
+						<h:outputText id="c3_2" value="#{otaBean.sec_k.currentVendorActivitiesEmploymentQty}"/>
+						<h:outputText id="c3_3" value="#{otaBean.sec_k.currentVendorActivitiesConsultingQty}"/>
+						<h:outputText id="c3_4" value="#{otaBean.sec_k.currentVendorActivitiesEducationQty}"/>
+						<h:outputText id="c3_5" value="#{otaBean.sec_k.currentVendorActivitiesOtherQty}"/>
+						<h:outputText id="currentVendorActivitiesTotalQty" value="#{otaBean.sec_k.currentVendorActivitiesTotalQty}"/>
+						
+						<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ" style="font-weight:bold;"/>
+						<h:outputText id="c4_1" value="#{otaBean.sec_k.currentVendorActivitiesKatartisisBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c4_2" value="#{otaBean.sec_k.currentVendorActivitiesEmploymentBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c4_3" value="#{otaBean.sec_k.currentVendorActivitiesConsultingBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c4_4" value="#{otaBean.sec_k.currentVendorActivitiesEducationBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c4_5" value="#{otaBean.sec_k.currentVendorActivitiesOtherBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="currentVendorActivitiesTotalBudget" value="#{otaBean.sec_k.currentVendorActivitiesTotalBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+					</h:panelGrid>
+					
+					<h:outputLabel value="ΠΑΡΑΤΗΡΗΣΕΙΣ" style="font-weight:bold;"/>
+					<h:outputText value="Προσδιορίστε στην περίπτωση που υπάρχουν άλλες κατηγορίες ενεργειών, πλην των τεσσάρων πρώτων των παραπάνω στηλών των δύο πινάκων. Να διευκρινισθεί εάν η επίβλεψη των ανωτέρω υλοποιείται αποκλειστικά από στελέχη του Φορέα, ή εάν ο Φορέας ενισχύεται από υπηρεσίες τρίτων, οπότε και πρέπει να αναφερθεί η μορφή της ενίσχυσης (πρόσληψη έκτακτου προσωπικού, ανάθεση υπηρεσιών  τεχνικού συμβούλου, κλπ)." />
+					<h:outputFormat escape="false" value="#{otaBean.sec_k.pastCurrentVendorActivitiesNotes}" style="width:100%;" />
+					
+					<h:outputLabel value="ΕΝΕΡΓΕΙΕΣ ΣΧΕΤΙΚΕΣ ΜΕ ΤΟΥΣ ΑΝΘΡΩΠΙΝΟΥΣ ΠΟΡΟΥΣ ΠΟΥ ΠΡΟΒΛΕΠΕΤΑΙ ΟΤΙ ΘΑ ΥΛΟΠΟΙΗΘΟΥΝ ΥΠΟ ΤΗΝ ΕΠΙΒΛΕΨΗ ΤΟΥ ΦΟΡΕΑ ΚΑΤΑ ΤΗΝ ΠΡΟΓΡΑΜΜΑΤΙΚΗ ΠΕΡΙΟΔΟ 2000- 2006" style="font-weight:bold;"/>
+
+					<h:panelGrid columns="7" style="margin:0 auto; width:100%;">
+						<h:outputText value=""/>
+						<h:outputText value="ΚΑΤΑΡΤΙΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΠΑΣΧΟΛΗΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΜΒΟΥΛΕΥΤΙΚΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΕΚΠΑΙΔΕΥΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΛΛΕΣ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΛΗΘΟΣ" style="font-weight:bold;"/>
+						<h:outputText id="c5_1" value="#{otaBean.sec_k.futureVendorActivitiesKatartisisQty}"/>
+						<h:outputText id="c5_2" value="#{otaBean.sec_k.futureVendorActivitiesEmploymentQty}"/>
+						<h:outputText id="c5_3" value="#{otaBean.sec_k.futureVendorActivitiesConsultingQty}"/>
+						<h:outputText id="c5_4" value="#{otaBean.sec_k.futureVendorActivitiesEducationQty}"/>
+						<h:outputText id="c5_5" value="#{otaBean.sec_k.futureVendorActivitiesOtherQty}"/>
+						<h:outputText id="futureVendorActivitiesTotalQty" value="#{otaBean.sec_k.futureVendorActivitiesTotalQty}"/>
+						
+						<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ" style="font-weight:bold;"/>
+						<h:outputText id="c6_1" value="#{otaBean.sec_k.futureVendorActivitiesKatartisisBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c6_2" value="#{otaBean.sec_k.futureVendorActivitiesEmploymentBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c6_3" value="#{otaBean.sec_k.futureVendorActivitiesConsultingBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c6_4" value="#{otaBean.sec_k.futureVendorActivitiesEducationBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="c6_5" value="#{otaBean.sec_k.futureVendorActivitiesOtherBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						<h:outputText id="futureVendorActivitiesTotalBudget" value="#{otaBean.sec_k.futureVendorActivitiesTotalBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+					</h:panelGrid>
+					
+					<h:outputLabel value="ΠΑΡΑΤΗΡΗΣΕΙΣ" style="font-weight:bold;"/>
+					<h:outputText value="Προσδιορίστε στην περίπτωση που υπάρχουν άλλες κατηγορίες ενεργειών, πλην των τεσσάρων πρώτων των παραπάνω στηλών των δύο πινάκων.Να διευκρινισθεί εάν η επίβλεψη των ανωτέρω θα υλοποιηθεί αποκλειστικά από στελέχη του Φορέα, ή εάν προβλέπεται η ενίσχυση του Φορέα από υπηρεσίες τρίτων, οπότε και πρέπει να αναφερθεί η μορφή της ενίσχυσης (πρόσληψη έκτακτου προσωπικού, ανάθεση υπηρεσιών τεχνικού συμβούλου, κλπ)."/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_k.futureVendorActivitiesNotes}" style="width:100%;"/>
+					
+					<h:outputText escape="false" value="ΜΟΝΙΜΗ ΣΤΕΛΕΧΩΣΗ ΦΟΡΕΑ" style="font-weight:bold;"/>
+						
+					<h:dataTable value="#{otaBean.section_K_employees}" var="employeeItem" style="margin:0 auto; width:100%;" styleClass="data-table">	
+						<h:column>					
+							<f:facet name="header"><h:outputText value="ΕΙΔΙΚΟΤΗΤΑ"/></f:facet>
+							<h:outputText value="#{employeeItem.name}"/>
+							<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/></f:facet>
+						</h:column>
+						<h:column>					
+							<f:facet name="header"><h:outputText value="ΥΦΙΣΤΑΜΕΝΗ ΚΑΤΑΣΤΑΣΗ (ΠΛΗΘΟΣ)"/></f:facet>
+							<h:outputText value="#{employeeItem.currentQty}"/>
+							<f:facet name="footer"><h:outputText id="curEmployeesTot" value="#{otaBean.section_K_employees_currQty}" style="font-weight:bold;"/></f:facet>
+						</h:column>
+						<h:column>					
+							<f:facet name="header"><h:outputText value="ΠΡΟΒΛΕΠΟΜΕΝΗ ΚΑΤΑΣΤΑΣΗ (ΠΛΗΘΟΣ)"/></f:facet>
+							<h:outputText value="#{employeeItem.estQty}"/>
+							<f:facet name="footer"><h:outputText id="estEmployeesTot" value="#{otaBean.section_K_employees_estQty}" style="font-weight:bold;"/></f:facet>
+						</h:column>
+					</h:dataTable>
+
+					<h:outputLabel value="ΒΑΘΜΟΣ ΚΑΛΥΨΗΣ ΑΝΑΓΚΩΝ (1 = ΑΝΕΠΑΡΚΗΣ, 2 = ΑΝΕΚΤΟΣ, 3 = ΙΚΑΝΟΠΟΙΗΤΙΚΟΣ, 4 = ΠΟΛΥ ΚΑΛΟΣ, 5 = ΑΡΙΣΤΟΣ)" style="font-weight:bold;"/>
+					
+					<h:panelGrid columns="3" style="margin:0 auto; width:100%;">
+						<h:outputText value="ΚΡΙΤΗΡΙΟ" style="font-weight:bold;"/>
+						<h:outputText value="ΥΦΙΣΤΑΜΕΝΗ ΚΑΤΑΣΤΑΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΠΡΟΒΛΕΠΟΜΕΝΗ ΚΑΤΑΣΤΑΣΗ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΟΣΟΤΙΚΗ ΕΠΑΡΚΕΙΑ ΜΟΝΙΜΩΝ ΣΤΕΛΕΧΩΝ ΚΑΙ ΣΥΝΕΡΓΑΤΩΝ (Πλήθος Και Σύνθεση Ειδικοτήτων)" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_k.curPermanentEmployeesQty}"/>
+						<h:outputText value="#{otaBean.sec_k.estPermanentEmployeesQty}"/>
+						
+						<h:outputText value="ΠΟΙΟΤΙΚΗ ΕΠΑΡΚΕΙΑ ΜΟΝΙΜΩΝ ΣΤΕΛΕΧΩΝ ΚΑΙ ΣΥΝΕΡΓΑΤΩΝ (Εμπειρία Και Τεχνογνωσία)" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_k.curPermanentEmployeesExp}"/>
+						<h:outputText value="#{otaBean.sec_k.estPermanentEmployeesExp}"/>
+						
+						<h:outputText value="ΕΠΑΡΚΕΙΑ ΧΩΡΩΝ ΚΑΙ ΒΑΣΙΚΗΣ ΥΠΟΔΟΜΗΣ  (Ποσοτική Και Ποιοτική Εκτίμηση)" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_k.curPlaceSufficiency}"/>
+						<h:outputText value="#{otaBean.sec_k.estPlaceSufficiency}"/>
+						
+						<h:outputText value="ΕΠΑΡΚΕΙΑ ΤΕΧΝΟΛΟΓΙΚΗΣ ΥΠΟΔΟΜΗΣ (Ποσοτική Και Ποιοτική Εκτίμηση)" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_k.curInfrastructureSufficiency}"/>
+						<h:outputText value="#{otaBean.sec_k.estInfrastructureSufficiency}"/>
+					</h:panelGrid>
+					
+					<h:outputLabel value="ΑΛΛΕΣ ΠΑΡΑΤΗΡΗΣΕΙΣ ΚΑΙ ΣΧΟΛΙΑ" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_k.otherNotes}" style="width:100%;"/>
+				</h:panelGrid>
+		</center>
+	</body>
+</html>

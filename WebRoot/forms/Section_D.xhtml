@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_D.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "textareas",
+        			theme : "simple",
+ 				});
+			</script>
+			<script>
+				window.addEvent('domready', function() {
+					var label = "#{otaBean.label}";
+					if (label != "" ) { 
+						window.location.hash = label;
+					}
+				});
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+		</ui:define>	
+		<ui:define name="main-content">
+			<f:view>
+			
+				<h:form id="Τμημα_Δ">
+			
+				<div id="login-form" style="width:950px; padding-top:20px;">
+
+				<center>
+					<h:commandButton action="#{otaBean.saveSectionD}" value="Αποθήκευση"/>
+				</center>
+				<br/><br/>
+				
+				<div id="tabbed">
+					<ul>
+						<li><h:commandLink action="#{otaBean.goToSectionA}">Τμήμα Α</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionB}">Τμήμα B</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionC}">Τμήμα Γ</h:commandLink></li>
+						<li id="selected"><a href="#">Τμήμα Δ</a></li>
+						<li><h:commandLink action="#{otaBean.goToSectionE}">Τμήμα Ε</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionH}">Τμήμα Η</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionTh}">Τμήμα Θ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionI}">Τμήμα Ι</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionK}">Τμήμα Κ</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+
+					<h:outputText value="ΤΜΗΜΑ Δ (ΔΕΙΚΤΕΣ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ)"/>
+					
+					<h:panelGrid columns="1" style="margin:0 auto; text-align:center;">
+					
+					<h:panelGroup>
+						<h:outputText escape="false" value="ΔΕΙΚΤΕΣ ΕΚΡΟΗΣ" style="font-weight:bold;"/>
+						<h:commandButton image="/images/add.png" action="#{otaBean.addSection_D_TDE_Deiktes_Ekrois}" style="padding-left:5px; border:0px;" />
+					</h:panelGroup>
+					
+					<h:dataTable value="#{otaBean.deiktes_ekrois}" var="deiktesItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="104. ΚΩΔΙΚΟΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.code}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="105. ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ (Ή ΠΕΡΙΓΡΑΦΗ)"/></f:facet>
+							<h:selectOneMenu value="#{deiktesItem.deiktis.id}" style="width:400px;" valueChangeListener="#{otaBean.sectionD_changedDeiktiEkrois}" onchange="submit()" >
+								<f:selectItems value="#{otaBean.defaultDeiktesSelectItemsList}"/>
+							</h:selectOneMenu>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="106. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.measuringSystem}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="107. ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+							<h:inputText value="#{deiktesItem.target}" size="15" styleClass="currency" ></h:inputText>
+						</h:column>						
+						<h:column>
+							<f:facet name="header"><h:outputText value=""/></f:facet>
+							<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_D_TDE_Deiktes_Ekrois}" style="border:0px;" />
+						</h:column>
+					</h:dataTable>
+					
+					<h:panelGroup>
+						<a id="IndicesResultsListLabel" name="IndicesResultsListLabel"><h:outputText escape="false" value="ΔΕΙΚΤΕΣ ΑΠΟΤΕΛΕΣΜΑΤΟΣ" style="font-weight:bold;"/></a>
+						<h:commandButton image="/images/add.png" action="#{otaBean.addSection_D_TDE_Deiktes_Apotelesmatos}" style="padding-left:5px; border:0px;" />
+					</h:panelGroup>
+					
+					<h:dataTable value="#{otaBean.deiktes_apotelesmatos}" var="deiktesItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable2}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="108. ΚΩΔΙΚΟΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.code}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="109. ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ (Ή ΠΕΡΙΓΡΑΦΗ)"/></f:facet>
+							<h:selectOneMenu value="#{deiktesItem.deiktis.id}" style="width:400px;" valueChangeListener="#{otaBean.sectionD_changedDeiktiApotelesmatos}" onchange="submit()">
+								<f:selectItems value="#{otaBean.defaultDeiktesSelectItemsList}"/>
+							</h:selectOneMenu>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="110. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.measuringSystem}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="111. ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+							<h:inputText value="#{deiktesItem.target}" size="15" styleClass="currency" ></h:inputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value=""/></f:facet>
+							<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_D_TDE_Deiktes_Apotelesmatos}" style="border:0px;" />
+						</h:column>
+					</h:dataTable>
+					
+					<h:outputLabel style="font-weight:bold;" value="ΑΝΑΜΕΝΟΜΕΝΕΣ ΕΠΙΠΤΩΣΕΙΣ" />
+					<br />
+					<h:panelGrid columns="1" style="text-align:center;" styleClass="form-table">
+						<h:outputText style="font-weight:bold;" value="112. ΕΠΙΠΤΩΣΕΙΣ ΣΤΗΝ ΑΠΑΣΧΟΛΗΣΗ"/>
+						<br/>
+						<h:panelGroup>
+							<a id="IndicesEffectsListLabel" name="IndicesEffectsListLabel"><h:outputText escape="false" value="ΔΕΙΚΤΕΣ ΕΠΙΠΤΩΣΕΩΝ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_D_TDE_Deiktes_Epiptoseon}" style="padding-left:5px; border:0px;" />
+						</h:panelGroup>
+					
+						<h:dataTable value="#{otaBean.deiktes_epiptoseon}" var="deiktesItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable3}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="113. ΚΩΔΙΚΟΣ"/></f:facet>
+								<h:outputText value="#{deiktesItem.deiktis.code}" style="text-align:center;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="114. ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ (Ή ΠΕΡΙΓΡΑΦΗ)"/></f:facet>
+								<h:selectOneMenu value="#{deiktesItem.deiktis.id}" style="width:400px;" valueChangeListener="#{otaBean.sectionD_changedDeiktiEpiptoseon}" onchange="submit()">
+									<f:selectItems value="#{otaBean.defaultDeiktesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="115. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+								<h:outputText value="#{deiktesItem.deiktis.measuringSystem}" style="text-align:center;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="116. ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+								<h:inputText value="#{deiktesItem.target}" size="15" styleClass="currency" ></h:inputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_D_TDE_Deiktes_Epiptoseon}" style="border:0px;" />
+							</h:column>
+						</h:dataTable>
+					
+						<h:outputText value="117. ΕΠΙΠΤΩΣΕΙΣ ΣΤΟ ΠΕΡΙΒΑΛΛΟΝ"/>
+						<h:inputTextarea value="#{otaBean.sec_d.affectsEnvironment}" style="width:100%;" rows="4"/>
+					
+						<h:outputText value="118. ΑΛΛΕΣ ΕΠΙΠΤΩΣΕΙΣ"/>
+						<h:inputTextarea value="#{otaBean.sec_d.affectsOther}" style="width:100%;" rows="4"/>
+					</h:panelGrid>
+					
+					<h:outputText value="119. ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ ΕΛΕΓΧΟΥ (ΔΙΕΝΕΡΓΗΘΕΝΤΕΣ ΕΛΕΓΧΟΙ - ΑΠΟΤΕΛΕΣΜΑΤΑ)"/>
+					<h:inputTextarea value="#{otaBean.sec_d.checksAndResults}" style="width:100%;" rows="4"/>
+					</h:panelGrid>
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

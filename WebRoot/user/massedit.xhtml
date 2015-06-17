@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: massedit.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών v0.1 - Αρχική"/>
+		<ui:define name="main-page-title">Σελίδα Διαχείρισης Χρηστών</ui:define>
+		<ui:define name="breadcrump"></ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:800px; padding-top:50px;">
+
+						<center><h:outputText value="#{userDBManagerBean.loginErrorMessage}" style="color: #FF0000; font-size: 10px; font-family: Verdana, Arial, Sans-Serif" id="errormessage"/>
+						
+						<br/>
+						
+						<h:outputText value="Διαχείριση Εκπαιδευτών"/>
+						
+						<br/>
+						<h:form>
+						<h:dataTable value="#{userDBManagerBean.trainerList}" var="trainerItem" rowClasses="row1,row2">
+							<h:column id="col0">
+								<h:selectBooleanCheckbox value="#{userDBManagerBean.selectedTrainerIds[trainerItem.username]}" />
+							</h:column>
+							<h:column id="col1">
+								<f:facet name="header"><h:outputText value="TrainerID"/></f:facet>
+								<h:outputText value="#{trainerItem.trainerId}"/>
+							</h:column>
+							<h:column id="col2">
+								<f:facet name="header"><h:outputText value="Username"/></f:facet>
+								<h:outputText value="#{trainerItem.username}"/>
+							</h:column>
+							<h:column id="col3">
+								<f:facet name="header"><h:outputText value="Όνομα"/></f:facet>
+								<h:outputText value="#{trainerItem.firstName}"/>
+							</h:column>
+							<h:column id="col4">
+								<f:facet name="header"><h:outputText value="Επώνυμο"/></f:facet>
+								<h:outputText value="#{trainerItem.lastName}"/>
+							</h:column>
+							<h:column id="col5">
+								<f:facet name="header"><h:outputText value="Παρουσίες"/></f:facet>
+								<h:outputText value="#{trainerItem.attendsTraining}"/>
+							</h:column>
+							
+						</h:dataTable>
+						<h:panelGroup>
+							<br />Περιφέρειες<br />
+							<h:selectManyListbox value="#{userDBManagerBean.tmpRegion}" size="8">
+								<f:selectItems value="#{userDBManagerBean.allRegionsOptionList}"/>
+							</h:selectManyListbox>
+							<br /><h:commandButton action="#{userDBManagerBean.addRegionsToSelected}" value="Add to Selected"></h:commandButton>
+							<br />Πιστοποιήσεις<br />
+							<h:selectManyListbox size="5" value="#{userDBManagerBean.tmpCertification}">
+								<f:selectItems value="#{userDBManagerBean.degreeCertListHTML}"/>
+							</h:selectManyListbox>
+							<br /><h:commandButton action="#{userDBManagerBean.addCertsToSelected}" value="Add to Selected"></h:commandButton><br/>
+							<h:outputText value="Παρουσίες στην Εκπαίδευση Εισηγητών:"/>					
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.attendsTraining}"/><br/>
+							<h:commandButton action="#{userDBManagerBean.setAttendsTrainingToSelected}" value="Set Selected to True"></h:commandButton>
+							<br/>
+							<h:outputText value="Εμπειρία από Αυτοδιοίκηση:"/>				
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.hasLocalAdminXP}"/><br />
+							<h:commandButton action="#{userDBManagerBean.setHasLocalAdminXPToSelected}" value="Set Selected to True"></h:commandButton><br/>
+							<h:outputText value="Επιθυμούν να συμμετέχουν στο συγκεκριμένο έργο:"/>		
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.wishToParticipate}"/><br />
+							<h:commandButton action="#{userDBManagerBean.setWishToParticipateToSelected}" value="Set Selected to True"></h:commandButton><br/><br/>
+							<h:outputText value="Επιθυμούν να συμμετέχουν στα Σεμινάρια Κατάρτισης με Η/Υ:"/>			
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.wishToAttentITSeminars}"/><br />
+							<h:commandButton action="#{userDBManagerBean.setWishToAttentITSeminarsToSelected}" value="Set Selected to True"></h:commandButton><br/><br/>
+							<h:outputText value="Εργάζονται ή έχουν εργαστεί στο χώρο της Αυτοδιοίκησης:"/>				
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.worksInLocalAdmin}"/><br />
+							<h:commandButton action="#{userDBManagerBean.setWorksInLocalAdminToSelected}" value="Set Selected to True"></h:commandButton><br/><br/>
+							<h:outputText value="Επιλογή:"/>								
+							<h:inputText value="#{userDBManagerBean.choice}"/><br />
+							<h:commandButton action="#{userDBManagerBean.setChoiceToSelected}" value="Set Selected to"></h:commandButton><br/><br/>
+						
+							<h:outputText value="Διδακτική Εμπειρία:"/><br />
+							<h:selectOneMenu value="#{userDBManagerBean.teachingExperience}">
+								<f:selectItems value="#{userDBManagerBean.teachingExpListHTML}"/>
+							</h:selectOneMenu><br />
+							<h:commandButton action="#{userDBManagerBean.setTeachingExperienceToSelected}" value="Set Selected to:"></h:commandButton><br/><br/>
+						
+							<h:outputText value="Εμπειρία Ομιλητή:"/><br />				
+							<h:selectOneMenu value="#{userDBManagerBean.talksExperience}">
+								<f:selectItems value="#{userDBManagerBean.talksExpListHTML}"/>
+							</h:selectOneMenu><br />
+							<h:commandButton action="#{userDBManagerBean.setTalksExperienceToSelected}" value="Set Selected To:"></h:commandButton><br/>
+						</h:panelGroup>
+						
+						</h:form>										
+						</center>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

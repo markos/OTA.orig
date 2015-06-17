@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Αναφορά Φυσικού Αντικειμένου</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Αναφορά Φυσικού Αντικειμένου"/>
+					
+					<br/><br/>
+					
+					<h:dataTable value="#{reportBean.physical_objects}" var="pItem" styleClass="data-table" style="text-align:center;" >
+						<h:column>
+							<f:facet name="header"><h:outputText value="Υποέργο"/></f:facet>
+							<h:outputText value="#{reportBean.subProjectGivenIds[pItem.subprojectId]}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Δραστηριότητα"/></f:facet>
+							<h:outputText value="#{pItem.activity}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Προγραμματισμένη Ημ/νια Έναρξης"/></f:facet>
+							<h:outputText value="#{pItem.date_programmedStart}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Προγραμματισμένη Ημ/νια Λήξης"/></f:facet>
+							<h:outputText value="#{pItem.date_programmedEnd}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Πραγματική Ημ/νια Έναρξης"/></f:facet>
+							<h:outputText value="#{pItem.date_actualStart}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Πραγματική Ημ/νια Λήξης"/></f:facet>
+							<h:outputText value="#{pItem.date_actualEnd}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Συσχετισμός με άλλες Δραστηριότητες"/></f:facet>
+							<h:outputText value="#{pItem.association}"/>
+						</h:column>
+					</h:dataTable>
+
+					</center>
+				</div>
+			</f:view>		
+		
+		
+		</body>
+</html>

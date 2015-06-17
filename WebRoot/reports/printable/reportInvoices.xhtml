@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων : Σύστημα Διαχείρισης Παραστατικών</ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminKatartisis == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/reports/reportInvoicesSubProjectList.jsf">Παραστατικά ανά Υποέργο</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<div id="content">
+					<center>
+					<h:messages style="color:red;"/><br/>
+
+					<h:outputText style="font-weight:bold;" value="ΥΠΟΕΡΓΟ #{otaBean.sec_l.given_id}: #{otaBean.sec_l.title}"/>
+					<br/>
+					<br/>
+					<h:panelGroup>
+					<h:outputText value="ΠΑΡΑΣΤΑΤΙΚΑ ΑΝΑΔΟΧΩΝ" style="font-weight:bold;"/>
+					<a href="/OTA/reports/printable/reportInvoices.jsf" target="_blank">Εκτύπωση</a>
+					<br/>
+					<h:dataTable value="#{otaBean.invoices_contractor}" var="invoiceItem" styleClass="data-table" style="width:100%;" binding="#{otaBean.invoiceContractorListDataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ανάδοχος"/></f:facet>
+							<h:outputText value="#{invoiceItem.contractorName}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Τύπος Παραστατικού"/></f:facet>
+							<h:outputText value="#{invoiceItem.invoiceType}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Αρ. Παραστατικού"/></f:facet>
+							<h:outputText value="#{invoiceItem.invoiceNumber}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ημ/νια"/></f:facet>
+							<h:outputText value="#{invoiceItem.date_issue}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Καθαρό Ποσό"/></f:facet>
+							<h:outputText value="#{invoiceItem.net}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΦΠΑ"/></f:facet>
+							<h:outputText value="#{invoiceItem.vat}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Σύνολο"/></f:facet>
+							<h:outputText value="#{invoiceItem.total}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					</h:panelGroup>
+					<br/>
+					<br/>
+					
+					<h:panelGroup>
+					<h:outputText value="ΠΑΡΑΣΤΑΤΙΚΑ ΦΟΡΕΑ:  #{otaBean.sec_a.proposalVendor_name}" style="font-weight:bold;"/>
+					<br/>
+					<h:dataTable value="#{otaBean.invoices_vendor}" var="invoiceItem" style="width:100%;" styleClass="data-table" binding="#{otaBean.invoiceVendorListDataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="Τύπος Παραστατικού"/></f:facet>
+							<h:outputText value="#{invoiceItem.invoiceType}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ημ/νια"/></f:facet>
+							<h:outputText value="#{invoiceItem.date_payment}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ποσό"/></f:facet>
+							<h:outputText value="#{invoiceItem.amount}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΦΠΑ"/></f:facet>
+							<h:outputText value="#{invoiceItem.vat}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					</h:panelGroup>
+					</center>
+				</div>
+				</div>
+			</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

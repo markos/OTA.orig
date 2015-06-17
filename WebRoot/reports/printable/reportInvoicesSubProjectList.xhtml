@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Αναφορά Παραστατικών ανά Υποέργο (Αναδόχων και Φορέα)</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+		
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Αναφορά Παραστατικών ανά Υποέργο (Αναδόχων και Φορέα)"/>
+					
+					<h:dataTable id="subProjectsTable" value="#{otaBean.subProjects}" var="subprojectItem" styleClass="data-table" style="text-align:center;width:80%;" binding="#{otaBean.subProjectdataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText id="index" value="Α/Α"/></f:facet>
+							<h:outputText id="indexval" value="#{subprojectItem.given_id}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="title" value="ΤΙΤΛΟΣ"/></f:facet>
+							<h:outputText id="titleval" value="#{subprojectItem.title}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value=""/></f:facet>
+							<h:form>
+								<h:commandButton image="/images/next.png" action="#{otaBean.goToInvoiceReportsList}" style="border:0px;"/>
+							</h:form>
+						</h:column>
+					</h:dataTable>
+					</center>
+				</div>
+			</f:view>		
+		</body>
+</html>

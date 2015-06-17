@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ws.userdb.codex.gr/" targetNamespace="http://ws.userdb.codex.gr/" version="1.0">
+
+  <xs:element name="authenticate" type="tns:authenticate"/>
+
+  <xs:element name="authenticateResponse" type="tns:authenticateResponse"/>
+
+  <xs:complexType name="authenticate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authenticateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:authenticateResult"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="authenticateResult">
+    <xs:sequence>
+      <xs:element name="result">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="entry">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element minOccurs="0" name="key" type="xs:string"/>
+                  <xs:element minOccurs="0" name="value" type="xs:string"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

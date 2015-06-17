@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+				<h:panelGrid columns="1" style="margin:0 auto; text-align:center;">
+					
+					
+					<h:outputText escape="false" value="ΔΕΙΚΤΕΣ ΕΚΡΟΗΣ" style="font-weight:bold;"/>
+					
+					<h:dataTable value="#{otaBean.deiktes_ekrois}" var="deiktesItem" cellspacing="0" cellpadding="10" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable3}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="104. ΚΩΔΙΚΟΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.code}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="105. ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ (Ή ΠΕΡΙΓΡΑΦΗ)"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.name}" style="width:400px;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="106. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.measuringSystem}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="107. ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.target}" style="text-align:center;"/>
+						</h:column>						
+					</h:dataTable>
+					
+					<br/><br/>
+					<h:outputText escape="false" value="ΔΕΙΚΤΕΣ ΑΠΟΤΕΛΕΣΜΑΤΟΣ" style="font-weight:bold;"/>
+					<br/>
+										
+					<h:dataTable value="#{otaBean.deiktes_apotelesmatos}" var="deiktesItem" cellspacing="0" cellpadding="10" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable4}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="108. ΚΩΔΙΚΟΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.code}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="109. ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ (Ή ΠΕΡΙΓΡΑΦΗ)"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.name}" style="width:400px;" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="110. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.deiktis.measuringSystem}" style="text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="111. ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+							<h:outputText value="#{deiktesItem.target}" style="text-align:center;"/>
+						</h:column>
+					</h:dataTable>
+					
+					<h:outputLabel style="font-weight:bold;" value="ΑΝΑΜΕΝΟΜΕΝΕΣ ΕΠΙΠΤΩΣΕΙΣ" />
+					<br />
+					<h:panelGrid columns="1" style="text-align:center; width:100%;" styleClass="form-table">
+						<h:outputText style="font-weight:bold;" value="112. ΕΠΙΠΤΩΣΕΙΣ ΣΤΗΝ ΑΠΑΣΧΟΛΗΣΗ"/>
+						<br/>
+						<h:outputText escape="false" value="ΔΕΙΚΤΕΣ ΕΠΙΠΤΩΣΕΩΝ" style="font-weight:bold;"/>
+					
+						<h:dataTable value="#{otaBean.deiktes_epiptoseon}" var="deiktesItem" cellspacing="0" cellpadding="10" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable5}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="113. ΚΩΔΙΚΟΣ"/></f:facet>
+								<h:outputText value="#{deiktesItem.deiktis.code}" style="text-align:center;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="114. ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ (Ή ΠΕΡΙΓΡΑΦΗ)"/></f:facet>
+								<h:outputText value="#{deiktesItem.deiktis.name}" style="width:400px;" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="115. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+								<h:outputText value="#{deiktesItem.deiktis.measuringSystem}" style="text-align:center;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="116. ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+								<h:outputText value="#{deiktesItem.target}" style="text-align:center;"/>
+							</h:column>
+						</h:dataTable>
+					
+						<h:outputText value="117. ΕΠΙΠΤΩΣΕΙΣ ΣΤΟ ΠΕΡΙΒΑΛΛΟΝ"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_d.affectsEnvironment}" style="width:100%;" />
+					
+						<h:outputText value="118. ΑΛΛΕΣ ΕΠΙΠΤΩΣΕΙΣ"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_d.affectsOther}" style="width:100%;" />
+					</h:panelGrid>
+					
+					<h:outputText value="119. ΔΡΑΣΤΗΡΙΟΤΗΤΕΣ ΕΛΕΓΧΟΥ (ΔΙΕΝΕΡΓΗΘΕΝΤΕΣ ΕΛΕΓΧΟΙ - ΑΠΟΤΕΛΕΣΜΑΤΑ)"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_d.checksAndResults}" style="width:100%;" />
+				</h:panelGrid>
+		</center>
+	</body>
+</html>

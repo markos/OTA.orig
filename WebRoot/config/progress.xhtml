@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: progress.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<c:if test="#{userLoginBean.adminConfig == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+			
+				<h:form id="ΔιακριταΤμηματα">
+			
+				<div id="login-form" style="width:950px; padding-top:20px;">
+				
+				<h:messages style="color:red;"/><br/>
+				
+				<div id="tabbed">
+					<ul>
+						<li><h:commandLink action="#{configBean.goToPlaisio}">Κοινοτικό Πλαίσιο</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToDeiktes}">Δείκτες</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToExpenses}">Επιλέξιμες Δαπάνες</h:commandLink></li>
+						<li id="selected"><a href="#">Διακριτά Τμήματα</a></li>
+						<li><h:commandLink action="#{configBean.goToSubProjectTypes}">Τύποι Υποέργων</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToEvolution}">Εξέλιξη Υποέργου</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToFunders}">Πηγές Χορήγησης Πιστώσεων</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToVendors}">Φορείς</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToInvoiceTypes}">Τύποι Παραστατικών</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+				
+					<center>
+						<h:commandButton action="#{configBean.saveDefaultProgressList}" value="Αποθήκευση"/>
+					</center>
+					
+					<h:panelGrid columns="1" style="margin:0 auto; text-align:center;">
+						<h:panelGroup>
+							<h:outputText escape="false" value="ΠΟΣΟΤΙΚΑ ΣΤΟΙΧΕΙΑ ΠΡΟΟΔΟΥ &amp; ΔΙΑΚΡΙΤΩΝ ΤΜΗΜΑΤΩΝ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΥΠΟΕΡΓΟΥ (ΟΜ. ΕΡΓΑΣΙΩΝ κτλ.)" style="font-weight:bold;"/>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultProgress}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable value="#{configBean.defaultProgressList}" var="progressItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.progressDataTable}" rows="50">
+							<f:facet name="header">
+								<h:panelGroup>
+                					<h:commandButton value=" αρχή " action="#{configBean.progressPageFirst}" disabled="#{configBean.progressDataTable.first == 0}" />
+									<h:commandButton value=" προηγούμενη " action="#{configBean.progressPagePrevious}" disabled="#{configBean.progressDataTable.first == 0}" />
+									<h:commandButton value=" επόμενη " action="#{configBean.progressPageNext}" disabled="#{configBean.progressDataTable.first + configBean.progressDataTable.rows >= configBean.progressDataTable.rowCount}" />
+									<h:commandButton value=" τέλος " action="#{configBean.progressPageLast}" disabled="#{configBean.progressDataTable.first + configBean.progressDataTable.rows >= configBean.progressDataTable.rowCount}" />
+            					</h:panelGroup>
+        					</f:facet>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.progressDataTable.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΑΤΗΓΟΡΙΑ ΕΝΕΡΓΕΙΑΣ"/></f:facet>
+								<h:selectOneMenu value="#{progressItem.id2}" style="width:100%;">
+									<f:selectItems value="#{configBean.defaultActionsCategoriesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔΙΚΟΣ"/></f:facet>
+								<h:inputText value="#{progressItem.code}" size="15"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΕΡΙΓΡΑΦΗ ΔΙΑΚΡΙΤΟΥ ΤΜΗΜΑΤΟΣ Φ.Α."/></f:facet>
+								<h:inputText value="#{progressItem.description}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ"/></f:facet>
+								<h:inputText value="#{progressItem.measuringUnit}" size="15"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultProgress}" style="border:0px;"/>
+							</h:column>
+							<f:facet name="footer">
+								<h:panelGroup>
+                					<h:commandButton value=" αρχή " action="#{configBean.progressPageFirst}" disabled="#{configBean.progressDataTable.first == 0}" />
+									<h:commandButton value=" προηγούμενη " action="#{configBean.progressPagePrevious}" disabled="#{configBean.progressDataTable.first == 0}" />
+									<h:commandButton value=" επόμενη " action="#{configBean.progressPageNext}" disabled="#{configBean.progressDataTable.first + configBean.progressDataTable.rows >= configBean.progressDataTable.rowCount}" />
+									<h:commandButton value=" τέλος " action="#{configBean.progressPageLast}" disabled="#{configBean.progressDataTable.first + configBean.progressDataTable.rows >= configBean.progressDataTable.rowCount}" />
+            					</h:panelGroup>
+        					</f:facet>
+						</h:dataTable>
+				</h:panelGrid>
+
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		</body>
+</html>

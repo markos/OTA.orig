@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+
+		<style>
+			body,td,th {
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:11px;
+			}
+			
+			.row-class-table {
+				border-bottom:1px solid #cccccc;
+			}
+			
+			.data-table table {
+				border:1px solid #cccccc;
+			}
+			
+			.data-table td {
+				border:1px solid #cccccc;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;" background="">
+		
+		<f:view>	
+		
+			<h:panelGrid columns="1" style="margin-top: 40px; text-align:center; margin:0 auto; border:1px solid;" cellpadding="10" cellspacing="0" columnClasses="row-class-table">
+		
+				<h:outputText value="MHNIAIΟ ΔΕΛΤΙΟ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+				
+				<h:panelGrid columns="4"  style="text-align:left;" width="100%">
+					<h:outputText value="ΕΠΙΧΕΙΡHΣΙΑΚΟ ΠΡΟΓΡΑΜΜΑ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_a.epix_program}"/>
+					
+					<h:outputText value="ΗΜ/ΝΙΑ ΣΥΜΠΛΗΡΩΣΗΣ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_n.publicationDate}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+					
+					<h:outputText value="ΑΞΟΝΑΣ ΠΡΟΤΕΡΑΙΟΤΗΤΑΣ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_a.axon}"/>
+					
+					<h:outputText value="ΟΝΟΜΑΤΕΠΩΝΥΜΟ ΣΥΝΤΑΞΑΝΤΑ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_n.author}"/>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2" style="text-align:left;">
+					<h:outputText value="ΜΕΤΡΟ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_a.metro}"/>
+					
+					<h:outputText value="ΠΡΑΞΗ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_a.title_el}"/>
+
+					<h:outputText value="ΥΠΟΕΡΓΟ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_n.subProject.given_id} : #{otaBean.sec_n.subProject.title}"/>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="2">
+					<h:outputText value="Α/Α ΜΗΝΙΑΙΟΥ : " style="font-weight:bold;"/>
+					<h:outputText value="1"/>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="4">
+					<h:outputText value="ΜΗΝΑΣ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_n.date_n}"><f:convertDateTime type="date" pattern="MM"/></h:outputText>
+					
+					<h:outputText value="ΕΤΟΣ : " style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_n.date_n}"><f:convertDateTime type="date" pattern="yyyy"/></h:outputText>
+				</h:panelGrid>
+				
+			</h:panelGrid>	
+			
+			<br/><br/>
+			
+			<center>
+				<h:outputFormat escape="false" value="#{otaBean.reportOutputHTML}"/>
+			</center>
+					
+		</f:view>
+		
+		</body>
+</html>

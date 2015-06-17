@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Ημερίδες ανα Νομό</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Ημερίδες ανα Νομό"/>
+					
+					<br/><br/>
+					
+					<h:dataTable value="#{reportBean.statsList}" cellspacing="0"  cellpadding="10" var="cstat" styleClass="dynamicTable1" style="border:1px solid; width:850px; text-align:center;">
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΝΑΔΟΧΟΣ ΣΥΜΠΡΑΞΗ"/></f:facet>
+							<h:outputText value="#{cstat.contractor.name}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΝΟΜΟΣ ΔΙΕΞΑΓΩΓΗΣ"/></f:facet>
+							<h:outputText value="#{cstat.event.municipality.prefecture.name}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΟΛΗ ΔΙΕΞΑΓΩΓΗΣ"/></f:facet>
+							<h:outputText value="#{cstat.event.municipality.name}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΧΩΡΟΣ ΔΙΕΞΑΓΩΓΗΣ"/></f:facet>
+							<h:outputText value="#{cstat.event.place}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΗΜ/ΝΙΑ ΔΙΕΞΑΓΩΓΗΣ"/></f:facet>
+							<h:outputText value="#{cstat.event.date}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΑ"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ"/></f:facet>
+							<h:outputText value="#{cstat.event.estimate}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.electives_total}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΣΥΜΜΕΤΕΧΟΝΤΩΝ"/></f:facet>
+							<h:outputText value="#{cstat.event.electivesActual}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.participants_total}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΟΣΟΣΤΟ ΣΥΜΜΕΤΟΧΗΣ"/></f:facet>
+							<h:outputText value="#{cstat.event.attendance_percentage}" ><f:convertNumber type="percent"/></h:outputText>
+							<f:facet name="footer"><h:outputText value="#{reportBean.total_percentage}"><f:convertNumber type="percent"/></h:outputText></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΔΗΜΑΡΧΩΝ, ΠΡΟΕΔΡΩΝ ΚΟΙΝΟΤΗΤΩΝ"/></f:facet>
+							<h:outputText value="#{cstat.event.mayors_total}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.mayors_total}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΔΗΜΟΤ, ΚΟΙΝΟΤ. ΣΥΜΒΟΥΛΩΝ"/></f:facet>
+							<h:outputText value="#{cstat.event.councilmembers_total}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.councilmembers_total}"/></f:facet>
+						</h:column>
+					</h:dataTable>
+
+					</center>
+				</div>
+			</f:view>		
+		
+		
+		</body>
+</html>

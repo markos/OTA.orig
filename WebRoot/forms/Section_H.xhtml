@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_H.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools-1.2.2.2-more.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+ 				
+ 				function toggleTextarea(toggle, divID) {
+					state = $(toggle).getProperty('checked');
+					if (state == true) {
+						$(divID).setProperty("readonly", "false");
+						$(divID).setStyle("display", "block");
+						tinyMCE.execCommand('mceAddControl',false,divID);
+					} else {
+						tinyMCE.execCommand('mceRemoveControl',false,divID);
+						$(divID).setProperty("readonly", "true");
+						$(divID).setStyle('background-color', '#cccccc');
+						$(divID).setStyle("display", "none");
+					}
+				}
+
+				window.addEvent('domready', function() {
+						$('Τμημα_Η:text1').setProperty("readonly", "true");
+						$('Τμημα_Η:text1').setStyle('background-color', '#cccccc');
+						$('Τμημα_Η:text1').setStyle("display", "none");
+						$('Τμημα_Η:text2').setProperty("readonly", "true");
+						$('Τμημα_Η:text2').setStyle('background-color', '#cccccc');
+						$('Τμημα_Η:text2').setStyle("display", "none");
+						$('Τμημα_Η:text3').setProperty("readonly", "true");
+						$('Τμημα_Η:text3').setStyle('background-color', '#cccccc');
+						$('Τμημα_Η:text3').setStyle("display", "none");
+				
+					<c:if test="#{otaBean.sec_h.EUCompetitionRulesApply == true}">
+						tinyMCE.execCommand('mceAddControl',false,'Τμημα_Η:text1');
+						$('Τμημα_Η:text1').setProperty("readonly", "false");
+						$('Τμημα_Η:text1').setStyle("display", "block");
+					</c:if>
+					<c:if test="#{otaBean.sec_h.EUPublicityRulesApply == true}">
+						tinyMCE.execCommand('mceAddControl',false,'Τμημα_Η:text2');
+						$('Τμημα_Η:text2').setProperty("readonly", "false");
+						$('Τμημα_Η:text2').setStyle("display", "block");
+					</c:if>
+					<c:if test="#{otaBean.sec_h.EUSexEqualityRulesApply == true}">
+						tinyMCE.execCommand('mceAddControl',false,'Τμημα_Η:text3');
+						$('Τμημα_Η:text3').setProperty("readonly", "false");
+						$('Τμημα_Η:text3').setStyle("display", "block");
+					</c:if>
+				});
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+		</ui:define>	
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Τμημα_Η">
+				<div id="login-form" style="width:950px; padding-top:20px;">
+
+				<center>
+					<h:commandButton action="#{otaBean.saveSectionH}" value="Αποθήκευση"/>
+				</center>
+				<br/><br/>
+				
+				<div id="tabbed">
+					<ul>
+						<li><h:commandLink action="#{otaBean.goToSectionA}">Τμήμα Α</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionB}">Τμήμα B</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionC}">Τμήμα Γ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionD}">Τμήμα Δ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionE}">Τμήμα Ε</h:commandLink></li>
+						<li id="selected"><a href="#">Τμήμα H</a></li>
+						<li><h:commandLink action="#{otaBean.goToSectionTh}">Τμήμα Θ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionI}">Τμήμα Ι</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionK}">Τμήμα Κ</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+					<h:outputText value="ΤΜΗΜΑ H (ΕΙΔΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ)"/>
+					
+					<h:panelGrid columns="1" style="margin:0 auto; text-align:center; width:100%;">
+						<h:panelGrid columns="2">
+							<h:outputText value="164. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΕΘΝΙΚΟΙ ΚΑΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΟΥ ΑΦΟΡΟΥΝ ΤΟΝ ΑΝΤΑΓΩΝΙΣΜΟ ΚΑΙ ΤΙΣ ΔΗΜΟΣΙΕΣ ΣΥΜΒΑΣΕΙΣ ΕΡΓΩΝ, ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΥΠΗΡΕΣΙΩΝ;
+											Να περιγραφούν οι σχετικές διαδικασίες και να αιτιολογηθεί η εναρμόνισή τους με τους ισχύοντες εθνικούς και κοινοτικούς κανόνες."/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_h.EUCompetitionRulesApply}" onclick="toggleTextarea(this, 'Τμημα_Η:text1');"/>
+						</h:panelGrid><br />
+						<h:inputTextarea id="text1" value="#{otaBean.sec_h.EUCompetitionRulesApplyDescription}" style="width:100%;margin-bottom:10px;" rows="10"/>
+						<h:panelGrid columns="2">
+							<h:outputText value="165. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΕΡΙ ΠΛΗΡΟΦΟΡΗΣΗΣ ΚΑΙ ΔΗΜΟΣΙΟΤΗΤΑΣ;
+											Να περιγραφούν τα μέτρα που ελήφθησαν ή πρόκειται να ληφθούν ως προς τα θέματα πληροφόρησης και δημοσιότητας, σύμφωνα με τους ισχύοντες κοινοτικούς κανόνες."/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_h.EUPublicityRulesApply}" onclick="toggleTextarea(this, 'Τμημα_Η:text2');"/>
+						</h:panelGrid><br />
+						<h:inputTextarea id="text2" value="#{otaBean.sec_h.EUPublicityRulesApplyDescription}" style="width:100%;padding-bottom:10px;" rows="10"/>
+						<h:panelGrid columns="2">
+							<h:outputText value="166. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΟΥ ΑΦΟΡΟΥΝ ΤΗΝ ΠΡΟΩΘΗΣΗ ΤΗΣ ΙΣΟΤΗΤΑΣ ΜΕΤΑΞΥ ΑΝΔΡΩΝ ΚΑΙ ΓΥΝΑΙΚΩΝ ;
+											Να περιγραφούν τα μέτρα που ελήφθησαν ή πρόκειται να ληφθούν για την προώθηση της ισότητας, σύμφωνα με τους ισχύοντες κοινοτικούς κανόνες."/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_h.EUSexEqualityRulesApply}" onclick="toggleTextarea(this, 'Τμημα_Η:text3');"/>
+						</h:panelGrid><br />
+						<h:inputTextarea id="text3" value="#{otaBean.sec_h.EUSexEqualityRulesApplyDescription}" style="width:100%;" rows="10" />
+					</h:panelGrid>
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

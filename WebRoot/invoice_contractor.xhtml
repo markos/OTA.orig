@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: invoice_contractor.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων : Σύστημα Διαχείρισης Παραστατικών</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/sprintf.js"></script>
+			<script language="javascript" src="/OTA/misc/formatters.js"></script>
+			
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script language="javascript">
+				function calculate() {
+					var amount = parseFloat($('Παραστατικο_Αναδοχου:Ποσο').get('value').replace(".","").replace(",","."));
+					var vat = 0.19 * amount;
+					var total = amount + vat;
+					var floatValue = new Number(amount);
+				 	var fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Αναδοχου:Ποσο').set('value', fieldValue );
+					floatValue = new Number(vat);
+				 	fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Αναδοχου:ΦΠΑ').set('value', fieldValue );
+					floatValue = new Number(total);
+				 	fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Αναδοχου:Συνολο').set('value', fieldValue );
+				}
+				
+				function calculateVat() {
+					var amount = parseFloat($('Παραστατικο_Αναδοχου:Ποσο').get('value').replace(".","").replace(",","."));
+					var vat = parseFloat($('Παραστατικο_Αναδοχου:ΦΠΑ').get('value').replace(".","").replace(",","."));
+					var total = amount + vat;
+					var floatValue = new Number(vat);
+				 	var fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Αναδοχου:ΦΠΑ').set('value', fieldValue );
+					floatValue = new Number(total);
+				 	fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Αναδοχου:Συνολο').set('value', fieldValue );
+				}
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/invoiceList.jsf">Διαχείριση Οικονομικών Στοιχείων</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Πρόσθεση Παραστατικού Ανάδοχου"/>
+					
+					<br/><br/>
+					
+					<h:messages style="color:red;"/><br/>
+					
+					<h:form id="Παραστατικο_Αναδοχου">
+					
+					<table cellpadding="10" cellspacing="0" class="form-table">
+						<tr>
+							<td align="center" colspan="4" >
+								<h:outputText value="ΑΝΑΔΟΧΟΣ ΤΟΥ ΥΠΟΕΡΓΟΥ: " style="font-weight:bold;"/>
+								<c:if test="#{fn:length(otaBean.contractorSelectItems) gt 1}">
+									<h:selectOneMenu id="contractorId" value="#{otaBean.contractorId}" valueChangeListener="#{otaBean.invoiceContractor_updateContractor}" onchange="submit();">
+										<f:selectItem itemValue="-1" itemLabel="Παρακαλώ επιλέξτε Ανάδοχο"/>
+										<f:selectItems value="#{otaBean.contractorSelectItems}" />
+										<f:converter converterId="javax.faces.Integer"/>
+									</h:selectOneMenu>
+								</c:if>
+								<c:if test="#{fn:length(otaBean.contractorSelectItems) eq 0}">
+									<br/>
+									<h:outputText value="ΔΕΝ ΕΧΕΙ ΟΡΙΣΤΕΙ ΑΝΑΔΟΧΟΣ ΤΟΥ ΥΠΟΕΡΓΟΥ ΣΕ ΚΑΠΟΙΑ ΝΟΜΙΚΗ ΔΕΣΜΕΥΣΗ" style="font-weight:bold;"/>
+								</c:if>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="2"><h:outputText value="ΕΠΩΝΥΜΙΑ ΑΝΑΔΟΧΟΥ" style="font-weight:bold;width:150px;"/></td>
+							<td align="right" colspan="2"><h:outputText value="#{otaBean.contractor.name}"/></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="2"><h:outputText value="ΠΛΗΡΗΣ ΕΠΩΝΥΜΙΑ ΑΝΑΔΟΧΟΥ"  style="font-weight:bold;width:150px;"/></td>
+							<td align="right" colspan="2"><h:outputText escape="false" value="#{otaBean.contractor.fullName}"/></td>
+						</tr>
+						<tr>
+							<td align="center"><h:outputText value="Α.Φ.Μ. ΑΝΑΔΟΧΟΥ"  style="font-weight:bold;width:100px;"/></td>
+							<td align="left"><h:outputText value="#{otaBean.contractor.VAT}"/></td>
+							<td align="center"><h:outputText value="Δ.Ο.Υ. ΑΝΑΔΟΧΟΥ"  style="font-weight:bold;width:100px;"/></td>
+							<td align="left"><h:outputText value="#{otaBean.contractor.DOY}"/></td>
+						</tr>						
+						<tr>
+							<td align="center"><h:outputText value="Τύπος Παραστατικού :"/></td>
+							<td align="left"><h:selectOneMenu id="ΤυποςΠαραστατικου" value="#{otaBean.invoiceType.id}" required="true">
+												<f:selectItems value="#{otaBean.defaultInvoiceTypesSelectItemsList}"/>
+												<f:converter converterId="javax.faces.Integer"/>
+											</h:selectOneMenu></td>
+							<td align="center"><h:outputText value="Αριθμ. Παραστατικού :"/></td>
+							<td align="left"><h:inputText id="ΑριθμοςΠαραστατικου" value="#{otaBean.invoice_contractor.invoiceNumber}" styleClass="currency"/></td>							
+						</tr>
+						<tr>
+							<td align="center"><h:outputText value="Καθαρό Ποσό :"/></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_contractor.net}" required="true" id="Ποσο" onchange="calculate();" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+							
+							<td align="center"><h:outputText value="Φ.Π.Α. :"/></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_contractor.vat}" required="true" id="ΦΠΑ" onchange="calculateVat();" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+						</tr>
+						<tr>
+							<td align="center"><h:outputText value="Σύνολο :"/></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_contractor.total}" readonly="true" id="Συνολο" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+							<td align="center"><h:outputText value="Ημ/νία Έκδοσης :"/></td>
+							<td align="left">
+								<h:inputText id="Ημερομηνια_Εκδοσης" value="#{otaBean.invoice_contractor.date_issue}" required="true" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+								<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Παραστατικο_Αναδοχου:Ημερομηνια_Εκδοσης', this,'dmy');"/>
+							</td>					
+						</tr>
+						<tr>
+							<td align="center" colspan="4">
+								<h:commandButton action="#{otaBean.saveInvoice_Contractor}" value="Αποθήκευση"/>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="4"><h:outputText value="Όλα τα πεδία είναι υποχρεωτικά" style=""/></td>
+						</tr>
+					</table>
+					
+					</h:form>
+					
+					</center>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

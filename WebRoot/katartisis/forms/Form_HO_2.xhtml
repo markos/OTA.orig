@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Form_HO_2.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>sda</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:param name="title" value="#{katartisisFormBean.currentForm.name}"/>
+		<ui:define name="main-page-title">Διαχείριση Προγράμματος Κατάρτισης</ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminKatartisis == false and userLoginBean.contractorUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		
+			<script type="text/javascript" src="/OTA/misc/datepicker.js"></script>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/subProjectList.jsf">Λίστα Υποέργων</a></li>
+			<li><a href="/OTA/katartisis/cycles.jsf">Λίστα Κύκλων</a></li>
+			<li><a href="/OTA/katartisis/events.jsf">#{katartisisUIBean.eventTypeString}</a></li>
+			<li><a href="/OTA/katartisis/events_forms.jsf">Φόρμες</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<h:form id="Φόρμα_ΗΟ_2">
+					
+					<center>
+					<h:commandButton id="saveForm" value="Αποθήκευση" rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.saveForm}"/>
+					<h:commandButton id="submitForm" value="Υποβολή" rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.submitForm}"/>
+					<h:commandButton id="approveForm" value="Έγκριση" rendered="#{katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.approveForm}"/>
+					<h:commandButton id="rejectForm" value="Απόρριψη" rendered="#{katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.rejectForm}"/>
+					<br/>
+					<br/>
+					<h:outputText value="#{katartisisFormBean.currentForm.name}" style="font-size: 12px; font-family: Verdana, Arial, Sans-Serif"/>
+					<br/>
+					<h:messages style="color:red"/><br/>
+					<br/>
+					<h:dataTable id="materialsTable" value="#{katartisisFormBean.form_ho_2.materialsList}" var="material" styleClass="data-table" binding="#{katartisisFormBean.materialsDataTable}">
+						<h:column id="col1">
+							<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+							<h:outputText value="#{katartisisFormBean.materialsDataTable.rowIndex+1}" />
+						</h:column>
+						<h:column id="col2">
+							<f:facet name="header"><h:outputText value="Είδος"/></f:facet>
+							<h:outputText value="#{material}" />
+						</h:column>
+						<h:column id="col3">
+							<f:facet name="header"><h:outputText value="Ποσότητα"/></f:facet>
+							<h:inputText disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_ho_2.materialQty[material]}" size="5"/>
+						</h:column>
+					</h:dataTable>
+					
+					<br/>
+					<h:panelGrid columns="3" style="data-table">
+						<h:outputText value="Βασικό οπτικό στοιχείο του κεντρικού σκηνικού"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox value="#{katartisisFormBean.form_ho_2.backdropBanner}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						
+						<h:outputText value="Επένδυση βάσης τραπεζιού εισηγητών"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox value="#{katartisisFormBean.form_ho_2.tableSkirtBanner}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						
+						<h:outputText value="Επένδυση αναλογίου ομιλητή"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox value="#{katartisisFormBean.form_ho_2.podiumDresser}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						
+						<h:outputText value="Σκηνικό εισόδου στην αίθουσα"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox value="#{katartisisFormBean.form_ho_2.entryBanner}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						
+						<h:outputText value="Σήμανση για είσοδο στο κύριο κτίριο (πληροφορίες, διευθύνσεις, κ.λπ.)"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox value="#{katartisisFormBean.form_ho_2.buildingSigns}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						
+						<h:outputText value="Σήμανση για γραφείο γραμματείας (οδηγίες, πληροφορίες, κ.λπ.)"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox value="#{katartisisFormBean.form_ho_2.secretarySigns}" disabled="#{katartisisFormBean.readonlyForm}"/>
+					</h:panelGrid>
+					<br/>
+					<h:outputText id="LeafletList" value="Έντυπα"/>
+					<br/>
+					
+					<h:dataTable id="leafletsTable" value="#{katartisisFormBean.form_ho_2.leaflets}" var="lftItem" styleClass="data-table" binding="#{katartisisFormBean.leafletDataTable}">
+						<h:column id="column0">
+							<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+							<h:outputText value="#{katartisisFormBean.leafletDataTable.rowIndex+1}"/>
+						</h:column>
+						<h:column id="column1">
+							<f:facet name="header"><h:outputText value="Όνομα"/></f:facet>
+							<h:inputText value="#{lftItem.name}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						</h:column>
+						<h:column id="column2">
+							<f:facet name="header"><h:outputText value="Διαστάσεις"/></f:facet>
+							<h:inputText size="8" value="#{lftItem.dimensions}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						</h:column>
+						<h:column id="column3">
+							<f:facet name="header"><h:outputText value="Χρώμα"/></f:facet>
+							<h:inputText size="8" value="#{lftItem.colour}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						</h:column>
+						<h:column id="column4">
+							<f:facet name="header"><h:outputText value="Αρ.Καταχώρησης"/></f:facet>
+							<h:inputText size="5" value="#{lftItem.filingId}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						</h:column>
+						<h:column id="column6">
+							<f:facet name="header"><h:outputText value="Ημ.Καταχώρησης"/></f:facet>
+							<h:outputText value="#{lftItem.filingDate}" rendered="#{katartisisFormBean.readonlyForm}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							<h:panelGroup rendered="#{!katartisisFormBean.readonlyForm}">
+								<h:inputText size="10" id="filingDate" value="#{lftItem.filingDate}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+								<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Φόρμα_ΗΟ_2:leafletsTable:#{katartisisFormBean.leafletDataTable.rowIndex}:filingDate', this, 'dmy');"/>
+							</h:panelGroup>
+						</h:column>
+						<h:column id="column7">
+							<f:facet name="header"><h:outputText value="Σελίδα"/></f:facet>
+							<h:inputText size="10" value="#{lftItem.page}" disabled="#{katartisisFormBean.readonlyForm}"/>
+						</h:column>
+						<h:column id="column5">
+							<h:commandButton rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.form_HO_2_delLeaflet}" image="/images/remove.png" style="border:0px;" />
+						</h:column>
+					</h:dataTable>
+				    <br/>
+    				<h:commandButton rendered="#{!katartisisFormBean.readonlyForm}" value="Προσθήκη Εντύπου" type="submit" action="#{katartisisFormBean.form_HO_2_addNewLeaflet}"/>
+    				</center>
+    				</h:form>
+				</div>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

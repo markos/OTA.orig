@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: roles.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Χρηστών</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			<script language="javascript" src="/OTA/misc/userdbmanager.js"></script>
+			
+			<c:if test="#{userLoginBean.adminUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Κεντρική">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<div id="tabbed">
+						<ul>
+							<li><h:commandLink id="main" action="#{userDBManagerBean.gotoUsersMain}">Αιτήσεις Χρηστών</h:commandLink></li>
+							<li><h:commandLink id="groups" action="#{userDBManagerBean.gotoGroups}">Ομάδες</h:commandLink></li>
+							<li id="selected"><a href="#">Ρόλοι</a></li>
+							<li><h:commandLink id="users" action="#{userDBManagerBean.gotoUsers}">Χρήστες</h:commandLink></li>
+							<li><h:commandLink id="newsletter" action="#{userDBManagerBean.gotoNewsletter}">Newsletter</h:commandLink></li>
+						</ul>
+					</div>
+					<div id="content">
+						<h:messages style="color:red;"/><br/>
+	
+						<center>
+						
+						<h:panelGrid columns="2" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+							<h:outputText value="ΡΟΛΟΙ ΧΡΗΣΤΩΝ"/>
+							<h:outputText value="ΑΔΕΙΕΣ ΡΟΛΟΥ"/>
+							
+							<h:dataTable id="rolessstable" value="#{userDBManagerBean.userRoles}" var="role" styleClass="data-table"  style="margin:0 auto; width:100%; vertical-align: top;" binding="#{userDBManagerBean.roles_dataTable}">
+								<h:column >
+									<f:facet name="header"><h:outputText id="rolename" value="Όνομα Ομάδας"/></f:facet>
+									<h:inputText rendered="#{userDBManagerBean.currentRole == role}" value="#{role.name}" style="width:100%;"/>
+									<h:outputText rendered="#{userDBManagerBean.currentRole != role}" value="#{role.name}"/>
+								</h:column>
+								<h:column>
+									<h:commandButton image="/images/next.png" action="#{userDBManagerBean.changeCurrentRole}" style="border:0px;margin-right:5px;" />
+									<h:commandButton image="/images/remove.png" action="#{userDBManagerBean.deleteUserRole}"/>
+								</h:column>
+							</h:dataTable>
+							<h:dataTable id="privstable" value="#{userDBManagerBean.defaultPrivilegeKeys}" var="priv" styleClass="data-table"  style="margin:0 auto; width:100%; vertical-align: top;" binding="#{userDBManagerBean.privs_dataTable}">
+								<f:facet name="header">
+									<h:outputText id="rolename" value="#{userDBManagerBean.currentRole.name}"/>
+								</f:facet>
+								<h:column>
+									<f:facet name="header"><h:selectBooleanCheckbox id="allselect" value="#{userDBManagerBean.allPrivsInRoleCheckBox}" valueChangeListener="#{userDBManagerBean.selectAllPrivsInRole}" onchange="submit();"/></f:facet>
+									<h:selectBooleanCheckbox id="multiselect" value="#{userDBManagerBean.privsInRoleMultiSelect[priv]}"/>
+								</h:column>
+								<h:column>
+									<f:facet name="header"><h:outputText id="privname" value="Άδεια Πρόσβασης"/></f:facet>
+									<h:outputText value="#{priv}" />
+								</h:column>
+							</h:dataTable>
+							
+							<h:panelGroup>
+								<br/>
+								<h:commandButton id="newrole" value="Νέος Ρόλος Χρηστών" action="#{userDBManagerBean.addUserRole}"/>
+								<h:commandButton id="saveroles" value="Αποθήκευση" action="#{userDBManagerBean.saveUserRoles}"/>
+							</h:panelGroup>
+							<h:panelGroup>
+								<br/>
+								<h:commandButton value="Αποθήκευση Αδειών" action="#{userDBManagerBean.saveRolePrivileges}"/>
+							</h:panelGroup>
+						</h:panelGrid>
+						</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

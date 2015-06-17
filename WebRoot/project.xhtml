@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: project.xhtml 1553 2011-12-18 10:13:33Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="breadcrump"></ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script type="text/javascript" src="/OTA/misc/datepicker.js"></script>
+			<script language="javascript" src="/OTA/misc/sexy/sexyalertbox.v1.2.moo.js"></script>
+			<link rel="stylesheet" type="text/css" media="all" href="/OTA/misc/sexy/sexyalertbox.css"/>
+			
+			<c:if test="#{otaBean.checkProcessed == true}">
+			<script language="javascript">
+				window.addEvent('domready', function() {
+					Sexy.info('<h:messages style="color:red;"/>');
+				});
+			</script>
+			</c:if>
+			
+			<script>
+				function checkDelete() {
+					var sexobj = new SexyAlertBox();
+				
+					sexobj.confirm('<ui:include src="/misc/warning_delete.html"></ui:include>', { onComplete: function(returnvalue) { 
+						if( returnvalue ) {
+							$('projectForm:deleteProject').click();
+						}
+					  }
+					});
+				}
+			</script>
+			
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:form id="projectForm">
+						
+					<h:outputText value="Φάσεις ΤΔΕ/ΤΔΥ"/>
+					
+					<h:dataTable id="revisionsTable" value="#{otaBean.revisions}" var="revItem" styleClass="data-table" style="text-align:center;width:100%;" binding="#{otaBean.revisionsdataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText id="code_ergorama" value="ΚΩΔ."/></f:facet>
+							<h:outputText id="code_ergoramaval" value="#{revItem.code_ergorama}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="revision" value="ΦΑΣΗ"/></f:facet>
+							<h:outputText id="revisionval" value="#{revItem.revision}η"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="date_filing" value="ΗΜ/ΝΙΑ ΣΥΜΠΛΗΡΩΣΗΣ"/></f:facet>
+							<h:outputText id="date_filingval" value="#{revItem.date_filing}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="date_submission" value="ΗΜ/ΝΙΑ ΥΠΟΒΟΛΗΣ"/></f:facet>
+							<h:outputText id="date_submissionval" value="#{revItem.date_submission}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="date_approval" value="ΗΜ/ΝΙΑ ΕΓΚΡΙΣΗΣ"/></f:facet>
+							<h:outputText rendered="#{revItem.approved}" value="#{revItem.date_approval}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							<h:inputText rendered="#{!revItem.approved}" id="Ημερομηνία_Εγκρισης" value="#{otaBean.date_approval}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText><h:graphicImage rendered="#{!revItem.approved}" url="/images/dateDialog.png" onclick="displayDatePicker('projectForm:revisionsTable:#{otaBean.revisionsdataTable.rowIndex}:Ημερομηνία_Εγκρισης', this, 'dmy');"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="status" value="ΚΑΤΑΣΤΑΣΗ"/></f:facet>
+							<h:outputText value="#{revItem.submissionStatus}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="date_start" value="ΗΜ/ΝΙΑ ΕΝΑΡΞΗΣ"/></f:facet>
+							<h:outputText id="date_startval" value="#{revItem.date_start}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="date_end" value="ΗΜ/ΝΙΑ ΛΗΞΗΣ"/></f:facet>
+							<h:outputText id="date_endval" value="#{revItem.date_end}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="tde_ak" value="ΤΔΕ (A-K)"/></f:facet>
+							<h:commandButton rendered="#{revItem.editable}" id="tde_ak_but" image="/images/next.png" action="#{otaBean.goToTDE}" style="border:0px;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="tdy" value="ΤΔΥ"/></f:facet>
+							<h:commandButton rendered="#{revItem.editable}" id="tdy_but" image="/images/next.png" action="#{otaBean.goToTDY}" style="border:0px;"/>							
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="tde_stz" value="ΤΔΕ (ΣΤ-Ζ)"/></f:facet>
+							<h:commandButton rendered="#{revItem.editable}" id="tde_stz_but" image="/images/next.png" action="#{otaBean.goToSectionST}" style="border:0px;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText id="print_tde" value="Εκτύπωση ΤΔΕ"/></f:facet>
+							<h:commandLink id="print_tde_but" action="#{otaBean.printTDE}" target="_blank"><h:graphicImage url="/images/printer.png" style="border:0px;" /></h:commandLink>
+						</h:column>
+						<h:column>
+							<h:commandButton rendered="#{revItem.deletable == true}" image="/images/remove.png" action="#{otaBean.deleteRevision}" style="border:0px;"/>
+						</h:column>
+						<h:column>
+							<h:commandButton value="Έλεγχος ΤΔΕ/ΤΔΥ" action="#{otaBean.checkTDE}" rendered="#{revItem.editable == true}" />
+							<h:commandButton value="Υποβολή ΤΔΕ/ΤΔΥ" action="#{otaBean.submitTDE}" rendered="#{revItem.editable == true}" />
+							<h:commandButton value="Έγκριση ΤΔΕ/ΤΔΥ" action="#{otaBean.approveTDE}" rendered="#{revItem.submitted == true}" />
+							<h:commandButton value="Ακύρωση έγκρισης" action="#{otaBean.cancelApprovalTDE}" rendered="#{revItem.approved == true}" />
+						</h:column>
+					</h:dataTable>
+					<br/>
+					<h:panelGrid columns="1" style="margin:0 auto;">
+						<h:commandButton value="Νέα Φάση ΤΔΕ/ΤΔΥ" action="#{otaBean.createNewRevision}" disabled="#{otaBean.latestSubmitted == false}" readonly="#{otaBean.latestSubmitted == false}" />
+					</h:panelGrid>
+					<br/>
+					<br/>
+					
+					<h:outputText value="Οντότητες Έργου"/>
+					
+					<table class="data-table" style="width:50%;">
+						<tr>
+							<th>Περιγραφή</th>
+							<th width="10%"></th>
+						</tr>
+						<tr>
+							<td>Νομικές Δεσμεύσεις</td>
+							<td><h:commandLink action="#{otaBean.gotoNomikesDesmefseis}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Διαχείριση Φυσικού Αντικειμένου</td>
+							<td><h:commandLink action="#{otaBean.goToPhysicalObjectSubProjectList}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Διαχείριση Οικονομικών Στοιχείων</td>
+							<td><h:commandLink action="#{otaBean.goToInvoicesSubProjectList}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Μηνιαία Δελτία Παρακολούθησης Υποέργου</td>
+							<td><h:commandLink action="#{otaBean.goToSectionNList}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Τριμηνιαία Δελτία Υποέργου</td>
+							<td><h:commandLink action="#{otaBean.goToSectionPList}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td> Τριμηνιαία Δελτία Έργου</td>
+							<td><h:commandLink action="#{otaBean.goToSectionOList}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td> Ανάδοχοι</td>
+							<td><h:commandLink action="#{otaBean.goToContractors}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+					</table>
+					
+					<br/>
+					<h:outputText value="Αναφορές"/>
+					
+					<input type="hidden" value="#{otaBean.sectionClass}" name="sectionClass" id="sectionClass"/>
+					
+					<table class="data-table" style="width:50%;">
+						<tr>
+							<td>Παραστατικά ανά Υποέργο (Αναδόχων και Φορέα)</td>
+							<td width="10%"><h:commandLink action="#{otaBean.goToReportInvoicesSubProjectList}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Αναφορά Φυσικού Αντικειμένου</td>
+							<td><h:commandLink action="#{reportBean.loadReportPhysical}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink></td>
+						</tr>
+						<tr>
+							<td>Αναφορές Υποέργων Κατάρτισης</td>
+							<td><c:if test="#{userLoginBean.adminKatartisis == true}">
+									<h:commandLink action="#{otaBean.goToReportKatartisis}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+								</c:if>
+							</td>
+						</tr>
+					</table>
+
+					<br/>
+					<h:panelGroup style="align:right;">
+						<h:commandButton value="Διαγραφή Έργου"  onclick="checkDelete();return false;"/>
+						<h:commandButton style="display:none;" value="Διαγραφή Έργου" action="#{otaBean.deleteProject}" id="deleteProject" />
+					</h:panelGroup>
+					</h:form>
+					</center>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

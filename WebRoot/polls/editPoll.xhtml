@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: editPoll.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Ερωτηματολογίων</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><h:form><h:commandLink action="#{pollBean.gotoPolls}" value="Ερωτηματολόγια" /></h:form></li>
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			
+			<c:if test="#{userLoginBean.adminPolls == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Ερωτηματολογιο">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<div id="content">
+						<h:messages style="color:red;"/><br/>
+	
+						<center>
+						
+						<h:outputText value="ΕΡΩΤΗΜΑΤΟΛΟΓΙO"/>
+						
+						<h:panelGrid columns="4" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+							<h:outputText style="font-weight: bold;" value="Όνομα ερωτηματολογίου:"/>
+							<h:outputText style="font-weight: bold;" value="Ημ/νια Έναρξης:"/>
+							<h:outputText style="font-weight: bold;" value="Ημ/νια Λήξης:"/>
+							<h:outputText style="font-weight: bold;" value="Κατάσταση:"/>
+							
+							<h:inputTextarea value="#{pollBean.currentPoll.name}" rows="3" style="width:100%;"/>
+							<h:panelGroup>
+								<h:inputText id="ΗμερομηνιαΕναρξης" value="#{pollBean.currentPoll.date_start}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+								<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Ερωτηματολογιο:ΗμερομηνιαΕναρξης', this, 'dmy');"/>
+							</h:panelGroup>
+							<h:panelGroup>
+								<h:inputText id="ΗμερομηνιαΛηξης" value="#{pollBean.currentPoll.date_end}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+								<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Ερωτηματολογιο:ΗμερομηνιαΛηξης', this, 'dmy');"/>
+							</h:panelGroup>
+							<h:selectOneMenu value="#{pollBean.currentPoll.active}">
+								<f:selectItem itemValue="true" itemLabel="Ενεργό"/>
+								<f:selectItem itemValue="false" itemLabel="Μη ενεργό"/>
+							</h:selectOneMenu>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+							<h:panelGroup>
+								<div style="margin:0 auto; width:100%;">
+								<h:dataTable id="questions" value="#{pollBean.currentPoll.questions}" var="question" styleClass="data-table"  style="margin:0 auto; width:100%; overflow: scroll;" binding="#{pollBean.questions_dataTable}">
+									<h:column>
+										<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+										<h:outputText value="#{pollBean.questions_dataTable.rowIndex+1}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText id="question" value="Ερώτηση"/></f:facet>
+										<h:panelGrid columns="3" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+											<h:inputTextarea value="#{question.question}" style="width:80%; height: 50px;" />
+											<h:panelGroup>
+												<h:outputText value="Τρόπος επιλογής:"/>
+												<h:selectOneMenu value="#{question.operator}" >
+													<f:selectItems value="#{pollBean.questionOperatorsSelectItemsList}" />
+												</h:selectOneMenu>
+											</h:panelGroup>
+										</h:panelGrid>
+										<h:dataTable id="choices" value="#{question.choices}" var="choice" styleClass="data-table"  style="margin:0 auto; width:100%; overflow: scroll;" binding="#{pollBean.choices_dataTable}">
+											<h:column>
+												<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+												<h:outputText value="#{pollBean.choices_dataTable.rowIndex+1}" />
+											</h:column>
+											<h:column>
+												<h:inputText value="#{choice.option}" style="width:100%;"/>
+											</h:column>
+											<h:column>
+												<h:commandButton image="/images/remove.png" action="#{pollBean.deletePollOption}"/>
+											</h:column>
+										</h:dataTable>
+										<br/>
+										<h:commandButton value="Προσθήκη Επιλογής" action="#{pollBean.addPollOption}"/>
+										<h:commandButton value="Διαγραφή Ερώτησης" action="#{pollBean.deletePollQuestion}" /> 
+									</h:column>
+									<h:column>
+										
+									</h:column>
+								</h:dataTable>
+								</div>
+								<br/>
+							</h:panelGroup>
+						</h:panelGrid>
+						<br/>
+						<h:commandButton id="newquestion" value="Προσθήκη Ερώτησης" action="#{pollBean.addPollQuestion}"/>
+						<h:commandButton id="save" value="Αποθήκευση" action="#{pollBean.savePoll}"/>
+						</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

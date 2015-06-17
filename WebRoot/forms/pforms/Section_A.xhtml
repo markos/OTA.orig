@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+					<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+						<tr>
+							<th colspan="14" align="center"><h:outputText value="ΚΩΔΙΚΟΙ ΠΡΟΓΡΑΜΜΑΤΟΣ"/></th>
+						</tr>
+						<tr>
+							<th colspan="5"><h:outputText value="1. ΚΟΙΝΟΤΙΚΟ ΠΛΑΙΣΙΟ ΣΤΗΡΙΞΗΣ *"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.kps}" style="width:100%;" /></td>
+							<th colspan="5"><h:outputText value="2. ΚΩΔΙΚΟΣ ΕΡΓΟΥ ΟΠΣ ΕΡΓΟΡΑΜΑ *"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.code_ergorama}"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="3. ΕΠΙΧ. ΠΡΟΓΡ. – ΚΟΙΝ. ΠΡΩΤ."/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.epix_program}" /></td>
+							<th colspan="1"><h:outputText value="4. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.epix_code}"/></td>
+							<th colspan="2"><h:outputText value="5. ΑΞΟΝΑΣ ΠΡΟΤΕΡ.*"/></th>
+							<td colspan="3"><h:outputText style="width:100%;" value="#{otaBean.sec_a.axon}" /></td>
+							<th colspan="1"><h:outputText value="6. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.axon_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="7. ΜΕΤΡΟ * "/></th>
+							<td colspan="2"><h:outputText style="width:100%;" value="#{otaBean.sec_a.metro}" /></td>
+							<th colspan="1"><h:outputText value="8. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.metro_code}"/></td>
+							<th colspan="2"><h:outputText value="9. ΥΠΟΜΕΤΡΟ *"/></th>
+							<td colspan="3"><h:outputText style="width:100%;" value="#{otaBean.sec_a.subMetro}" /></td>
+							<th colspan="1"><h:outputText value="10. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.subMetro_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="11. ΤΟΜΕΑΣ ΚΠΣ *"/></th>
+							<td colspan="2"><h:outputText style="width:100%;" value="#{otaBean.sec_a.kpsSection}" /></td>
+							<th colspan="1"><h:outputText value="12. ΚΩΔ.*" /></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.kpsSection_code}"/></td>
+							<th colspan="2"><h:outputText value="13. ΥΠΟΤΟΜΕΑΣ ΚΠΣ *"/></th>
+							<td colspan="3"><h:outputText style="width:100%;" value="#{otaBean.sec_a.kpsSubSection}" /></td>
+							<th colspan="1"><h:outputText value="14. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.kpsSubSection_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="15Α. ΠΕΔΙΟ ΠΑΡΕΜΒΑΣΗΣ *"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.fieldParembasis}" /></td>
+							<th colspan="2"><h:outputText value="15Β.ΚΑΤΗΓΟΡΙΑ *"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.fieldParembasis_category}" /></td>
+							<th colspan="1"><h:outputText value="15Γ.ΥΠΟΚΑΤΗΓΟΡΙΑ *"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.fieldParembasis_subCategory}" /></td>
+							<th colspan="2"><h:outputText value="16. ΚΩΔΙΚΟΣ ΕΡΓΟΥ ΣΤΟ ΜΕΤΡΟ *"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.code_project_metro}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="17. ΣΧΕΣΗ ΜΕ ΤΟ ΠΕΡΙΒΑΛΛΟΝ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.environment}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="18. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.environment_code}" /></td>
+							<th colspan="3"><h:outputText value="19. ΣΥΜΒΟΛΗ ΣΤΗΝ ΙΣΟΤΗΤΑ ΤΩΝ ΔΥΟ ΦΥΛΩΝ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.sexEquality}"/></td>
+							<th colspan="1"><h:outputText value="20. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.sexEquality_code}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="20A. ΠΕΡΙΟΧΗ ΕΦΑΡΜΟΓΗΣ"/></th>
+							<td colspan="6"><h:outputText value="#{otaBean.sec_a.applicationArea}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="20B. ΚΩΔ.*"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.applicationArea_code}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="21. ΤΙΤΛΟΣ ΕΡΓΟΥ / ΕΝΕΡΓΕΙΑΣ"/></th>
+							<td colspan="11"><h:outputText escape="false" value="#{otaBean.sec_a.title_el}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="22. ΤΙΤΛΟΣ ΕΡΓΟΥ / ΕΝΕΡΓΕΙΑΣ ΣΤΑ ΑΓΓΛΙΚΑ"/></th>
+							<td colspan="11"><h:outputText escape="false" value="#{otaBean.sec_a.title_en}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="23. ΚΑΤΗΓΟΡΙΑ ΕΡΓΟΥ / ΕΝΕΡΓΕΙΑΣ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.category}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="18. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.category_code}"/></td>
+							<th colspan="2"><h:outputText value="25.ΚΩΔΙΚΟΣ ΕΣΔΑ *"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.esda_code}" /></td>
+							<th colspan="3"><h:outputText value="26.ΕΛΕΥΘΕΡΟΣ ΚΩΔΙΚΟΣ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.free_code}" /></td>
+						</tr>
+					</table>
+					
+					<br />
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="6"><h:outputText value="ΦΑΣΕΙΣ ΤΕΧΝΙΚΟΥ ΔΕΛΤΙΟΥ"/></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="27. ΚΩΔ.* (37)"/></th>
+							<th colspan="2"><h:outputText value="28. ΦΑΣΕΙΣ ΤΕΧΝΙΚΟΥ ΔΕΛΤΙΟΥ (38)"/></th>
+							<th colspan="3" align="center"><h:outputText value="ΗΜΕΡΟΜΗΝΙΕΣ"/>
+								<table><tr>
+									<th><h:outputLabel for="date1" value="29. ΣΥΜΠΛΗΡΩΣΗΣ (39)"/></th>
+									<th><h:outputText value="30. ΥΠΟΒΟΛΗΣ (40)"/></th>
+									<th><h:outputText value="31. ΕΓΚΡΙΣΗΣ (41)"/></th>
+								</tr></table></th>
+							<th colspan="2" align="center"><h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ"/>
+								<table><tr>
+									<th><h:outputText value="32. ΠΟΣΟ (14)"/></th>
+									<th><h:outputText value="33. ΝΟΜΙΣΜΑ"/></th>
+								</tr></table></th>
+							<th colspan="2"><h:outputText value="ΧΡΟΝΙΚΕΣ ΕΚΤΙΜΗΣΕΙΣ"/>
+								<table><tr>
+									<th><h:outputText value="34. ΗΜ/ΝΙΑ ΕΝΑΡΞΗΣ (11)"/></th>
+									<th><h:outputText value="35. ΗΜ/ΝΙΑ ΛΗΞΗΣ (12)"/></th>
+								</tr></table></th>
+							<th colspan="2"><h:outputText value="36. ΣΧΟΛΙΑ – ΠΑΡΑΤΗΡΗΣΕΙΣ"/></th>
+						</tr>
+						<tr>
+							<td colspan="1"><h:outputText value=""/></td>
+							<td colspan="2"><h:outputText value=""/></td>
+							<td colspan="3" align="center">
+								<table><tr>
+									<td><h:outputText value="#{otaBean.sec_a.date_filing}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+									<td><h:outputText value="#{otaBean.sec_a.date_submission}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+									<td><h:outputText value="#{otaBean.sec_a.date_approval} (9)"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+								</tr></table></td>
+							<td colspan="2">
+								<table><tr>
+									<td><h:outputText value="#{otaBean.sec_a.amount}"><f:converter converterId="bigDecimalConverter"/></h:outputText></td>
+									<td><h:outputText value="#{otaBean.sec_a.currency}"/></td>
+								</tr></table></td>
+							<td colspan="2">
+								<table><tr>
+									<td><h:outputText value="#{otaBean.sec_a.date_start}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+									<td><h:outputText value="#{otaBean.sec_a.date_end}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+								</tr></table></td>
+							<td colspan="2"><h:outputText escape="false" value="#{otaBean.sec_a.comments}" style="width:100%;" /></td>
+						</tr>
+					</table>
+					
+					<br />
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="1"><h:outputText value="37. 3 (21)"/></th>
+							<th colspan="3"><h:outputText value="38. ΦΟΡΕΑΣ ΠΡΟΤΑΣΗΣ (22)"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.proposalVendor_name}" style="width:500px;" /></td>
+							<th colspan="1"><h:outputText value="39. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.proposalVendor_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="40. ΣΤΟΙΧΕΙΑ ΝΟΜΙΜΟΥ ΕΚΠΡΟΣΩΠΟΥ ΤΟΥ ΦΟΡΕΑ ΠΡΟΤΑΣΗΣ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_lastName}" style="width:100%;" /></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:outputText escape="false" value="#{otaBean.sec_a.proposalVendor_representative_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_postalCode}"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.proposalVendor_representative_email}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="41. ΕΜΒΕΛΕΙΑ ΔΡΑΣΗΣ ΤΟΥ ΦΟΡΕΑ"/></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΟΛΗ Η ΧΩΡΑ"/></th>
+							<td colspan="1"><h:outputText rendered="#{otaBean.sec_a.proposalVendor_range}" value="ΝΑΙ"/>
+											<h:outputText rendered="#{!otaBean.sec_a.proposalVendor_range}" value="ΟΧΙ"/></td>
+							<th colspan="1"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.proposalVendor_rangeRegion}" style="width:250px;" /></td>
+							<th colspan="1"><h:outputText value="ΝΟΜΟΣ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.proposalVendor_rangePrefecture}" style="width:250px;" /></td>
+							<th colspan="1"><h:outputText value="ΟΤΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.proposalVendor_rangeMunicipality}" style="width:250px;" /></td>
+						</tr>
+					</table>
+					
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="1"><h:outputText value="42. 1 (21)"/></th>
+							<th colspan="3"><h:outputText value="43. ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ (22)"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.implementationVendor_name}" style="width:500px;" /></td>
+							<th colspan="1"><h:outputText value="44. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.implementationVendor_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="45. ΣΤΟΙΧΕΙΑ ΝΟΜΙΜΟΥ ΕΚΠΡΟΣΩΠΟΥ ΤΟΥ ΦΟΡΕΑ ΥΛΟΠΟΙΗΣΗΣ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_lastName}" style="width:100%;" /></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:outputText escape="false" value="#{otaBean.sec_a.implementationVendor_representative_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:outputText id="ΤΚ_45" value="#{otaBean.sec_a.implementationVendor_representative_postalCode}" /></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.implementationVendor_representative_email}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="46. ΕΜΒΕΛΕΙΑ ΔΡΑΣΗΣ ΤΟΥ ΦΟΡΕΑ"/></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΟΛΗ Η ΧΩΡΑ"/></th>
+							<td colspan="1"><h:outputText rendered="#{otaBean.sec_a.implementationVendor_range}" value="ΝΑΙ"/>
+											<h:outputText rendered="#{!otaBean.sec_a.implementationVendor_range}" value="ΟΧΙ"/></td>
+							<th colspan="1"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.implementationVendor_rangeRegion}" style="width:250px;"/></td>
+							<th colspan="1"><h:outputText value="ΝΟΜΟΣ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.implementationVendor_rangePrefecture}" style="width:250px;"/></td>
+							<th colspan="1"><h:outputText value="ΟΤΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.implementationVendor_rangeMunicipality}" style="width:250px;"/></td>
+						</tr>
+					</table>
+					
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="1"><h:outputText value="47. 2 (21)"/></th>
+							<th colspan="3"><h:outputText value="48. ΦΟΡΕΑΣ ΧΡΗΜΑΤΟΔΟΤΗΣΗΣ (22)"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.financingVendor_name}" style="width:500px;"/></td>
+							<th colspan="1"><h:outputText value="49. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.financingVendor_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="50. ΣΤΟΙΧΕΙΑ ΝΟΜΙΜΟΥ ΕΚΠΡΟΣΩΠΟΥ ΤΟΥ ΦΟΡΕΑ ΧΡΗΜΑΤΟΔΟΤΗΣΗΣ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_lastName}" style="width:100%;" /></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:outputText escape="false" value="#{otaBean.sec_a.financingVendor_representative_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:outputText id="TK_50" value="#{otaBean.sec_a.financingVendor_representative_postalCode}"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.financingVendor_representative_email}" style="width:100%;"/></td>
+						</tr>
+					</table>
+					
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="1"><h:outputText value="51. 5 (21)"/></th>
+							<th colspan="3"><h:outputText value="52. ΦΟΡΕΑΣ ΛΕΙΤΟΥΡΓΙΑΣ (22)"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.operationVendor_name}" style="width:500px;"/></td>
+							<th colspan="1"><h:outputText value="53. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.operationVendor_code}"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="54. ΣΤΟΙΧΕΙΑ ΝΟΜΙΜΟΥ ΕΚΠΡΟΣΩΠΟΥ ΤΟΥ ΦΟΡΕΑ ΛΕΙΤΟΥΡΓΙΑΣ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_lastName}" style="width:100%;" /></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:outputText escape="false" value="#{otaBean.sec_a.operationVendor_representative_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:outputText id="ΤΚ_54" value="#{otaBean.sec_a.operationVendor_representative_postalCode}"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.operationVendor_representative_email}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="55. ΕΜΒΕΛΕΙΑ ΔΡΑΣΗΣ ΤΟΥ ΦΟΡΕΑ"/></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΟΛΗ Η ΧΩΡΑ"/></th>
+							<td colspan="1"><h:outputText rendered="#{otaBean.sec_a.operationVendor_range}" value="ΝΑΙ"/>
+											<h:outputText rendered="#{!otaBean.sec_a.operationVendor_range}" value="ΟΧΙ"/></td>
+							<th colspan="1"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.operationVendor_rangeRegion}" style="width:250px;"/></td>
+							<th colspan="1"><h:outputText value="ΝΟΜΟΣ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.operationVendor_rangePrefecture}" style="width:250px;"/></td>
+							<th colspan="1"><h:outputText value="ΟΤΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.operationVendor_rangeMunicipality}" style="width:250px;"/></td>
+						</tr>
+					</table>
+					
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="56. ΠΑΡΑΤΗΡΗΣΕΙΣ ΣΧΕΤΙΚΑ ΜΕ ΤΟΝ ΦΟΡΕΑ ΛΕΙΤΟΥΡΓΙΑΣ (ΕΑΝ ΑΠΑΙΤΕΙΤΑΙ)"/></th>
+						</tr>
+						<tr>
+							<td colspan="10"><h:outputText escape="false" value="#{otaBean.sec_a.operationVendor_comments}" style="width:100%;"/></td>
+						</tr>
+					</table>
+					
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="57. ΣΤΟΙΧΕΙΑ ΤΟΥ ΥΠΕΥΘΥΝΟΥ ΕΡΓΟΥ (ΣΥΝΤΑΚΤΗ ΤΟΥ ΤΕΧΝΙΚΟΥ ΔΕΛΤΙΟΥ ΕΡΓΟΥ)"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.projectAuthor_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.projectAuthor_lastName}" style="width:100%;" /></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:outputText value="#{otaBean.sec_a.projectAuthor_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:outputText escape="false" value="#{otaBean.sec_a.projectAuthor_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.projectAuthor_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:outputText id="ΤΚ_57" value="#{otaBean.sec_a.projectAuthor_postalCode}" /></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.projectAuthor_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.projectAuthor_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:outputText value="#{otaBean.sec_a.projectAuthor_email}" style="width:100%;"/></td>
+						</tr>
+					</table>
+					
+					<br />
+					
+					<h:outputText escape="false" value="ΛΙΣΤΑ ΦΟΡΕΩΝ ΕΠΙΒΛΕΨΗΣ"/>
+					<br/>
+					<h:dataTable value="#{otaBean.vendors}" var="vendorItem" cellspacing="0" cellpadding="10" styleClass="data-table" style="margin:0 auto; width=100%;" binding="#{otaBean.tmp_dataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+							<h:outputText value="#{otaBean.tmp_dataTable.rowIndex+1}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="59. ΚΩΔΙΚΟΣ* (77)"/></f:facet>
+							<h:outputText value="#{vendorItem.code}" style="width:100px; text-align:center;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="58. ΦΟΡΕΙΣ ΕΠΙΒΛΕΨΗΣ ΥΠΟΕΡΓΩΝ (78)"/></f:facet>
+							<h:outputText value="#{vendorItem.name}" style="width:500px;"/>
+						</h:column>
+					</h:dataTable>
+		</center>
+	</body>
+</html>

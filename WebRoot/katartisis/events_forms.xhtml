@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: events_forms.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminKatartisis == false and userLoginBean.contractorUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/subProjectList.jsf">Λίστα Υποέργων</a></li>
+			<li><a href="/OTA/katartisis/cycles.jsf">Λίστα Κύκλων</a></li>
+			<li><a href="/OTA/katartisis/events.jsf">#{katartisisUIBean.eventTypeString}</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					
+					<center>
+					<h:outputText value="Φόρμες" style="font-size: 12px; font-family: Verdana, Arial, Sans-Serif"/>
+					<br/><br/>
+
+					<h:dataTable border="0" value="#{katartisisUIBean.event.formsList}" var="formItem" styleClass="data-table" style="width:800px;" binding="#{katartisisUIBean.forms_dataTable}">
+					<h:column id="column1">
+							<f:facet name="header"><h:outputText value="Α/Α"></h:outputText></f:facet>
+							<h:outputText style="font-weight:bold;" value="#{katartisisUIBean.forms_dataTable.rowIndex+1}"></h:outputText>
+						</h:column>
+						<h:column id="column2">
+							<f:facet name="header"><h:outputText value="ΦΑΣΗ"></h:outputText></f:facet>
+							<h:outputText style="font-weight:bold;"  value="#{formItem.phase}"></h:outputText>
+						</h:column>
+						<h:column id="column3">
+							<f:facet name="header"><h:outputText value="ΦΟΡΜΑ"></h:outputText></f:facet>
+							<h:outputText value="#{formItem.name}"></h:outputText>
+						</h:column>
+						<h:column id="column4">
+							<f:facet name="header"><h:outputText value="ΚΑΤΑΣΤΑΣΗ"></h:outputText></f:facet>
+							<h:outputText style="font-weight:bold;" value="#{formItem.status}"></h:outputText>
+						</h:column>
+						<h:column id="column5">
+							<h:form rendered="#{formItem.status != 'FINAL' and formItem.status != 'STALLED' }">
+								<h:commandButton image="/images/edit.png" style="border:0px solid;" action="#{katartisisFormBean.goToForm}" />
+							</h:form>
+							<h:graphicImage rendered="#{formItem.status == 'FINAL'}" url="/images/locked.png" style="border:0px solid;" />
+						</h:column>
+					</h:dataTable>
+					
+					<br/>
+					<br/>
+					
+					<h:outputText value="Παραγόμενες Φόρμες"/>
+					<table>
+						<tr>
+						<c:forEach items="#{katartisisUIBean.producedFormsNamesList}" var="pform">
+							<td><h:panelGroup rendered="#{katartisisUIBean.producedFormsShowMap[pform]}">
+									<a href="/OTA/katartisis/pforms/#{katartisisUIBean.cycle.type}/#{pform}.jsf" target="_blank"><img src="/OTA/images/prodForm.png" border="0" /><br/>
+									<h:outputText value="#{katartisisUIBean.producedFormsNames[pform]}" /></a>
+								</h:panelGroup>
+							</td>
+						</c:forEach>
+						</tr>
+					</table>
+					<br/>
+					</center>
+					<br/>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

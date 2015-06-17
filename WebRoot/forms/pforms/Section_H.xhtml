@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+					<h:panelGrid columns="1" style="margin:0 auto; text-align:center; width:100%;">
+						<h:panelGrid columns="2">
+							<h:outputText value="164. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΕΘΝΙΚΟΙ ΚΑΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΟΥ ΑΦΟΡΟΥΝ ΤΟΝ ΑΝΤΑΓΩΝΙΣΜΟ ΚΑΙ ΤΙΣ ΔΗΜΟΣΙΕΣ ΣΥΜΒΑΣΕΙΣ ΕΡΓΩΝ, ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΥΠΗΡΕΣΙΩΝ;
+											Να περιγραφούν οι σχετικές διαδικασίες και να αιτιολογηθεί η εναρμόνισή τους με τους ισχύοντες εθνικούς και κοινοτικούς κανόνες."/>
+							<h:panelGroup>
+								<h:panelGrid columns="2">
+									<h:outputText value="ΝΑΙ" />
+									<h:outputText value="ΟΧΙ" />
+									<h:outputText value="X" rendered="#{otaBean.sec_h.EUCompetitionRulesApply}" />
+									<h:outputText value=" " rendered="#{!otaBean.sec_h.EUCompetitionRulesApply}" />
+									<h:outputText value="X" rendered="#{!otaBean.sec_h.EUCompetitionRulesApply}" />
+								</h:panelGrid>
+							</h:panelGroup>
+						</h:panelGrid><br />
+						<h:outputFormat escape="false" value="#{otaBean.sec_h.EUCompetitionRulesApplyDescription}" style="width:100%;" />
+						<h:panelGrid columns="2">
+							<h:outputText value="165. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΕΡΙ ΠΛΗΡΟΦΟΡΗΣΗΣ ΚΑΙ ΔΗΜΟΣΙΟΤΗΤΑΣ;
+											Να περιγραφούν τα μέτρα που ελήφθησαν ή πρόκειται να ληφθούν ως προς τα θέματα πληροφόρησης και δημοσιότητας, σύμφωνα με τους ισχύοντες κοινοτικούς κανόνες."/>
+							<h:panelGroup>
+								<h:panelGrid columns="2">
+									<h:outputText value="ΝΑΙ" />
+									<h:outputText value="ΟΧΙ" />
+									<h:outputText value="X" rendered="#{otaBean.sec_h.EUPublicityRulesApply}" />
+									<h:outputText value=" " rendered="#{!otaBean.sec_h.EUPublicityRulesApply}" />
+									<h:outputText value="X" rendered="#{!otaBean.sec_h.EUPublicityRulesApply}" />
+								</h:panelGrid>
+							</h:panelGroup>
+						</h:panelGrid><br />
+						<h:outputFormat escape="false" value="#{otaBean.sec_h.EUPublicityRulesApplyDescription}" style="width:100%;" />
+						<h:panelGrid columns="2">
+							<h:outputText value="166. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΟΥ ΑΦΟΡΟΥΝ ΤΗΝ ΠΡΟΩΘΗΣΗ ΤΗΣ ΙΣΟΤΗΤΑΣ ΜΕΤΑΞΥ ΑΝΔΡΩΝ ΚΑΙ ΓΥΝΑΙΚΩΝ ;
+											Να περιγραφούν τα μέτρα που ελήφθησαν ή πρόκειται να ληφθούν για την προώθηση της ισότητας, σύμφωνα με τους ισχύοντες κοινοτικούς κανόνες."/>
+							<h:panelGroup>
+								<h:panelGrid columns="2">
+									<h:outputText value="ΝΑΙ" />
+									<h:outputText value="ΟΧΙ" />
+									<h:outputText value="X" rendered="#{otaBean.sec_h.EUSexEqualityRulesApply}" />
+									<h:outputText value=" " rendered="#{!otaBean.sec_h.EUSexEqualityRulesApply}" />
+									<h:outputText value="X" rendered="#{!otaBean.sec_h.EUSexEqualityRulesApply}" />
+								</h:panelGrid>
+							</h:panelGroup>
+						</h:panelGrid><br />
+						<h:outputFormat escape="false" value="#{otaBean.sec_h.EUSexEqualityRulesApplyDescription}" style="width:100%;" />
+					</h:panelGrid>
+		</center>
+	</body>
+</html>

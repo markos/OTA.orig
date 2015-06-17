@@ -1,0 +1,716 @@
+body,td,th {font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#333333;}
+
+body {
+	background-color:#FFFFFF;
+	background: url(images/PageBackground.gif) repeat-x;
+	margin:0px;
+}
+
+input {
+	color: #000000;
+	border:1px solid;
+	border-color: #bbb #ccc #ccc #bbb;
+	font-face: Verdana;
+	font-size:11px;
+}
+
+input.currency {
+	color: #000000;
+	border:1px solid;
+	border-color: #bbb #ccc #ccc #bbb;
+	font-face: Verdana;
+	font-size:11px;
+	text-align: right;
+}
+
+select {
+	color: #000000;
+	border:1px solid;
+	border-color: #bbb #ccc #ccc #bbb;
+	font-face: Verdana;
+	font-size:10px;
+}
+
+TEXTAREA {
+	color: #000000;
+	border:1px solid #ccc;
+	border-color: #bbb #ccc #ccc #bbb;
+	font-face: Verdana;
+	font-size:11px;
+}
+
+#wrapper {
+	width:1050px;
+	margin:0 auto;
+}
+
+a:link {color:#2b4f7c; text-decoration:none;}
+a:visited {text-decoration:none; color: #2b4f7c;}
+a:hover {text-decoration:underline; color:#666666;}
+a:active {text-decoration:none;}
+h1 {font-size:20px; color:#d97b00; padding:0px; margin:0px;}
+h2 {font-size:14px; color:#333333;}
+
+#breadcrumb {margin:10px 0px 20px 30px; width:970px;}
+
+#topheader {
+	background:url(images/HeaderBackgroundtop.jpg) no-repeat left top;
+	height:50px;
+	margin:0px;
+	padding:0px;
+}
+
+#medheader{
+	height:93px;
+	margin:0px;
+	padding:0px;
+}
+
+#medleft{
+	background:url(images/HeaderBackgroundmidleft.jpg) no-repeat left top;
+	height:93px;
+	width:55px;
+	margin:0px;
+	float:left;
+	padding:0px;
+}
+
+#medcenter {
+	margin:0px;
+	padding:0px;
+	float:left;
+}
+
+#medright{
+	background:url(images/HeaderBackgroundmidright.jpg) no-repeat left top;
+	height:93px;
+	width:785px;
+	margin:0px;
+	float:left;
+	padding:0px;
+}
+
+#header { background:url(images/HeaderBackgroundbottom.jpg) no-repeat left top; height:50px; margin:0px; padding:0px;}
+#header UL {list-style-type:none; padding:23px 0px 0px 30px; margin:0px;}
+#header UL LI {float:left;	margin:0px; padding:0px; vertical-align:middle;}
+#header UL LI A {color:#FFFFFF; padding:0px 25px 0px 25px; font-size:14px;}
+#header UL UL {padding:20px 0px 0px 0px; clear:left; margin:0px;}
+#header UL UL LI {margin:0px; color:#666666; font-size:12px; font-weight:bold; float:left; border-left:2px dotted #F7941D; padding:0px; height:16px;}
+#header UL UL LI A {color:#666666;	padding-left:6px; font-size:11px;}
+
+#header ul li a, #header ul li span{
+background: url('images/MainMenuSep.gif') no-repeat right;
+}
+
+#header ul li.last span, #header li.last a {
+	background:none;
+}
+
+#secondarylinks {
+	float:left;
+	height:20px;
+	padding-left:40px;
+	padding-top:5px;
+	width:1050px;
+}
+
+#secondarylinks ul {
+	list-style-type:none;
+}
+
+#secondarylinks ul li {
+	vertical-align:middle;
+	float:left;
+	margin:0px;
+}
+
+#secondarylinks .secondary-links a {
+	color:#000;
+	font-size: 13px;
+	padding-right:15px;
+	padding-left: 10px;
+}
+
+#secondarylinks ul li a, #secondarylinks ul li span{
+	border-left:2px dotted #F7941D;
+}
+
+// ---- tabbed browsing
+
+#tabbed {
+	padding-left:5px;
+}
+
+#tabbed ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+#tabbed li {
+	display: inline;
+	margin: 0 1px 0px 0px;
+	font-size: 80%;
+}
+
+#tabbed a {
+	padding: 3px 10px 0px;
+	text-decoration: none;
+	color: #a80;
+	background: #fe5;
+}
+
+#tabbed a:hover {
+	background: #fc0;
+	color: #540;
+}
+
+#tabbed #selected {
+}
+
+#tabbed #selected a {
+	padding: 5px 12px 2px;
+	font-size: 130%;
+	font-weight: bold;
+	color: black;
+	background: #fc0;
+}
+
+#content {
+	border:2px solid #fc0;
+	padding:5px 5px 5px 5px;
+}
+
+// ---- end tabbed browsing
+
+#leftcolumn {padding:0px; width:230px; margin:0px 30px 0px 0px; float:left;}
+
+#mainmessage {
+	background: url(images/MessageFirstBG.gif) no-repeat right bottom #d9d9d9;
+	width:240px; 
+	text-align:justify; 
+	height:398px; 
+	padding:0px 0px  8px 0px; 
+	margin:0px 0px 40px 0px;
+}
+
+#mainmessage p {padding-right:6px; padding-left:6px;}
+#mainmessage2 {width:240px; text-align:left; border-top: 1px #FF9900 solid; border-bottom:1px dashed #999999; padding:5px 0px 5px 0px; margin:0px;}
+
+#mainwrapper {
+	padding:0px;
+	padding-left:10px;
+	width:950px;
+	margin:0px 50px 0px 30px;
+	float:left;
+}
+
+#maincontent {
+	width:950px;
+	float:left;
+	margin:0 auto;
+	border:0px solid;
+}
+
+#maintext {
+	margin-bottom:30px; 
+	padding-bottom:30px; 
+	font-size:14px; 
+	color:#666666;
+}
+
+#login-form {
+	width:500px;
+	margin:0 auto;
+}
+
+#maintext p {text-align:justify;}
+
+#mainnews {
+	margin:0px; 
+	min-height:260px; 
+}
+
+#block-menu-163 {
+	background:url(images/MainNewsLeftBG.gif) no-repeat left top; float:left;
+	padding-left:30px;
+	margin-left:30px;
+}
+
+#block-menu-163 .blockheader, #block-views-center_bottom .content {
+	margin-left:30px;
+}
+
+
+#block-views-center_bottom {
+	background:url(images/MainNewsLeftBG.gif) no-repeat left top; float:left;
+	padding-left:30px;
+	margin-left:30px;
+}
+
+#block-views-center_bottom .blockheader, #block-views-center_bottom .content {
+	margin-left:30px;
+}
+
+#rightcolumn {
+	float:left;
+	width:200px;
+	padding-left:20px;
+}
+
+#searchbox {
+	background:url(images/SearchBG.gif) no-repeat left top;
+	padding:0px;
+	height:65px;
+	width:200px;
+	margin-bottom:30px;
+	clear:left;
+	vertical-align: middle;
+	float:left;
+	padding-top:20px;
+}
+
+#searchbox form {padding:0px;margin-top: 19px;	margin-right: 0px;	margin-bottom: 0px;	margin-left: 4px;	white-space: nowrap;	width: 180px;}
+#searchbox UL {padding:0px; margin: 0px; list-style-type: none;}
+#searchbox UL LI {float:left; margin:0px; padding:0px 3px 0px 0px;}
+#searchbox input {height:17px; width:110px; font-family:Arial, Helvetica, sans-serif; font-size:11px; color:#666666; border:1px solid #666666; margin:0px; padding:0px;}
+
+#searchform {
+	padding-left:35px;
+}
+
+#searchicon {
+	padding-left:10px;
+}
+
+#searchform .form-submit {
+	width:40px;
+	background: url(images/SearchButton.gif);
+	height:17px;
+	color:transparent;
+	font-size:0;
+	border:none;
+}
+
+#smallrightmenu {padding:0px; height:20px; width:200px; clear:left;}
+#smallrightmenu UL {padding:0px; margin:0px; list-style-type: none;}
+#smallrightmenu UL LI {float:left; padding:3px; margin:0px;}
+
+#pressreleases {
+	width:209px;
+	padding:0px 0px 0px 0px;
+	margin:0px;
+	float:left;
+}
+
+#blockspacer {
+	background: url(images/PressReleasesBottomBG.gif) repeat-x left bottom;
+	width:209px;
+	height:37px;
+	padding-top:10px;
+	padding-bottom:10px;
+	
+	float:left;
+}
+
+#footer {
+	clear:left; 
+	height:190px; 
+	width:940px; 
+	background: url(images/FooterBG.gif) repeat-x;
+}
+#footer p {margin:10px;}
+
+#footerleft {
+	float:left;
+	padding-top:10px;
+	padding-left:10px;
+}
+
+#footermenu {
+	float:right;
+	padding-right:10px;
+	padding-top:10px;
+	height:40px;
+}
+
+#footerlogo {
+	width:100%;
+	height:100px;
+	margin-top:50px;
+	margin-right:10px;
+	padding-top:50px;
+	text-align: right;
+}
+
+#block-views-deltia_typou .blockheader-views-deltia_typou {
+	height:33px;
+	background: url(images/pressreleasesicon.gif) no-repeat left top;
+}
+
+#block-views-deltia_typou .blockheader h2 {
+	font-size: 15px;
+	padding-left:40px;
+	font-weight: normal;
+	padding-top:6px;
+}
+
+#block-views-deltia_typou .blockheader {
+	width: 209px;
+}
+
+#block-views-deltia_typou .content {
+	float:left;
+	border-bottom:1px solid #999999;
+}
+
+#block-views-deltia_typou .content table {
+	width:208px;
+	height:200px;
+}
+
+#userlogin {
+	float:left;
+}
+
+#userlogin .blockheader {
+	height:33px;
+	background: url(images/userloginheader.gif) no-repeat left bottom;
+	vertical-align: center;
+	width: 209px;
+}
+
+#userlogin .blockheader h2 {
+	color: #ffffff;
+	font-size: 20px;
+	padding-left:40px;
+	padding-top:6px;
+	font-weight: normal;
+}
+
+#userlogin .content {
+	background: url(images/userloginbody.gif) no-repeat left bottom;
+	width: 209px;
+	padding-left:12px;
+	padding-right:10px;
+	padding-bottom:12px;
+	float:left;
+}
+
+#userlogin .primary-links {
+	list-style: disc;
+}
+
+#userlogin .primary-links li {
+	color:#000;
+	line-height: 15px;
+	float:left;
+}
+
+#userlogin .primary-links li a {
+	float:left;
+	width:150px;
+}
+
+#userlogin .item-list ul li {
+	list-style-type: none;
+}
+
+#block-views-left_top .content, #block-views-left_bottom .content {
+	display:block;
+	padding:0px;
+	margin-top:0px;
+}
+
+#block-views-left_top .content h2, #block-views-left_bottom .content h2 {
+	padding-left:5px;
+}
+
+#block-views-left_top .content small {
+	padding-left:5px;
+}
+
+#block-menu-163 {
+	float:left;
+	padding:0px;
+	margin:0px;
+	border-bottom:1px solid #999999;
+	width:430px;
+}
+
+#block-menu-163 .blockheader {
+	background: url(images/TitleNewsHome.gif) no-repeat left top;
+	width:430px;
+	height:36px;
+	float:left;
+}
+
+#block-menu-163 .blockheader h2 {
+	padding-left:40px;
+	font-size:16px;
+}
+
+#block-menu-163 .content {
+	width:430px;
+	float:left;
+	padding-top:0px;
+}
+
+#block-menu-163 .content ul {
+	width:430px;
+}
+
+#block-menu-163 .content li {
+	display:list-item;
+	margin:10px;
+	font-size:12px;
+}
+
+#block-views-center_bottom {
+	float:left;
+	padding:0px;
+	margin:0px;
+	border-bottom:1px solid #999999;
+	width:430px;
+}
+
+#block-views-center_bottom .blockheader {
+	background: url(images/TitleNewsHome.gif) no-repeat left top;
+	width:430px;
+	height:36px;
+	float:left;
+}
+
+#block-views-center_bottom .blockheader h2 {
+	padding-left:40px;
+	font-size:16px;
+}
+
+#block-views-center_bottom .content {
+	width:430px;
+	float:left;
+	padding-top:0px;
+}
+
+#block-views-center_bottom .content table {
+	width:430px;
+	height:230px;
+}
+
+#block-views-center_bottom .content td {
+	font-size:12px;
+}
+
+.odd td {
+	background-color:#f1f1f1;
+}
+
+.even td {
+	background-color: #ffffff;
+}
+
+#smallrightmenu .block-menu {
+	float:right;
+}
+
+#smallrightmenu ul li a, #smallrightmenu ul li span{
+	background: url('images/MainMenuSep.gif') no-repeat right;
+	padding-right:7px;
+}
+
+#smallrightmenu ul li.last span, #smallrightmenu li.last a {
+	background:none;
+}
+
+#footermenu {
+	width:400px;
+	float:right;
+	text-align:right;
+}
+
+#footermenu .blockheader {
+	display:none;
+}
+
+#footermenu .menu {
+	list-style-type: none;
+	padding:0px 0px 0px 0px; 
+	margin:0px;
+}
+
+#footermenu .menu LI {
+	float:right;	
+	margin:0px; 
+	padding:0px; 
+	padding-right:10px;
+	vertical-align:middle;
+}
+
+#footermenu .menu LI A {
+	color:#000; 
+	padding:0px 25px 0px 0px; 
+	font-size:9px;
+}
+
+#footermenu ul li a, #footermenu ul li span{
+	background: url('images/MainMenuSep.gif') no-repeat right;
+	padding-right:7px;
+}
+
+#footermenu ul li.last span, #footermenu li.last a {
+	background:none;
+}
+
+
+#footermenu .feed-icon {
+	width:30px;
+	float:right;
+}
+
+.row-class-table {
+	border-bottom:1px solid #cccccc;
+}
+
+.data-table {
+	border:1px solid #cccccc;
+}
+
+.data-table th {
+	border-bottom:1px solid #cccccc;
+}
+
+.data-table td {
+	border-bottom:1px solid #cccccc;
+	padding: 3px 3px 3px 3px;
+	text-align:center;
+}
+
+.form-table {
+	text-align:center;
+	border:1px solid #cccccc;
+	margin:0 auto;
+}
+
+.form-table td {
+	border-top:1px solid #cccccc;
+	border-right:1px solid #cccccc;
+	text-align:center;
+}
+
+ /* DATE PICKER PLUGIN */
+ /* the div that holds the date picker calendar */
+.dpDiv {
+}
+
+
+/* the table (within the div) that holds the date picker calendar */
+.dpTable {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	color: #505050;
+	background-color: #ece9d8;
+	border: 1px solid #AAAAAA;
+	}
+
+
+/* a table row that holds date numbers (either blank or 1-31) */
+.dpTR {
+	}
+
+
+/* the top table row that holds the month, year, and forward/backward buttons */
+.dpTitleTR {
+	}
+
+
+/* the second table row, that holds the names of days of the week (Mo, Tu, We, etc.) */
+.dpDayTR {
+	}
+
+
+/* the bottom table row, that has the "This Month" and "Close" buttons */
+.dpTodayButtonTR {
+	}
+
+
+/* a table cell that holds a date number (either blank or 1-31) */
+.dpTD {
+	border: 1px solid #ece9d8;
+	}
+
+
+/* a table cell that holds a highlighted day (usually either today's date or the current date field value) */
+.dpDayHighlightTD {
+	background-color: #CCCCCC;
+	border: 1px solid #AAAAAA;
+	}
+
+
+/* the date number table cell that the mouse pointer is currently over (you can use contrasting colors to make it apparent which cell is being hovered over) */
+.dpTDHover {
+	background-color: #aca998;
+	border: 1px solid #888888;
+	cursor: pointer;
+	color: red;
+	}
+
+
+/* the table cell that holds the name of the month and the year */
+.dpTitleTD {
+	}
+
+
+/* a table cell that holds one of the forward/backward buttons */
+.dpButtonTD {
+	}
+
+
+/* the table cell that holds the "This Month" or "Close" button at the bottom */
+.dpTodayButtonTD {
+	}
+
+
+/* a table cell that holds the names of days of the week (Mo, Tu, We, etc.) */
+.dpDayTD {
+	background-color: #CCCCCC;
+	border: 1px solid #AAAAAA;
+	color: white;
+	}
+
+
+/* additional style information for the text that indicates the month and year */
+.dpTitleText {
+	font-size: 12px;
+	color: gray;
+	font-weight: bold;
+	}
+
+
+/* additional style information for the cell that holds a highlighted day (usually either today's date or the current date field value) */ 
+.dpDayHighlight {
+	color: 4060ff;
+	font-weight: bold;
+	}
+
+
+/* the forward/backward buttons at the top */
+.dpButton {
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: gray;
+	background: #d8e8ff;
+	font-weight: bold;
+	padding: 0px;
+	}
+
+
+/* the "This Month" and "Close" buttons at the bottom */
+.dpTodayButton {
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: gray;
+	background: #d8e8ff;
+	font-weight: bold;
+	}
+ 

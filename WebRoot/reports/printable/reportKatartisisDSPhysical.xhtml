@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Παρακολούθηση Φυσικού Αντικειμένου ΔΣ</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+		
+			<f:view>
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Παρακολούθηση Φυσικού Αντικειμένου ΔΣ"/>
+					
+					<br/><br/>
+					
+					<h:dataTable value="#{reportBean.regionKeysList}" cellspacing="0"  cellpadding="10" var="rkey" styleClass="dynamicTable1" style="border:1px solid; width:850px; text-align:center;">
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΝΑΔΟΧΟΣ ΣΥΜΠΡΑΞΗ"/></f:facet>
+							<h:outputText value="#{rkey.contractorName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+							<h:outputText value="#{rkey.region}" />
+							<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΑ"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΝΟΜΟΣ"/></f:facet>
+							<h:outputText value="#{rkey.prefecture}" />
+							<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΑ"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΔΣ (ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].events_total}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.events_total}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ (ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].electives_total}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.electives_total}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΔΣ (ΥΛΟΠΟΙΗΣΗ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].events_total_actual}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.events_total_actual}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ (ΥΛΟΠΟΙΗΣΗ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].participants_total}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.participants_total}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΔΣ (ΑΠΟΚΛΙΣΗ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].events_total_actual}" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.events_total_actual}"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ (ΑΠΟΚΛΙΣΗ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].electives_total - reportBean.regionStatsMap[rkey].participants_total}/" />
+							<f:facet name="footer"><h:outputText value="#{reportBean.electives_total - reportBean.participants_total}/"/></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ (ΠΟΣΟΣΤΟ)"/></f:facet>
+							<h:outputText value="#{(reportBean.regionStatsMap[rkey].electives_total - reportBean.regionStatsMap[rkey].participants_total)/reportBean.regionStatsMap[rkey].electives_total}"><f:convertNumber type="percent"/></h:outputText>
+							<f:facet name="footer"><h:outputText value="#{(reportBean.electives_total - reportBean.participants_total)/reportBean.electives_total}"><f:convertNumber type="percent"/></h:outputText></f:facet>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΟΣΟΣΤΟ ΣΥΜΜΕΤΟΧΗΣ"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].total_percentage}" ><f:convertNumber type="percent"/></h:outputText>
+							<f:facet name="footer"><h:outputText value="#{reportBean.total_percentage}"><f:convertNumber type="percent"/></h:outputText></f:facet>
+						</h:column>
+						
+					</h:dataTable>
+					</center>
+				</div>
+			</f:view>		
+
+		</body>
+</html>

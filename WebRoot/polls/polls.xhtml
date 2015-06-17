@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: polls.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Ερωτηματολογίων</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			<c:if test="#{userLoginBean.adminPolls == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Κεντρική">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<div id="content">
+						<h:messages style="color:red;"/><br/>
+	
+						<center>
+						
+						<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+							<h:outputText value="ΕΡΩΤΗΜΑΤΟΛΟΓΙΑ"/>
+							
+							<h:panelGroup>
+								<div style="margin:0 auto; width:100%;">
+								<h:dataTable id="pollstable" value="#{pollBean.polls}" var="poll" styleClass="data-table"  style="margin:0 auto; width:100%; overflow: scroll;" binding="#{pollBean.polls_dataTable}">
+									<h:column>
+										<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+										<h:outputText value="#{pollBean.polls_dataTable.rowIndex+1}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText id="pollname" value="Όνομα"/></f:facet>
+										<h:outputText escape="false" value="#{poll.name}" />
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText id="datestart" value="Ημερομηνία έναρξης"/></f:facet>
+										<h:outputText value="#{poll.date_start}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText id="dateend" value="Ημερομηνία λήξης"/></f:facet>
+										<h:outputText value="#{poll.date_end}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="Κατάσταση"/></f:facet>
+										<h:outputText rendered="#{poll.active == true}" value="Ενεργό" />
+										<h:outputText rendered="#{poll.active == false}" value="Μη ενεργό" />
+									</h:column>
+									<h:column>
+										<h:commandButton image="/images/edit.png" action="#{pollBean.editPoll}" alt="Επεξεργασία" style="border: none;" title="Επεξεργασία" />
+										<h:commandButton image="/images/next.png" action="#{pollBean.viewPoll}" alt="Καταχώριση" style="border: none;" title="Καταχώριση" />
+										<h:commandButton image="/images/remove.png" action="#{pollBean.deletePoll}" alt="Διαγραφή" style="border: none;" title="Διαγραφή" />
+										<h:commandButton image="/images/warning.png" action="#{pollBean.endPoll}" alt="Τερματισμός" style="border: none;" title="Τερματισμός" />
+										<h:commandButton image="/images/chart.png" action="#{pollBean.statisticsPoll}" alt="Στατιστικά" style="border: none;" title="Στατιστικά" />
+										<a href="#{basePath}/polls/viewPoll.jsf?pollid=#{poll.id}" alt="Απευθείας URL" title="Απευθείας URL" >URL</a> 
+									</h:column>
+								</h:dataTable>
+								</div>
+								<br/>
+								<h:commandButton id="newpoll" value="Προσθήκη Ερωτηματολόγιου" action="#{pollBean.addPoll}"/>
+							</h:panelGroup>
+						</h:panelGrid>
+						</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

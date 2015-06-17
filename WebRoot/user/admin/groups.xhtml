@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: groups.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Χρηστών</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			
+			<c:if test="#{userLoginBean.adminUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Κεντρική">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+				
+					<div id="tabbed">
+						<ul>
+							<li><h:commandLink id="main" action="#{userDBManagerBean.gotoUsersMain}">Αιτήσεις Χρηστών</h:commandLink></li>
+							<li id="selected"><a href="#">Ομάδες</a></li>
+							<li><h:commandLink id="roles" action="#{userDBManagerBean.gotoRoles}">Ρόλοι</h:commandLink></li>
+							<li><h:commandLink id="users" action="#{userDBManagerBean.gotoUsers}">Χρήστες</h:commandLink></li>
+							<li><h:commandLink id="newsletter" action="#{userDBManagerBean.gotoNewsletter}">Newsletter</h:commandLink></li>
+						</ul>
+					</div>
+					<div id="content">
+						<h:messages style="color:red;"/><br/>
+	
+						<center>
+						
+						<h:panelGrid columns="2" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+							<h:outputText value="ΟΜΑΔΕΣ ΧΡΗΣΤΩΝ"/>
+							<h:outputText value="ΧΡΗΣΤΕΣ ΣΤΗΝ ΟΜΑΔΑ"/>
+							
+							<h:panelGroup>
+								<div style="margin:0 auto; width:300px; height: 400px; overflow: auto;">
+								<h:dataTable id="groupsstable" value="#{userDBManagerBean.userGroups}" var="group" styleClass="data-table"  style="margin:0 auto; width:100%; overflow: scroll;" binding="#{userDBManagerBean.groups_dataTable}">
+									<h:column >
+										<f:facet name="header"><h:outputText id="groupname" value="Όνομα Ομάδας"/></f:facet>
+										<h:inputText rendered="#{group.type == 'User'}" value="#{group.groupname}" size="20"/>
+										<h:outputText rendered="#{group.type != 'User'}" value="#{group.groupname}" />
+									</h:column>
+									<h:column>
+										<h:commandButton image="/images/next.png" action="#{userDBManagerBean.changeCurrentGroup}" style="border:0px;margin-right:5px;" />
+										<h:commandButton rendered="#{group.type == 'User'}" image="/images/remove.png" action="#{userDBManagerBean.deleteUserGroup}"/>
+									</h:column>
+								</h:dataTable>
+								</div>
+								<br/>
+								<h:commandButton id="newgroup" value="Νέα Ομάδα Χρηστών" action="#{userDBManagerBean.addUserGroup}"/>
+								<h:commandButton id="savegroups" value="Αποθήκευση" action="#{userDBManagerBean.saveUserGroups}"/>
+							</h:panelGroup>
+							
+							<h:panelGroup>
+								<div style="margin:0 auto; width:600px; height: 400px; overflow: auto;">
+								<h:dataTable id="usersstable" value="#{userDBManagerBean.currentGroup.users}" var="user" styleClass="data-table"  style="margin:0 auto; width:100%; overflow: scroll;" binding="#{userDBManagerBean.requests_dataTable}">
+									<f:facet name="header">
+										<h:outputText id="groupname" value="Χρήστες ομάδας '#{userDBManagerBean.currentGroup.groupname}'"/>
+									</f:facet>
+									<h:column>
+										<f:facet name="header"><h:selectBooleanCheckbox rendered="#{group.type == 'User'}" id="allselect" value="#{userDBManagerBean.allUsersInGroupCheckBox}" valueChangeListener="#{userDBManagerBean.selectAllUsersInGroup}" onchange="submit();"/></f:facet>
+										<h:selectBooleanCheckbox rendered="#{group.type == 'User'}" id="multiselect" value="#{userDBManagerBean.usersInGroupMultiSelect[user]}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText id="username" value="Όνομα Χρήστη"/></f:facet>
+										<h:outputText value="#{user.username}" />
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="firstname" value="Όνομα"/></f:facet>
+										<h:outputText value="#{user.firstName}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="lastname" value="Επώνυμο"/></f:facet>
+										<h:outputText value="#{user.lastName}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="ota" value="ΔΗΜΟΣ"/></f:facet>
+										<h:outputText value="#{user.municipality.name}"/>
+									</h:column>
+									<f:facet name="footer">
+										<h:outputText id="totals" value="#{userDBManagerBean.currentGroup_users_size} χρήστες"/>
+									</f:facet>
+								</h:dataTable>
+								</div>
+								<br/>
+							</h:panelGroup>
+						</h:panelGrid>
+						</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

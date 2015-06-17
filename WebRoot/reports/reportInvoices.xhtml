@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: reportInvoices.xhtml 1553 2011-12-18 10:13:33Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>ΠΑΡΑΣΤΑΤΙΚΑ ΑΝΑΔΟΧΩΝ</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+			<f:view>
+				<h:form>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<div id="content">
+					<center>
+					<h:messages style="color:red;"/><br/>
+
+					<h:outputText style="font-weight:bold;" value="ΥΠΟΕΡΓΟ #{otaBean.sec_l.given_id}: #{otaBean.sec_l.title}"/>
+					<br/>
+					<br/>
+					<h:panelGroup>
+					<h:outputText value="ΠΑΡΑΣΤΑΤΙΚΑ ΑΝΑΔΟΧΩΝ" style="font-weight:bold;"/>
+					<br/>
+					<h:dataTable value="#{otaBean.invoices_contractor}" var="invoiceItem" styleClass="data-table" style="border:1px solid; width:100%; text-align:center;" binding="#{otaBean.invoiceContractorListDataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ανάδοχος"/></f:facet>
+							<h:outputText value="#{invoiceItem.contractorName}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Τύπος Παραστατικού"/></f:facet>
+							<h:outputText value="#{invoiceItem.invoiceType.type}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Αρ. Παραστατικού"/></f:facet>
+							<h:outputText value="#{invoiceItem.invoiceNumber}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ημ/νια"/></f:facet>
+							<h:outputText value="#{invoiceItem.date_issue}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Καθαρό Ποσό"/></f:facet>
+							<h:outputText value="#{invoiceItem.net}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΦΠΑ"/></f:facet>
+							<h:outputText value="#{invoiceItem.vat}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Σύνολο"/></f:facet>
+							<h:outputText value="#{invoiceItem.total}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					</h:panelGroup>
+					<br/>
+					<br/>
+					
+					<h:panelGroup>
+					<h:outputText value="ΠΑΡΑΣΤΑΤΙΚΑ ΦΟΡΕΑ:  #{otaBean.sec_a.proposalVendor_name}" style="font-weight:bold;"/>
+					<br/>
+					<h:dataTable value="#{otaBean.invoices_vendor}" var="invoiceItem" styleClass="data-table" style="border:1px solid; width:100%; text-align:center;" binding="#{otaBean.invoiceVendorListDataTable}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="Τύπος Παραστατικού"/></f:facet>
+							<h:outputText value="#{invoiceItem.invoiceType.type}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ημ/νια"/></f:facet>
+							<h:outputText value="#{invoiceItem.date_payment}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="Ποσό"/></f:facet>
+							<h:outputText value="#{invoiceItem.amount}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΦΠΑ"/></f:facet>
+							<h:outputText value="#{invoiceItem.vat}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					</h:panelGroup>
+					</center>
+				</div>
+				</div>
+			</h:form>
+			</f:view>		
+		
+		</body>
+</html>

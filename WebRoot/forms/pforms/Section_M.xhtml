@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+			
+			table td {
+				border:1px solid #ccc;
+				margin:0;
+				padding:0;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+		
+			<f:view>
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+				
+				<br/><br/>
+				
+				<div id="content">
+					<h:outputText value="ΤΜΗΜΑ M (ΝΟΜΙΚΕΣ ΔΕΣΜΕΥΣΕΙΣ)"/>
+					
+					<h:messages style="color:red;"/>
+					
+					<h:panelGrid columns="1" style="text-align:center; margin:0 auto; width:100%;" styleClass="form-table">
+						
+						<h:panelGrid columns="4" style="margin:0 auto; width:100%;">
+							<h:outputText value="1. A/A Ν.Δ." style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_m.index}"/>
+						
+							<h:outputText value="2. ΕΙΔΟΣ Ν.Δ." style="font-weight:bold;"/>
+							<c:if test="#{(otaBean.sec_m.revision == 0) and (otaBean.sec_m.editable == true)}">
+								<h:outputText value="#{otaBean.sec_m.type}" />									
+							</c:if>
+							<c:if test="#{otaBean.sec_m.revision > 0 || otaBean.sec_m.editable == false}">
+								<h:outputText value="#{otaBean.sec_m.type}" />
+							</c:if>
+						</h:panelGrid>
+						
+						<h:outputText value="3. ΤΙΤΛΟΣ Ν.Δ." style="font-weight:bold;"/>
+						<c:if test="#{(otaBean.sec_m.revision == 0) and (otaBean.sec_m.editable == true)}">
+							<h:outputFormat value="#{otaBean.sec_m.title}" style="width:100%;" escape="false"/>
+						</c:if>
+						<c:if test="#{otaBean.sec_m.revision > 0 || otaBean.sec_m.editable == false}">
+							<h:outputText escape="false" value="#{otaBean.sec_m.title}" />
+						</c:if>
+						
+						<h:panelGrid columns="6" style="margin:0 auto; width:100%;">
+							<h:outputText value="4. ΗΜ/ΝΙΑ ΑΝΑΛΗΨΗΣ" style="font-weight:bold;"/>
+							<c:if test="#{(otaBean.sec_m.revision == 0) and (otaBean.sec_m.editable == true)}">
+								<h:panelGroup>
+									<h:outputText id="Ημερομηνια_Αναληψης" value="#{otaBean.sec_m.date_acceptance}" ></h:outputText>
+								</h:panelGroup>
+							</c:if>
+							<c:if test="#{otaBean.sec_m.revision > 0 || otaBean.sec_m.editable == false}">
+								<h:outputText value="#{otaBean.sec_m.date_acceptance}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							</c:if>
+
+							<h:outputText value="5. ΗΜ/ΝΙΑ ΛΗΞΗΣ" style="font-weight:bold;"/>
+							<h:panelGroup>
+							<c:if test="#{otaBean.sec_m.editable == true}">
+								<h:outputText id="Ημερομηνια_Ληξης" value="#{otaBean.sec_m.date_expiration}" ></h:outputText>
+								
+							</c:if>
+							<c:if test="#{otaBean.sec_m.editable == false}">
+								<h:outputText value="#{otaBean.sec_m.date_expiration}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							</c:if>
+							</h:panelGroup>
+					
+							<h:outputText value="6. ΣΥΝΟΛΙΚΟ ΠΟΣΟ Ν.Δ." style="font-weight:bold;"/>
+							<h:outputText id="amount" value="#{otaBean.sec_m.amount}"></h:outputText>
+						</h:panelGrid>
+
+						<h:panelGrid columns="4" style="margin:0 auto; width:100%;">
+							<h:outputText value="7. ΤΕΛΙΚΟΣ ΔΙΚΑΙΟΥΧΟΣ" style="font-weight:bold;"/>
+							<h:outputText escape="false" value="#{otaBean.sec_a.implementationVendor_name}" style="width:100%;"/>
+
+							<h:outputText value="8. ΚΩΔΙΚΟΣ" style="font-weight:bold;"/>
+							<h:outputText  value="#{otaBean.sec_m.codes}"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="6" style="margin:0 auto; width:100%;">
+							<h:outputText value="9. ΚΑΤΑΣΤΑΣΗ Ν.Δ." style="font-weight:bold;"/>
+							<c:if test="#{otaBean.sec_m.revision == 0}">
+								<h:outputText value="ΑΡΧΙΚΗ"/>
+							</c:if>
+							<c:if test="#{otaBean.sec_m.revision > 0}">
+								<h:outputText value="#{otaBean.sec_m.revision}η Τροποποίηση"/>
+							</c:if>
+					
+							<h:outputText value="10. ΗΜ/ΝΙΑ ΤΡΟΠΟΠΟΙΗΣΗΣ Ν.Δ." style="font-weight:bold;"/>
+							<c:if test="#{otaBean.sec_m.editable == true}">
+								<h:panelGroup>
+									<h:outputText id="Ημερομηνια_Τροποποιησης" value="#{otaBean.sec_m.date_edit}"></h:outputText>
+									
+								</h:panelGroup>
+							</c:if>
+							<c:if test="#{otaBean.sec_m.editable == false}">
+								<h:outputText value="#{otaBean.sec_m.date_edit}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							</c:if>
+											
+							<h:outputText value="11. ΑΙΤΙΟΛΟΓΙΑ ΤΡΟΠΟΠΟΙΗΣΗΣ ΤΗΣ Ν.Δ." style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_m.edit_comments}" style="width:100%;"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2" style="margin:0 auto; width:100%;">
+							<h:outputText style="width:40%;font-weight:bold;" value="Η Ν.Δ. ΑΦΟΡΑ ΕΝΩΣΗ; (ΔΩΣΤΕ ΤΙΤΛΟ ΕΝΩΣΗΣ)"/>
+							<h:selectBooleanCheckbox disabled="true" value="#{otaBean.sec_m.contractorsUnion}" onclick="toggleTextarea(this, 'Νομικη_Δεσμευση:unionTitle');"/>
+						</h:panelGrid>
+							
+						<h:panelGrid columns="1" style="margin:0 auto; width:100%;">
+							<h:outputText id="unionTitle" value="#{otaBean.sec_m.unionTitle}" style="width:100%;"/>
+						</h:panelGrid>
+					
+						<h:panelGroup>
+							<a id="ContractorListLabel" name="ContractorListLabel"><h:outputText value="ΑΝΑΔΟΧΟΙ" style="font-weight:bold;"/></a>
+						</h:panelGroup>
+					
+						<h:dataTable value="#{otaBean.nom_contractors}" var="contractorItem" styleClass="data-table" style="width:100%;margin:0 auto;" >
+							<h:column>
+								<h:outputText rendered="#{otaBean.tmp_dataTable.rowIndex == 0}" style="font-weight:bold;" value="ΚΥΡΙΟΣ ΑΝΑΔΟΧΟΣ"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΕΠΩΝΥΜΙΑ"/></f:facet>
+								<c:if test="#{otaBean.sec_m.editable == true}">
+									<h:outputText value="#{contractorItem.contractor.id}" />
+								</c:if>
+								<h:outputText rendered="#{otaBean.sec_m.editable == false}" value="#{contractorItem.contractor.name}"/>
+							
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="13. Α.Φ.Μ."/></f:facet>
+								<h:outputText value="#{contractorItem.contractor.VAT}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="14. ΠΛΗΡΗΣ ΕΠΩΝΥΜΙΑ"/></f:facet>
+								<h:outputText escape="false" value="#{contractorItem.contractor.fullName}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="15. ΔΙΕΥΘΥΝΣΗ"/></f:facet>
+								<h:outputText escape="false" value="#{contractorItem.contractor.address}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="16. ΠΟΛΗ"/></f:facet>
+								<h:outputText escape="false" value="#{contractorItem.contractor.city}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="17. Τ.Κ."/></f:facet>
+								<h:outputText value="#{contractorItem.contractor.postalCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="18. FAX"/></f:facet>
+								<h:outputText value="#{contractorItem.contractor.fax}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="19. EMAIL"/></f:facet>
+								<h:outputText value="#{contractorItem.contractor.email}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="20. Δ.Ο.Υ,"/></f:facet>
+								<h:outputText value="#{contractorItem.contractor.DOY}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								
+							</h:column>
+						</h:dataTable>
+						
+						<h:panelGrid columns="4" style="margin:0 auto; width:100%;">
+							<h:outputText style="width:40%;font-weight:bold;" value="30. Η ΠΑΡΟΥΣΑ Ν.Δ. ΑΠΟΤΕΛΕΙ ΣΥΜΠΛΗΡΩΜΑΤΙΚΗ ΣΥΜΒΑΣΗ ΑΛΛΗΣ Ν.Δ.; (ΕΑΝ ΝΑΙ, ΝΑ ΠΕΡΙΓΡΑΦΕΙ ΠΑΡΑΚΑΤΩ Η ΑΡΧΙΚΗ Ν.Δ.)"/>
+							<h:selectBooleanCheckbox disabled="true" value="#{otaBean.sec_m.extention}"/>
+							
+							<h:outputText style="font-weight:bold;" value="31. Α/Α Ν.Δ."/>
+							<h:outputText value="#{otaBean.sec_m.extentionDetails}" style="width:100%;"/>
+						</h:panelGrid>
+						
+						<h:panelGroup>
+							<a id="SubProjectsListLabel" name="SubProjectsListLabel"><h:outputText value="ΥΠΟΕΡΓΑ ΠΟΥ ΜΕΤΕΧΟΥΝ ΣΤΗΝ ΝΟΜΙΚΗ ΔΕΣΜΕΥΣΗ" style="font-weight:bold;"/></a>
+						</h:panelGroup>
+					
+						<h:dataTable id="subprojectstable" value="#{otaBean.sec_m.subprojects}" var="subItem" styleClass="data-table" style="margin:0 auto; width:100%;" >
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ"/></f:facet>
+								<h:outputText escape="false" value="#{subItem.subProject.title}" />
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="ΣΥΝΟΛΑ"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΣΥΝΟΛΙΚΟ ΠΟΣΟ Υ/Ε"/></f:facet>
+								<h:outputText id="budget" value="#{subItem.amount}"></h:outputText>
+								<f:facet name="footer"><h:outputText value=""/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΕΠΙΛΕΞΙΜΟ ΠΟΣΟ Υ/Ε"/></f:facet>
+								<h:outputText id="selectable" value="#{subItem.selectableAmount}" ></h:outputText>
+								<f:facet name="footer"><h:outputText value=""/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΔΗΜΟΣΙΑ ΔΑΠΑΝΗ"/></f:facet>
+								<h:outputText id="public"  value="#{subItem.budgetPublic}"></h:outputText>
+								<f:facet name="footer"><h:outputText value=""/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΙΔΙΩΤΙΚΗ ΣΥΜΜΕΤΟΧΗ"/></f:facet>
+								<h:outputText id="private" value="#{subItem.budgetPrivate}"></h:outputText>
+								<f:facet name="footer"><h:outputText value=""/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:selectBooleanCheckbox disabled="true" value="#{otaBean.selectedNomSubProjects[subItem]}" />
+							</h:column>
+						</h:dataTable>
+						<br/>
+										
+						<h:outputText value="44. ΣΧΟΛΙΑ" style="font-weight:bold;"/>
+						
+						<c:if test="#{(otaBean.sec_m.revision == 0) and (otaBean.sec_m.editable == true)}">
+							<h:outputFormat value="#{otaBean.sec_m.comments}" style="width:100%"/>
+						</c:if>
+						<c:if test="#{otaBean.sec_m.revision > 0 || otaBean.sec_m.editable == false}">
+							<h:outputText escape="false" value="#{otaBean.sec_m.comments}"/>
+						</c:if>
+					
+					</h:panelGrid>
+					</div>
+				</div>
+			</f:view>					
+</body>
+</html>

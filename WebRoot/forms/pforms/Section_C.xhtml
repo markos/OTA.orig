@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+				<h:panelGrid columns="1"  cellspacing="0" cellpadding="5" style="text-align:center; margin:0 auto; width:100%;">
+					<h:panelGrid columns="2" styleClass="form-table" style="width:100%;">
+						<h:outputText value="80. ΤΟ ΕΡΓΟ ΠΡΟΤΕΙΝΕΤΑΙ ΓΙΑ ΠΡΩΤΗ ΦΟΡΑ"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_firstTime}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_firstTime}" />
+						
+						<h:outputText value="81. ΤΟ ΕΡΓΟ ΠΡΟΤΕΙΝΕΤΑΙ ΑΠΟΚΛΕΙΣΤΙΚΑ ΣΤΟ ΠΑΡΟΝ ΠΡΟΓΡΑΜΜΑ"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_onlyInCurrentProgram}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_onlyInCurrentProgram}" />
+
+						<h:outputText value="82. ΑΡΧΙΚΗ ΠΡΟΕΛΕΥΣΗ ΠΡΟΤΑΣΗΣ"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_proposalOrigin}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_proposalOrigin}" />
+						
+						<h:outputText value="83. ΕΧΕΙ ΓΙΝΕΙ ΣΥΖΗΤΗΣΗ ΓΙΑ ΤΟ ΠΑΡΟΝ ΕΡΓΟ ΣΤΟ ΑΡΜΟΔΙΟ ΣΥΛΛΟΓΙΚΟ ΟΡΓΑΝΟ"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_hasBeenDiscussed}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_hasBeenDiscussed}" />
+
+						<h:outputText value="84. ΕΧΕΙ ΓΙΝΕΙ ΔΙΑΛΟΓΟΣ ΜΕ ΧΡΗΣΤΕΣ / ΕΥΡΥΤΕΡΑ ΩΦΕΛΟΥΜΕΝΟ ΠΛΗΘΥΣΜΟ"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_hasBeenDIscussedWithPopulation}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_hasBeenDIscussedWithPopulation}" />
+					</h:panelGrid>
+					
+					<h:outputText value="85. ΣΧΟΛΙΑ - ΠΑΡΑΤΗΡΗΣΕΙΣ"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_comments}" style="width:100%;" />
+					
+					<center>
+					<h:panelGrid columns="2" styleClass="form-table">
+						<h:outputText value="86. ΤΟ ΠΡΟΤΕΙΝΟΜΕΝΟ Ε/Ε ΑΠΟΤΕΛΕΙ ΣΥΜΠΛΗΡΩΣΗ Η ΕΠΕΚΤΑΣΗ ΑΛΛΟΥ"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_isExtensionOfOther}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_isExtensionOfOther}" />
+					</h:panelGrid>
+					</center>
+					
+					<h:panelGrid columns="1" style="text-align:center; width:100%;">
+						<h:outputText value="87. ΤΙΤΛΟΣ Ε/Ε"/>				
+						<h:outputFormat escape="false" value="#{otaBean.sec_c.projectOther_title}" style="width:100%;" />
+					
+						<h:panelGrid columns="2" styleClass="form-table" style="width:100%;">
+							<h:outputText value="88. ΕΠΙΧΕΙΡΗΣΙΑΚΟ ΠΡΟΓΡΑΜΜΑ"/>
+							<h:outputText value="#{otaBean.sec_c.projectOther_programme}"/>
+						</h:panelGrid>
+					
+						<h:panelGrid columns="4" styleClass="form-table" style="width:100%;">
+							<h:outputText value="89. ΚΩΔ. ΣΥΛΛΟΓΙΚΗΣ ΑΠΟΦΑΣΗΣ"/>
+							<h:outputText value="#{otaBean.sec_c.projectOther_decisionCode}" style="width:100%;"/>
+							<h:outputText value="90. ΚΩΔ. ΕΡΓΟΥ ΣΤΗ Σ.Α."/>
+							<h:outputText value="#{otaBean.sec_c.projectOther_codeInSA}" style="width:100%;"/>
+						</h:panelGrid>
+							
+						<h:panelGrid columns="2" styleClass="form-table" style="width:100%;">
+							<h:outputText value="91. ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ (ΤΕΛΙΚΟΣ ΔΙΚΑΙΟΥΧΟΣ)"/>
+							<h:outputText value="#{otaBean.sec_c.projectOther_implementationVendor}" style="width:500px;" />
+						</h:panelGrid>
+				
+						<center>
+						<h:outputText value="92. ΣΥΝΟΠΤΙΚΗ ΑΝΑΦΟΡΑ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΠΟΥ ΥΛΟΠΟΙΗΘΗΚΕ Η ΥΛΟΠΟΙΕΙΤΑΙ"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_c.projectOther_briefPhysicalDescription}" style="width:100%;" />
+						</center>
+				
+						<h:panelGrid columns="2" styleClass="form-table">
+							<h:outputText value="93. ΚΟΣΤΟΣ ΕΡΓΟΥ (€)"/>
+							<h:outputText value="#{otaBean.sec_c.projectOther_cost}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:panelGrid>
+					</h:panelGrid>
+
+					<h:outputLabel value="ΣΥΝΑΦΕΙΑ ΤΟΥ ΕΡΓΟΥ ΜΕ ΤΗΝ ΕΥΡΩΠΑΪΚΗ ΣΤΡΑΤΗΓΙΚΗ ΓΙΑ ΤΗΝ ΑΠΑΣΧΟΛΗΣΗ ΚΑΙ ΤΟ ΕΣΔΑ" style="font-weight:bold;"/>
+					<h:panelGrid columns="2" styleClass="form-table" style="width:100%;">
+						<h:outputText value="94. ΠΕΔΙΟ ΠΟΛΙΤΙΚΗΣ ΤΟΥ ΕΚΤ"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_field_policyOfEKT}" style="width:100%;" />
+					
+						<h:outputText value="95. ΠΥΛΩΝΑΣ ΣΤΡΑΤΗΓΙΚΗΣ ΓΙΑ ΤΗΝ ΑΠΑΣΧΟΛΗΣΗ"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_strategyPylon}" style="width:100%;" />
+			
+						<h:outputText value="96. ΚΑΤΕΥΘΥΝΤΗΡΙΑ ΓΡΑΜΜΗ"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_directingLine}" style="width:100%;" />
+					
+						<h:outputText value="97. ΚΟΣΤΟΣ ΕΡΓΟΥ ΑΝΑ ΚΑΤΕΥΘΥΝΤΗΡΙΑ ΓΡΑΜΜΗ"/>
+						<h:outputText id="budgetperline" value="#{otaBean.sec_c.projectProposed_directingLine_cost}" style="width:100%;"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+										
+						<h:outputText value="98. ΕΙΝΑΙ ΤΟ ΦΥΣΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ ΤΟΥ ΕΡΓΟΥ ΛΕΙΤΟΥΡΓΙΚΟ;"/>
+						<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_c.projectProposed_PhysicalObjectFunctional}" />
+						<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_c.projectProposed_PhysicalObjectFunctional}" />
+					</h:panelGrid>
+					
+					<h:outputText value="99. ΑΙΤΙΟΛΟΓΙΑ / ΠΕΡΙΓΡΑΦΗ ΕΞΑΣΦΑΛΙΣΗΣ ΤΟΥ ΕΡΓΟΥ (ΣΕ ΠΕΡΙΠΤΩΣΗ ΠΟΥ Η ΠΑΡΑΠΑΝΩ ΑΠΑΝΤΗΣΗ ΕΙΝΑΙ ΝΑΙ/ΟΧΙ ΑΝΤΙΣΤΟΙΧΑ)"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_PhysicalObjectFunctional_comment}" style="width:100%;" />
+					
+					<h:outputText value="100. ΣΚΟΠΙΜΟΤΗΤΑ ΕΡΓΟΥ - ΑΝΑΜΕΝΟΜΕΝΑ ΑΠΟΤΕΛΕΣΜΑΤΑ - ΩΦΕΛΟΥΜΕΝΟΙ"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_goal}" style="width:100%;" />
+					
+					<h:outputText value="101. ΑΝΑΦΟΡΑ ΕΠΙ ΤΩΝ ΛΟΙΠΩΝ ΕΜΜΕΣΑ ΩΦΕΛΟΥΜΕΝΩΝ ΑΠΟ ΤΗΝ ΥΛΟΠΟΙΗΣΗ ΤΟΥ ΕΡΓΟΥ"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_otherImplementationBenefits}" style="width:100%;" />
+					
+					<h:outputText value="102. ΣΥΝΕΡΓΕΙΑ ΚΑΙ ΣΥΜΠΛΗΡΩΜΑΤΙΚΟΤΗΤΑ ΜΕ ΑΛΛΑ ΕΡΓΑ ΠΟΥ ΥΦΙΣΤΑΤΑΙ"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_cooperationWithOtherExistingProjects}" style="width:100%;" />
+					
+					<h:outputText value="103. ΣΥΝΕΡΓΕΙΑ ΚΑΙ ΣΥΜΠΛΗΡΩΜΑΤΙΚΟΤΗΤΑ ΜΕ ΑΛΛΑ ΕΡΓΑ ΠΟΥ ΠΡΟΤΕΙΝΟΝΤΑΙ"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_c.projectProposed_cooperationWithOtherProposedProjects}" style="width:100%;" />										
+				</h:panelGrid>
+		</center>
+	</body>
+</html>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: viewPoll.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Ερωτηματολόγια"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Ερωτηματολογίων</ui:define>
+		<ui:define name="breadcrump">
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Ερωτηματολογιο">
+				
+				<h:inputHidden id="pollid" value="#{pollBean.pollfromURL}" />
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<div id="content">
+						<center>
+						<h:messages style="color:red;"/><br/>
+						
+						<h:outputText value="ΕΡΩΤΗΜΑΤΟΛΟΓΙO: #{pollBean.currentPoll.name}"/>
+						<br/>
+						<h:outputText style="font-weight: bold;" value="Έναρξη: "/>
+						<h:outputText style="font-weight: bold;" value="#{pollBean.currentPoll.date_start}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						<h:outputText style="font-weight: bold;" value=", Λήξη: "/>
+						<h:outputText style="font-weight: bold;" value="#{pollBean.currentPoll.date_end}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						<br/>
+						<c:if test="#{pollBean.currentPoll.active == true}">
+							<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:70%">
+								<h:panelGroup style="margin:0 auto; width:100%;">
+									<c:forEach items="#{pollBean.currentPoll.questions}" var="question">
+										<h:outputText value="#{question.index+1}. #{question.question}" /><br/>
+										<br/>
+										<center>
+										<h:selectManyCheckbox value="#{pollBean.results[question]}" rendered="#{question.operatorOR == true}">
+											<f:selectItems value="#{question.choicesAsSelectItems}"/>
+										</h:selectManyCheckbox>
+										<h:selectOneRadio id="Ερωτηση_#{question.index}" required="true" value="#{pollBean.results[question]}" rendered="#{question.operatorXOR == true}">
+											<f:selectItems value="#{question.choicesAsSelectItems}"/>
+										</h:selectOneRadio>
+										<hr style="width:50%;" />
+										</center>
+									</c:forEach>
+								</h:panelGroup>
+							</h:panelGrid>
+							<br/>
+							<h:commandButton value="Αποστολή" action="#{pollBean.submitPoll}"/>
+						</c:if>
+						<c:if test="#{pollBean.currentPoll.active == false}">
+							<h:outputText value="Το ερωτηματολόγιο δεν είναι πλέον ενεργό." /><br/>
+						</c:if>
+						</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

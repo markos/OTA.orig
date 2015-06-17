@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+					<h:panelGroup style="text-align:center; margin:0 auto; width:100%;">
+						<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+							<tr>
+								<th><h:outputText value="Α/Α"/></th>
+								<th><h:outputText value="ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ"/></th>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<th><h:outputText value="#{year}" style="font-weight:bold;"/></th>
+								</c:forEach>
+								<th><h:outputText value="ΑΡΧΗ"/></th>
+								<th><h:outputText value="ΤΕΛΟΣ"/></th>
+								<th><h:outputText value="ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ"/></th>
+							</tr>
+							<c:forEach var="prj" items="#{otaBean.subProjects}">
+							<tr>
+								<td><h:outputText value="#{prj.given_id}"/></td>
+								<td><h:outputText value="#{prj.title}" style="font-weight:bold;font-size: 85%;"/></td>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<td style="width:50px;">
+										<c:forEach var="quarter" items="#{otaBean.quarters}">
+											<h:graphicImage rendered="#{prj.yearQuarterMatrix[year][quarter] == true}" url="/images/blackbox12x14.png"/>
+											<h:graphicImage rendered="#{prj.yearQuarterMatrix[year][quarter] == false}" url="/images/whitebox12x14.png" />
+										</c:forEach>
+									</td>
+								</c:forEach>
+								<td><h:outputText value="#{prj.date_start}" style="font-weight:bold;font-size: 90%;"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+								<td><h:outputText value="#{prj.date_end}" style="font-weight:bold;font-size: 90%;"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+								<td />
+							</tr>
+							<tr>
+								<td />
+								<td><h:outputText value="ΕΤΗΣΙΟ ΧΡΗΜΑΤΟΔΟΤΙΚΟ ΣΧΗΜΑ ΥΠΟΕΡΓΟΥ #{prj.given_id}" style="font-size: 85%;"/></td>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<td style="width:50px;">
+										<h:outputText rendered="#{prj.yearMatrix[year] == true}" value="#{prj.yearBudgetMatrix[year]}" style="font-size: 85%;" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									</td>
+								</c:forEach>
+								<td />
+								<td />
+								<td><h:outputText value="#{prj.budget}" style="font-weight:bold;font-size: 90%;"><f:converter converterId="bigDecimalConverter"/></h:outputText></td>
+							</tr>
+							</c:forEach>
+							<tr>
+								<th colspan="2"><h:outputText value="Σύνολα"/></th>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<th style="width:50px;">
+										<h:outputText value="#{otaBean.yearBudgetMatrix[year]}" style="font-size: 85%;"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									</th>
+								</c:forEach>
+								<th colspan="2" />
+								<th><h:outputText style="font-weight:bold;" value="#{otaBean.sectionST_totalBudget}"><f:convertNumber type="number" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/></h:outputText></th>
+							</tr>
+						</table>
+					</h:panelGroup>
+		</center>
+	</body>
+</html>

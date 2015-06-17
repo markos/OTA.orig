@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+				<h:panelGrid columns="1" style="margin:0 auto; text-align:center;">
+
+					<h:panelGrid columns="1" style="margin:0 auto;">
+						<h:outputText value="120. ΦΑΣΗ ΕΡΓΟΥ (19)" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.revision}η ΦΑΣΗ ΥΠΟΒΟΛΗΣ ΤΔΕ"/>
+					</h:panelGrid><br />
+					
+					<h:outputText value="121. ΠΑΡΑΤΗΡΗΣΕΙΣ (20)" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_e.notes}" style="width:100%;" />
+					
+					<h:outputText value="122. ΑΔΕΙΕΣ – ΕΓΚΡΙΣΕΙΣ ΓΙΑ ΤΟ ΣΥΝΟΛΟ ΤΟΥ ΕΡΓΟΥ" style="font-weight:bold;"/>
+					
+					<h:dataTable id="permsTable" value="#{otaBean.permissions}" var="permissionItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable6}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΔΕΙΑ/ΕΓΚΡΙΣΗ" /></f:facet>
+							<h:outputText value="#{permissionItem.type}" style="width:360px;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="123. ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ/ΑΠΑΙΤΕΙΤΑΙ"/></f:facet>
+							<h:outputText value="#{permissionItem.required}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="124. ΗΜ/ΝΙΑ ΥΠΟΒΟΛΗΣ"/></f:facet>
+							<h:outputText value="#{permissionItem.submitted}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="125. ΠΡΟΒΛΕΠΟΜΕΝΗ ΗΜ/ΝΙΑ ΕΓΚΡΙΣΗΣ"/></f:facet>
+							<h:outputText value="#{permissionItem.anticipatedAcceptance}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="126. ΠΡΑΓΜΑΤΙΚΗ ΗΜ/ΝΙΑ ΕΓΚΡΙΣΗΣ"/></f:facet>
+							<h:outputText value="#{permissionItem.actualAcceptance}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+										
+					<h:outputText value="127. ΠΑΡΑΤΗΡΗΣΕΙΣ – ΣΧΟΛΙΑ" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_e.permissionsComments}" style="width:100%;" />
+					
+					<br/><br/>
+					<h:outputText escape="false" value="ΕΞΕΛΙΞΗ ΜΕΛΕΤΩΝ ΤΟΥ ΕΡΓΟΥ" style="font-weight:bold;"/>
+					<br/>
+					
+					<h:dataTable id="analysisTable" value="#{otaBean.analysis}" var="analysisItem" styleClass="data-table" style="margin:0 auto;" binding="#{otaBean.tmp_dataTable7}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="128. ΕΙΔΟΣ ΜΕΛΕΤΗΣ"/></f:facet>
+							<h:outputText value="#{analysisItem.type}" style="width:250px;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value=""/></f:facet>
+							<h:outputText value="#{analysisItem.required}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΑΤΑΣΤΑΣΗ"/></f:facet>
+							<h:outputText value="#{analysisItem.status}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΟΒΛΕΠΟΜΕΝΗ Ή ΠΡΑΓΜΑΤΙΚΗ ΗΜΕΡΟΜΗΝΙΑ ΛΗΞΗΣ (ΥΠΟΒΟΛΗΣ ΣΤΟΝ ΑΡΜΟΔΙΟ ΦΟΡΕΑ)"/></f:facet>
+							<h:outputText value="#{analysisItem.expiration}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΣΤΟΙΧΕΙΑ ΕΓΚΡΙΣΗΣ (αρ. αποφ. / πρακτικο ΣΕ ΠΕΡΙΠΤΩΣΗ ΠΟΥ ΕΧΕΙ ΠΑΡΑΛΗΦΘΕΊ)"/></f:facet>
+							<h:outputFormat escape="false" value="#{analysisItem.comments}" />
+						</h:column>
+					</h:dataTable>
+					
+					<br/><br/>
+					<h:outputText escape="false" value="ΠΙΣΤΟΠΟΙΗΜΕΝΕΣ / ΘΕΣΜΟΘΕΤΗΜΕΝΕΣ ΔΟΜΕΣ ΚΑΤΑΡΤΙΣΗΣ Ή ΠΑΡΟΧΗΣ ΥΠΗΡΕΣΙΩΝ ΣΥΜΒΟΥΛΕΥΤΙΚΗΣ – ΥΠΟΣΤΗΡΙΞΗΣ – ΠΛΗΡΟΦΟΡΗΣΗΣ" style="font-weight:bold;"/>
+					<br/>
+					
+					<h:dataTable id="katartisisTable" value="#{otaBean.katartisis}" var="katartisisItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable8}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="131. ΠΕΡΙΓΡΑΦΗ"/></f:facet>
+							<h:outputFormat escape="false" value="#{katartisisItem.type}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value=""/></f:facet>
+							<h:outputText value="#{katartisisItem.required}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΑΤΑΣΤΑΣΗ"/></f:facet>
+							<h:outputText value="#{katartisisItem.status}"/>
+						</h:column>
+					</h:dataTable>
+					
+					<br/><br/>
+					<h:outputText value="134. ΣΧΟΛΙΑ - ΠΑΡΑΤΗΡΗΣΕΙΣ" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_e.certificationComments}" style="width:100%;" />
+					<br/>
+					
+					<h:panelGrid columns="4" style="width:100%;">
+						<h:outputText value="135. ΦΟΡΕΑΣ ΠΙΣΤΟΠΟΙΗΣΗΣ" style="font-weight:bold;"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_e.certificationVendor}" style="width:50%;" />
+						<h:outputText value="136. ΚΩΔΙΚΟΣ*" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_e.certificationVendorCode}" />
+					</h:panelGrid>
+					
+					<br/><br/>
+					<h:outputText escape="false" value="ΔΙΟΙΚΗΤΙΚΕΣ Η ΑΛΛΕΣ ΕΝΕΡΓΕΙΕΣ ΠΟΥ ΠΡΕΠΕΙ ΝΑ ΓΙΝΟΥΝ ΑΠΟ ΤΟ ΦΟΡΕΑ ΥΛΟΠΟΙΗΣΗΣ" style="font-weight:bold;"/>
+					<br/>
+					
+					<h:dataTable id="vendorTasksTable" value="#{otaBean.vendorTasks}" var="vendorTaskItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable9}">					
+						<h:column>
+							<f:facet name="header"><h:outputText value="137. ΠΕΡΙΓΡΑΦΗ"/></f:facet>
+							<h:outputFormat escape="false" value="#{vendorTaskItem.description}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="138. ΑΡΧΗ"/></f:facet>
+							<h:outputText value="#{vendorTaskItem.startDate}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="139. ΤΕΛΟΣ"/></f:facet>
+							<h:outputText value="#{vendorTaskItem.endDate}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					
+					<br/><br/>
+					<h:outputText escape="false" value="ΔΙΟΙΚΗΤΙΚΕΣ Η ΑΛΛΕΣ ΕΝΕΡΓΕΙΕΣ ΠΟΥ ΠΡΕΠΕΙ ΝΑ ΓΙΝΟΥΝ ΑΠΟ ΤΡΙΤΟΥΣ" style="font-weight:bold;"/>
+					<br/>
+					
+					<h:dataTable id="tasksTable" value="#{otaBean.tasks}" var="taskItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable10}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="140. ΠΕΡΙΓΡΑΦΗ"/></f:facet>
+							<h:outputFormat escape="false" value="#{taskItem.description}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="141. ΦΟΡΕΑΣ"/></f:facet>
+							<h:outputFormat escape="false" value="#{taskItem.vendor}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="142. ΚΩΔ.*"/></f:facet>
+							<h:outputText value="#{taskItem.code}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="143. ΑΡΧΗ"/></f:facet>
+							<h:outputText value="#{taskItem.startDate}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="144. ΤΕΛΟΣ"/></f:facet>
+							<h:outputText value="#{taskItem.endDate}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+				</h:panelGrid>
+		</center>
+	</body>
+</html>

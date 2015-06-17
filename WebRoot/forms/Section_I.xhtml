@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_I.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"/>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"/>
+			<script language="javascript" src="#{basePath}/misc/sprintf.js"></script>
+			<script language="javascript" src="#{basePath}/misc/formatters.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "specific_textareas",
+					editor_deselector : "plain_editor",
+        			theme : "simple",
+ 				});
+			</script>
+			<script>
+				window.addEvent('domready', function() {
+					var label = "#{otaBean.label}";
+					if (label != "" ) { 
+						window.location.hash = label;
+					}
+					
+					$$('.currency').addEvent( 'blur', function() {
+						var amount = parseFloat(this.get('value').replace(".","").replace(",",".") );					
+						this.set( 'value', formatMoney(amount) );
+					});
+				});
+			</script>
+			
+			<script language="javascript">
+				function calculate1() {
+					c1_1 = $('Τμημα_Ι:c1_1').getProperty('value');
+					c1_2 = $('Τμημα_Ι:c1_2').getProperty('value');
+					c1_3 = $('Τμημα_Ι:c1_3').getProperty('value');
+					c1_4 = $('Τμημα_Ι:c1_4').getProperty('value');
+					c1_5 = $('Τμημα_Ι:c1_5').getProperty('value');
+					
+					total = parseInt(c1_1) + parseInt(c1_2) + parseInt(c1_3) + parseInt(c1_4) + parseInt(c1_5);
+				
+					$('Τμημα_Ι:pastVendorActivitiesTotalQty').set('html', total );
+				}
+				
+				function calculate2() {
+					c1_1 = $('Τμημα_Ι:c2_1').getProperty('value').replace(".","").replace(",",".");
+					c1_2 = $('Τμημα_Ι:c2_2').getProperty('value').replace(".","").replace(",",".");
+					c1_3 = $('Τμημα_Ι:c2_3').getProperty('value').replace(".","").replace(",",".");
+					c1_4 = $('Τμημα_Ι:c2_4').getProperty('value').replace(".","").replace(",",".");
+					c1_5 = $('Τμημα_Ι:c2_5').getProperty('value').replace(".","").replace(",",".");
+					
+					total = parseFloat(c1_1) + parseFloat(c1_2) + parseFloat(c1_3) + parseFloat(c1_4) + parseFloat(c1_5);
+				
+					$('Τμημα_Ι:pastVendorActivitiesTotalBudget').set('html', formatMoney(total.toFixed(2))+' €' );
+				}
+				
+				function calculate3() {
+					c1_1 = $('Τμημα_Ι:c3_1').getProperty('value');
+					c1_2 = $('Τμημα_Ι:c3_2').getProperty('value');
+					c1_3 = $('Τμημα_Ι:c3_3').getProperty('value');
+					c1_4 = $('Τμημα_Ι:c3_4').getProperty('value');
+					c1_5 = $('Τμημα_Ι:c3_5').getProperty('value');
+					
+					total = parseInt(c1_1) + parseInt(c1_2) + parseInt(c1_3) + parseInt(c1_4) + parseInt(c1_5);
+				
+					$('Τμημα_Ι:currentVendorActivitiesTotalQty').set('html', total );
+				}
+				
+				function calculate4() {
+					c1_1 = $('Τμημα_Ι:c4_1').getProperty('value').replace(".","").replace(",",".");
+					c1_2 = $('Τμημα_Ι:c4_2').getProperty('value').replace(".","").replace(",",".");
+					c1_3 = $('Τμημα_Ι:c4_3').getProperty('value').replace(".","").replace(",",".");
+					c1_4 = $('Τμημα_Ι:c4_4').getProperty('value').replace(".","").replace(",",".");
+					c1_5 = $('Τμημα_Ι:c4_5').getProperty('value').replace(".","").replace(",",".");
+					
+					total = parseFloat(c1_1) + parseFloat(c1_2) + parseFloat(c1_3) + parseFloat(c1_4) + parseFloat(c1_5);
+				
+					$('Τμημα_Ι:currentVendorActivitiesTotalBudget').set('html', formatMoney(total.toFixed(2))+' €' );
+				}
+				
+				function copyFromTDE() {
+					$('Τμημα_Ι:rep_firstName').set('value', '#{otaBean.sec_a.implementationVendor_representative_firstName}');
+					$('Τμημα_Ι:rep_lastName').set('value', '#{otaBean.sec_a.implementationVendor_representative_lastName}');
+					$('Τμημα_Ι:rep_position').set('value', '#{otaBean.sec_a.implementationVendor_representative_position}');
+					$('Τμημα_Ι:rep_address').set('value', '#{otaBean.sec_a.implementationVendor_representative_address}');
+					$('Τμημα_Ι:rep_city').set('value', '#{otaBean.sec_a.implementationVendor_representative_city}');
+					$('Τμημα_Ι:rep_postcode').set('value', '#{otaBean.sec_a.implementationVendor_representative_postalCode}');
+					$('Τμημα_Ι:rep_telephone').set('value', '#{otaBean.sec_a.implementationVendor_representative_telephone}');
+					$('Τμημα_Ι:rep_fax').set('value', '#{otaBean.sec_a.implementationVendor_representative_fax}');
+					$('Τμημα_Ι:rep_email').set('value', '#{otaBean.sec_a.implementationVendor_representative_email}');
+				}
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Τμημα_Ι">
+			
+				<div id="login-form" style="width:950px; padding-top:20px;">
+
+				<center>
+					<h:commandButton action="#{otaBean.saveSectionI}" value="Αποθήκευση"/>
+				</center>
+				<br/><br/>
+				
+				<div id="tabbed">
+					<ul>
+						<li><h:commandLink action="#{otaBean.goToSectionA}">Τμήμα Α</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionB}">Τμήμα B</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionC}">Τμήμα Γ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionD}">Τμήμα Δ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionE}">Τμήμα Ε</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionH}">Τμήμα Η</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionTh}">Τμήμα Θ</h:commandLink></li>
+						<li id="selected"><a href="#">Τμήμα Ι</a></li>
+						<li><h:commandLink action="#{otaBean.goToSectionK}">Τμήμα Κ</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+
+					<h:outputText value="ΤΜΗΜΑ Ι (ΑΠΟΓΡΑΦΙΚΟ ΔΕΛΤΙΟ ΦΟΡΕΑ ΥΛΟΠΟΙΗΣΗΣ (ΓΙΑ ΤΔΕ ΕΚΤ)"/>
+					
+					<h:messages style="color:red;"/>
+					
+					<h:panelGrid columns="1" style="text-align:center; margin:0 auto;" cellpadding="10">					
+
+					<h:panelGroup>
+						<h:outputLabel value="ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ:" style="font-weight:bold;"/>
+						<h:selectOneMenu value="#{otaBean.sec_i.implementationVendor_id}" style="width:500px;" valueChangeListener="#{otaBean.sectionI_changeImplementationVendor}" onchange="submit()">
+							<f:selectItems value="#{otaBean.defaultVendorsSelectItemsList}"/>
+						</h:selectOneMenu>
+					</h:panelGroup>
+					
+					<h:panelGroup>
+					<table width="100%" style="border:1px solid #cccccc;" cellpadding="3">
+						<tr>
+							<th colspan="10" align="center">
+								<h:outputLabel value="ΝΟΜΙΜΟΣ ΕΚΠΡΟΣΩΠΟΣ ΤΟΥ ΦΟΡΕΑ (ΣΥΝΤΑΚΤΗΣ)" style="font-weight:bold;"/>
+								<h:outputText value=" - "/><a href="#copy_tde" id="copy_tde" style="padding-left:10px;" onclick="copyFromTDE();">Αντιγραφή από Τμήμα Α</a>
+							</th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="2"><h:inputText id="rep_firstName" value="#{otaBean.sec_i.legalRepresentativeFirstName}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="3"><h:inputText id="rep_lastName" value="#{otaBean.sec_i.legalRepresentativeLastName}" style="width:100%;"/></td>
+							<th colspan="2" rowspan="2"><h:outputText value="ΥΠΟΓΡΑΦΗ"/></th>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:inputText id="rep_position" value="#{otaBean.sec_i.legalRepresentativeTitle}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:inputTextarea styleClass="plain_editor" id="rep_address" value="#{otaBean.sec_i.legalRepresentativeAddress}" cols="60" rows="2"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:inputText id="rep_city" value="#{otaBean.sec_i.legalRepresentativeCity}" size="12"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:inputText id="rep_postcode" value="#{otaBean.sec_i.legalRepresentativePostCode}" size="12">
+												<f:validator validatorId="postalCodeValidator" />
+											</h:inputText></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:inputText id="rep_telephone" value="#{otaBean.sec_i.legalRepresentativePhone}" size="12"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:inputText id="rep_fax" value="#{otaBean.sec_i.legalRepresentativeFax}" size="12"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:inputText id="rep_email" value="#{otaBean.sec_i.legalRepresentativeEmail}" style="width:100%;"/></td>
+						</tr>
+					</table>
+					</h:panelGroup>
+					
+					<h:outputLabel value="ΜΕΛΕΤΕΣ-ΕΡΓΑ-ΠΡΟΜΗΘΕΙΕΣ-ΚΛΠ ΠΟΥ ΟΛΟΚΛΗΡΩΘΗΚΑΝ ΚΑΤΑ ΤΗΝ ΤΕΛΕΥΤΑΙΑ ΠΕΝΤΑΕΤΙΑ, ΣΥΓΧΡΗΜΑΤΟΔΟΤΟΥΜΕΝΑ ΑΠΟ ΔΙΑΡΘΡΩΤΙΚΑ ΤΑΜΕΙΑ ΚΑΙ ΓΙΑ ΤΑ ΟΠΟΙΑ ΕΙΧΕ ΟΡΙΣΤΕΙ ΩΣ ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ (ΤΕΛΙΚΟΣ ΔΙΚΑΙΟΥΧΟΣ)" style="font-weight:bold;"/>
+				
+					<h:panelGrid columns="7" style="margin:0 auto; width:100%;">
+						<h:outputText value=""/>
+						<h:outputText value="ΚΑΤΑΡΤΙΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΠΑΣΧΟΛΗΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΜΒΟΥΛΕΥΤΙΚΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΕΚΠΑΙΔΕΥΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΛΛΕΣ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΛΗΘΟΣ" style="text-align:right;"/>
+						<h:inputText id="c1_1" value="#{otaBean.sec_i.pastVendorActivitiesKatartisisQty}" size="10" styleClass="currency" onchange="calculate1();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c1_2" value="#{otaBean.sec_i.pastVendorActivitiesEmploymentQty}" size="10" styleClass="currency" onchange="calculate1();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c1_3" value="#{otaBean.sec_i.pastVendorActivitiesConsultingQty}" size="10" styleClass="currency" onchange="calculate1();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c1_4" value="#{otaBean.sec_i.pastVendorActivitiesEducationQty}" size="10" styleClass="currency" onchange="calculate1();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c1_5" value="#{otaBean.sec_i.pastVendorActivitiesOtherQty}" size="10" styleClass="currency" onchange="calculate1();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:outputText id="pastVendorActivitiesTotalQty" value="#{otaBean.sec_i.pastVendorActivitiesTotalQty}" styleClass="currency" ><f:convertNumber type="number" integerOnly="true"/></h:outputText>
+						
+						<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ"/>
+						<h:inputText styleClass="currency" id="c2_1" value="#{otaBean.sec_i.pastVendorActivitiesKatartisisBudget}" size="10" onchange="calculate2();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c2_2" value="#{otaBean.sec_i.pastVendorActivitiesEmploymentBudget}" size="10" onchange="calculate2();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c2_3" value="#{otaBean.sec_i.pastVendorActivitiesConsultingBudget}" size="10" onchange="calculate2();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c2_4" value="#{otaBean.sec_i.pastVendorActivitiesEducationBudget}" size="10" onchange="calculate2();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c2_5" value="#{otaBean.sec_i.pastVendorActivitiesOtherBudget}" size="10" onchange="calculate2();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:outputText id="pastVendorActivitiesTotalBudget" value="#{otaBean.sec_i.pastVendorActivitiesTotalBudget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+					</h:panelGrid>
+						
+					<h:outputLabel value="ΜΕΛΕΤΕΣ-ΕΡΓΑ-ΠΡΟΜΗΘΕΙΕΣ-ΚΛΠ ΠΟΥ ΥΛΟΠΟΙΟΥΝΤΑΙ ΣΗΜΕΡΑ ΚΑΙ ΓΙΑ ΤΑ ΟΠΟΙΑ ΕΧΕΙ ΟΡΙΣΤΕΙ ΩΣ ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ (ΤΕΛΙΚΟΣ ΔΙΚΑΙΟΥΧΟΣ)" style="font-weight:bold;"/>
+					
+					<h:panelGrid columns="7" style="margin:0 auto; width:100%;">
+						<h:outputText value=""/>
+						<h:outputText value="ΚΑΤΑΡΤΙΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΠΑΣΧΟΛΗΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΜΒΟΥΛΕΥΤΙΚΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΕΚΠΑΙΔΕΥΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΑΛΛΕΣ" style="font-weight:bold;"/>
+						<h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΛΗΘΟΣ"/>
+						<h:inputText id="c3_1" value="#{otaBean.sec_i.currentVendorActivitiesKatartisisQty}" size="10" styleClass="currency" onchange="calculate3();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c3_2" value="#{otaBean.sec_i.currentVendorActivitiesEmploymentQty}" size="10" styleClass="currency" onchange="calculate3();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c3_3" value="#{otaBean.sec_i.currentVendorActivitiesConsultingQty}" size="10" styleClass="currency" onchange="calculate3();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c3_4" value="#{otaBean.sec_i.currentVendorActivitiesEducationQty}" size="10" styleClass="currency" onchange="calculate3();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:inputText id="c3_5" value="#{otaBean.sec_i.currentVendorActivitiesOtherQty}" size="10" styleClass="currency" onchange="calculate3();"><f:validateLongRange minimum="0" /></h:inputText>
+						<h:outputText id="currentVendorActivitiesTotalQty" value="#{otaBean.sec_i.currentVendorActivitiesTotalQty}" styleClass="currency" ><f:convertNumber type="number" integerOnly="true"/></h:outputText>
+						
+						<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ"/>
+						<h:inputText styleClass="currency" id="c4_1" value="#{otaBean.sec_i.currentVendorActivitiesKatartisisBudget}" size="10" onchange="calculate4();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c4_2" value="#{otaBean.sec_i.currentVendorActivitiesEmploymentBudget}" size="10" onchange="calculate4();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c4_3" value="#{otaBean.sec_i.currentVendorActivitiesConsultingBudget}" size="10" onchange="calculate4();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c4_4" value="#{otaBean.sec_i.currentVendorActivitiesEducationBudget}" size="10" onchange="calculate4();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:inputText styleClass="currency" id="c4_5" value="#{otaBean.sec_i.currentVendorActivitiesOtherBudget}" size="10" onchange="calculate4();"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						<h:outputText id="currentVendorActivitiesTotalBudget" value="#{otaBean.sec_i.currentVendorActivitiesTotalBudget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+					</h:panelGrid>
+					
+					<h:outputLabel value="ΠΑΡΑΤΗΡΗΣΕΙΣ" style="font-weight:bold;"/>
+					<h:inputTextarea value="#{otaBean.sec_i.pastCurrentVendorActivitiesNotes}" style="width:100%;" rows="6"/>
+										
+					<h:panelGroup>
+						<a id="VendorEmployeesIListLabel" name="VendorEmployeesIListLabel"><h:outputText escape="false" value="ΜΟΝΙΜΗ ΣΤΕΛΕΧΩΣΗ ΦΟΡΕΑ" style="font-weight:bold;"/></a>
+						<h:commandButton image="/images/add.png" action="#{otaBean.addSection_I__TDE_Employees}" style="border:0px;" />
+					</h:panelGroup>
+						
+					<h:dataTable value="#{otaBean.section_I_employees}" var="employeeItem" style="margin:0 auto; width:80%;" styleClass="data-table" binding="#{otaBean.tmp_dataTable}">	
+						<h:column>					
+							<f:facet name="header"><h:outputText value="ΕΙΔΙΚΟΤΗΤΑ"/></f:facet>
+							<h:inputText value="#{employeeItem.name}"/>
+							<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/></f:facet>
+						</h:column>
+						<h:column>					
+							<f:facet name="header"><h:outputText value="ΥΦΙΣΤΑΜΕΝΗ ΚΑΤΑΣΤΑΣΗ (ΠΛΗΘΟΣ)"/></f:facet>
+							<h:inputText value="#{employeeItem.currentQty}" styleClass="currency" size="5"/>
+							<f:facet name="footer"><h:outputText id="curEmployeesTot" value="#{otaBean.section_I_employees_currQty}" style="font-weight:bold;" styleClass="currency" /></f:facet>
+						</h:column>
+						<h:column>					
+							<f:facet name="header"><h:outputText value="ΠΡΟΒΛΕΠΟΜΕΝΗ ΚΑΤΑΣΤΑΣΗ (ΠΛΗΘΟΣ)"/></f:facet>
+							<h:inputText value="#{employeeItem.estQty}" styleClass="currency" size="5"/>
+							<f:facet name="footer"><h:outputText id="estEmployeesTot" value="#{otaBean.section_I_employees_estQty}" style="font-weight:bold;" styleClass="currency" /></f:facet>
+						</h:column>
+						<h:column>					
+							<f:facet name="header"><h:outputText value=""/></f:facet>
+							<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_I__TDE_Employees}" style="border:0px;"/>
+						</h:column>
+					</h:dataTable>
+					 
+					<h:outputLabel value="ΒΑΘΜΟΣ ΚΑΛΥΨΗΣ ΑΝΑΓΚΩΝ (1 = ΑΝΕΠΑΡΚΗΣ, 2 = ΑΝΕΚΤΟΣ, 3 = ΙΚΑΝΟΠΟΙΗΤΙΚΟΣ, 4 = ΠΟΛΥ ΚΑΛΟΣ, 5 = ΑΡΙΣΤΟΣ)" style="font-weight:bold;"/>
+					
+					<h:panelGrid columns="3" style="margin:0 auto; width:100%;">
+						<h:outputText value="ΚΡΙΤΗΡΙΟ" style="font-weight:bold;"/>
+						<h:outputText value="ΥΦΙΣΤΑΜΕΝΗ ΚΑΤΑΣΤΑΣΗ" style="font-weight:bold;"/>
+						<h:outputText value="ΠΡΟΒΛΕΠΟΜΕΝΗ ΚΑΤΑΣΤΑΣΗ" style="font-weight:bold;"/>
+						
+						<h:outputText value="ΠΟΣΟΤΙΚΗ ΕΠΑΡΚΕΙΑ ΜΟΝΙΜΩΝ ΣΤΕΛΕΧΩΝ ΚΑΙ ΣΥΝΕΡΓΑΤΩΝ (Πλήθος Και Σύνθεση Ειδικοτήτων)"/>
+						<h:inputText value="#{otaBean.sec_i.curPermanentEmployeesQty}" size="10" styleClass="currency" />
+						<h:inputText value="#{otaBean.sec_i.estPermanentEmployeesQty}" size="10" styleClass="currency" />
+						
+						<h:outputText value="ΠΟΙΟΤΙΚΗ ΕΠΑΡΚΕΙΑ ΜΟΝΙΜΩΝ ΣΤΕΛΕΧΩΝ ΚΑΙ ΣΥΝΕΡΓΑΤΩΝ (Εμπειρία Και Τεχνογνωσία)"/>
+						<h:inputText value="#{otaBean.sec_i.curPermanentEmployeesExp}" size="10" styleClass="currency" />
+						<h:inputText value="#{otaBean.sec_i.estPermanentEmployeesExp}" size="10" styleClass="currency" />
+						
+						<h:outputText value="ΕΠΑΡΚΕΙΑ ΧΩΡΩΝ ΚΑΙ ΒΑΣΙΚΗΣ ΥΠΟΔΟΜΗΣ  (Ποσοτική Και Ποιοτική Εκτίμηση)"/>
+						<h:inputText value="#{otaBean.sec_i.curPlaceSufficiency}" size="10" styleClass="currency" />
+						<h:inputText value="#{otaBean.sec_i.estPlaceSufficiency}" size="10" styleClass="currency" />
+						
+						<h:outputText value="ΕΠΑΡΚΕΙΑ ΤΕΧΝΟΛΟΓΙΚΗΣ ΥΠΟΔΟΜΗΣ (Ποσοτική Και Ποιοτική Εκτίμηση)"/>
+						<h:inputText value="#{otaBean.sec_i.curInfrastructureSufficiency}" size="10" styleClass="currency" />
+						<h:inputText value="#{otaBean.sec_i.estInfrastructureSufficiency}" size="10" styleClass="currency" />
+					</h:panelGrid>
+					
+					<h:outputLabel value="ΑΛΛΕΣ ΠΑΡΑΤΗΡΗΣΕΙΣ ΚΑΙ ΣΧΟΛΙΑ" style="font-weight:bold;"/>
+					<h:inputTextarea value="#{otaBean.sec_i.otherNotes}" style="width:100%;" rows="6"/>
+				
+					</h:panelGrid>
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	
+	</body>
+</html>

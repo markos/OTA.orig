@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+					<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; margin:0 auto;">
+					
+						<h:outputText escape="false" value="ΠΗΓΕΣ ΧΟΡΗΓΗΣΗΣ ΠΙΣΤΩΣΕΩΝ" style="font-weight:bold;"/>
+					
+						<h:dataTable value="#{otaBean.tde_funders}" var="funder" styleClass="data-table" style="margin:0 auto; width:80%;">
+							<h:column>
+								<f:facet name="header"><h:outputText value="146. ΚΩΔΙΚΟΣ (58) *"/></f:facet>
+								<h:outputText value="#{funder.code}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="147. ΠΕΡΙΓΡΑΦΗ*"/></f:facet>
+								<h:outputText value="#{funder.description}" style="width:100%;"/>
+							</h:column>
+						</h:dataTable>
+										
+						<h:panelGroup>
+							<h:panelGrid columns="2" cellspacing="0" cellpadding="5" style="text-align:center; margin:0 auto;">
+								<h:outputText style="font-weight:bold;" value="148. Σ. Α.  ΤΟΥ Π.Δ.Ε. ΣΤΗΝ ΟΠΟΙΑ ΠΡΟΤΕΙΝΕΤΑΙ ΤΟ ΕΡΓΟ (15)"/>
+								<h:outputText style="font-weight:bold;" value="149. ΚΩΔΙΚΟΣ ΕΡΓΟΥ Π.Δ.Ε. (16)"/>
+								<h:outputText value="#{otaBean.sec_z.projectProposalSAPDE}" />
+								<h:outputText value="#{otaBean.sec_z.projectCodePDE}" />
+							</h:panelGrid>
+						</h:panelGroup>
+					
+						<h:panelGroup>
+							<h:outputText style="font-weight:bold;" value="150. ΝΟΜΙΣΜΑ"/>
+							<h:outputText value="#{otaBean.sec_z.currency}" />
+						</h:panelGroup>
+					
+						<h:panelGroup>
+							<h:outputText style="font-weight:bold;" value="ΣΥΝΟΛΙΚΟ ΧΡΗΜΑΤΟΔΟΤΙΚΟ ΣΧΗΜΑ ΕΡΓΟΥ "/>
+						</h:panelGroup>
+					
+						<h:dataTable id="ΧΡΗΜΑΤΟΔΟΤΙΚΟ_ΣΧΗΜΑ" value="#{otaBean.tde_fundDistribution}" var="fundYear" styleClass="data-table"  style="margin:0 auto;" >
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΕΤΟΣ"/></f:facet>
+								<h:outputText value="#{fundYear.year}"/>
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="ΣΥΝΟΛΑ"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="151. ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ (47)"/></f:facet>
+								<h:outputText value="#{fundYear.budget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="#{otaBean.sectionZ_totalBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="152Α. ΠΟΣΟ ΔΗΜΟΣΙΑΣ ΔΑΠΑΝΗΣ (48)"/></f:facet>
+								<h:outputText value="#{fundYear.amount_publicBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="#{otaBean.sectionZ_totalPublicBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="152Β. %"/></f:facet>
+								<h:outputText id="percentage_publicBudget" value="#{fundYear.percentage_publicBudget}"><f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/></h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="153. ΣΥΜΜΕΤΟΧΗ ΔΙΑΡΘΡ. ΤΑΜΕΙΟΥ (%) (49Β) *"/></f:facet>
+								<h:outputText id="Ζ_153" value="#{fundYear.percentage_DistributionOffice}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/>
+								</h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="154. ΚΡΑΤΙΚΗ ΣΥΜΜΕΤΟΧΗ (%) (50) *"/></f:facet>
+								<h:outputText id="Ζ_154" value="#{fundYear.percentage_NationalParticipation}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/>
+								</h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="155. ΛΟΙΠΑ ΕΚΤΟΣ ΚΡΑΤΙΚΟΥ Π.Υ. (%) (51) *"/></f:facet>
+								<h:outputText id="Ζ_155" value="#{fundYear.percentage_Other}">
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/>
+								</h:outputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="156A. ΠΟΣΟ ΙΔΙΩΤΙΚΗΣ ΣΥΜΜΕΤΟΧΗΣ"/></f:facet>
+								<h:outputText id="amount_PrivateParticipation" value="#{fundYear.amount_PrivateParticipation}" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="#{otaBean.sectionZ_totalPrivateBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="156Β. (%)" /></f:facet>
+								<h:outputText id="Ζ_156B" value="#{fundYear.percentage_PrivateParticipation}" >
+									<f:convertNumber type="number" minFractionDigits="2" maxFractionDigits="2"/>
+								</h:outputText>
+							</h:column>						
+						</h:dataTable>
+						
+						<br/><br/>
+					
+						<h:panelGroup>
+							<h:outputText style="font-weight:bold;" value="ΔΑΝΕΙΑ"/>
+							<h:panelGrid columns="4" cellspacing="0" cellpadding="5" style="text-align:center; margin:0 auto;">
+								<h:outputText style="font-weight:bold;" value="157. ΠΟΣΟ ΔΑΝΕΙΟΥ"/>
+								<h:outputText id="loanamount" value="#{otaBean.sec_z.loanSum}" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<h:outputText style="font-weight:bold;" value="158. ΦΟΡΕΑΣ ΔΑΝΕΙΟΔΟΤΗΣΗΣ"/>
+								<h:outputText value="#{otaBean.sec_z.loanVendor}" style="width:500px;"/>
+								<h:outputText style="font-weight:bold;" value="159. ΕΙΝΑΙ Ο ΦΠΑ ΕΠΙΛΕΞΙΜΟΣ;"/>
+								<h:outputText rendered="#{otaBean.sec_z.VATchoosable}" value="ΝΑΙ"/><h:outputText rendered="#{!otaBean.sec_z.VATchoosable}" value="ΟΧΙ"/>
+								<h:outputText style="font-weight:bold;" value="160. ΠΟΣΟ ΦΠΑ"/>
+								<h:outputText value="#{otaBean.sec_z.VATamount}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+							</h:panelGrid>
+						</h:panelGroup>
+					
+						<h:panelGroup>
+							<h:outputText style="font-weight:bold;" value="ΑΝΑΛΥΣΗ ΠΡΟΫΠΟΛΟΓΙΣΜΟΥ ΑΝΑ ΚΑΤΗΓΟΡΙΑ ΔΑΠΑΝΗΣ"/>							
+						</h:panelGroup>
+						
+						<h:dataTable value="#{otaBean.subprj_tdy_financial}" var="financial" styleClass="data-table" style="margin:0 auto; width:100%;">
+							<h:column>
+								<f:facet name="header"><h:outputText value="161. ΚΩΔΙΚΟΣ (55)"/></f:facet>
+								<h:outputText value="#{financial.code}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="162. ΚΑΤΗΓΟΡΙΑ ΕΠΙΛΕΞΙΜΗΣ ΔΑΠΑΝΗΣ (56)"/></f:facet>
+								<h:outputText value="#{financial.category}"/>
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="ΣΥΝΟΛΟ"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="163. ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ (57)"/></f:facet>
+								<h:outputText value="#{financial.budget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText style="font-weight:bold;" value="#{otaBean.sectionZ_categoriesBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+						</h:dataTable>	
+					</h:panelGrid>
+		</center>
+	</body>
+</html>

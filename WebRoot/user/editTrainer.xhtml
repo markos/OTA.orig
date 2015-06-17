@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: editTrainer.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Χρηστών</ui:define>
+		<ui:define name="breadcrump">
+			<c:if test="#{userLoginBean.adminUser == true}">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><h:form><h:commandLink id="users" action="#{userDBManagerBean.gotoUsers}">Χρήστες</h:commandLink></h:form></li>
+			</c:if>
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			
+			<c:if test="#{userLoginBean.loggedIn == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="ΕπεξεργασίαΧρήστη">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<div id="content">
+						<h:messages style="color:red;"/><br/>
+	
+						<center>
+						<c:if test="#{userDBManagerBean.form_is_user_edit == false}"> 
+							<h:outputText style="font-weight: bold;" value="ΝΕΟΣ ΕΙΣΗΓΗΤΗΣ"/><br/>
+						</c:if>
+						<c:if test="#{userDBManagerBean.form_is_user_edit == true}">
+							<h:outputText style="font-weight: bold;" value="ΕΠΕΞΕΡΓΑΣΙΑ ΕΙΣΗΓΗΤΗΣ"/><br/>
+						</c:if>				
+						<h:panelGrid columns="4" cellspacing="0" cellpadding="5" style="text-align:center; width:70%">
+							<h:outputText style="font-weight: bold;" value="Όνομα Χρήστη: "/>
+							<h:inputText value="#{userDBManagerBean.username}" autocomplete="off"/>
+							
+							<h:outputText style="font-weight: bold;" value="E-mail:"/>
+							<h:inputText value="#{userDBManagerBean.email}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="Συνθηματικό"/>
+							<h:inputSecret value="#{userDBManagerBean.tmpPassword2}" autocomplete="off" />
+						
+							<h:outputText style="font-weight: bold;" value="Συνθηματικό (Επιβεβαίωση):"/>
+							<h:inputSecret value="#{userDBManagerBean.tmpPassword}" autocomplete="off"/>
+		
+							<h:outputText style="font-weight: bold;" value="Όνομα:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.firstName}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="Επώνυμο:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.lastName}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="Δήμος:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.municipality.name}" readonly="true"/>								
+						
+							<h:outputText style="font-weight: bold;" value="Φύλο:"/>
+							<h:selectOneMenu value="#{userDBManagerBean.currentTrainer.sex}">
+								<f:selectItems value="#{userDBManagerBean.sexSelectItemsList}"/>
+							</h:selectOneMenu>
+	
+							<h:outputText style="font-weight: bold;" value="Όνομα Πατρός:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.fatherName}" autocomplete="off"/>
+											
+							<h:outputText style="font-weight: bold;" value="Ημ/νια Γέννησης:"/>
+							<h:panelGroup>
+								<h:inputText id="Ημερομηνια_Γεννησης" value="#{userDBManagerBean.currentTrainer.birthDate}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+								<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('ΕπεξεργασίαΧρήστη:Ημερομηνια_Γεννησης', this, 'dmy');"/>
+							</h:panelGroup>
+						
+							<h:outputText style="font-weight: bold;" value="Όνομα Μητέρας:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.motherName}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="Κινητό:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.mobilePhone}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="Τηλ. Εργασίας:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.workPhone}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="FAX:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.fax}" autocomplete="off"/>
+						
+							<h:outputText style="font-weight: bold;" value="Διεύθυνση:"/>
+							<h:inputTextarea rows="3" value="#{userDBManagerBean.currentTrainer.address}" autocomplete="off"/>
+	
+							<h:outputText style="font-weight: bold;" value="Τ.Κ.:"/>
+							<h:inputText value="#{userDBManagerBean.currentTrainer.postalCode}" autocomplete="off">
+								<f:validator validatorId="postalCodeValidator" />
+							</h:inputText>
+						
+							<h:outputText style="font-weight: bold;" value="Τύπος Αιρετού:"/>					
+							<h:selectOneMenu value="#{userDBManagerBean.currentTrainer.electiveType}">
+								<f:selectItems value="#{userDBManagerBean.electiveTypesSelectItemsList}"/>
+							</h:selectOneMenu>
+							
+							<h:outputText style="font-weight: bold;" value="ID Εκπαιδευτή (ΕΚΕΠΙΣ)"/>								
+							<h:inputText value="#{userDBManagerBean.currentTrainer.trainerId}" autocomplete="off"/>
+								
+							<h:outputText style="font-weight: bold;" value="Επιθυμεί να παρακολουθήσει σεμινάρια Κατάρτισης:"/>								
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.currentTrainer.attendsTraining}"/>
+								
+							<h:outputText style="font-weight: bold;" value="Έχει εμπειρία Τοπικής Αυτοδιοίκησης"/>								
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.currentTrainer.hasLocalAdminXP}"/>
+								
+							<h:outputText style="font-weight: bold;" value="Επιθυμία συμμετοχής:"/>				
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.currentTrainer.wishToParticipate}"/>
+								
+							<h:outputText style="font-weight: bold;" value="Επιθυμία συμμετοχής σε σεμινάρια Πληροφορικής:"/>								
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.currentTrainer.wishToAttentITSeminars}"/>
+								
+							<h:outputText style="font-weight: bold;" value="Εργάζεται στην Τοπική Αυτοδιοίκηση:"/>	
+							<h:selectBooleanCheckbox value="#{userDBManagerBean.currentTrainer.worksInLocalAdmin}"/>
+
+							<h:outputText style="font-weight: bold;" value="Διδακτική Εμπειρία:"/>								
+							<h:selectOneMenu value="#{userDBManagerBean.currentTrainer.teachingExperience}">
+								<f:selectItems value="#{userDBManagerBean.teachingExpListSelectItems}"/>
+							</h:selectOneMenu>
+							
+							<h:outputText style="font-weight: bold;" value="Εμπειρία Ομιλητή:"/>								
+							<h:selectOneMenu value="#{userDBManagerBean.currentTrainer.talksExperience}">
+								<f:selectItems value="#{userDBManagerBean.talksExpListSelectItems}"/>
+							</h:selectOneMenu>
+							
+							<!-- 
+							<h:outputText style="font-weight: bold;" value="Αναλυτικό Βιογραφικό:"/>
+							<h:panelGroup>								
+								<h:inputText id="longCV" readonly="true" value="#{userDBManagerBean.currentTrainer.longCVPath}"/>
+								<a class="smoothbox" href="uploaderLongCV.jsf?TB_iframe=true&amp;height=100&amp;width=300&amp;modal=true" title="Αναλυτικό βιογραφικό">
+								<h:graphicImage rendered="#{not empty userDBManagerBean.currentTrainer.username}" url="/images/add.png" style="border:0px;"/></a>
+							</h:panelGroup>
+							
+							<h:outputText style="font-weight: bold;" value="Σύντομο Βιογραφικό:"/>		
+							<h:panelGroup>
+								<h:inputText id="shortCV" readonly="true" value="#{userDBManagerBean.currentTrainer.shortCVPath}"/>
+								<a class="smoothbox" id="uploadShortCV" href="uploaderShortCV.jsf?TB_iframe=true&amp;height=100&amp;width=300&amp;modal=true">
+								<h:graphicImage rendered="#{not empty userDBManagerBean.currentTrainer.username}" url="/images/add.png" style="border:0px;"/></a>
+							</h:panelGroup>
+							-->
+						</h:panelGrid>
+
+						<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:70%">
+							<h:outputText style="font-weight: bold;" value="Διαθεσιμότητα του Εισηγητή στις Περιφέρειες:"/>
+							<h:selectManyListbox value="#{userDBManagerBean.regionAvailabilityIds}">
+								<f:selectItems value="#{userDBManagerBean.regionsSelectItemsList}"/>
+								<f:converter converterId="javax.faces.Integer"/>
+							</h:selectManyListbox>
+							
+							<h:outputText style="font-weight: bold;" value="Πιστοποιήσεις Εισηγητή:"/>
+							<h:selectManyListbox size="5" value="#{userDBManagerBean.certificationIds}">
+								<f:selectItems value="#{userDBManagerBean.certificationsSelectItemsList}"/>
+							</h:selectManyListbox>
+									
+							<h:outputText style="font-weight: bold;" value="Τίτλοι Σπουδών Εισηγητή:"/>
+							<h:dataTable id="degreestable" value="#{userDBManagerBean.currentTrainer.degrees}" var="degree" styleClass="data-table"  style="margin:0 auto; width:100%; " binding="#{userDBManagerBean.degrees_dataTable}">
+								<h:column >
+									<f:facet name="header"><h:outputText id="title" value="Τίτλος"/></f:facet>
+									<h:inputText value="#{degree.title}"/>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="intstitute" value="Ινστιτούτο"/></f:facet>
+									<h:inputText value="#{degree.institute}"/>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="department" value="Τμήμα"/></f:facet>
+									<h:inputText value="#{degree.department}"/>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="type" value="Είδος"/></f:facet>
+									<h:selectOneMenu value="#{degree.type}">
+										<f:selectItems value="#{userDBManagerBean.degreeTypesSelectItemsList}"/>
+									</h:selectOneMenu>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="field" value="Πεδίο"/></f:facet>
+									<h:selectOneMenu value="#{degree.field}">
+										<f:selectItems value="#{userDBManagerBean.degreeFieldsSelectItemsList}"/>
+									</h:selectOneMenu>
+								</h:column>
+								<h:column>
+									<h:commandButton image="/images/remove.png" action="#{userDBManagerBean.trainer_DeleteDegree}"/>
+								</h:column>
+							</h:dataTable>								
+							<br/>
+							<h:commandButton action="#{userDBManagerBean.trainer_AddDegree}" value="Προσθήκη Τίτλου Σπουδών"/>
+							
+							<h:outputText style="font-weight: bold;" value="Επαγγελματική Εμπειρία Εισηγητή:"/>
+							<h:dataTable id="profxptable" value="#{userDBManagerBean.currentTrainer.profExperience}" var="profxp" styleClass="data-table"  style="margin:0 auto; width:100%; " binding="#{userDBManagerBean.profxp_dataTable}">
+								<h:column >
+									<f:facet name="header"><h:outputText id="title" value="Τίτλος"/></f:facet>
+									<h:inputText value="#{profxp.title}"/>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="position" value="Θέση"/></f:facet>
+									<h:inputText value="#{profxp.position}"/>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="company" value="Εταιρεία"/></f:facet>
+									<h:inputText value="#{profxp.company}"/>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="field" value="Τομέας"/></f:facet>
+									<h:selectOneMenu value="#{profxp.field}" style="width:200px;" >
+										<f:selectItems value="#{userDBManagerBean.profxpFieldsSelectItemsList}"/>
+									</h:selectOneMenu>
+								</h:column>
+								<h:column >
+									<f:facet name="header"><h:outputText id="period" value="Περίοδος"/></f:facet>
+									<h:inputText value="#{profxp.period}"/>
+								</h:column>
+								<h:column>
+									<h:commandButton image="/images/remove.png" action="#{userDBManagerBean.trainer_DeleteProfExperience}"/>
+								</h:column>
+							</h:dataTable>
+							<br/>
+							<h:commandButton action="#{userDBManagerBean.trainer_AddProfExperience}" value="Προσθήκη Επαγγελματικής Εμπειρίας"/>
+						</h:panelGrid>
+						
+						<h:panelGrid columns="2" cellspacing="0" cellpadding="5" style="text-align:center; width:70%">
+							<h:panelGroup style="border: 1px; width:30%;">
+								<h:outputText value="Ομάδες στις οποίες ανήκει ο χρήστης"/>
+								<h:selectManyListbox rendered="#{userLoginBean.adminUser == true}" value="#{userDBManagerBean.selectedUserGroupIds}" style="width:220px; height: 100px;">
+									<f:selectItems value="#{userDBManagerBean.userGroupsSelectItemsList}" />
+									<f:converter converterId="javax.faces.Integer"/>
+								</h:selectManyListbox>
+								<h:dataTable rendered="#{userLoginBean.adminUser == false}" value="#{userDBManagerBean.currentTrainer.groupsAsList}" var="group"
+									styleClass="data-table"  style="margin:0 auto; width:100%;" >
+									<h:column>
+										<f:facet name="header"><h:outputText value="Όνομα ομάδας"/></f:facet>
+										<h:outputText value="#{group.groupname}" />
+									</h:column>
+								</h:dataTable>
+							</h:panelGroup>
+								
+							<h:panelGroup style="border: 1px; width:30%;">
+								<h:outputText value="Ρόλοι στους οποίους ανήκει ο χρήστης"/><br/>
+								<h:selectManyListbox rendered="#{userLoginBean.adminUser == true}" value="#{userDBManagerBean.selectedUserRoleIds}" style="width:220px; height: 100px;">
+									<f:selectItems value="#{userDBManagerBean.userRolesSelectItemsList}" />
+									<f:converter converterId="javax.faces.Integer"/>
+								</h:selectManyListbox>
+								<h:dataTable rendered="#{userLoginBean.adminUser == false}" value="#{userDBManagerBean.currentTrainer.rolesAsList}" var="role"
+									styleClass="data-table"  style="margin:0 auto; width:100%;" >
+									<h:column>
+										<f:facet name="header"><h:outputText value="Όνομα ρόλου"/></f:facet>
+										<h:outputText value="#{role.name}" />
+									</h:column>
+								</h:dataTable>
+							</h:panelGroup>
+						</h:panelGrid>
+												
+						<br/>
+						<h:commandButton action="#{userDBManagerBean.saveTrainer}" value="Αποθήκευση"/>
+						
+						<br/>
+						<h:panelGrid rendered="#{userLoginBean.adminUser == false}" columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:70%">
+							<hr/>
+							<h:outputText style="font-weight: bold;" value="ΑΙΤΗΣΗ ΑΝΑΒΑΘΜΙΣΗΣ ΡΟΛΟΥ"/><br/>								
+							<h:panelGroup style="border: 1px; width:30%;">
+								<h:outputText value="Ρόλοι Χρηστών"/><br/>
+								<h:selectManyListbox value="#{userDBManagerBean.requestedUserRoleIds}" style="width:220px; height: 100px;">
+									<f:selectItems value="#{userDBManagerBean.userRolesSelectItemsList}" />
+									<f:converter converterId="javax.faces.Integer"/>
+								</h:selectManyListbox>
+							</h:panelGroup>
+							<br/>
+							<h:commandButton action="#{userDBManagerBean.requestRoles}" value="Καταχώριση Αίτησης"/>
+						</h:panelGrid>
+					</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

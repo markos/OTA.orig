@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: invoice_vendor.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων : Σύστημα Διαχείρισης Παραστατικών</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/sprintf.js"></script>
+			<script language="javascript" src="/OTA/misc/formatters.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "specific_textareas",
+					editor_deselector : "plain_editor",
+        			theme : "simple",
+ 				});
+			</script>
+			<script language="javascript">
+				function calculateVAT() {
+					var amount = parseFloat($('Παραστατικο_Φορεα:ΚαθαροΠοσο').get('value').replace(".","").replace(",","."));
+					var vat = 0.19 * amount;
+					var floatValue = new Number(amount);
+				 	var fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Φορεα:ΚαθαροΠοσο').set('value', fieldValue );
+					floatValue = new Number(vat);
+				 	fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Φορεα:ΦΠΑ').set('value', fieldValue );
+				}
+				
+				function calculateTotal() {
+					var amount = parseFloat($('Παραστατικο_Φορεα:ΚαθαροΠοσο').get('value').replace(".","").replace(",","."));
+					var vat = parseFloat($('Παραστατικο_Φορεα:ΦΠΑ').get('value').replace(".","").replace(",","."));
+					var total = amount + vat;
+					var floatValue = new Number(vat);
+				 	var fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Φορεα:ΦΠΑ').set('value', fieldValue );
+					floatValue = new Number(total);
+				 	fieldValue = formatMoney(floatValue);
+					$('Παραστατικο_Φορεα:ΣυνολικοΠοσο').set('value', fieldValue );
+				}
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/invoiceList.jsf">Διαχείριση Οικονομικών Στοιχείων</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+				
+					<h:messages style="color:red;"/><br/>
+					
+					<center>
+					
+					<h:outputLabel value="Πρόσθεση Παραστατικού Φορέα"/>
+					
+					<br/><br/>
+										
+					<h:form id="Παραστατικο_Φορεα">
+					
+					<table cellpadding="10" cellspacing="0" class="form-table">	
+						<tr>
+							<td align="center"><h:outputText value="Τύπος Παραστατικού :"/></td>
+							<td align="left"><h:selectOneMenu id="ΤυποςΠαραστατικου" value="#{otaBean.invoice_vendor.invoiceType.id}" required="true">
+												<f:selectItems value="#{otaBean.defaultInvoiceTypesSelectItemsList}"/>
+											</h:selectOneMenu></td>
+							<td align="center"><h:outputText value="Αριθμ. Παραστατικού :"/></td>
+							<td align="left"><h:inputText id="ΑριθμοςΠαραστατικου" value="#{otaBean.invoice_vendor.invoiceNumber}" styleClass="currency" required="true"/></td>							
+						</tr>
+						<tr>
+							<td align="center"><h:outputText value="Συνολικό Ποσό Πληρωμής:"/></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_vendor.amount}" readonly="true" id="ΣυνολικοΠοσο" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+							
+							<td align="center"><h:outputText value="Καθαρό Ποσό Πληρωμής: "/></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_vendor.net}" required="true" id="ΚαθαροΠοσο" styleClass="currency" onchange="calculateVAT(); calculateTotal();"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>							
+						</tr>
+						<tr>
+							<td align="center"><h:outputText value="Φ.Π.Α.:" /></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_vendor.vat}" required="true" id="ΦΠΑ" styleClass="currency" onchange="calculateTotal(); "><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+							
+							<td align="center"><h:outputText value="Επιλέξιμο Ποσό Πληρωμής:"/></td>
+							<td align="left"><h:inputText value="#{otaBean.invoice_vendor.amount_selectable}" required="true" id="ΕπιλεξιμοΠοσο" styleClass="currency" onchange="currencyFormatter('Παραστατικο_Φορεα:ΕπιλεξιμοΠοσο');"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center"><h:outputText value="Ημ/νία Πληρωμής :"/></td>
+							<td colspan="2" align="left">
+								<h:inputText id="Ημερομηνια_Πληρωμης" value="#{otaBean.invoice_vendor.date_payment}" required="true"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+								<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Παραστατικο_Φορεα:Ημερομηνια_Πληρωμης', this,'dmy');"/>
+							</td>					
+						</tr>
+						<tr>
+							<td align="center" colspan="1"><h:outputText value="Αιτιολογία :"/></td>
+							<td align="center" colspan="3"><h:inputTextarea id="Αιτιολογια" value="#{otaBean.invoice_vendor.comments}" cols="60" rows="4" required="true"/></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="4">
+							
+							<h:outputText value="Επιλογή Παραστατικών Ανάδοχων"/><br/>
+							
+							<h:dataTable value="#{otaBean.invoice_vendor.paidInvoices}" var="payment" styleClass="data-table"  style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable2}">
+								<h:column id="col1">
+									<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+									<h:outputText value="#{otaBean.tmp_dataTable2.rowIndex +1}"/>
+									<f:facet name="footer"><h:outputText value="Σύνολα"/></f:facet>
+								</h:column>
+								<h:column id="col2">
+									<f:facet name="header"><h:outputText value="Ανάδοχος"/></f:facet>
+									<h:outputText value="#{payment.invoice.contractorName}"/>
+								</h:column>
+								<h:column id="col3">
+									<f:facet name="header"><h:outputText value="Αρ. Παραστατικού"/></f:facet>
+									<h:outputText value="#{payment.invoice.invoiceNumber}"/>
+								</h:column>
+								<h:column id="col4">
+									<f:facet name="header"><h:outputText value="Ημ/νία"/></f:facet>
+									<h:outputText value="#{payment.invoice.date_issue}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+								</h:column>
+								<h:column id="col5">
+									<f:facet name="header"><h:outputText value="Ποσό(καθαρό)"/></f:facet>
+									<h:outputText value="#{payment.invoice.net}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									<f:facet name="footer"><h:outputText value="#{payment.InvoicesTotalNet}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+								</h:column>
+								<h:column id="col6">
+									<f:facet name="header"><h:outputText value="Φ.Π.Α."/></f:facet>
+									<h:outputText value="#{payment.invoice.vat}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									<f:facet name="footer"><h:outputText value="#{payment.InvoicesTotalVat}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+								</h:column>
+								<h:column id="col7">
+									<f:facet name="header"><h:outputText value="Σύνολο"/></f:facet>
+									<h:outputText value="#{payment.invoice.total}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									<f:facet name="footer"><h:outputText value="#{payment.InvoicesTotalAmount}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+								</h:column>
+								<h:column id="col8">
+									<f:facet name="header"><h:outputText value="Πληρωτέο Ποσό"/></f:facet>
+									<h:outputText value="#{payment.paidAmount}" id="paidInvoice" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									<f:facet name="footer"><h:outputText value="#{payment.paidInvoicesTotal}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+								</h:column>
+								<h:column id="col9">
+									<f:facet name="header"><h:outputText value="Απομένον Ποσό"/></f:facet>
+									<h:outputText value="#{payment.remainingAmount}" id="remAmount" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									<f:facet name="footer"><h:outputText value="#{payment.invoicesRemPaymentsTotal}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+								</h:column>
+							</h:dataTable>
+							<br/>
+							<h:dataTable value="#{otaBean.invoice_vendor.paidInvoices}" var="payment" styleClass="data-table"  style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable3}">
+								<h:column id="col1">
+									<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+									<h:outputText value="#{otaBean.tmp_dataTable3.rowIndex +1}"/>
+								</h:column>
+								<h:column id="col2">
+									<f:facet name="header"><h:outputText value="Ανάδοχος/Αριθμός/Ημ.νία"/></f:facet>
+									<h:outputText value="#{payment.invoice.contractorName}, #{payment.invoice.invoiceNumber}, "/>
+									<h:outputText value="#{payment.invoice.date_issue}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+								</h:column>
+								<h:column>
+									<f:facet name="header"><h:outputText value="Δαπάνες"/></f:facet>
+									<h:dataTable id="ΠινακαςΔαπανων" value="#{payment.paidExpenses}" var="paidExpense" styleClass="data-table" style="margin:0 auto; width:100%;" >
+										<h:column id="col2">
+											<f:facet name="header"><h:outputText value="Κατηγορία Δαπάνης"/></f:facet>
+											<h:outputText value="#{paidExpense.expense.category}" />
+										</h:column>
+										<h:column id="col3">
+											<f:facet name="header"><h:outputText value="Συνολικό Ποσό" /></f:facet>
+											<h:outputText value="#{paidExpense.expense.budget}" id="totalAmount" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+											<f:facet name="footer"><h:outputText value="#{paidExpense.totalExpenses}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+										</h:column>
+										<h:column id="col4">
+											<f:facet name="header"><h:outputText value="Πληρωτέο Ποσό" /></f:facet>
+											<h:inputText disabled="#{!paidExpense.payable}" value="#{paidExpense.paidAmount}" id="paidAmount" styleClass="currency" onchange="submit();" ><f:converter converterId="bigDecimalConverter"/></h:inputText>
+											<f:facet name="footer"><h:outputText value="#{paidExpense.totalPaidExpenses}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+										</h:column>
+										<h:column id="col5">
+											<f:facet name="header"><h:outputText value="Απομένον Ποσό" /></f:facet>
+											<h:outputText value="#{paidExpense.remainingAmount}" id="remExpense" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+											<f:facet name="footer"><h:outputText value="#{paidExpense.totalRemExpenses}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+										</h:column>
+									</h:dataTable>
+								</h:column>
+							</h:dataTable>
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="4">
+							</td>
+						</tr>
+						<tr>
+							<td align="center" colspan="4"><h:commandButton action="#{otaBean.saveInvoice_Vendor}" value="Αποθήκευση"/></td>
+						</tr>
+						<tr>
+							<td align="center" colspan="4"><h:outputText value="Όλα τα πεδία είναι υποχρεωτικά" style=""/></td>
+						</tr>
+					</table>
+					
+					</h:form>
+					
+					</center>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

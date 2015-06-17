@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Συγκεντρωτική Κατάσταση ΔΣ</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body style="text-align:center;">
+		
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Συγκεντρωτική Κατάσταση ΔΣ"/>
+					
+					<br/>
+					
+					<h:panelGrid columns="9" styleClass="dynamicTable1" style="border:1px solid; width:850px; text-align:center;">
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΣΥΜΜΕΤΕΧΟΝΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΟΣΟΣΤΟ ΣΥΜΜΕΤΟΧΗΣ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΔΗΜΑΡΧΩΝ, ΠΡΟΕΔΡΩΝ ΚΟΙΝΟΤΗΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΔΗΜΟΤ, ΚΟΙΝΟΤ. ΣΥΜΒΟΥΛΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΤΟΠΙΚΩΝ ΣΥΜΒΟΥΛΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΑΝΔΡΕΣ/ΓΥΝΑΙΚΕΣ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΕΙΣΗΓΗΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΕΙΣΗΓΗΤΕΣ(ΑΝΔΡΕΣ/ΓΥΝΑΙΚΕΣ)"/>
+						
+						<h:outputText value="#{reportBean.electives_total}"/>
+						<h:outputText value="#{reportBean.participants_total}"/>
+						<h:outputText value="#{reportBean.total_percentage}"><f:convertNumber type="percent"/></h:outputText>
+						<h:outputText value="#{reportBean.mayors_total}"/>
+						<h:outputText value="#{reportBean.councilmembers_total}"/>
+						<h:outputText value="#{reportBean.localcouncilmembers_total}"/>
+						<h:outputText value="#{reportBean.men_total}/#{reportBean.women_total}"/>
+						<h:outputText value="#{reportBean.speakers_total}"/>
+						<h:outputText value="#{reportBean.men_speakers_total}/#{reportBean.women_speakers_total}"/>
+					</h:panelGrid>
+
+					</center>
+				</div>
+			</f:view>		
+
+		</body>
+</html>

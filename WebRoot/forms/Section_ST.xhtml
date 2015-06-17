@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_ST.xhtml 1553 2011-12-18 10:13:33Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/sprintf.js"></script>
+			<script language="javascript" src="/OTA/misc/formatters.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "textareas",
+        			theme : "simple",
+ 				});
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+		</ui:define>	
+		<ui:define name="main-content">
+			<f:view>
+			
+				<h:form id="Τμημα_ΣΤ">
+			
+				<div id="login-form" style="width:1000px; padding-top:20px;">
+
+				<center>
+					<h:commandButton action="#{otaBean.saveSectionST}" value="Αποθήκευση"/>
+				</center>
+				<br /><br />
+				
+				<div id="tabbed">
+					<ul>
+						<li id="selected"><a href="#">Τμήμα ΣΤ</a></li>
+						<li><h:commandLink action="#{otaBean.goToSectionZ}">Τμήμα Ζ</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+				
+					<h:messages style="color:red;"/><br/>
+
+					<h:panelGroup style="text-align:center; margin:0 auto; width:100%;">
+						<h:outputLabel value="ΤΜΗΜΑ ΣΤ (ΧΡΟΝΙΚΟΣ ΚΑΙ ΟΙΚΟΝΟΜΙΚΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ)" />
+
+						<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+							<tr>
+								<th><h:outputText value="Α/Α"/></th>
+								<th><h:outputText value="ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ"/></th>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<th><h:outputText value="#{year}" style="font-weight:bold;"/></th>
+								</c:forEach>
+								<th><h:outputText value="ΑΡΧΗ"/></th>
+								<th><h:outputText value="ΤΕΛΟΣ"/></th>
+								<th><h:outputText value="ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ"/></th>
+							</tr>
+							<c:forEach var="prj" items="#{otaBean.subProjects}">
+							<tr>
+								<td><h:outputText value="#{prj.given_id}"/></td>
+								<td><h:outputText value="#{prj.title}" style="font-weight:bold;font-size: 85%;"/></td>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<td style="width:50px;">
+										<c:forEach var="quarter" items="#{otaBean.quarters}">
+											<h:graphicImage rendered="#{prj.yearQuarterMatrix[year][quarter] == true}" url="/images/blackbox12x14.png"/>
+											<h:graphicImage rendered="#{prj.yearQuarterMatrix[year][quarter] == false}" url="/images/whitebox12x14.png" />
+										</c:forEach>
+									</td>
+								</c:forEach>
+								<td><h:outputText value="#{prj.date_start}" style="font-weight:bold;font-size: 90%;"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+								<td><h:outputText value="#{prj.date_end}" style="font-weight:bold;font-size: 90%;"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+								<td />
+							</tr>
+							<tr>
+								<td />
+								<td><h:outputText value="ΕΤΗΣΙΟ ΧΡΗΜΑΤΟΔΟΤΙΚΟ ΣΧΗΜΑ ΥΠΟΕΡΓΟΥ #{prj.given_id}" style="font-size: 85%;"/></td>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<td style="width:50px;">
+										<h:inputText rendered="#{prj.yearMatrix[year] == true}" value="#{prj.yearBudgetMatrix[year]}" size="8" style="font-size: 85%;" onchange="currencyFormatter(this);" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+									</td>
+								</c:forEach>
+								<td />
+								<td />
+								<td><h:outputText value="#{prj.budget}" style="font-weight:bold;font-size: 90%;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></td>
+							</tr>
+							</c:forEach>
+							<tr>
+								<th colspan="2"><h:outputText value="Σύνολα"/></th>
+								<c:forEach var="year" items="#{otaBean.framework.years}">
+									<th style="width:50px;">
+										<h:outputText value="#{otaBean.yearBudgetMatrix[year]}" style="font-size: 85%;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									</th>
+								</c:forEach>
+								<th colspan="2" />
+								<th><h:outputText style="font-weight:bold;" value="#{otaBean.sectionST_totalBudget}" styleClass="currency"><f:convertNumber type="number" groupingUsed="true" minFractionDigits="2" maxFractionDigits="2"/></h:outputText></th>
+							</tr>
+						</table>
+					</h:panelGroup>
+					<center>
+						<h:commandButton action="#{otaBean.updateSectionST}" value="Αναδημιουργία πίνακα"/>
+					</center>
+				</div>
+				
+				</div>
+				
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

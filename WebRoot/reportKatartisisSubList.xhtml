@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: reportKatartisisSubList.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminKatartisis == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>					
+					
+					<h:outputText value="Αναφορές Υποέργων Κατάρτισης"/>
+					
+					<h:form>
+					<h:panelGrid columns="2" styleClass="data-table" style="text-align:center;">
+						
+						<h:outputText value="Γενικές Αναφορές" style="font-weight:bold;"/>
+						<h:outputText value=" "/>
+						
+						<h:outputText value="Κατάσταση Αιρετών"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportElectives}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Κατάσταση Εισηγητών"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportSpeakers}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+<!-- 						<h:outputText value="Συμμετοχές ανά Ανάδοχο"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportParticipationContractors}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>-->
+						
+						<h:outputText value="Αναφορές Ημερίδων" style="font-weight:bold;"/>
+						<h:outputText value=" "/>
+					
+						<h:outputText value="Παρακολούθηση Ημερίδων ανά Ανάδοχο"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisContractors}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Παρακολούθηση Φυσικού Αντικειμένου Ημερίδων"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisPhysical}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Ημερίδες ανά Περιφέρεια"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisRegion}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Ημερίδες ανά Νομό"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisPrefecture}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Συγκεντρωτική Κατάσταση Ημερίδων"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisTotalImerides}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Αναφορές ΔΣ" style="font-weight:bold;"/>
+						<h:outputText value=" "/>
+						
+						<h:outputText value="Αναλυτικά Στοιχεία Δημοτικών Συμβούλων"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisDSContractors}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+						
+						<h:outputText value="Παρακολούθηση Φυσικού Αντικειμένου Δημοτικών Συμβούλων"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisDSPhysical}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+
+<!-- 						<h:outputText value="Δημοτικά Συμβούλια ανά Περιφέρεια/Νομό"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisDSPrefecture}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>-->
+						
+						<h:outputText value="Συγκεντρωτική Κατάσταση Δημοτικών Συμβουλίων"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportKatartisisDSTotal}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>
+
+						<h:outputText value="Αναφορές Σεμιναρίων" style="font-weight:bold;"/>
+						<h:outputText value=" "/>
+						 
+						<h:outputText value="Αναλυτικά Στοιχεία Σεμιναρίων"/>
+						<h:panelGroup>
+							<!-- <h:commandLink action="#{reportBean.loadReportKatartisisSemContractors}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>-->
+						</h:panelGroup>
+						
+						<h:outputText value="Παρακολούθηση Φυσικού Αντικειμένου Σεμιναρίων"/>
+						<h:panelGroup>
+							<!-- <h:commandLink action="#{reportBean.loadReportKatartisisSemPhysical}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>-->
+						</h:panelGroup>
+						
+						<h:outputText value="Σεμινάρια ανά Περιφέρεια/Νομό"/>
+						<h:panelGroup>
+							<!-- <h:commandLink action="#{reportBean.loadReportKatartisisSemPrefecture}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>-->
+						</h:panelGroup>
+
+						<h:outputText value="Συγκεντρωτική Κατάσταση Σεμιναρίων"/>
+						<h:panelGroup>
+							<!-- <h:commandLink action="#{reportBean.loadReportKatartisisSemTotal}"><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>-->
+						</h:panelGroup>
+						
+<!-- 						<h:outputText value="Άλλες Αναφορές" style="font-weight:bold;"/>
+						<h:outputText value=" "/>
+						
+	 					<h:outputText value="Παρακολούθηση Οικονομικού Αντικειμένου"/>
+						<h:panelGroup>
+							<h:commandLink action="#{reportBean.loadReportFinancialObjective}" ><h:graphicImage url="/images/next.png" style="border:0px;"/></h:commandLink>
+						</h:panelGroup>-->
+					</h:panelGrid>
+					</h:form>
+
+					</center>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

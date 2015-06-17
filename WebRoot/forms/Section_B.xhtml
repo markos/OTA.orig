@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_B.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}/misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}/misc/mootools1.2.js"></script>
+			<script language="javascript" src="#{basePath}/misc/sprintf.js"></script>
+			<script language="javascript" src="#{basePath}/misc/formatters.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "#{basePath}/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "textareas",
+        			theme : "simple",
+ 				});
+			</script>
+			<script>
+				window.addEvent('domready', function() {
+					var label = "#{otaBean.label}";
+					if (label != "" ) { 
+						window.location.hash = label;
+					}
+				});
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Τμημα_Β">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+				
+				<center>
+					<h:commandButton action="#{otaBean.saveSectionB}" value="Αποθήκευση"/>
+				</center>
+				<br/><br/>
+				
+				<div id="tabbed">
+					<ul>
+						<li><h:commandLink action="#{otaBean.goToSectionA}">Τμήμα Α</h:commandLink></li>
+						<li id="selected"><a href="#">Τμήμα B</a></li>
+						<li><h:commandLink action="#{otaBean.goToSectionC}">Τμήμα Γ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionD}">Τμήμα Δ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionE}">Τμήμα Ε</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionH}">Τμήμα Η</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionTh}">Τμήμα Θ</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionI}">Τμήμα Ι</h:commandLink></li>
+						<li><h:commandLink action="#{otaBean.goToSectionK}">Τμήμα Κ</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+					<h:messages style="color:red;"/><br/>
+
+					<h:outputText value="ΤΜΗΜΑ Β (ΦΥΣΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ)"/>
+
+					<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+					
+						<h:panelGrid columns="4" styleClass="form-table">
+							<h:outputText value="60. ΥΛΟΠΟΙΗΣΗ ΝΕΟΥ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_b.newProject}"/>
+					
+							<h:outputText value="61. ΒΕΛΤΙΩΣΗ – ΕΚΣΥΓΧΡΟΝΙΣΜΟΣ ΥΠΑΡΧΟΝΤΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_b.existingProjectImprovement}"/>
+					
+							<h:outputText value="62. ΕΠΕΚΤΑΣΗ ΥΠΑΡΧΟΝΤΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_b.existingProjectExtension}"/>
+					
+							<h:outputText value="63. ΕΞΟΠΛΙΣΜΟΣ ΛΕΙΤΟΥΡΓΙΑΣ" style="font-weight:bold;"/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_b.functionalityEquipment}"/>
+					
+							<h:outputText value="64. ΕΠΕΚΤΑΣΗ ΛΕΙΤΟΥΡΓΙΑΣ ΥΠΑΡΧΟΝΤΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_b.existingProjectFunctionalityExtension}"/>
+					
+							<h:outputText value="65. Ο ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ ΕΧΕΙ ΤΗΝ ΚΥΡΙΟΤΗΤΑ Ή ΤΟ ΔΙΚΑΙΩΜA ΧΡΗΣΗΣ ΤΟΥ ΑΚΙΝΗΤΟΥ ΕΠΙ ΤΟΥ ΟΠΟΙΟΥ ΘΑ ΥΛΟΠΟΙΗΘΕΙ ΤΟ ΕΡΓΟ;" style="font-weight:bold;"/>
+							<h:selectBooleanCheckbox value="#{otaBean.sec_b.vendorHasRealEstateUsageRight}"/>
+						</h:panelGrid>
+
+						<h:outputText value="66. ΣΧΟΛΙΑ – ΠΑΡΑΤΗΡΗΣΕΙΣ ΣΧΕΤΙΚΑ ΜΕ ΤΗΝ ΚΥΡΙΟΤΗΤΑ ΤΟΥ ΑΚΙΝΗΤΟΥ" style="font-weight:bold;"/>
+						<h:inputTextarea value="#{otaBean.sec_b.commentsOnRealEstateOwnership}" style="width:100%" rows="5"/>
+					
+						<h:outputText value="67. ΣΥΝΤΟΜΗ ΠΕΡΙΓΡΑΦΗ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ (17)" style="font-weight:bold;"/>
+						<h:inputTextarea value="#{otaBean.sec_b.physicalObjectShortDescription}" style="width:100%" rows="10"/>	
+
+						<h:outputLabel value="ΥΠΟΕΡΓΑ" style="font-weight:bold;"/>
+						<h:panelGrid columns="2" styleClass="form-table" style="width:50%">
+							<h:outputText value="68. ΣΥΝΟΛΙΚΟΣ ΑΡΙΘΜΟΣ ΠΡΟΒΛΕΠΟΜΕΝΩΝ ΥΠΟΕΡΓΩΝ" style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_b.subProjectsTotal}"/>
+						</h:panelGrid>
+					
+						<h:outputText value="69. ΟΡΙΣΜΟΣ / ΠΕΡΙΓΡΑΦΗ ΠΡΟΒΛΕΠΟΜΕΝΩΝ ΥΠΟΕΡΓΩΝ" style="font-weight:bold;"/>
+						<h:inputTextarea value="#{otaBean.sec_b.subProjectsDescription}" style="width:100%" rows="4"/>
+					
+						<h:panelGroup>
+							<a id="SubProjectsListLabel" name="SubProjectsListLabel"><h:outputText escape="false" value="ΛΙΣΤΑ ΥΠΟΕΡΓΩΝ&nbsp;&nbsp;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_B__TDE_SubProject}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable value="#{otaBean.subProjects}" var="subItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="70. Α/Α (63)"/></f:facet>
+								<h:inputText value="#{subItem.given_id}" style="width:40px; text-align:center;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="71. ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ (64)"/></f:facet>
+								<h:inputText value="#{subItem.title}" style="width:820px;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_B__TDE_SubProject}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+												
+						<h:panelGroup>
+							<a id="ProjectPlacesListLabel" name="ProjectPlacesListLabel"><h:outputText escape="false" value="ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΕΡΓΟΥ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_B_TDE_ProjectPlace}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="projectplacestable" value="#{otaBean.projectPlaces}" var="placeItem" styleClass="data-table"  style="margin:0 auto; width:100%" binding="#{otaBean.tmp_dataTable2}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="72. ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+								<h:selectOneMenu id="selectRegion" value="#{placeItem.regionCode}" style="width:100%;" valueChangeListener="#{otaBean.sectionB_changePrefecture}" onchange="submit()">
+									<f:selectItems value="#{otaBean.regionsSelectItems}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="73. ΚΩΔ.* (59)"/></f:facet>
+								<h:outputText rendered="#{placeItem.regionCode != -1}" value="#{placeItem.regionCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="74. ΝΟΜΟΣ"/></f:facet>
+								<h:selectOneMenu id="selectPrefecture" value="#{placeItem.prefectureCode}" style="width:100%;" valueChangeListener="#{otaBean.sectionB_changeMunicipality}" onchange="submit()">
+									<f:selectItems value="#{placeItem.prefectureSelectItems}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="75. ΚΩΔ.* (60)"/></f:facet>
+								<h:outputText rendered="#{placeItem.prefectureCode != '-1'}" value="#{placeItem.prefectureCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="76. ΟΤΑ"/></f:facet>
+								<h:selectOneMenu id="selectOTA" value="#{placeItem.municipalityCode}" style="width:100%;">
+									<f:selectItems value="#{placeItem.municipalitySelectItems}" />
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="77. ΚΩΔ.* (61)"/></f:facet>
+								<h:outputText rendered="#{placeItem.municipalityCode != '-1'}" value="#{placeItem.municipalityCode}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="78. ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ (62)"/></f:facet>
+								<h:inputText id="budget" value="#{placeItem.budget}" styleClass="currency"  onchange="currencyFormatter('Τμημα_Β:projectplacestable:#{otaBean.tmp_dataTable2.rowIndex}:budget');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_B__TDE_ProjectPlace}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						
+						<h:panelGrid columns="2" styleClass="form-table">
+							<h:outputText value="ΣΥΝΟΛΟ ΠΡΟΫΠΟΛΟΓΙΣΜΟΥ ΧΩΡΟΘΕΤΗΣΗΣ" style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_b.projectsPlacesTotalBudget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+							<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_a.amount}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:panelGrid>
+					
+						<h:outputText value="79. ΑΝΑΛΥΤΙΚΗ ΠΕΡΙΓΡΑΦΗ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ (65)" style="font-weight:bold;"/>
+						<h:inputTextarea value="#{otaBean.sec_b.physicalObjectLongDescription}" style="width:100%" rows="20"/><br />
+					
+					</h:panelGrid>
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		</body>
+</html>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Form_DS_7.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="#{katartisisFormBean.currentForm.name}"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Προγράμματος Κατάρτισης</ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminKatartisis == false and userLoginBean.contractorUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		
+			<script type="text/javascript" src="/OTA/misc/datepicker.js"></script>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/sprintf.js"></script>
+			<script language="javascript" src="/OTA/misc/formatters.js"></script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/subProjectList.jsf">Λίστα Υποέργων</a></li>
+			<li><a href="/OTA/katartisis/cycles.jsf">Λίστα Κύκλων</a></li>
+			<li><a href="/OTA/katartisis/events.jsf">#{katartisisUIBean.eventTypeString}</a></li>
+			<li><a href="/OTA/katartisis/events_forms.jsf">Φόρμες</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<h:form id="Φόρμα_ΗΟ_7">
+					
+					<center>
+					<h:commandButton id="saveForm" value="Αποθήκευση" rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.saveForm}"/>
+					<h:commandButton id="submitForm" value="Υποβολή" rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.submitForm}"/>
+					<h:commandButton id="approveForm" value="Έγκριση" rendered="#{katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.approveForm}"/>
+					<h:commandButton id="rejectForm" value="Απόρριψη" rendered="#{katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.rejectForm}"/>
+					<br/>
+					<br/>
+					<h:outputText value="#{katartisisFormBean.currentForm.name}" style="font-size: 12px; font-family: Verdana, Arial, Sans-Serif"/>
+					<br/>
+					<h:messages style="color:red"/><br/>
+					<br/>
+					<h:dataTable id="trainerstable" value="#{katartisisFormBean.form_ds_7.speakers}" var="trainerItem" styleClass="data-table" binding="#{katartisisFormBean.speakerDataTable}">
+						<h:column id="column1">
+							<f:facet name="header"><h:outputText value="Εισηγητής"/></f:facet>
+							<h:outputText value="#{trainerItem.lastName}, #{trainerItem.firstName}"/>
+						</h:column>
+						<h:column id="column2">
+							<f:facet name="header"><h:outputText value="ΑΦΜ"/></f:facet>
+							<h:inputText value="#{trainerItem.vatID}" disabled="#{katartisisFormBean.readonlyForm}" size="10"/>
+						</h:column>
+						<h:column id="column3">
+							<f:facet name="header"><h:outputText value="Σύνολο ωρών εισήγησης"/></f:facet>
+							<h:outputText value="#{trainerItem.duration}" styleClass="currency"/>
+						</h:column>
+						<h:column id="column4">
+							<f:facet name="header"><h:outputText value="Μικτή ωριαία αποζημίωση"/></f:facet>
+							<h:inputText id="grosshourly" value="#{trainerItem.speakerHourlyRateGross}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:grosshourly');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+						<h:column id="column5">		
+							<f:facet name="header"><h:outputText value="Σύνολο ασφαλιστικών εισφορών"/></f:facet>
+							<h:inputText id="totalinsurance" value="#{trainerItem.speakerInsuranceAmount}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:totalinsurance');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+						<h:column id="column6">
+							<f:facet name="header"><h:outputText value="Ημ/νια και Αριθμός χρηματικού εντάλματος ΙΚΑ"/></f:facet>
+							<h:inputText id="warrantIKADate" value="#{trainerItem.speakerIKAWarrantDateNum}" size="10" disabled="#{katartisisFormBean.readonlyForm}" />
+						</h:column>
+						<h:column id="column7">
+							<f:facet name="header"><h:outputText value="Παρακρατηθείς φόρος και χαρτόσημο"/></f:facet>
+							<h:inputText id="taxstamp" value="#{trainerItem.speakerTaxStamp}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:taxstamp');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+						<h:column id="column9">
+							<f:facet name="header"><h:outputText value="Ημ/νια και Αριθμός διπλότυπης απόδειξης ΔΟΥ"/></f:facet>
+							<h:inputText id="receiptDoubleDOY" value="#{trainerItem.speakerDOYReceiptDateNum}" size="10" disabled="#{katartisisFormBean.readonlyForm}" />
+						</h:column>
+						<h:column id="column10">
+							<f:facet name="header"><h:outputText value="Καθαρό πληρωτέο ποσό"/></f:facet>
+							<h:inputText id="netamount" value="#{trainerItem.speakerNetAmount}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:netamount');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+						<h:column id="column11">
+							<f:facet name="header"><h:outputText value="Τράπεζα"/></f:facet>
+							<h:inputText value="#{trainerItem.speakerBankDetails}" disabled="#{katartisisFormBean.readonlyForm}" size="6"/>
+						</h:column>
+						<h:column id="column12">
+								<f:facet name="header"><h:outputText value="Αριθμός επιταγής"/></f:facet>
+								<h:inputText value="#{trainerItem.speakerCheckNum}" disabled="#{katartisisFormBean.readonlyForm}" size="6"/>
+						</h:column>
+						<h:column id="column13">
+								<f:facet name="header"><h:outputText value="Δαπάνη Διατροφής"/></f:facet>
+								<h:inputText id="food" value="#{trainerItem.speakerMealExpenses}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:food');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+						<h:column id="column14">
+								<f:facet name="header"><h:outputText value="Δαπάνη Μετακίνησης"/></f:facet>
+								<h:inputText id="travel" value="#{trainerItem.speakerTransportationExpenses}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:travel');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+						<h:column id="column15">
+							<f:facet name="header"><h:outputText value="Δαπάνη Διαμονής"/></f:facet>
+							<h:inputText id="accomodation" value="#{trainerItem.speakerAccomodationExpenses}" disabled="#{katartisisFormBean.readonlyForm}" styleClass="currency" size="6" onchange="currencyFormatter('Φόρμα_ΗΟ_7:trainerstable:#{katartisisFormBean.speakerDataTable.rowIndex}:accomodation');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+						</h:column>
+					</h:dataTable>
+					</center>
+    				</h:form>
+				</div>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

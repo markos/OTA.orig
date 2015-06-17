@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+	<style>
+			body {
+				font-family:Arial;
+			}
+			
+			table {
+				border:1px solid;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<center>
+					<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+					
+						<h:panelGrid columns="4" styleClass="form-table">
+							<h:outputText value="60. ΥΛΟΠΟΙΗΣΗ ΝΕΟΥ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_b.newProject}" />
+							<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_b.newProject}" />
+					
+							<h:outputText value="61. ΒΕΛΤΙΩΣΗ – ΕΚΣΥΓΧΡΟΝΙΣΜΟΣ ΥΠΑΡΧΟΝΤΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_b.existingProjectImprovement}" />
+							<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_b.existingProjectImprovement}" />
+					
+							<h:outputText value="62. ΕΠΕΚΤΑΣΗ ΥΠΑΡΧΟΝΤΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_b.existingProjectExtension}" />
+							<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_b.existingProjectExtension}" />
+					
+							<h:outputText value="63. ΕΞΟΠΛΙΣΜΟΣ ΛΕΙΤΟΥΡΓΙΑΣ" style="font-weight:bold;"/>
+							<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_b.functionalityEquipment}" />
+							<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_b.functionalityEquipment}" />
+					
+							<h:outputText value="64. ΕΠΕΚΤΑΣΗ ΛΕΙΤΟΥΡΓΙΑΣ ΥΠΑΡΧΟΝΤΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_b.existingProjectFunctionalityExtension}" />
+							<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_b.existingProjectFunctionalityExtension}" />
+					
+							<h:outputText value="65. Ο ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ ΕΧΕΙ ΤΗΝ ΚΥΡΙΟΤΗΤΑ Ή ΤΟ ΔΙΚΑΙΩΜA ΧΡΗΣΗΣ ΤΟΥ ΑΚΙΝΗΤΟΥ ΕΠΙ ΤΟΥ ΟΠΟΙΟΥ ΘΑ ΥΛΟΠΟΙΗΘΕΙ ΤΟ ΕΡΓΟ;" style="font-weight:bold;"/>
+							<h:outputText value="ΝΑΙ" rendered="#{otaBean.sec_b.vendorHasRealEstateUsageRight}" />
+							<h:outputText value="ΟΧΙ" rendered="#{!otaBean.sec_b.vendorHasRealEstateUsageRight}" />
+						</h:panelGrid>
+
+						<h:outputText value="66. ΣΧΟΛΙΑ – ΠΑΡΑΤΗΡΗΣΕΙΣ ΣΧΕΤΙΚΑ ΜΕ ΤΗΝ ΚΥΡΙΟΤΗΤΑ ΤΟΥ ΑΚΙΝΗΤΟΥ" style="font-weight:bold;"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_b.commentsOnRealEstateOwnership}" style="width:100%;height:100%;"/>
+					
+						<h:outputText value="67. ΣΥΝΤΟΜΗ ΠΕΡΙΓΡΑΦΗ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ (17)" style="font-weight:bold;"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_b.physicalObjectShortDescription}" style="width:100%" />
+
+						<center>
+						<h:outputLabel value="ΥΠΟΕΡΓΑ" style="font-weight:bold;"/>
+						<h:panelGrid columns="2" styleClass="form-table" style="width:50%">
+							<h:outputText value="68. ΣΥΝΟΛΙΚΟΣ ΑΡΙΘΜΟΣ ΠΡΟΒΛΕΠΟΜΕΝΩΝ ΥΠΟΕΡΓΩΝ" style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_b.subProjectsTotal}"/>
+						</h:panelGrid>
+						</center>
+					
+						<h:outputText value="69. ΟΡΙΣΜΟΣ / ΠΕΡΙΓΡΑΦΗ ΠΡΟΒΛΕΠΟΜΕΝΩΝ ΥΠΟΕΡΓΩΝ" style="font-weight:bold;"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_b.subProjectsDescription}" style="width:100%" />
+					
+						<h:outputText escape="false" value="ΛΙΣΤΑ ΥΠΟΕΡΓΩΝ" style="font-weight:bold;"/>
+						
+						<h:dataTable value="#{otaBean.subProjects}" var="subItem" cellspacing="0" cellpadding="10" styleClass="data-table" style="margin:0 auto; width:100%;" >
+							<h:column>
+								<f:facet name="header"><h:outputText value="70. Α/Α (63)"/></f:facet>
+								<h:outputText value="#{subItem.given_id}" style="width:40px; text-align:center;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="71. ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ (64)"/></f:facet>
+								<h:outputText value="#{subItem.title}" style="width:820px;"/>
+							</h:column>
+						</h:dataTable>
+												
+						<h:outputText escape="false" value="ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+						
+						<h:dataTable id="projectplacestable" value="#{otaBean.projectPlaces}" var="placeItem" cellspacing="0" cellpadding="10" styleClass="data-table"  style="margin:0 auto; width:100%" binding="#{otaBean.tmp_dataTable2}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="72. ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+								<h:outputText value="#{placeItem.regionName}" style="width:100%;" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="73. ΚΩΔ.* (59)"/></f:facet>
+								<h:outputText rendered="#{placeItem.regionCode != -1}" value="#{placeItem.regionCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="74. ΝΟΜΟΣ"/></f:facet>
+								<h:outputText  value="#{placeItem.prefectureName}" style="width:100%;" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="75. ΚΩΔ.* (60)"/></f:facet>
+								<h:outputText rendered="#{placeItem.prefectureCode != '-1'}" value="#{placeItem.prefectureCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="76. ΟΤΑ"/></f:facet>
+								<h:outputText value="#{placeItem.municipalityName}" style="width:100%;"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="77. ΚΩΔ.* (61)"/></f:facet>
+								<h:outputText rendered="#{placeItem.municipalityCode != '-1'}" value="#{placeItem.municipalityCode}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="78. ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ (62)"/></f:facet>
+								<h:outputText value="#{placeItem.budget}" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+							</h:column>
+						</h:dataTable>
+						
+						<center>
+						<h:panelGrid columns="2" styleClass="form-table">
+							<h:outputText value="ΣΥΝΟΛΟ ΠΡΟΫΠΟΛΟΓΙΣΜΟΥ ΧΩΡΟΘΕΤΗΣΗΣ" style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_b.projectsPlacesTotalBudget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+							<h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ ΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="#{otaBean.sec_a.amount}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:panelGrid>
+						</center>
+					
+						<h:outputText value="79. ΑΝΑΛΥΤΙΚΗ ΠΕΡΙΓΡΑΦΗ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ (65)" style="font-weight:bold;"/>
+						<h:outputFormat escape="false" value="#{otaBean.sec_b.physicalObjectLongDescription}" style="width:100%" /><br />					
+					</h:panelGrid>
+		</center>
+	</body>
+</html>

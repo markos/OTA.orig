@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: users.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Διαχείριση Χρηστών</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Διαχείριση Χρηστών"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Χρηστών</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+		</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			
+			<c:if test="#{userLoginBean.adminUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Κεντρική">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+					<div id="tabbed">
+						<ul>
+							<li><h:commandLink id="main" action="#{userDBManagerBean.gotoUsersMain}">Αιτήσεις Χρηστών</h:commandLink></li>
+							<li><h:commandLink id="groups" action="#{userDBManagerBean.gotoGroups}">Ομάδες</h:commandLink></li>
+							<li><h:commandLink id="roles" action="#{userDBManagerBean.gotoRoles}">Ρόλοι</h:commandLink></li>
+							<li id="selected"><a href="#">Χρήστες</a></li>
+							<li><h:commandLink id="newsletter" action="#{userDBManagerBean.gotoNewsletter}">Newsletter</h:commandLink></li>
+						</ul>
+					</div>
+					<div id="content">
+						<h:messages style="color:red;"/><br/>
+	
+						<center>
+				
+						<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; width:100%">
+							<h:outputText value="ΦΙΛΤΡΑ ΑΝΑΖΗΤΗΣΗΣ"/>
+							
+							<h:panelGrid columns="4">
+								<h:panelGroup style="border: 1px; width:20%;">
+									<h:outputText value="Χωροθέτηση Χρηστών"/><br/>
+									<h:panelGrid columns="2">
+										<h:outputText value="ΠΕΡΙΦΕΡΕΙΑ: "/>
+										<h:selectOneMenu value="#{userDBManagerBean.selectRegion_id}" style="width:100%;" valueChangeListener="#{userDBManagerBean.users_changedRegion}" onchange="submit()">
+											<f:selectItems value="#{userDBManagerBean.regionsSelectItemsList}"/>
+										</h:selectOneMenu>
+									
+										<h:outputText value="ΝΟΜΟΣ: "/>
+										<h:selectOneMenu value="#{userDBManagerBean.selectPrefecture_id}" style="width:100%;" valueChangeListener="#{userDBManagerBean.users_changedPrefecture}" onchange="submit()">
+											<f:selectItems value="#{userDBManagerBean.prefectureSelectItemsList}"/>
+										</h:selectOneMenu>
+									
+										<h:outputText value="ΟΤΑ"/>
+										<h:selectOneMenu value="#{userDBManagerBean.selectMunicipality_id}" style="width:100%;" >
+											<f:selectItems value="#{userDBManagerBean.municipalitySelectItemsList}" />
+										</h:selectOneMenu>
+									</h:panelGrid><br/><br/>
+								</h:panelGroup>
+								
+								<h:panelGroup style="border: 1px; width:30%;">
+									<h:outputText value="Ομάδες Χρηστών"/>
+									<h:selectManyListbox value="#{userDBManagerBean.selectedUserGroupIds}" style="width:220px; height: 100px;">
+										<f:selectItems value="#{userDBManagerBean.userGroupsSelectItemsList}" />
+										<f:converter converterId="javax.faces.Integer"/>
+									</h:selectManyListbox>
+								</h:panelGroup>
+								
+								<h:panelGroup style="border: 1px; width:30%;">
+									<h:outputText value="Ρόλοι Χρηστών"/><br/>
+									<h:selectManyListbox value="#{userDBManagerBean.selectedUserRoleIds}" style="width:220px; height: 100px;">
+										<f:selectItems value="#{userDBManagerBean.userRolesSelectItemsList}" />
+										<f:converter converterId="javax.faces.Integer"/>
+									</h:selectManyListbox>
+								</h:panelGroup>
+
+								<h:panelGroup style="border: 1px; width:20%;">
+									<h:panelGrid columns="2">
+									<h:outputText value="Όνομα Χρήστη:"/>
+									<h:inputText value="#{userDBManagerBean.filterUserName}" size="20" />
+									<h:outputText value="Όνομα:"/>
+									<h:inputText value="#{userDBManagerBean.filterFirstName}" size="20" />
+									<h:outputText value="Επώνυμο:"/>
+									<h:inputText value="#{userDBManagerBean.filterLastName}" size="20" />
+									</h:panelGrid>
+								</h:panelGroup>
+							</h:panelGrid>
+							<h:commandButton value="Αναζήτηση Χρηστών" action="#{userDBManagerBean.searchUsers}" />
+							<br/>
+							<h:outputText value="ΧΡΗΣΤΕΣ"/>
+							<br/>
+							<h:panelGroup style="width:100%;">
+								<div style="margin:0 auto; width:100%; height: 400px; overflow: auto; vertical-align: top;">
+								<h:dataTable id="userstable" value="#{userDBManagerBean.userList}" var="user" styleClass="data-table"  style="margin:0 auto; width:100%; " binding="#{userDBManagerBean.users_dataTable}">
+									<h:column >
+										<f:facet name="header"><h:outputText id="username" value="Όνομα Χρήστη"/></f:facet>
+										<h:outputText value="#{user.username}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="firstname" value="Όνομα"/></f:facet>
+										<h:outputText value="#{user.firstName}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="lastname" value="Επώνυμο"/></f:facet>
+										<h:outputText value="#{user.lastName}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="type" value="Είδος Χρήστη"/></f:facet>
+										<h:outputText value="#{user.type}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="ota" value="ΔΗΜΟΣ"/></f:facet>
+										<h:outputText value="#{user.municipality.name}"/>
+									</h:column>
+									<h:column >
+										<f:facet name="header"><h:outputText id="electiveType" value="Είδος Αιρετού"/></f:facet>
+										<h:outputText value="#{user.electiveType}"/>
+									</h:column>
+									<h:column>
+										<h:commandButton image="/images/edit.png" action="#{userDBManagerBean.editUser}"/>
+										<h:commandButton image="/images/remove.png" action="#{userDBManagerBean.deleteUser}"/>
+									</h:column>
+								</h:dataTable>
+								</div>
+								<br/>
+								<h:outputLabel value="Προσθήκη Χρήστη:" />
+								<h:selectOneMenu value="#{userDBManagerBean.selectUserType}">
+									<f:selectItem itemLabel="Επιλέξτε Τύπο Χρήστη" itemValue="-1"/>
+									<f:selectItem itemLabel="Απλός Χρήστης" itemValue="add_plain_user"/>
+									<f:selectItem itemLabel="Αιρετός" itemValue="add_elective"/>
+									<f:selectItem itemLabel="Εισηγητής" itemValue="add_trainer"/>
+									<f:selectItem itemLabel="Ανάδοχος" itemValue="add_contractor"/>
+									<f:selectItem itemLabel="Διαχειριστής" itemValue="add_admin"/>
+								</h:selectOneMenu>
+								<h:commandButton image="/images/next.png" action="#{userDBManagerBean.users_addUser}"/>
+							</h:panelGroup>
+						</h:panelGrid>
+						</center>
+					</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	</body>
+</html>

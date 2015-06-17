@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: editContractor.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css"/>
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"/>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"/>
+			<script language="javascript" src="/OTA/misc/smoothbox.js"></script>
+			
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "textareas",
+        			theme : "simple",
+ 				});
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/contractors.jsf">Ανάδοχοι</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="ΕπεξεργασιαΑναδοχου">
+				
+				<div id="login-form" style="width:950px; padding-top:20px;">
+				
+				<h:messages style="color:red;"/><br/>
+				
+				<div id="content">
+					<h:panelGrid columns="1" cellspacing="0" cellpadding="5" style="text-align:center; margin:0 auto; width:100%;">
+					
+					<h:outputText escape="false" value="ΕΠΕΞΕΡΓΑΣΙΑ ΑΝΑΔΟΧΟΥ" style="font-weight:bold;"/>
+							
+					<h:panelGrid columns="2" styleClass="form-table">
+						<h:outputText style="font-weight:bold;" value="ΕΠΩΝΥΜΙΑ ΑΝΑΔΟΧΟΥ (ΣΥΝΤΟΜΗ)"/>
+						<h:inputText id="ΕΠΩΝΥΜΙΑ_ΑΝΑΔΟΧΟΥ_ΣΥΝΤΟΜΗ" value="#{otaBean.contractor.name}" size="50" required="true"/>
+						<h:outputText style="font-weight:bold;" value="ΕΠΩΝΥΜΙΑ ΑΝΑΔΟΧΟΥ (ΠΛΗΡΗΣ)"/>
+						<h:inputTextarea id="ΕΠΩΝΥΜΙΑ_ΑΝΑΔΟΧΟΥ_ΠΛΗΡΗΣ" value="#{otaBean.contractor.fullName}" cols="50" rows="4" required="true"/>
+						
+						<h:outputText style="font-weight:bold;" value="EMAIL"/>
+						<h:inputText value="#{otaBean.contractor.email}" style="width:100%;"/>
+						<h:outputText style="font-weight:bold;" value="ΠΕΡΙΓΡΑΦΗ"/>
+						<h:inputTextarea value="#{otaBean.contractor.description}" cols="50" rows="4"/>
+								
+						
+						<h:outputText style="font-weight:bold;" value="ΤΗΛΕΦΩΝΟ"/>
+						<h:inputText value="#{otaBean.contractor.workPhone}" size="15"/>
+						<h:outputText style="font-weight:bold;" value="ΦΑΞ"/>
+						<h:inputText value="#{otaBean.contractor.fax}" size="15"/>
+								
+						<h:outputText style="font-weight:bold;" value="ΑΦΜ"/>
+						<h:inputText id="ΑΦΜ" value="#{otaBean.contractor.VAT}" size="10" required="true"><f:validator validatorId="VATValidator"/></h:inputText>
+						<h:outputText style="font-weight:bold;" value="ΔΟΥ"/>
+						<h:inputText id="ΔΟΥ" value="#{otaBean.contractor.DOY}" size="40" required="true"/>
+								
+						<h:outputText style="font-weight:bold;" value="ΔΙΕΥΘΥΝΣΗ"/>
+						<h:inputTextarea id="ΔΙΕΥΘΥΝΣΗ" value="#{otaBean.contractor.address}" cols="50" rows="5" required="true"/>
+						<h:outputText style="font-weight:bold;" value="T.K."/>
+						<h:inputText id="TK" value="#{otaBean.contractor.postalCode}" size="10" required="true"/>
+						<h:outputText style="font-weight:bold;" value="ΠΟΛΗ"/>
+						<h:inputText id="ΠΟΛΗ" value="#{otaBean.contractor.city}" style="width:80%;" required="true"/>
+					</h:panelGrid>
+							
+					<h:commandButton action="#{otaBean.saveContractor}" value="Αποθήκευση"/>
+				</h:panelGrid>
+				</div>				
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+	
+	</body>
+</html>

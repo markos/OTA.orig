@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Form_SEM_1.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="#{katartisisFormBean.currentForm.name}"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Διαχείριση Προγράμματος Κατάρτισης</ui:define>
+		<ui:define name="javascript_box">
+			<c:if test="#{userLoginBean.adminKatartisis == false and userLoginBean.contractorUser == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+		
+			<link rel="stylesheet" type="text/css" href="/OTA/misc/smoothbox.css" media="screen"/>
+			<script type="text/javascript" src="/OTA/misc/datepicker.js"></script>
+			<script language="javascript" src="/OTA/misc/mootools1.2.js"></script>
+			<script type="text/javascript" src="/OTA/misc/smoothbox.js"></script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/subProjectList.jsf">Λίστα Υποέργων</a></li>
+			<li><a href="/OTA/katartisis/cycles.jsf">Λίστα Κύκλων</a></li>
+			<li><a href="/OTA/katartisis/events.jsf">#{katartisisUIBean.eventTypeString}</a></li>
+			<li><a href="/OTA/katartisis/events_forms.jsf">Φόρμες</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<h:form id="Φόρμα_ΣΕΜ_1">
+					
+					<center>
+					<h:commandButton id="saveForm" value="Αποθήκευση" rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.saveForm}"/>
+					<h:commandButton id="submitForm" value="Υποβολή" rendered="#{!katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.submitForm}"/>
+					<h:commandButton id="approveForm" value="Έγκριση" rendered="#{katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.approveForm}"/>
+					<h:commandButton id="rejectForm" value="Απόρριψη" rendered="#{katartisisFormBean.readonlyForm}" action="#{katartisisFormBean.rejectForm}"/>
+					<br/>
+					<br/>
+					<h:outputText value="#{katartisisFormBean.currentForm.name}" style="font-size: 12px; font-family: Verdana, Arial, Sans-Serif"/>
+					<br/>
+					<h:messages style="color:red"/><br/>
+					<br/>
+					<h:panelGrid columns="3" style="data-table">
+						<h:outputLabel for="contractor" value="Ανάδοχος"/>
+						<h:outputText value=":"/>
+						<h:outputText escape="false" value="#{katartisisUIBean.contractorName}"/>
+
+						<h:outputLabel for="num" value="Αριθμός προγραμματισμένου σεμιναρίου"/>
+						<h:outputText value=":"/>
+						<h:outputText value="#{katartisisUIBean.event.index}" style="font-size: 12px; font-family: Verdana, Arial, Sans-Serif"/>
+												
+						<h:outputLabel for="title" value="Τίτλος Σεμιναρίου"/>
+						<h:outputText value=":"/>
+						<h:inputText id="title" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.title}"/>
+						
+						<h:outputLabel for="topic" value="Αντικείμενο κατάρτισης"/>
+						<h:outputText value=":"/>
+						<h:inputText id="topic" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisUIBean.event.topic}"/>
+						
+						<h:outputLabel for="date" value="Ημερομηνία Έναρξης"/>
+						<h:outputText value=":"/>
+						<h:outputText value="#{katartisisUIBean.event.date}" rendered="#{katartisisFormBean.readonlyForm}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						<h:panelGroup rendered="#{!katartisisFormBean.readonlyForm}">
+							<h:inputText id="date" value="#{katartisisUIBean.event.date}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+							<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Φόρμα_ΣΕΜ_1:date', this, 'dmy');"/>
+						</h:panelGroup>
+						
+						<h:outputLabel for="date2" value="Ημερομηνία Λήξης"/>
+						<h:outputText value=":"/>
+						<h:outputText value="#{katartisisFormBean.form_sem_1.date_end}" rendered="#{katartisisFormBean.readonlyForm}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						<h:panelGroup rendered="#{!katartisisFormBean.readonlyForm}">
+							<h:inputText id="date2" value="#{katartisisFormBean.form_sem_1.date_end}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+							<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Φόρμα_ΣΕΜ_1:date2', this, 'dmy');"/>
+						</h:panelGroup>
+
+						<h:outputLabel for="educatee" value="Αριθμός Καταρτιζομένων"/>
+						<h:outputText value=":"/>
+						<h:inputText id="educatee" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.traineesQty}"/>
+					
+						<h:outputLabel for="theory" value="Ώρες Θεωρίας"/>
+						<h:outputText value=":"/>
+						<h:inputText id="theory" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.theoryHours}"/>
+						
+						<h:outputLabel value="Αριθμός Ε.ΚΕ.ΠΙΣ. αναδόχου"/>
+						<h:outputText value=":"/>
+						<h:inputText disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.contractorEKEPIS}"/>
+						
+						<h:outputLabel for="kekname" value="Επωνυμία ΚΕΚ"/>
+						<h:outputText value=":"/>
+						<h:inputText id="kekname" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.KEK_name}"/>
+						
+						<h:outputLabel for="kekaddr" value="Διεύθυνση ΚΕΚ"/>
+						<h:outputText value=":"/>
+						<h:inputTextarea id="kekaddr" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.KEK_address}" cols="30" rows="4"/>
+						
+						<h:outputLabel for="KEKphone" value="Τηλέφωνο ΚΕΚ"/>
+						<h:outputText value=":"/>
+						<h:inputText id="KEKphone" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.KEK_phone}"/>
+						
+						<h:outputLabel for="KEKfax" value="Fax ΚΕΚ"/>
+						<h:outputText value=":"/>
+						<h:inputText id="KEKfax" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.KEK_fax}"/>
+						
+						<h:outputLabel for="KEKemail" value="E-mail ΚΕΚ"/>
+						<h:outputText value=":"/>
+						<h:inputText id="KEKemail" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.KEK_email}"/>
+						
+						<h:outputLabel for="KEKregion" value="Περιφέρεια"/>
+						<h:outputText value=":"/>
+						<h:selectOneMenu id="KEKregion" value="#{katartisisFormBean.selectRegion_id}"  disabled="#{katartisisFormBean.readonlyForm}" valueChangeListener="#{katartisisFormBean.form_changePrefecture}" onchange="submit()">
+							<f:selectItem itemLabel="Παρακαλώ Επιλέξτε" itemValue="-1"/>
+							<f:selectItems value="#{katartisisFormBean.allRegionsSelectItems}"/>
+						</h:selectOneMenu>
+						
+						<h:outputLabel for="KEKprefecture" value="Νομός"/>
+						<h:outputText value=":"/>
+						<h:selectOneMenu id="KEKprefecture" value="#{katartisisFormBean.selectPrefecture_id}" disabled="#{katartisisFormBean.readonlyForm}" valueChangeListener="#{katartisisFormBean.form_changeMunicipality}" onchange="submit()">
+							<f:selectItem itemLabel="Παρακαλώ Επιλέξτε" itemValue="-1"/>
+							<f:selectItems value="#{katartisisFormBean.allPrefecturesSelectItems}"/>
+						</h:selectOneMenu>
+
+						<h:outputLabel for="KEKmunicipality" value="Δήμος"/>
+						<h:outputText value=":"/>
+						<h:selectOneMenu id="KEKmunicipality" value="#{katartisisFormBean.selectMunicipality_id}" disabled="#{katartisisFormBean.readonlyForm}" >
+							<f:selectItems value="#{katartisisFormBean.allMunicipalitiesSelectItems}"/>
+						</h:selectOneMenu>
+						
+						<h:outputLabel for="adminname" value="Ονοματεπώνυμο Υπευθύνου"/>
+						<h:outputText value=":"/>
+						<h:inputText id="adminname" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.adminName}"/>
+						
+						<h:outputLabel for="adminphone" value="Τηλέφωνο Υπευθύνου"/>
+						<h:outputText value=":"/>
+						<h:inputText id="adminphone" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.adminPhone}"/>
+						
+						<h:outputLabel for="spacerent" value="Τόπος Υλοποίησης - Ενοικιαζόμενη δομή"/>
+						<h:outputText value=":"/>
+						<h:selectBooleanCheckbox id="spacerent" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.rentedplace}"/>
+
+						<h:outputLabel for="programAdmin" value="Υπεύθυνος προγράμματος - Ονοματεπώνυμο"/>
+						<h:outputText value=":"/>
+						<h:inputText id="programAdmin" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.programAdmin_name}"/>
+						
+						<h:outputLabel for="programAdminVAT" value="Υπεύθυνος προγράμματος - Α.Φ.Μ."/>
+						<h:outputText value=":"/>
+						<h:inputText id="programAdminVAT" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.programAdmin_vat}"/>
+						
+						<h:outputLabel for="programAdminCity" value="Υπεύθυνος προγράμματος - Πόλη"/>
+						<h:outputText value=":"/>
+						<h:inputText id="programAdminCity" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.programAdmin_city}"/>
+						
+						<h:outputLabel for="programAdminPhone" value="Υπεύθυνος προγράμματος - Τηλέφωνο"/>
+						<h:outputText value=":"/>
+						<h:inputText id="programAdminPhone" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.programAdmin_phone}"/>
+						
+						<h:outputLabel for="programAdminFax" value="Υπεύθυνος προγράμματος - Fax"/>
+						<h:outputText value=":"/>
+						<h:inputText id="programAdminFax" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.programAdmin_fax}"/>
+						
+						<h:outputLabel for="programAdminEmail" value="Υπεύθυνος προγράμματος - E-mail"/>
+						<h:outputText value=":"/>
+						<h:inputText id="programAdminEmail" disabled="#{katartisisFormBean.readonlyForm}" value="#{katartisisFormBean.form_sem_1.programAdmin_email}"/>						
+					</h:panelGrid>
+					<br/>
+				    </center>
+				    </h:form>
+				</div>
+			</f:view>
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

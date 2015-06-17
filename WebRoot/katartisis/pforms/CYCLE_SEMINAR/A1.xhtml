@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: A1.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+		<title>ΣΕΜ A1: ΒΕΒΑΙΩΣΗ ΠΡΟΓΡΑΜΜΑΤΟΣ ΤΕΛΕΣΗΣ ΚΑΤΑΡΤΙΣΗΣ ΑΙΡΕΤΩΝ ΣΤΙΣ  ΤΠΕ</title>
+		<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+		</style>
+	</head>
+	<body>
+	<center>
+
+	<ui:include src="/katartisis/pforms/header.xhtml" />
+	<h:outputText style="display:none;" value="#{katartisisFormBean.form_sem_2}"/>
+	<br/>
+	
+	<table width="850">
+		<tr>
+			<td align="center">
+				<h:outputText value="ΕΝΤΥΠΟ ΣΕΜ A1: ΒΕΒΑΙΩΣΗ ΠΡΟΓΡΑΜΜΑΤΟΣ ΤΕΛΕΣΗΣ ΚΑΤΑΡΤΙΣΗΣ ΑΙΡΕΤΩΝ ΣΤΙΣ ΤΠΕ" style="font-size:18px; font-family:Arial;"/>
+			</td>
+		</tr>
+	</table>
+
+	<br/>
+
+	<table width="850" cellpadding="5" cellspacing="0">	
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΚΑΤΗΓΟΡΙΑ ΔΡΑΣΗΣ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.cycle.name}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;border-bottom:1px solid;"><h:outputText value="ΣΤΑΔΙΟ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;border-bottom:1px solid; text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.phase}" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/><br/>
+	
+	<table width="850">
+		<tr>
+			<td><h:outputText escape="false" value="(Η βεβαίωση έναρξης υλοποίησης συντάσσεται ξεχωριστά για κάθε πρόγραμμα κατάρτισης)" /></td>
+		</tr>
+	</table>
+	<br/>
+	
+	<table width="850" cellpadding="5" cellspacing="0">
+		<tr>
+			<th colspan="2" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΣΤΟΙΧΕΙΑ ΑΝΑΔΟΧΟΥ" style="font-size:12px;font-weight:bold;"/></th>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΕΠΩΝΥΜΙΑ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText escape="false" value="#{katartisisUIBean.contractorName}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΔΙΕΥΘΥΝΣΗ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText escape="false" value="#{katartisisUIBean.contractor.address}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΤΗΛΕΦΩΝΟ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.contractor.workPhone}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΦΑΞ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.contractor.fax}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="E-mail:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.contractor.email}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="Α.Φ.Μ.:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.contractor.VAT}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="Δ.Ο.Υ." style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.contractor.DOY}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;border-bottom:1px solid;"><h:outputText value="ΑΡΙΘΜΟΣ Ε.ΚΕ.ΠΙΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.contractorEKEPIS}" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/>
+	
+	<table width="850" cellpadding="5" cellspacing="0">	
+		<tr>
+			<td width="250" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;"><h:outputText value="ΟΝΟΜΑΤΕΠΩΝΥΜΟ ΥΠΕΥΘΥΝΟΥ ΓΙΑ ΠΛΗΡΟΦΟΡΙΕΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="300" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.adminName}" style="font-size:12px;"/></td>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;"><h:outputText value="ΤΗΛΕΦΩΝΟ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;border-bottom:1px solid; text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.adminPhone}" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/>
+	
+	<table width="850">
+		<tr>
+			<td><h:outputText escape="false" value="Βεβαιώνεται ότι στην #{katartisisUIBean.event.municipality.region.name}, #{katartisisUIBean.event.municipality.prefecture.name}, #{katartisisUIBean.event.municipality.name}, πρόκειται να υλοποιηθεί το παρακάτω εγκριθέν πρόγραμμα:" /></td>
+		</tr>
+	</table>
+	
+	<br/>
+	
+	<table width="850" cellpadding="5" cellspacing="0">
+		<tr>
+			<th colspan="4" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΣΤΟΙΧΕΙΑ ΠΡΟΓΡΑΜΜΑΤΟΣ ΚΑΤΑΡΤΙΣΗΣ (βάσει εγκριτικού εντύπου)" style="font-size:12px;font-weight:bold;"/></th>
+		</tr>
+		<tr>
+			<td colspan="2" width="280" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΚΩΔΙΚΟΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="300" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΤΙΤΛΟΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="270" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="ΑΝΤΙΚΕΙΜΕΝΟ ΚΑΤΑΡΤΙΣΗΣ" style="font-size:12px;font-weight:bold;"/></td>
+		</tr>
+		<tr>
+			<td colspan="2" width="280" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.code}" style="font-size:12px;"/></td>
+			<td width="300" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.title}" style="font-size:12px;"/></td>
+			<td width="270" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.event.topic}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="140" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΗΜΕΡΟΜΗΝΙΑ ΕΝΑΡΞΗΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="140" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΗΜΕΡΟΜΗΝΙΑ ΛΗΞΗΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="300" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΑΡΙΘΜΟΣ ΚΑΤΑΡΤΙΖΟΜΕΝΩΝ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="270" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="ΩΡΕΣ ΘΕΩΡΙΑΣ" style="font-size:12px;font-weight:bold;"/></td>
+		</tr>
+		<tr>
+			<td width="140" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.event.date}" style="font-size:12px;"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+			<td width="140" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.date_end}" style="font-size:12px;"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText></td>
+			<td width="300" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.traineesQty}" style="font-size:12px;"/></td>
+			<td width="270" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.theoryHours}" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/>
+	
+	<table width="850" cellpadding="5" cellspacing="0">
+		<tr>
+			<th colspan="4" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΤΟΠΟΣ ΥΛΟΠΟΙΗΣΗΣ" style="font-size:12px;font-weight:bold;"/></th>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΕΠΩΝΥΜΙΑ ΚΕΚ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_name}" style="font-size:12px;"/></td>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΕΝΟΙΚΙΑΖΟΜΕΝΗ ΔΟΜΗ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;">
+				<h:outputText rendered="#{katartisisFormBean.form_sem_1.rentedplace}" value="ΝΑΙ" style="font-size:12px;"/>
+				<h:outputText rendered="#{!katartisisFormBean.form_sem_1.rentedplace}" value="ΟΧΙ" style="font-size:12px;"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΔΙΕΥΘΥΝΣΗ" style="font-size:12px;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_address}" style="font-size:12px;"/></td>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="Τ.Κ." style="font-size:12px;font-weight:bold;"/></td>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_postalcode}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΠΟΛΗ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_municipality.name}" style="font-size:12px;"/></td>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="NOMOΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_municipality.prefecture.name}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="ΤΗΛΕΦΩΝΟ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_phone}" style="font-size:12px;"/></td>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="ΦΑΞ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_fax}" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/>
+	
+	<table width="850" cellpadding="5" cellspacing="0">
+		<tr>
+			<th colspan="4" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΣΤΟΙΧΕΙΑ ΥΠΕΥΘΥΝΟΥ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΠΡΟΓΡΑΜΜΑΤΟΣ" style="font-size:12px;font-weight:bold;"/></th>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.programAdmin_name}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="Α.Δ.Τ. ή Α.Φ.Μ." style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.programAdmin_vat}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΠΟΛΗ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.programAdmin_city}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΤΗΛΕΦΩΝΟ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.programAdmin_phone}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="ΦΑΞ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.programAdmin_fax}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;text-align:center;"><h:outputText value="Ε-ΜΑΙL" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.programAdmin_email}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="150" style="border-top:1px solid;border-left:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="ΔΕΙΓΜΑ ΥΠΟΓΡΑΦΗΣ" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="350" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<table width="850">
+		<tr>
+			<td><h:outputText escape="false"><p>
+<b>Οδηγίες Συμπλήρωσης:</b><br/>
+Το παρόν έντυπο συμπληρώνεται από τον Υπεύθυνο του Προγράμματος Κατάρτισης του Κ.Ε.Κ και αποστέλλεται στο ΙΤΑ σε χρονικό διάστημα από 20 μέχρι το αργότερο 5 ημέρες πριν από την έναρξη του Προγράμματος.<br/>
+Επισημαίνεται ότι, σε περίπτωση ενοικιαζόμενης πιστοποιημένης δομής, στον Πίνακα 2 θα συμπληρώνονται τα στοιχεία του Κ.Ε.Κ., του οποίου οι δομές νοικιάστηκαν από τον ανάδοχο για την υλοποίηση της θεωρίας.<br/>
+<br/>
+<b>Συνημμένα:</b><br/>
+1. Ονομαστική κατάσταση εκπαιδευτών  (βάσει εντύπου ΣΕΜ Α2:).<br/>
+2. Ονομαστική κατάσταση συμμετεχοντων (βάσει εντύπου ΣΕΜ Α3).<br/>
+3. Αναλυτικό Ωρολόγιο Πρόγραμμα (βάσει εντύπου ΣΕΜ Α4).<br/>
+4. Συμφωνητικό συνεργασίας με άλλη πιστοποιημένη δομή ή μίσθωσης χώρου (σε περίπτωση υλοποίησης ενεργειών εκτός των πιστοποιημένων δομών του αναδόχου φορέα).<br/>
+	</p></h:outputText></td>
+	</tr>
+	</table>
+	
+	<br/>
+	<ui:include src="/katartisis/pforms/footer.xhtml" />
+	</center>
+	</body>
+ </html>

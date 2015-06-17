@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<style>
+			body {
+				font-family:Arial;
+				font-size:11px;
+			}
+			
+			.table1 {
+				border-top:1px solid;
+			}
+			
+				.data-cell {
+					border:1px solid #ccc;
+				}
+				
+				.data-cell td {
+					border:1px solid #ccc;
+				}
+		</style>
+	</head>
+	<body style="text-align:center;">
+
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Παρακολούθηση Φυσικού Αντικειμένου Ημερίδων"/>
+					
+					<br/><br/>
+					
+					<h:dataTable value="#{reportBean.regionKeysList}" cellspacing="0"  cellpadding="10" var="rkey" styleClass="dynamicTable1" style="border:1px solid; width:850px; text-align:center;">
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΝΑΔΟΧΟΣ ΣΥΜΠΡΑΞΗ"/></f:facet>
+							<h:outputText value="#{rkey.contractorName}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ ΔΙΕΞΑΓΩΓΗΣ"/></f:facet>
+							<h:outputText value="#{rkey.region}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΝΟΜΟΣ ΔΙΕΞΑΓΩΓΗΣ"/></f:facet>
+							<h:outputText value="#{rkey.prefecture}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡ. ΑΙΡΕΤΩΝ (ΠΡΟΓ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].electives_total}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡ. ΗΜΕΡΙΔΩΝ (ΠΡΟΓ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].events_total}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡ. ΣΥΜΜΕΤΕΧΟΝΤΩΝ ΑΙΡΕΤΩΝ "/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].participants_total}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡ. ΗΜΕΡΙΔΩΝ (ΥΛΟΠ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].events_total_actual}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡ. ΑΙΡΕΤΩΝ (ΑΠΟΚΛΙΣΗ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].participants_total_diff}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡ. ΗΜΕΡΙΔΩΝ (ΑΠΟΚΛΙΣΗ)"/></f:facet>
+							<h:outputText value="#{reportBean.regionStatsMap[rkey].events_total_diff}" />
+						</h:column>
+					</h:dataTable>
+
+					</center>
+				</div>
+			</f:view>		
+		
+		
+		</body>
+</html>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: CYCLE_IMERIDA_C5.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+		<title>Γ5 - ΣΥΝΟΠΤΙΚΟΣ ΠΙΝΑΚΑΣ ΠΑΡΑΔΟΤΕΩΝ</title>
+		<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.dynamicTable1 {
+				font-size:12px;
+			}
+			
+			.dynamicTable1 td, th {
+				border-bottom:1px solid;
+				border-right:1px solid;
+				font-size:12px;
+			}
+			
+		</style>
+	</head>
+	<body>
+	<center>
+
+	<ui:include src="/katartisis/pforms/header.xhtml" />
+	<h:outputText style="display:none;" value="#{katartisisFormBean.form_ho_8}"/>
+	<br/>
+	
+	<table width="850">
+		<tr>
+			<td align="center">
+				<h:outputText value="ΕΝΤΥΠΟ Η Γ4: ΕΚΘΕΣΗ ΥΛΟΠΟΙΗΣΗΣ ΗΜΕΡΙΔΩΝ" style="font-size:18px; font-family:Arial;"/>
+			</td>
+		</tr>
+	</table>
+
+	<br/>
+
+	<table width="850" cellpadding="5" cellspacing="0">	
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΚΑΤΗΓΟΡΙΑ ΔΡΑΣΗΣ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.cycle.name}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΣΤΑΔΙΟ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_ho_8.phase}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΑΡ. ΗΜΕΡΙΔΩΝ ΠΟΥ ΠΡΟΓΡΑΜΜΑΤΙΣΘΗΚΑΝ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="?" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-bottom:1px solid;border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΑΡ. ΗΜΕΡΙΔΩΝ ΠΟΥ ΥΛΟΠΟΙΗΘΗΚΑΝ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="?" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/><br/>
+	
+	<h:dataTable id="materialsTable" value="#{katartisisFormBean.form_ho_8.materialsList}" var="material" styleClass="data-table" binding="#{katartisisFormBean.materialsDataTable}">
+		<h:column id="col1">
+			<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+			<h:outputText value="#{katartisisFormBean.materialsDataTable.rowIndex+1}" />
+		</h:column>
+		<h:column id="col2">
+			<f:facet name="header"><h:outputText value="ΕΚΠΑΙΔΕΥΤΙΚΟ - ΟΠΤΙΚΟΑΚΟΥΣΤΙΚΟ ΥΛΙΚΟ"/></f:facet>
+			<h:outputText value="#{material}" />
+		</h:column>
+		<h:column id="col3">
+			<f:facet name="header"><h:outputText value="ΠΟΣΟΤΗΤΑ ΑΝΑΠΑΡΑΧΘΕΝΤΟΣ"/></f:facet>
+			<h:outputText value="#{katartisisFormBean.form_ho_8.producedMaterialsQty[material]}" />
+		</h:column>
+		<h:column id="col3">
+			<f:facet name="header"><h:outputText value="ΠΟΣΟΤΗΤΑ ΔΙΑΝΕΜΗΘΕΝΤΩΝ"/></f:facet>
+			<h:outputText value="#{katartisisFormBean.form_ho_8.distributedMaterialsQty[material]}" />
+		</h:column>
+	</h:dataTable>
+	
+	<br/>
+	<br/>
+	
+	<h:panelGrid columns="1" style="width:700px;">
+		<h:outputText value="ΑΠΟΤΕΛΕΣΜΑΤΑ" style="font-size:12px; font-weight:bold;"/>
+		<h:outputText escape="false" value="#{katartisisFormBean.form_ho_8.results}" style="font-size:12px;width:700px"/>
+
+		<h:outputText value="ΔΥΣΚΟΛΙΕΣ ΠΟΥ ΠΑΡΟΥΣΙΑΣΤΗΚΑΝ" style="font-size:12px; font-weight:bold;"/>
+		<h:outputText escape="false" value="#{katartisisFormBean.form_ho_8.difficulties}" style="font-size:12px;width:700px"/>
+		
+		<h:outputText value="ΣΤΟΙΧΕΙΑ ΟΙΚΟΝΟΜΙΚΟΥ ΠΕΡΙΕΧΟΜΕΝΟΥ" style="font-size:12px; font-weight:bold;"/>
+		<h:outputText escape="false" value="#{katartisisFormBean.form_ho_8.financialData}" style="font-size:12px;width:700px"/>
+	</h:panelGrid>
+	<br/>
+	<ui:include src="/katartisis/pforms/footer.xhtml" />
+	</center>
+	</body>
+ </html>

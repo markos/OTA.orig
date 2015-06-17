@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: plaisio.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<c:if test="#{userLoginBean.adminConfig == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script>
+				window.addEvent('domready', function() {
+					var label = "#{configBean.label}";
+					if (label != "" ) { 
+						window.location.hash = label;
+					}
+				});
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+			
+				<h:form id="ΚοινοτικόΠλαίσιο">
+			
+				<div id="login-form" style="width:950px; padding-top:20px;">
+				
+				<h:messages style="color:red;"/><br/>
+				
+				<div id="tabbed">
+					<ul>
+						<li id="selected"><a href="#">Κοινοτικό Πλαίσιο</a></li>
+						<li><h:commandLink action="#{configBean.goToDeiktes}">Δείκτες</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToExpenses}">Επιλέξιμες Δαπάνες</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToProgress}">Διακριτά Τμήματα</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToSubProjectTypes}">Τύποι Υποέργων</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToEvolution}">Εξέλιξη Υποέργου</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToFunders}">Πηγές Χορήγησης Πιστώσεων</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToVendors}">Φορείς</h:commandLink></li>
+						<li><h:commandLink action="#{configBean.goToInvoiceTypes}">Τύποι Παραστατικών</h:commandLink></li>
+					</ul>
+				</div>
+				
+				<div id="content">
+					<h:panelGrid columns="1" style="margin:0 auto; text-align:center;">
+					
+						<h:panelGroup>
+							<a id="EUFrameworksListLabel" name="EUFrameworksListLabel"><h:outputText escape="false" value="Κοινοτικό Πλαίσιο Στήριξης" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUFramework}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="ΚΠΣ" value="#{configBean.defaultEUFrameworksList}" var="framework" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Πλαίσιο"/></f:facet>
+								<h:inputText value="#{framework.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText value="#{framework.code}" size="15" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Έτος έναρξης"/></f:facet>
+								<h:inputText id="ΕτοςΕναρξης" value="#{framework.year_start}" size="6" required="true"><f:validateLongRange minimum="1990" maximum="2020"/></h:inputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Έτος λήξης"/></f:facet>
+								<h:inputText id="ΕτοςΛηξης" value="#{framework.year_end}" size="6" required="true"><f:validateLongRange minimum="1990" maximum="2020"/></h:inputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUFramework}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUFrameworksList}" value="Αποθήκευση Πλαισίων"/>
+						<br/>
+						<br/>
+						<h:panelGroup>
+							<a id="EUProgrammesListLabel" name="EUProgrammesListLabel"><h:outputText escape="false" value="Επιχειρησιακό Πρόγραμμα - Κοιν. Πρωτοβ." style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUProgramme}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable value="#{configBean.defaultEUProgrammesList}" var="programme" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable2}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable2.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΠΣ"/></f:facet>
+								<h:selectOneMenu value="#{programme.parentFramework.id}" style="width:100%;">									
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Πρόγραμμα"/></f:facet>
+								<h:inputText value="#{programme.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText value="#{programme.code}" size="15" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUProgramme}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUProgrammesList}" value="Αποθήκευση Προγραμμάτων"/>
+						<br/>
+						<br/>
+						<h:panelGroup>
+							<a id="EUPriorityAxesListLabel" name="EUPriorityAxesListLabel"><h:outputText escape="false" value="Άξονας Προτεραιότητας" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUPriorityAxis}" style="border:0px;" />
+						</h:panelGroup>
+ 						
+						<h:dataTable value="#{configBean.defaultEUPriorityAxesList}" var="axis" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable3}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable3.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κοινοτικό Πλαίσιο Στήριξης"/></f:facet>
+								<h:selectOneMenu value="#{axis.parentProgramme.parentFramework.id}" style="width:100%;" valueChangeListener="#{configBean.axis_changedFramework}" onchange="submit()">
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Επιχειρησιακό Πρόγραμμα"/></f:facet>
+								<h:selectOneMenu value="#{axis.parentProgramme.id}" style="width:100%;">
+									<f:selectItems value="#{axis.parentProgramme.parentFramework.programmesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Άξονας"/></f:facet>
+								<h:inputText value="#{axis.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText value="#{axis.code}" size="15" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUPriorityAxis}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUPriorityAxesList}" value="Αποθήκευση Αξόνων"/>
+						<br/>
+						<br/>
+						<h:panelGroup>
+							<a id="EUMeasuresListLabel" name="EUMeasuresListLabel"><h:outputText escape="false" value="Μέτρο" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUMeasure}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="measuresTable" value="#{configBean.defaultEUMeasuresList}" var="measure" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable4}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable4.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κοινοτικό Πλαίσιο Στήριξης"/></f:facet>
+								<h:selectOneMenu id="frameworks" value="#{measure.parentAxis.parentProgramme.parentFramework.id}" style="width:100%;" valueChangeListener="#{configBean.measure_changedFramework}" onchange="submit()">
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Επιχειρησιακό Πρόγραμμα"/></f:facet>
+								<h:selectOneMenu id="programmes" style="width:100%;" value="#{measure.parentAxis.parentProgramme.id}" valueChangeListener="#{configBean.measure_changedProgramme}" onchange="submit()">
+									<f:selectItems value="#{measure.parentAxis.parentProgramme.parentFramework.programmesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Άξονας"/></f:facet>
+								<h:selectOneMenu style="width:100%;" value="#{measure.parentAxis.id}" >
+									<f:selectItems value="#{measure.parentAxis.parentProgramme.axesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Μέτρο"/></f:facet>
+								<h:inputText id="measure" value="#{measure.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText id="measurecode" value="#{measure.code}" size="15" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUMeasure}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUMeasuresList}" value="Αποθήκευση Μέτρων"/>
+						<br/>
+						<br/>
+						<h:panelGroup>
+							<a id="EUSubMeasuresListLabel" name="EUSubMeasuresListLabel"><h:outputText escape="false" value="Υπομέτρο" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUSubMeasure}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="subMeasuresTable" value="#{configBean.defaultEUSubMeasuresList}" var="submeasure" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable5}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable5.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κοινοτικό Πλαίσιο Στήριξης"/></f:facet>
+								<h:selectOneMenu id="frameworks" value="#{submeasure.parentMeasure.parentAxis.parentProgramme.parentFramework.id}" style="width:100%;" valueChangeListener="#{configBean.subMeasure_changedFramework}" onchange="submit()">
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Επιχειρησιακό Πρόγραμμα"/></f:facet>
+								<h:selectOneMenu id="programmes" style="width:100%;" value="#{submeasure.parentMeasure.parentAxis.parentProgramme.id}" valueChangeListener="#{configBean.subMeasure_changedProgramme}" onchange="submit()">
+									<f:selectItems value="#{submeasure.parentMeasure.parentAxis.parentProgramme.parentFramework.programmesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Άξονας"/></f:facet>
+								<h:selectOneMenu id="axes" style="width:100%;" value="#{submeasure.parentMeasure.parentAxis.id}" valueChangeListener="#{configBean.subMeasure_changedAxis}" onchange="submit()">
+									<f:selectItems value="#{submeasure.parentMeasure.parentAxis.parentProgramme.axesSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Μέτρο"/></f:facet>
+								<h:selectOneMenu id="measures" style="width:100%;" value="#{submeasure.parentMeasure.id}" >
+									<f:selectItems value="#{submeasure.parentMeasure.parentAxis.measuresSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Υπομέτρο"/></f:facet>
+								<h:inputText id="submeasure" value="#{submeasure.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText id="submeasure_code" value="#{submeasure.code}" size="15" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUSubMeasure}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUSubMeasuresList}" value="Αποθήκευση Υπομέτρων"/>
+						<br/>
+						<br/>
+						<h:panelGroup>
+							<a id="EUFPSSectionListLabel" name="EUFPSSectionListLabel"><h:outputText escape="false" value="Τομέας ΚΠΣ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUFPSSection}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="FPSSectionsTable" value="#{configBean.defaultEUSectionsList}" var="section" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable6}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable6.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κοινοτικό Πλαίσιο Στήριξης"/></f:facet>
+								<h:selectOneMenu id="frameworks" value="#{section.parentFramework.id}" style="width:100%;" valueChangeListener="#{configBean.section_changedFramework}" onchange="submit()">
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Τομέας ΚΠΣ"/></f:facet>
+								<h:inputText id="section" value="#{section.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText id="section_code" value="#{section.code}" size="15"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUFPSSection}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUFPSSectionsList}" value="Αποθήκευση Τομέων ΚΠΣ"/>
+						<br/>
+						<br/>
+						<h:panelGroup>
+							<a id="EUFPSSubSectionListLabel" name="EUFPSSubSectionListLabel"><h:outputText escape="false" value="Υποτομέας ΚΠΣ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultEUFPSSubSection}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="FPSSubSectionsTable" value="#{configBean.defaultEUSubSectionsList}" var="subsection" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable7}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable7.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κοινοτικό Πλαίσιο Στήριξης"/></f:facet>
+								<h:selectOneMenu id="frameworks" value="#{subsection.parentSection.parentFramework.id}" style="width:100%;" valueChangeListener="#{configBean.subsection_changedFramework}" onchange="submit()">
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Τομέας ΚΠΣ"/></f:facet>
+								<h:selectOneMenu id="sections" style="width:100%;" value="#{subsection.parentSection.id}" >
+									<f:selectItems value="#{subsection.parentSection.parentFramework.sectionsSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Υποτομέας ΚΠΣ"/></f:facet>
+								<h:inputText id="subsection" value="#{subsection.name}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText id="subsection_code" value="#{subsection.code}" size="15"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultEUFPSSubSection}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultEUFPSSubSectionsList}" value="Αποθήκευση Υποτομέων ΚΠΣ"/>
+						
+						<h:panelGroup>
+							<a id="ActionCategoriesListLabel" name="ActionCategoriesListLabel"><h:outputText escape="false" value="ΚΑΤΗΓΟΡΙΕΣ ΕΝΕΡΓΕΙΩΝ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{configBean.addDefaultActionsCategory}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="FPSActionCategoriesTable" value="#{configBean.defaultActionsCategoriesList}" var="action" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{configBean.tmp_dataTable8}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="Α/Α"/></f:facet>
+								<h:outputText value="#{configBean.tmp_dataTable8.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κοινοτικό Πλαίσιο Στήριξης"/></f:facet>
+								<h:selectOneMenu id="frameworks" value="#{action.parentFramework.id}" style="width:100%;">
+									<f:selectItems value="#{configBean.defaultEUFrameworksSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Περιγραφή"/></f:facet>
+								<h:inputText id="action" value="#{action.category}" size="40"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="Κωδικός"/></f:facet>
+								<h:inputText id="action_code" value="#{action.code}" size="15" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{configBean.deleteDefaultActionsCategory}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						<br/>
+						<h:commandButton action="#{configBean.saveDefaultActionsCategoriesList}" value="Αποθήκευση Κατηγοριών Ενέργειας"/>
+					</h:panelGrid>
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		</body>
+</html>

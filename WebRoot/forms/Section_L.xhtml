@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_L.xhtml 1553 2011-12-18 10:13:33Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="breadcrump"></ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<script language="javascript" src="#{basePath}/misc/sprintf.js"></script>
+			<script language="javascript" src="#{basePath}/misc/formatters.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "specific_textareas",
+					editor_deselector : "plain_editor",
+        			theme : "simple",
+ 				});
+			</script>
+			<script>
+				window.addEvent('domready', function() {
+					var label = "#{otaBean.label}";
+					if (label != "" ) { 
+						window.location.hash = label;
+					}
+				});
+			</script>
+			
+			<script>
+				function copyFromTDE() {
+					$('Τμημα_Λ:rep_firstName').set('value', '#{otaBean.sec_a.implementationVendor_representative_firstName}');
+					$('Τμημα_Λ:rep_lastName').set('value', '#{otaBean.sec_a.implementationVendor_representative_lastName}');
+					$('Τμημα_Λ:rep_position').set('value', '#{otaBean.sec_a.implementationVendor_representative_position}');
+					$('Τμημα_Λ:rep_address').set('value', '#{otaBean.sec_a.implementationVendor_representative_address}');
+					$('Τμημα_Λ:rep_city').set('value', '#{otaBean.sec_a.implementationVendor_representative_city}');
+					$('Τμημα_Λ:T_K_Επιβλεπουσας').set('value', '#{otaBean.sec_a.implementationVendor_representative_postalCode}');
+					$('Τμημα_Λ:rep_telephone').set('value', '#{otaBean.sec_a.implementationVendor_representative_telephone}');
+					$('Τμημα_Λ:rep_fax').set('value', '#{otaBean.sec_a.implementationVendor_representative_fax}');
+					$('Τμημα_Λ:rep_email').set('value', '#{otaBean.sec_a.implementationVendor_representative_email}');
+				}
+				
+				function copyEditorFromTDE() {
+					$('Τμημα_Λ:editor_firstName').set('value', '#{otaBean.sec_a.projectAuthor_firstName}');
+					$('Τμημα_Λ:editor_lastName').set('value', '#{otaBean.sec_a.projectAuthor_lastName}');
+					$('Τμημα_Λ:editor_position').set('value', '#{otaBean.sec_a.projectAuthor_position}');
+					$('Τμημα_Λ:editor_address').set('value', '#{otaBean.sec_a.projectAuthor_address}');
+					$('Τμημα_Λ:editor_city').set('value', '#{otaBean.sec_a.projectAuthor_city}');
+					$('Τμημα_Λ:editor_T_K').set('value', '#{otaBean.sec_a.projectAuthor_postalCode}');
+					$('Τμημα_Λ:editor_telephone').set('value', '#{otaBean.sec_a.projectAuthor_telephone}');
+					$('Τμημα_Λ:editor_fax').set('value', '#{otaBean.sec_a.projectAuthor_fax}');
+					$('Τμημα_Λ:editor_email').set('value', '#{otaBean.sec_a.projectAuthor_email}');
+				}
+			</script>
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/subProjectList.jsf">Λίστα Υποέργων</a></li>
+		</ui:define>	
+		<ui:define name="main-content">
+			<f:view>
+				<h:form id="Τμημα_Λ">
+							
+				<div id="login-form" style="width:950px; padding-top:20px;">
+
+				<center>
+					<h:commandButton action="#{otaBean.saveSectionL}" value="Αποθήκευση"/>
+				</center>
+				<br/><br/>
+				
+				
+				<div id="content">
+
+					<h:messages style="color:red;"/><br/>
+
+					<h:outputLabel value="ΤΜΗΜΑ Λ (ΤΕΧΝΙΚΟ ΔΕΛΤΙΟ ΥΠΟΕΡΓΟΥ (ΕΚΤ))"/>
+					
+					<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+						<tr>
+							<th colspan="14" align="center"><h:outputText value="ΚΩΔΙΚΟΙ ΠΡΟΓΡΑΜΜΑΤΟΣ"/></th>
+						</tr>
+						<tr>
+							<th colspan="5"><h:outputText value="1. ΚΟΙΝΟΤΙΚΟ ΠΛΑΙΣΙΟ ΣΤΗΡΙΞΗΣ *"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.kps}" /></td>
+							<th colspan="5"><h:outputText value="2. ΚΩΔΙΚΟΣ ΕΡΓΟΥ ΟΠΣ ΕΡΓΟΡΑΜΑ *"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.code_ergorama}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="3. ΕΠΙΧ. ΠΡΟΓΡ. – ΚΟΙΝ. ΠΡΩΤ."/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.epix_program}" /></td>
+							<th colspan="1"><h:outputText value="4. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.epix_code}" /></td>
+							<th colspan="2"><h:outputText value="5. ΑΞΟΝΑΣ ΠΡΟΤΕΡ.*"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.axon}" /></td>
+							<th colspan="1"><h:outputText value="6. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.axon_code}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="7. ΜΕΤΡΟ * "/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.metro}" /></td>
+							<th colspan="1"><h:outputText value="8. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.metro_code}" /></td>
+							<th colspan="2"><h:outputText value="9. ΥΠΟΜΕΤΡΟ *"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.subMetro}" /></td>
+							<th colspan="1"><h:outputText value="10. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.subMetro_code}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="11. ΤΟΜΕΑΣ ΚΠΣ *"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.kpsSection}" /></td>
+							<th colspan="1"><h:outputText value="12. ΚΩΔ.*" /></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.kpsSection_code}" /></td>
+							<th colspan="2"><h:outputText value="13. ΥΠΟΤΟΜΕΑΣ ΚΠΣ *"/></th>
+							<td colspan="3"><h:outputText value="#{otaBean.sec_a.kpsSubSection}" /></td>
+							<th colspan="1"><h:outputText value="14. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_a.kpsSubSection_code}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="21. ΤΙΤΛΟΣ ΕΡΓΟΥ / ΕΝΕΡΓΕΙΑΣ"/></th>
+							<td colspan="7"><h:outputText value="#{otaBean.sec_a.title_el}" /></td>
+							<th colspan="2"><h:outputText value="16. ΚΩΔΙΚΟΣ ΕΡΓΟΥ ΣΤΟ ΜΕΤΡΟ *"/></th>
+							<td colspan="2"><h:outputText value="#{otaBean.sec_a.code_project_metro}" /></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="26.ΕΛΕΥΘΕΡΟΣ ΚΩΔΙΚΟΣ"/></th>
+							<td colspan="5"><h:inputText value="#{otaBean.sec_l.free_code_a}" size="10"/></td>
+							<th colspan="2"><h:outputText value="26.ΕΛΕΥΘΕΡΟΣ ΚΩΔΙΚΟΣ"/></th>
+							<td colspan="4"><h:inputText value="#{otaBean.sec_l.free_code_b}" size="10"/></td>
+						</tr>
+					</table>
+					
+					<br />
+					<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+						<tr>
+							<th colspan="14" align="center"><h:outputText value="Α. ΤΑΥΤΟΤΗΤΑ ΤΟΥ ΥΠΟΕΡΓΟΥ"/></th>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="19. ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ (74)"/></th>
+							<td colspan="6"><h:inputText value="#{otaBean.sec_l.title}" style="width:100%;"/></td>
+							<th colspan="3"><h:outputText value="20. ΚΩΔΙΚΟΣ ΥΠΟΕΡΓΟΥ *"/></th>
+							<td colspan="1"><h:inputText value="#{otaBean.sec_l.given_id}" size="10"/></td>
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="ΗΜΕΡΟΜΗΝΙΑ ΕΝΑΡΞΗΣ ΥΠΟΕΡΓΟΥ"/></th>
+							<td colspan="2"><h:inputText id="Ημερομηνια_Εναρξης" value="#{otaBean.sec_l.date_start}" size="10" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+											<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:Ημερομηνια_Εναρξης', this,'dmy');"/>
+							</td>
+							<th colspan="3"><h:outputText value="ΗΜΕΡΟΜΗΝΙΑ ΛΗΞΗΣ ΥΠΟΕΡΓΟΥ"/></th>
+							<td colspan="2"><h:inputText id="Ημερομηνια_Ληξης" value="#{otaBean.sec_l.date_end}" size="10" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+											<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:Ημερομηνια_Ληξης', this,'dmy');"/>
+							</td>	
+						</tr>
+						<tr>
+							<th colspan="3"><h:outputText value="21. ΚΑΤΗΓΟΡΙΑ ΕΝΕΡΓΕΙΑΣ"/></th>
+							<td colspan="2"><h:selectOneMenu value="#{otaBean.sec_l.category_id}" style="width:100%;" valueChangeListener="#{otaBean.sectionL_changedActionCategory}" onchange="submit()">
+												<f:selectItems value="#{otaBean.framework.actionCategoriesSelectItemsList}" />
+											</h:selectOneMenu></td>
+							<th colspan="1"><h:outputText value="22. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_l.category_code}"/></td>
+							<th colspan="2"><h:outputText value="23. ΔΙΕΥΘΥΝΟΥΣΑ Ή ΕΠΙΒΛΕΠΟΥΣΑ  ΥΠΗΡΕΣΙΑ (ΦΟΡΕΑΣ ΕΠΙΒΛΕΨΗΣ)"/></th>
+							<td colspan="3"><h:selectOneMenu value="#{otaBean.vendor.id}" style="width:250px;" valueChangeListener="#{otaBean.sectionL_changeSupervisingVendor}" onchange="submit()">
+												<f:selectItems value="#{otaBean.supervisingVendorsSelectItemsList}"/>
+											</h:selectOneMenu></td>
+							<th colspan="1"><h:outputText value="24. ΚΩΔ.*"/></th>
+							<td colspan="1"><h:outputText value="#{otaBean.sec_l.supervisingVendor_code}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="14" align="center"><h:outputText value="25. ΕΜΠΕΙΡΙΑ ΤΟΥ ΦΟΡΕΑ ΕΠΙΒΛΕΨΗΣ ΣΤΗΝ ΥΛΟΠΟΙΗΣΗ ΠΑΡΕΜΦΕΡΩΝ ΥΠΟΕΡΓΩΝ" /></th>
+						</tr>
+						<tr>
+							<td colspan="14" align="center"><h:inputTextarea value="#{otaBean.sec_l.supervisingVendor_experience}" rows="4" style="width:100%;"/></td>
+						</tr>
+					</table>
+					
+					<br />
+					<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="26. ΣΤΟΙΧΕΙΑ ΝΟΜΙΜΟΥ ΕΚΠΡΟΣΩΠΟΥ ΤΗΣ ΔΙΕΥΘΥΝΟΥΣΑΣ Ή ΕΠΙΒΛΕΠΟΥΣΑΣ ΥΠΗΡΕΣΙΑΣ"/>
+							<h:outputText value=" - "/><a href="#copy_tde" id="copy_tde" style="padding-left:10px;" onclick="copyFromTDE();">Αντιγραφή από ΤΔΕ</a></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="4"><h:inputText id="rep_firstName" value="#{otaBean.sec_l.administrative_representative_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="4"><h:inputText id="rep_lastName" value="#{otaBean.sec_l.administrative_representative_lastName}" style="width:100%;" /></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:inputText id="rep_position" value="#{otaBean.sec_l.administrative_representative_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:inputTextarea styleClass="plain_editor" id="rep_address" value="#{otaBean.sec_l.administrative_representative_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:inputText id="rep_city" value="#{otaBean.sec_l.administrative_representative_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:inputText id="T_K_Επιβλεπουσας" value="#{otaBean.sec_l.administrative_representative_postalCode}" size="10" >
+												<f:validator validatorId="postalCodeValidator" />
+											</h:inputText></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:inputText id="rep_telephone" value="#{otaBean.sec_l.administrative_representative_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:inputText id="rep_fax" value="#{otaBean.sec_l.administrative_representative_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:inputText id="rep_email" value="#{otaBean.sec_l.administrative_representative_email}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="10" align="center"><h:outputText value="27. ΣΤΟΙΧΕΙΑ ΤΟΥ ΥΠΕΥΘΥΝΟΥ ΥΠΟΕΡΓΟΥ (ΣΥΝΤΑΚΤΗ ΤΟΥ ΤΕΧΝΙΚΟΥ ΔΕΛΤΙΟΥ ΥΠΟΕΡΓΟΥ)"/>
+							<h:outputText value=" - "/><a href="#copy_tde_editor" id="copy_tde_editor" style="padding-left:10px;" onclick="copyEditorFromTDE();">Αντιγραφή από ΤΔΕ</a></th>
+						</tr>
+						<tr>
+							<th colspan="1"><h:outputText value="ΟΝΟΜΑ"/></th>
+							<td colspan="4"><h:inputText id="editor_firstName" value="#{otaBean.sec_l.TDY_editor_firstName}" style="width:100%;" /></td>
+							<th colspan="1"><h:outputText value="ΕΠΩΝΥΜΟ"/></th>
+							<td colspan="4"><h:inputText id="editor_lastName" value="#{otaBean.sec_l.TDY_editor_lastName}" style="width:100%;" /></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/></th>
+							<td colspan="6"><h:inputText id="editor_position" value="#{otaBean.sec_l.TDY_editor_position}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΕΙΔΙΚΟΤΗΤΑ"/></th>
+							<td colspan="8"><h:inputText value="#{otaBean.sec_l.TDY_editor_specialty}" style="width:100%;"/></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΔΙΕΥΘΥΝΣΗ"/></th>
+							<td colspan="3"><h:inputTextarea id="editor_address" styleClass="plain_editor" value="#{otaBean.sec_l.TDY_editor_address}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΠΟΛΗ"/></th>
+							<td colspan="2"><h:inputText id="editor_city" value="#{otaBean.sec_l.TDY_editor_city}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="ΤΚ"/></th>
+							<td colspan="1"><h:inputText id="editor_T_K" value="#{otaBean.sec_l.TDY_editor_postalCode}" size="10">
+												<f:validator validatorId="postalCodeValidator" />
+											</h:inputText></td>
+						</tr>
+						<tr>
+							<th colspan="2"><h:outputText value="ΤΗΛΕΦΩΝΟ"/></th>
+							<td colspan="1"><h:inputText id="editor_telephone" value="#{otaBean.sec_l.TDY_editor_telephone}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="FAX"/></th>
+							<td colspan="1"><h:inputText id="editor_fax" value="#{otaBean.sec_l.TDY_editor_fax}" style="width:100%;"/></td>
+							<th colspan="1"><h:outputText value="E-MAIL"/></th>
+							<td colspan="4"><h:inputText id="editor_email" value="#{otaBean.sec_l.TDY_editor_email}" style="width:100%;"/></td>
+						</tr>
+					</table>
+					
+					<h:panelGrid columns="1" style="margin:0 auto;">
+						<h:outputText value="28. ΑΝΑΔΟΧΟΣ ΤΟΥ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="2" style="margin:0 auto;">
+						<h:outputText value="ΕΠΩΝΥΜΙΑ ΑΝΑΔΟΧΟΥ" style="font-weight:bold;"/>
+						
+						<h:selectOneMenu id="contractorId" value="#{otaBean.sec_l.contractorId}" valueChangeListener="#{otaBean.updateContractorSectionL}" onchange="submit();">
+							<f:selectItem itemValue="-1" itemLabel="Παρακαλώ Επιλέξτε"/>
+							<f:selectItems value="#{otaBean.contractorSelectItems}" />
+						</h:selectOneMenu>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="2" style="margin:0 auto;">
+						<h:outputText value="ΠΛΗΡΗΣ ΕΠΩΝΥΜΙΑ ΑΝΑΔΟΧΟΥ"  style="font-weight:bold;"/>
+						<h:outputFormat escape="false" value="#{otaBean.contractor.fullName}"/>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="4" style="margin:0 auto;">
+						<h:outputText value="Α.Φ.Μ. ΑΝΑΔΟΧΟΥ"  style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.contractor.VAT}"/>
+						<h:outputText value="Δ.Ο.Υ. ΑΝΑΔΟΧΟΥ"  style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.contractor.DOY}"/>
+					</h:panelGrid>
+					
+					<br />
+					<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+						<tr>
+							<th align="center"><h:outputText value="Β. ΣΤΟΙΧΕΙΑ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΤΟΥ ΥΠΟΕΡΓΟΥ" /></th>
+						</tr>
+						<tr>
+							<th align="center"><h:outputText value="29. ΣΥΝΤΟΜΗ ΠΕΡΙΓΡΑΦΗ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ YΠΟΕΡΓΟΥ (94)" /></th>
+						</tr>
+						<tr>
+							<td><h:inputTextarea value="#{otaBean.sec_l.subProjectShortDescription}" style="width:100%;" rows="20"/></td>
+						</tr>
+					</table>
+					
+					<br />
+					<h:panelGrid columns="1" style="margin:0 auto; text-align:center; width:100%;" cellpadding="10">
+						<h:panelGroup>
+							<a id="PlacesListLabel" name="PlacesListLabel"><h:outputText escape="false" value="ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/></a>
+							<h:outputText value="   (ΕΜΦΑΝΙΣΗ ΧΩΡΟΘΕΤΗΣΗΣ ΕΡΓΟΥ ΓΙΑ ΒΟΗΘΕΙΑ)   "/>
+						</h:panelGroup>
+							
+						<h:panelGroup style="text-align:center; width:90%;">
+							<h:panelGrid columns="1" style="margin:0 auto; text-align:center; width:100%;">
+								<h:outputText escape="false" value="ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΕΡΓΟΥ"/>
+								<h:dataTable value="#{otaBean.projectPlaces}" var="placeItem" styleClass="data-table"  style="margin:0 auto; text-align:center; width:100%">
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+										<h:outputText value="#{placeItem.regionName}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΚΩΔ.*"/></f:facet>
+										<h:outputText rendered="#{placeItem.regionCode != -1}" value="#{placeItem.regionCode}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΝΟΜΟΣ"/></f:facet>
+										<h:outputText value="#{placeItem.prefectureName}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΚΩΔ.*"/></f:facet>
+										<h:outputText rendered="#{placeItem.prefectureCode != '-1'}" value="#{placeItem.prefectureCode}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΟΤΑ"/></f:facet>
+										<h:outputText value="#{placeItem.municipalityName}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΚΩΔ.*"/></f:facet>
+										<h:outputText rendered="#{placeItem.municipalityCode != '-1'}" value="#{placeItem.municipalityCode}"/>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΑΡΧΙΚΟΣ ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ"/></f:facet>
+										<h:outputText value="#{placeItem.budget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									</h:column>
+									<h:column>
+										<f:facet name="header"><h:outputText value="ΔΙΑΘΕΣΙΜΟΣ ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ"/></f:facet>
+										<h:outputText value="#{placeItem.remainingBudget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+									</h:column>
+								</h:dataTable>
+							</h:panelGrid>
+						</h:panelGroup>
+						
+						<h:panelGroup>
+							<h:outputText escape="false" value="ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_L_TDY_ProjectPlaces}" style="border:0px;" />
+						</h:panelGroup>
+						<h:dataTable id="tdyplacestable" value="#{otaBean.tdy_places}" var="placeItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="30. ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+								<h:selectOneMenu id="selectRegion" value="#{placeItem.regionCode}" style="width:100%;" valueChangeListener="#{otaBean.sectionL_changePrefecture}" onchange="submit()">
+									<f:selectItems value="#{placeItem.TDYRegionsSelectItems}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="31. ΚΩΔ.* (59)"/></f:facet>
+								<h:outputText rendered="#{placeItem.regionCode != -1}" value="#{placeItem.regionCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="32. ΝΟΜΟΣ"/></f:facet>
+								<h:selectOneMenu id="selectPrefecture" value="#{placeItem.prefectureCode}" style="width:100%;" valueChangeListener="#{otaBean.sectionL_changeMunicipality}" onchange="submit()">
+									<f:selectItems value="#{placeItem.TDYPrefectureSelectItems}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="33. ΚΩΔ.* (60)"/></f:facet>
+								<h:outputText rendered="#{placeItem.prefectureCode != '-1'}" value="#{placeItem.prefectureCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="34. ΟΤΑ"/></f:facet>
+								<h:selectOneMenu id="selectOTA" value="#{placeItem.municipalityCode}" style="width:100%;">
+									<f:selectItems value="#{placeItem.TDYMunicipalitySelectItems}" />
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="35. ΚΩΔ.* (61)"/></f:facet>
+								<h:outputText rendered="#{placeItem.municipalityCode != '-1'}" value="#{placeItem.municipalityCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="36. ΠΡΟΥΠΟΛΟΓΙΣΜΟΣ (62)"/></f:facet>
+								<h:inputText id="budget" value="#{placeItem.budget}" size="14" styleClass="currency" onchange="currencyFormatter('Τμημα_Λ:tdyplacestable:#{otaBean.tmp_dataTable.rowIndex}:budget');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_L__TDY_ProjectPlace}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+
+						<h:panelGroup>
+							<a id="ProgressListLabel" name="ProgressListLabel"><h:outputText escape="false" value="ΠΟΣΟΤΙΚΑ ΣΤΟΙΧΕΙΑ ΠΡΟΟΔΟΥ &amp; ΔΙΑΚΡΙΤΩΝ ΤΜΗΜΑΤΩΝ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΥΠΟΕΡΓΟΥ (ΟΜ. ΕΡΓΑΣΙΩΝ κτλ.)" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_L_TDY_Progress}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="tdyprogresstable" value="#{otaBean.tdy_progress}" var="progressItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable2}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="37. ΚΩΔ(95)"/></f:facet>
+								<h:outputText value="#{progressItem.code}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="38. ΠΕΡΙΓΡΑΦΗ ΔΙΑΚΡΙΤΟΥ ΤΜΗΜΑΤΟΣ Φ.Α.(96)"/></f:facet>
+								<h:selectOneMenu value="#{progressItem.id2}" style="width:300px;" valueChangeListener="#{otaBean.sectionL_changedProgress}" onchange="submit()">
+									<f:selectItems value="#{otaBean.defaultProgressSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="39. ΕΓΚΕΚΡΙΜΕΝΗ ΠΟΣΟΤΗΤΑ(97)"/></f:facet>
+								<h:inputText value="#{progressItem.quantity}" size="8" styleClass="currency" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="40. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ(98)"/></f:facet>
+								<h:outputText value="#{progressItem.measuringUnit}" />
+								<f:facet name="footer"><h:outputLabel style="font-weight:bold;" value="ΣΥΝΟΛΟ"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="41. ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ(99)"/></f:facet>
+								<h:inputText id="budget" value="#{progressItem.budget}" size="14" styleClass="currency"  onchange="currencyFormatter('Τμημα_Λ:tdyprogresstable:#{otaBean.tmp_dataTable2.rowIndex}:budget');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+								<f:facet name="footer"><h:outputLabel style="font-weight:bold;" value="#{otaBean.sec_l.TDYProgressBudget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputLabel></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_L__TDY_Progress}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+						
+						<h:panelGroup>
+							<a id="DeiktesListLabel" name="DeiktesListLabel"><h:outputText escape="false" value="ΣΤΟΙΧΕΙΑ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΜΕ ΜΕΤΡΗΣΙΜΟΥΣ ΔΕΙΚΤΕΣ ΠΟΥ ΣΥΜΒΑΛΛΟΥΝ ΣΤΟΥΣ ΣΤΟΧΟΥΣ ΜΕΤΡΟΥ ΚΑΤΑ ΚΑΤΗΓΟΡΙΑ ΕΝΕΡΓΕΙΑΣ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/arrow-down-double.png" action="#{otaBean.copySection_L_TDY_Deiktes}" style="border:0px;" />
+						</h:panelGroup>
+					
+						<h:dataTable value="#{otaBean.tdy_deiktes}" var="deiktesItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable3}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="42. ΚΩΔ(100)"/></f:facet>
+								<h:outputText value="#{deiktesItem.code}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="43. ΔΕΙΚΤΗΣ ΣΤΟΧΩΝ ΠΟΥ ΣΥΜΒΑΛΛΟΥΝ ΣΤΟ ΜΕΤΡΟ"/></f:facet>
+								<h:outputText value="#{deiktesItem.name}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="44. ΜΟΝΑΔΑ ΜΕΤΡΗΣΗΣ(101)"/></f:facet>
+								<h:outputText value="#{deiktesItem.measuringSystem}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="45. ΠΡΟΓΡΑΜΜΑΤΙΣΜΕΝΗ ΠΟΣΟΤΗΤΑ(102)"/></f:facet>
+								<h:inputText value="#{deiktesItem.target}" size="12" styleClass="currency" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_L__TDY_Deiktes}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+
+						<h:panelGroup>
+							<a id="ProgressActivitiesListLabel" name="ProgressActivitiesListLabel"><h:outputText escape="false" value="ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ ΠΡΟΟΔΟΥ ΔΡΑΣΤΗΡΙΟΤΗΤΩΝ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_L__TDY_ProgressActivities}" style="border:0px;" />
+						</h:panelGroup>
+					
+						<h:dataTable id="ProgressActivitiesTable" value="#{otaBean.tdy_progressActivities}" var="pactivitiesItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable4}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="46. A/A(103)"/></f:facet>
+								<h:outputText value="#{otaBean.tmp_dataTable4.rowIndex+1}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="47. ΔΡΑΣΤΗΡΙΟΤΗΤΑ(104)"/></f:facet>
+								<h:inputText value="#{pactivitiesItem.activity}" size="60"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="48. ΠΡΟΓΡΑΜΜΑΤΙΣΜΕΝΗ ΗΜ/ΝΙΑ ΕΝΑΡΞΗΣ (105)"/></f:facet>
+								<h:panelGroup>
+									<h:inputText id="Προγραμματισμος_Ημερομηνια_Εναρξης" value="#{pactivitiesItem.startDate}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+									<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:ProgressActivitiesTable:#{otaBean.tmp_dataTable4.rowIndex}:Προγραμματισμος_Ημερομηνια_Εναρξης', this,'dmy');"/>
+								</h:panelGroup>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="49. ΠΡΟΓΡΑΜΜΑΤΙΣΜΕΝΗ ΗΜ/ΝΙΑ ΛΗΞΗΣ (106)"/></f:facet>
+								<h:panelGroup>
+									<h:inputText id="Προγραμματισμος_Ημερομηνια_Ληξης" value="#{pactivitiesItem.endDate}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+									<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:ProgressActivitiesTable:#{otaBean.tmp_dataTable4.rowIndex}:Προγραμματισμος_Ημερομηνια_Ληξης', this,'dmy');"/>
+								</h:panelGroup>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_L__TDY_ProgressActivities}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+ 							
+ 						<h:outputText value="ΟΙΚΟΝΟΜΙΚΑ ΣΤΟΙΧΕΙΑ ΤΟΥ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+ 						
+ 						<h:panelGrid columns="2" style="margin:0 auto; text-align:center; width:50%;" cellpadding="10">
+							<h:outputText style="font-weight:bold;" value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ ΤΟΥ ΥΠΟΕΡΓΟΥ :"/><h:outputText style="font-weight:bold;" value="#{otaBean.sec_l.budget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+							<h:outputText style="font-weight:bold;" value="ΔΙΑΘΕΣΙΜΟΣ ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ ΤΟΥ ΕΡΓΟΥ :"/><h:outputText style="font-weight:bold;" value="#{otaBean.section_A__RemainingProjectBudget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:panelGrid>
+
+						<h:panelGroup>
+							<a id="FinancialListLabel" name="FinancialListLabel"><h:outputText escape="false" value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ ΔΑΠΑΝΩΝ ΤΟΥ ΥΠΟΕΡΓΟΥ ΑΝΑ ΚΑΤΗΓΟΡΙΑ ΕΠΙΛΕΞΙΜΗΣ ΔΑΠΑΝΗΣ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_L__TDY_Financial}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="tdyfinancialtable" value="#{otaBean.tdy_financial}" var="financialItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable5}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="51. ΚΩΔΙΚΟΣ (108)"/></f:facet>
+								<h:outputText value="#{financialItem.code}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="52. ΚΑΤΗΓΟΡΙΑ ΕΠΙΛΕΞΙΜΗΣ ΔΑΠΑΝΗΣ"/></f:facet>
+								<h:selectOneMenu value="#{financialItem.id2}" style="width:300px;" valueChangeListener="#{otaBean.sectionL_changedExpense}" onchange="submit()">
+									<f:selectItems value="#{otaBean.expensesSelectItemsList}"/>
+								</h:selectOneMenu>
+								<f:facet name="footer"><h:outputLabel style="font-weight:bold;" value="ΣΥΝΟΛΟ"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="53. ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ"/></f:facet>
+								<h:inputText id="budget" value="#{financialItem.budget}" size="14" styleClass="currency"  onchange="currencyFormatter('Τμημα_Λ:tdyfinancialtable:#{otaBean.tmp_dataTable5.rowIndex}:budget');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+								<f:facet name="footer"><h:outputLabel style="font-weight:bold;" value="#{otaBean.sec_l.budget}" styleClass="currency" ><f:converter converterId="bigDecimalConverter"/></h:outputLabel></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_L__TDY_Financial}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>
+
+						<h:panelGrid columns="4" style="border:1px; margin:0 auto; width:60%;">
+							<h:outputText style="font-weight:bold;" value="54. ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ ΥΠΟΕΡΓΟΥ"/>
+							<h:outputText value="#{otaBean.sec_l.subproject_type_code}"/>
+							<h:outputText style="font-weight:bold;" value="55. ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ ΥΠΟΕΡΓΟΥ"/>
+							<h:selectOneMenu id="subprojectTypes" value="#{otaBean.sec_l.subproject_type}" style="width:100%;" valueChangeListener="#{otaBean.sectionL_changedSubprojectType}">
+								<f:selectItems value="#{otaBean.defaultSubProjectTypesSelectItemsList}"/>
+							</h:selectOneMenu>
+						</h:panelGrid>
+						
+						<h:panelGroup>
+							<a id="EvolutionListLabel" name="EvolutionListLabel"><h:outputText escape="false" value="Δ. ΔΙΟΙΚΗΤΙΚΕΣ ΚΑΤΑΣΤΑΣΕΙΣ ΕΞΕΛΙΞΗΣ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/></a>
+							<h:commandButton image="/images/add.png" action="#{otaBean.addSection_L__TDY_Evolution}" style="border:0px;" />
+						</h:panelGroup>
+						
+						<h:dataTable id="EvolutionTable" value="#{otaBean.tdy_evolution}" var="evolutionItem" styleClass="data-table" style="margin:0 auto; width:100%;" binding="#{otaBean.tmp_dataTable6}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="56. ΚΩΔ. (112)"/></f:facet>
+								<h:outputText value="#{evolutionItem.code}" />
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="57. ΔΙΟΙΚ. ΚΑΤΑΣΤ. ΕΞΕΛΙΞΗΣ ΥΠΟΕΡΓΟΥ (113)"/></f:facet>
+								<h:selectOneMenu value="#{evolutionItem.id2}" style="width:300px;" valueChangeListener="#{otaBean.sectionL_changedEvolution}" onchange="submit()">
+									<f:selectItems value="#{otaBean.defaultEvolutionSelectItemsList}"/>
+								</h:selectOneMenu>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="58. ΑΡΧΙΚΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ (114)"/></f:facet>
+								<h:panelGroup>
+									<h:inputText id="Διοικ_Καταστ_Εξελιξης_Αρχικος_Προγραμματισμος" value="#{evolutionItem.date_initial}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+									<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:EvolutionTable:#{otaBean.tmp_dataTable6.rowIndex}:Διοικ_Καταστ_Εξελιξης_Αρχικος_Προγραμματισμος', this,'dmy');"/>
+								</h:panelGroup>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="59. ΠΡΑΓΜΑΤΙΚΕΣ ΗΜΕΡΟΜΗΝΙΕΣ (115)"/></f:facet>
+								<h:panelGroup>
+									<h:inputText id="Διοικ_Καταστ_Εξελιξης_Πραγμ_Ημερομηνια" value="#{evolutionItem.date_real}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+									<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:EvolutionTable:#{otaBean.tmp_dataTable6.rowIndex}:Διοικ_Καταστ_Εξελιξης_Πραγμ_Ημερομηνια', this,'dmy');"/>
+								</h:panelGroup>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="60. ΤΡΕΧΩΝ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ (116)"/></f:facet>
+								<h:panelGroup>
+									<h:inputText id="Διοικ_Καταστ_Εξελιξης_Τρεχουσα_Ημερομηνια" value="#{evolutionItem.date_current}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+									<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('Τμημα_Λ:EvolutionTable:#{otaBean.tmp_dataTable6.rowIndex}:Διοικ_Καταστ_Εξελιξης_Τρεχουσα_Ημερομηνια', this,'dmy');"/>
+								</h:panelGroup>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="61. ΣΧΕΤΙΚΟΣ Π/Υ ΥΠΟΕΡΓΟΥ (117)"/></f:facet>
+								<h:inputText id="budget" value="#{evolutionItem.budget}" size="14" styleClass="currency" onchange="currencyFormatter('Τμημα_Λ:EvolutionTable:#{otaBean.tmp_dataTable6.rowIndex}:budget');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value=""/></f:facet>
+								<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_L__TDY_Evolution}" style="border:0px;"/>
+							</h:column>
+						</h:dataTable>						
+						
+						<h:outputText value="62. ΣΧΟΛΙΑ – ΠΑΡΑΤΗΡΗΣΕΙΣ" style="font-weight:bold;"/>
+						<h:inputTextarea value="#{otaBean.sec_l.comments}" style="width:100%;" rows="10"/>
+						 
+				
+						<h:panelGroup>
+							<h:outputLabel value="E. ΕΙΔΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ" style="font-weight:bold;"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="63. ΣΤΗΝ ΠΕΡΙΠΤΩΣΗ ΜΗ ΙΔΙΟΚΤΗΤΩΝ ΧΩΡΩΝ, ΕΧΟΥΝ ΟΛΟΚΛΗΡΩΘΕΙ ΟΙ ΔΙΑΔΙΚΑΣΙΕΣ ΑΠΟΚΤΗΣΗΣ ΤΟΥ ΔΙΚΑΙΩΜΑΤΟΣ ΧΡΗΣΗΣ ΤΩΝ ΧΩΡΩΝ ΤΟΥ ΑΚΙΝΗΤΟΥ ΕΠΙ ΤΟΥ ΟΠΟΙΟΥ ΘΑ ΥΛΟΠΟΙΗΘΕΙ ΤΟ ΥΠΟΕΡΓΟ; Η απάντηση ΝΑΙ πρέπει να συνοδεύεται από τον αριθμό και την ημ/νία του εγγράφου που πιστοποιεί την Κυριότητα ή το δικαίωμα χρήσης χώρων του ακινήτου. Η απάντηση ΟΧΙ πρέπει να συνοδεύεται από την προβλεπόμενη ημ/νία ολοκλήρωσης των διαδικασιών απόκτησης του δικαιώματος χρήσης χώρων του ακινήτου. Η απάντηση ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ πρέπει να συνοδεύεται από την ανάλογη αιτιολόγηση. "/>
+								<h:panelGroup>
+									 <h:selectOneRadio value="#{otaBean.sec_l.special_info_usage_rights_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+										<f:selectItem itemValue="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ" itemLabel="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ"/>
+									</h:selectOneRadio>									
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_usage_rights_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="64. ΕΓΚΡΙΘΗΚΕ ΟΛΗ Η ΣΕΙΡΑ ΤΩΝ ΜΕΛΕΤΩΝ ΠΟΥ ΠΡΟΒΛΕΠΟΝΤΑΙ ΑΠΟ ΤΗ ΣΧΕΤΙΚΗ ΝΟΜΟΘΕΣΙΑ, ΠΡΟΚΕΙΜΕΝΟΥ ΝΑ ΥΛΟΠΟΙΗΘΕΙ ΤΟ ΕΝ ΛΟΓΩ ΥΠΟΕΡΓΟ;  Η απάντηση ΝΑΙ πρέπει να συνοδεύεται από τα εξής: τίτλος και στάδιο μελέτης, αρ. απόφασης έγκρισης σταδίου μελέτης, ημ/νία έγκρισης σταδίου μελέτης. Στην περίπτωση που η μελέτη αποτελεί Υποέργο του παρόντος Έργου, να αναφερθεί ο αριθμός του Υποέργου."/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_studies_completed_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+										<f:selectItem itemValue="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ" itemLabel="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_studies_completed_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="65. ΤΟ ΠΕΡΙΕΧΟΜΕΝΟ ΤΩΝ ΤΕΥΧΩΝ ΔΗΜΟΠΡΑΤΗΣΗΣ ΤΟΥ ΥΠΟΕΡΓΟΥ ΕΝΑΡΜΟΝΙΖΕΤΑΙ ΠΡΟΣ ΤΟΥΣ ΕΓΚΕΚΡΙΜΕΝΟΥΣ ΠΕΡΙΒΑΛΛΟΝΤΙΚΟΥΣ ΟΡΟΥΣ ΓΙΑ ΤΗΝ ΥΛΟΠΟΙΗΣΗ ΤΟΥ; Η απάντηση ΝΑΙ πρέπει να συνοδεύεται από τον αριθμό απόφασης έγκρισης των Περιβαλλοντικών Όρων και την αντίστοιχη ημ/νία. Η απάντηση ΟΧΙ πρέπει να συνοδεύεται από την προβλεπόμενη ημ/νία έγκρισης και την πραγματική ημ/νία υποβολής της αίτησης. Η απάντηση ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ πρέπει να συνοδεύεται από τον αριθμό γνωμοδότησης της αρμόδιας υπηρεσίας και την αντίστοιχη ημ/νία, εκτός και εάν δεν απαιτείται λόγω της φύσης του υποέργου (π.χ. μελέτες, υπηρεσίες, απόκτηση γης, κλπ). "/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_environmental_compliance_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+										<f:selectItem itemValue="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ" itemLabel="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_environmental_comliance_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="66. ΕΧΕΙ ΕΚΔΟΘΕΙ ΟΙΚΟΔΟΜΙΚΗ ΑΔΕΙΑ;  Η απάντηση ΝΑΙ πρέπει να συνοδεύεται από τον αριθμό της Αδείας και την αντίστοιχη ημ/νία. Η απάντηση ΟΧΙ πρέπει να συνοδεύεται από την προβλεπόμενη ημ/νία έκδοσης της Αδείας και την πραγματική ημ/νία υποβολής της αίτησης. Η απάντηση ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ πρέπει να συνοδεύεται από αιτιολόγηση, εκτός και εάν Δεν απαιτείται λόγω της φύσης του υποέργου (π.χ. μελέτες, υπηρεσίες, απόκτηση γης, κλπ)."/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_construction_permit_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+										<f:selectItem itemValue="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ" itemLabel="ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_construction_permit_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="67. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΥΠΟΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΕΘΝΙΚΟΙ ΚΑΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΟΥ ΑΦΟΡΟΥΝ ΤΟΝ ΑΝΤΑΓΩΝΙΣΜΟ ΚΑΙ ΤΙΣ ΔΗΜΟΣΙΕΣ ΣΥΜΒΑΣΕΙΣ ΕΡΓΩΝ, ΠΡΟΜΗΘΕΙΩΝ ΚΑΙ ΥΠΗΡΕΣΙΩΝ; Να περιγραφούν οι σχετικές διαδικασίες και να αιτιολογηθεί η εναρμόνισή τους με τους ισχύοντες εθνικούς και κοινοτικούς κανόνες."/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_EU_rules_compliance_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_EU_rules_comliance_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="68. ΚΑΤΑ ΤΗ ΔΙΑΔΙΚΑΣΙΑ ΥΛΟΠΟΙΗΣΗΣ ΤΟΥ ΥΠΟΕΡΓΟΥ ΕΦΑΡΜΟΖΟΝΤΑΙ ΟΙ ΚΟΙΝΟΤΙΚΟΙ ΚΑΝΟΝΕΣ ΠΕΡΙ ΠΛΗΡΟΦΟΡΗΣΗΣ ΚΑΙ ΔΗΜΟΣΙΟΤΗΤΑΣ; Να περιγραφούν τα μέτρα που ελήφθησαν ή πρόκειται να ληφθούν ως προς τα θέματα πληροφόρησης και δημοσιότητας, σύμφωνα με τους ισχύοντες κοινοτικούς κανόνες."/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_EU_information_compliance_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_EU_information_compliance_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="69. ΜΕ ΤΟ ΠΑΡΟΝ ΥΠΟΕΡΓΟ ΟΛΟΚΛΗΡΩΝΕΤΑΙ ΤΟ ΦΥΣΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ ΠΟΥ ΕΧΕΙ ΠΕΡΙΓΡΑΦΕΙ ΣΤΟ ΤΕΧΝΙΚΟ ΔΕΛΤΙΟ ΤΟΥ ΕΡΓΟΥ; Εάν ΟΧΙ, να σημειωθούν ο τίτλος και η προβλεπόμενη ημ/νία έναρξης υλοποίησης του επόμενου Υποέργου."/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_physical_object_completed_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_physical_object_completed_desc}" style="width:100%;" rows="5"/>
+							<h:panelGrid columns="2" style="text-align:center; margin:0 auto;">
+								<h:outputText value="70. ΤΟ ΥΠΟΕΡΓΟ ΥΛΟΠΟΙΕΙΤΑΙ ΣΕ ΠΙΣΤΟΠΟΙΗΜΕΝΗ Ή ΘΕΣΜΟΘΕΤΗΜΕΝΗ ΓΙΑ ΤΗΝ ΥΛΟΠΟΙΗΣΗ ΣΧΕΤΙΚΩΝ ΥΠΟΕΡΓΩΝ ΔΟΜΗ;
+Απαντάται μόνο για Υποέργα Κατάρτισης και Συμβουλευτικής- Υποστήριξης- Πληροφόρησης.
+Η απάντηση ΝΑΙ πρέπει να συνοδεύεται από τον αριθμό και την ημ/νία του εγγράφου που πιστοποιεί ή θεσμοθετεί τη δομή, καθώς και για το είδος (κατάρτιση, συμβουλευτική, υποστήριξη ειδικών κοινωνικών ομάδων, κ.λ.π.) και την εμβέλεια (εθνική, περιφερειακή) των υπηρεσιών  για τις οποίες έχει πιστοποιηθεί / θεσμοθετηθεί.
+H απάντηση ΟΧΙ πρέπει να συνοδεύεται από εκτίμηση της ημερομηνίας πιστοποίησης / θεσμοθέτησης, καθώς και για το είδος (κατάρτιση, συμβουλευτική, υποστήριξη ειδικών κοινωνικών ομάδων, θεματικά πεδία) και την εμβέλεια (εθνική, περιφερειακή) των υπηρεσιών για τις οποίες έχει κάνει αίτηση πιστοποίησης προκειμένου να μπορεί να παρέχει.
+Η απάντηση ΔΕΝ ΑΠΑΙΤΕΙΤΑΙ πρέπει να συνοδεύεται από την ανάλογη αιτιολόγηση. "/>
+								<h:panelGroup>
+									<h:selectOneRadio value="#{otaBean.sec_l.special_info_certificated_infrastructure_state}">
+										<f:selectItem itemValue="ΝΑΙ" itemLabel="ΝΑΙ"/>
+										<f:selectItem itemValue="ΟΧΙ" itemLabel="ΟΧΙ"/>
+									</h:selectOneRadio>
+								</h:panelGroup>								
+							</h:panelGrid>
+							<h:inputTextarea value="#{otaBean.sec_l.special_info_certificated_infrastructure_desc}" style="width:100%;" rows="5"/>
+						</h:panelGroup>
+				</h:panelGrid>
+
+				</div>
+				</div>
+				</h:form>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		</body>
+</html>

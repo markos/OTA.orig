@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: printTDE.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template_printout.xhtml">
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="content">
+					<h:outputLabel value="ΤΜΗΜΑ Α (ΤΑΥΤΟΤΗΤΑ ΕΡΓΟΥ)"/>
+					<ui:include src="/forms/pforms/Section_A.xhtml" />
+					<br/><br/>
+					
+ 					<h:outputText value="ΤΜΗΜΑ Β (ΦΥΣΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_B.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ Γ (ΣΤΟΙΧΕΙΑ ΣΚΟΠΙΜΟΤΗΤΑΣ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_C.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ Δ (ΔΕΙΚΤΕΣ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_D.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ Ε (ΩΡΙΜΑΝΣΗ ΕΡΓΟΥ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_E.xhtml" />
+					<br/><br/>
+					
+					<h:outputLabel value="ΤΜΗΜΑ ΣΤ (ΧΡΟΝΙΚΟΣ ΚΑΙ ΟΙΚΟΝΟΜΙΚΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_ST.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ Ζ (ΧΡΗΜΑΤΟΔΟΤΙΚΟ ΣΧΕΔΙΟ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_Z.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ H (ΕΙΔΙΚΕΣ ΠΛΗΡΟΦΟΡΙΕΣ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_H.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ Θ (ΚΑΤΑΛΟΓΟΣ ΣΥΝΗΜΜΕΝΩΝ ΕΓΓΡΑΦΩΝ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_Th.xhtml" />
+					<br/><br/>
+					 
+					<h:outputText value="ΤΜΗΜΑ Ι (ΑΠΟΓΡΑΦΙΚΟ ΔΕΛΤΙΟ ΦΟΡΕΑ ΥΛΟΠΟΙΗΣΗΣ (ΓΙΑ ΤΔΕ ΕΚΤ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_I.xhtml" />
+					<br/><br/>
+					
+					<h:outputText value="ΤΜΗΜΑ Κ (ΑΠΟΓΡΑΦΙΚΟ ΔΕΛΤΙΟ ΦΟΡΕΑ ΕΠΙΒΛΕΨΗΣ (ΓΙΑ ΤΔΕ ΕΚΤ)" style="page-break-before: always"/>
+					<ui:include src="/forms/pforms/Section_K.xhtml" />
+					<br/><br/>
+
+					<c:forEach var="subproject" items="#{otaBean.subProjects}">
+						<h:outputLabel value="ΤΜΗΜΑ Λ (ΤΕΧΝΙΚΟ ΔΕΛΤΙΟ ΥΠΟΕΡΓΟΥ (ΕΚΤ))" style="page-break-before: always"/>
+						<ui:include src="/forms/pforms/Section_L.xhtml" />
+						<br/><br/>
+					</c:forEach>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		</body>
+</html>

@@ -1,0 +1,2669 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JSFFlowViewLayout version="1.0">
+  <Drawing gridVisible="true" snapOn="true" />
+  <JSFFlowResource path="/katartisis/cycles.xhtml" location="930,30" dimension="185,36" />
+  <JSFFlowResource path="/katartisis/events.xhtml" location="930,1630" dimension="203,36" />
+  <JSFFlowResource path="/katartisis/events_forms.xhtml" location="30,1730" dimension="249,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_1.xhtml" location="1080,2530" dimension="266,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_2.xhtml" location="630,230" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_3.xhtml" location="1080,230" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_4.xhtml" location="30,330" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_5.xhtml" location="480,330" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_6.xhtml" location="930,330" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_7.xhtml" location="30,430" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_8.xhtml" location="480,430" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_HO_9.xhtml" location="930,430" dimension="255,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_1.xhtml" location="30,530" dimension="254,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_2.xhtml" location="480,530" dimension="254,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_3.xhtml" location="630,2430" dimension="278,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_4.xhtml" location="930,530" dimension="254,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_5.xhtml" location="30,630" dimension="254,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_6.xhtml" location="480,630" dimension="254,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_DS_7.xhtml" location="930,630" dimension="254,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_SEM_1.xhtml" location="30,730" dimension="263,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_SEM_2.xhtml" location="480,730" dimension="263,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_SEM_3.xhtml" location="930,730" dimension="263,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_SEM_4.xhtml" location="30,830" dimension="263,36" />
+  <JSFFlowResource path="/katartisis/forms/Form_SEM_5.xhtml" location="480,830" dimension="263,36" />
+  <JSFFlowResource path="/user/admin/users.xhtml" location="30,2530" dimension="194,36" />
+  <JSFFlowResource path="/projectList.xhtml" location="30,2330" dimension="154,36" />
+  <JSFFlowResource path="/project.xhtml" location="330,930" dimension="129,36" />
+  <JSFFlowResource path="/invoiceSubProjectList.xhtml" location="480,2630" dimension="236,36" />
+  <JSFFlowResource path="/physicalObjectSubProjectList.xhtml" location="780,2630" dimension="288,36" />
+  <JSFFlowResource path="/forms/Section_A.xhtml" location="30,1030" dimension="185,36" />
+  <JSFFlowResource path="/subProjectList.xhtml" location="330,1030" dimension="173,36" />
+  <JSFFlowResource path="/forms/Section_ST.xhtml" location="630,1030" dimension="191,36" />
+  <JSFFlowResource path="/forms/printTDE.xhtml" location="330,2330" dimension="183,36" />
+  <JSFFlowResource path="/contractors.xhtml" location="930,1030" dimension="158,36" />
+  <JSFFlowResource path="/nomList.xhtml" location="30,1130" dimension="133,36" />
+  <JSFFlowResource path="/monthlySubProjectList.xhtml" location="330,1130" dimension="223,36" />
+  <JSFFlowResource path="/monthly3SubProjectList.xhtml" location="630,1130" dimension="231,36" />
+  <JSFFlowResource path="/monthly3ReportList.xhtml" location="930,1130" dimension="204,36" />
+  <JSFFlowResource path="/reports/reportPhysical.xhtml" location="330,1230" dimension="224,36" />
+  <JSFFlowResource path="/reportKatartisisSubList.xhtml" location="630,1830" dimension="227,36" />
+  <JSFFlowResource path="/reports/reportInvoicesSubProjectList.xhtml" location="1230,2630" dimension="341,36" />
+  <JSFFlowResource path="/forms/Section_B.xhtml" location="630,1230" dimension="185,36" />
+  <JSFFlowResource path="/forms/Section_C.xhtml" location="930,1230" dimension="185,36" />
+  <JSFFlowResource path="/forms/Section_D.xhtml" location="30,1330" dimension="186,36" />
+  <JSFFlowResource path="/forms/Section_E.xhtml" location="330,1330" dimension="185,36" />
+  <JSFFlowResource path="/forms/Section_H.xhtml" location="630,1330" dimension="186,36" />
+  <JSFFlowResource path="/forms/Section_I.xhtml" location="930,1330" dimension="180,36" />
+  <JSFFlowResource path="/forms/Section_K.xhtml" location="30,1430" dimension="184,36" />
+  <JSFFlowResource path="/forms/Section_Th.xhtml" location="330,1430" dimension="192,36" />
+  <JSFFlowResource path="/forms/Section_L.xhtml" location="630,1430" dimension="183,36" />
+  <JSFFlowResource path="/forms/Section_M.xhtml" location="930,1430" dimension="187,36" />
+  <JSFFlowResource path="/forms/Section_N.xhtml" location="30,1530" dimension="186,36" />
+  <JSFFlowResource path="/forms/Section_O.xhtml" location="330,1530" dimension="186,36" />
+  <JSFFlowResource path="/forms/Section_Z.xhtml" location="630,1530" dimension="186,36" />
+  <JSFFlowResource path="/forms/Section_X.xhtml" location="30,1630" dimension="184,36" />
+  <JSFFlowResource path="/invoiceList.xhtml" location="630,930" dimension="149,36" />
+  <JSFFlowResource path="/invoice_contractor.xhtml" location="330,1630" dimension="199,36" />
+  <JSFFlowResource path="/invoice_vendor.xhtml" location="630,1630" dimension="176,36" />
+  <JSFFlowResource path="/physicalObjectList.xhtml" location="930,930" dimension="196,36" />
+  <JSFFlowResource path="/editContractor.xhtml" location="930,2230" dimension="175,36" />
+  <JSFFlowResource path="/monthlyReportList.xhtml" location="330,1730" dimension="196,36" />
+  <JSFFlowResource path="/monthly3SubReportList.xhtml" location="930,1730" dimension="228,36" />
+  <JSFFlowResource path="/forms/Section_P.xhtml" location="630,1730" dimension="183,36" />
+  <JSFFlowResource path="/forms/pforms/Section_P.xhtml" location="330,1830" dimension="233,36" />
+  <JSFFlowResource path="/forms/pforms/Section_O.xhtml" location="630,2230" dimension="236,36" />
+  <JSFFlowResource path="/reports/reportInvoices.xhtml" location="30,1230" dimension="224,36" />
+  <JSFFlowResource path="/reports/reportKatartisisContractors.xhtml" location="930,1830" dimension="306,36" />
+  <JSFFlowResource path="/reports/reportKatartisisPhysical.xhtml" location="30,1930" dimension="282,36" />
+  <JSFFlowResource path="/reports/reportKatartisisRegion.xhtml" location="480,1930" dimension="274,36" />
+  <JSFFlowResource path="/reports/reportKatartisisPrefecture.xhtml" location="930,1930" dimension="298,36" />
+  <JSFFlowResource path="/reports/reportKatartisisTotalImerides.xhtml" location="30,2030" dimension="314,36" />
+  <JSFFlowResource path="/reports/reportKatartisisDSContractors.xhtml" location="480,2030" dimension="323,36" />
+  <JSFFlowResource path="/reports/reportKatartisisDSPhysical.xhtml" location="930,2030" dimension="299,36" />
+  <JSFFlowResource path="/reports/reportKatartisisDSPrefecture.xhtml" location="1230,2730" dimension="321,36" />
+  <JSFFlowResource path="/reports/reportKatartisisDSTotal.xhtml" location="30,2130" dimension="278,36" />
+  <JSFFlowResource path="/reports/reportKatartisisSemContractors.xhtml" location="330,2730" dimension="331,36" />
+  <JSFFlowResource path="/reports/reportKatartisisSemPhysical.xhtml" location="780,2730" dimension="309,36" />
+  <JSFFlowResource path="/reports/reportKatartisisSemPrefecture.xhtml" location="930,2830" dimension="323,36" />
+  <JSFFlowResource path="/reports/reportKatartisisSemRegion.xhtml" location="1380,2830" dimension="302,36" />
+  <JSFFlowResource path="/reports/reportKatartisisSemTotal.xhtml" location="30,2930" dimension="288,36" />
+  <JSFFlowResource path="/reports/reportKatartisisDSMunicipality.xhtml" location="30,2830" dimension="327,36" />
+  <JSFFlowResource path="/login.xhtml" location="1230,930" dimension="115,36" />
+  <JSFFlowResource path="/mainmenu.xhtml" location="30,2230" dimension="150,36" />
+  <JSFFlowResource path="/user/loginportal.xhtml" location="30,1830" dimension="182,36" />
+  <JSFFlowResource path="/config/plaisio.xhtml" location="330,2430" dimension="170,36" />
+  <JSFFlowResource path="/polls/polls.xhtml" location="1380,1530" dimension="159,36" />
+  <JSFFlowResource path="/editOK.xhtml" location="1230,2230" dimension="125,36" />
+  <JSFFlowResource path="/config/funders.xhtml" location="930,2330" dimension="178,36" />
+  <JSFFlowResource path="/config/vendors.xhtml" location="1230,2330" dimension="181,36" />
+  <JSFFlowResource path="/config/deiktes.xhtml" location="30,2430" dimension="176,36" />
+  <JSFFlowResource path="/config/evolution.xhtml" location="1380,1930" dimension="188,36" />
+  <JSFFlowResource path="/config/expenses.xhtml" location="1380,2030" dimension="191,36" />
+  <JSFFlowResource path="/config/progress.xhtml" location="1380,2130" dimension="186,36" />
+  <JSFFlowResource path="/config/invoicetypes.xhtml" location="1380,1830" dimension="209,36" />
+  <JSFFlowResource path="/config/subprojecttypes.xhtml" location="30,2630" dimension="251,36" />
+  <JSFFlowResource path="/user/admin/main.xhtml" location="930,1530" dimension="189,36" />
+  <JSFFlowResource path="/user/admin/groups.xhtml" location="1080,2430" dimension="203,36" />
+  <JSFFlowResource path="/user/admin/roles.xhtml" location="1380,2430" dimension="190,36" />
+  <JSFFlowResource path="/user/admin/newsletters.xhtml" location="330,2530" dimension="232,36" />
+  <JSFFlowResource path="/user/editUser.xhtml" location="630,2330" dimension="169,36" />
+  <JSFFlowResource path="/user/editTrainer.xhtml" location="630,2530" dimension="182,36" />
+  <JSFFlowResource path="/user/editContractor.xhtml" location="30,2730" dimension="207,36" />
+  <JSFFlowResource path="/user/recoverPassword.xhtml" location="1230,1030" dimension="223,36" />
+  <JSFFlowResource path="/user/passwordRecovery.xhtml" location="1230,1130" dimension="230,36" />
+  <JSFFlowResource path="/user/passwordRecoveryOK.xhtml" location="1230,1330" dimension="248,36" />
+  <JSFFlowResource path="/user/register.xhtml" location="1230,1230" dimension="165,36" />
+  <JSFFlowResource path="/user/registerOK.xhtml" location="1230,1430" dimension="182,36" />
+  <JSFFlowResource path="*" location="1230,1530" dimension="51,36" />
+  <JSFFlowResource path="/polls/editPoll.xhtml" location="1230,1630" dimension="164,36" />
+  <JSFFlowResource path="/polls/viewPoll.xhtml" location="1230,1730" dimension="166,36" />
+  <JSFFlowResource path="/polls/pollStats.xhtml" location="780,2130" dimension="173,36" />
+  <JSFFlowResource path="/polls/pollSubmitted.xhtml" location="480,2130" dimension="204,36" />
+  <JSFFlowResource path="/katartisis/forms/*" location="1080,2130" dimension="166,36" />
+  <JSFFlowResource path="/reports/reportKatartisisParticipants.xhtml" location="480,2830" dimension="310,36" />
+  <JSFFlowNavigationCase id="/katartisis/cycles.xhtml,/katartisis/events.xhtml,events,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1115,48" />
+      <AbsolutePoint location="1572,48" />
+      <AbsolutePoint location="1572,1675" />
+      <AbsolutePoint location="1031,1675" />
+      <AbsolutePoint location="1031,1666" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events.xhtml,/katartisis/events.xhtml,event_created,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1045,1630" />
+      <AbsolutePoint location="1045,1602" />
+      <AbsolutePoint location="1136,1602" />
+      <AbsolutePoint location="1136,1648" />
+      <AbsolutePoint location="1133,1648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events.xhtml,/katartisis/events.xhtml,event_deleted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1050,1630" />
+      <AbsolutePoint location="1050,1607" />
+      <AbsolutePoint location="1143,1607" />
+      <AbsolutePoint location="1143,1653" />
+      <AbsolutePoint location="1133,1653" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events.xhtml,/katartisis/events_forms.xhtml,events_forms,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1031,1630" />
+      <AbsolutePoint location="1031,1603" />
+      <AbsolutePoint location="570,1603" />
+      <AbsolutePoint location="570,1888" />
+      <AbsolutePoint location="249,1888" />
+      <AbsolutePoint location="249,1766" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_1.xhtml,Form_HO_1,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="30,1763" />
+      <AbsolutePoint location="-7,1763" />
+      <AbsolutePoint location="-7,2503" />
+      <AbsolutePoint location="1213,2503" />
+      <AbsolutePoint location="1213,2530" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_2.xhtml,Form_HO_2,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="279,1748" />
+      <AbsolutePoint location="300,1748" />
+      <AbsolutePoint location="300,248" />
+      <AbsolutePoint location="630,248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_3.xhtml,Form_HO_3,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="248,1730" />
+      <AbsolutePoint location="248,1703" />
+      <AbsolutePoint location="1207,1703" />
+      <AbsolutePoint location="1207,266" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_4.xhtml,Form_HO_4,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="30,1733" />
+      <AbsolutePoint location="7,1733" />
+      <AbsolutePoint location="7,348" />
+      <AbsolutePoint location="30,348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_5.xhtml,Form_HO_5,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="279,1763" />
+      <AbsolutePoint location="319,1763" />
+      <AbsolutePoint location="319,348" />
+      <AbsolutePoint location="480,348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_6.xhtml,Form_HO_6,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="184,1730" />
+      <AbsolutePoint location="184,1673" />
+      <AbsolutePoint location="907,1673" />
+      <AbsolutePoint location="907,348" />
+      <AbsolutePoint location="930,348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_7.xhtml,Form_HO_7,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="30,1748" />
+      <AbsolutePoint location="-37,1748" />
+      <AbsolutePoint location="-37,448" />
+      <AbsolutePoint location="30,448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_8.xhtml,Form_HO_8,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="184,1766" />
+      <AbsolutePoint location="184,1793" />
+      <AbsolutePoint location="868,1793" />
+      <AbsolutePoint location="868,448" />
+      <AbsolutePoint location="735,448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_HO_9.xhtml,Form_HO_9,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="169,1730" />
+      <AbsolutePoint location="169,1688" />
+      <AbsolutePoint location="892,1688" />
+      <AbsolutePoint location="892,448" />
+      <AbsolutePoint location="930,448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_1.xhtml,Form_DS_1,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="124,1766" />
+      <AbsolutePoint location="124,1808" />
+      <AbsolutePoint location="22,1808" />
+      <AbsolutePoint location="22,548" />
+      <AbsolutePoint location="30,548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_2.xhtml,Form_DS_2,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="276,1730" />
+      <AbsolutePoint location="276,1103" />
+      <AbsolutePoint location="843,1103" />
+      <AbsolutePoint location="843,548" />
+      <AbsolutePoint location="734,548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_3.xhtml,Form_DS_3,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="121,1766" />
+      <AbsolutePoint location="121,1793" />
+      <AbsolutePoint location="7,1793" />
+      <AbsolutePoint location="7,2403" />
+      <AbsolutePoint location="769,2403" />
+      <AbsolutePoint location="769,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_4.xhtml,Form_DS_4,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="199,1766" />
+      <AbsolutePoint location="199,1778" />
+      <AbsolutePoint location="922,1778" />
+      <AbsolutePoint location="922,548" />
+      <AbsolutePoint location="930,548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_5.xhtml,Form_DS_5,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="114,1766" />
+      <AbsolutePoint location="114,1778" />
+      <AbsolutePoint location="-22,1778" />
+      <AbsolutePoint location="-22,648" />
+      <AbsolutePoint location="30,648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_6.xhtml,Form_DS_6,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="261,1730" />
+      <AbsolutePoint location="261,1003" />
+      <AbsolutePoint location="801,1003" />
+      <AbsolutePoint location="801,648" />
+      <AbsolutePoint location="734,648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_DS_7.xhtml,Form_DS_7,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="154,1766" />
+      <AbsolutePoint location="154,1808" />
+      <AbsolutePoint location="1641,1808" />
+      <AbsolutePoint location="1641,648" />
+      <AbsolutePoint location="1184,648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_SEM_1.xhtml,Form_SEM_1,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="223,1730" />
+      <AbsolutePoint location="223,1303" />
+      <AbsolutePoint location="-7,1303" />
+      <AbsolutePoint location="-7,748" />
+      <AbsolutePoint location="30,748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_SEM_2.xhtml,Form_SEM_2,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="238,1730" />
+      <AbsolutePoint location="238,1403" />
+      <AbsolutePoint location="1180,1403" />
+      <AbsolutePoint location="1180,803" />
+      <AbsolutePoint location="611,803" />
+      <AbsolutePoint location="611,766" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_SEM_3.xhtml,Form_SEM_3,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="234,1766" />
+      <AbsolutePoint location="234,1903" />
+      <AbsolutePoint location="1719,1903" />
+      <AbsolutePoint location="1719,748" />
+      <AbsolutePoint location="1193,748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_SEM_4.xhtml,Form_SEM_4,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="264,1766" />
+      <AbsolutePoint location="264,1873" />
+      <AbsolutePoint location="600,1873" />
+      <AbsolutePoint location="600,903" />
+      <AbsolutePoint location="161,903" />
+      <AbsolutePoint location="161,866" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/events_forms.xhtml,/katartisis/forms/Form_SEM_5.xhtml,Form_SEM_5,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="219,1766" />
+      <AbsolutePoint location="219,1918" />
+      <AbsolutePoint location="615,1918" />
+      <AbsolutePoint location="615,866" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_HO_1.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1213,2566" />
+      <AbsolutePoint location="1213,2578" />
+      <AbsolutePoint location="152,2578" />
+      <AbsolutePoint location="152,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_HO_3.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1335,248" />
+      <AbsolutePoint location="1689,248" />
+      <AbsolutePoint location="1689,2618" />
+      <AbsolutePoint location="112,2618" />
+      <AbsolutePoint location="112,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_DS_1.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="157,566" />
+      <AbsolutePoint location="157,603" />
+      <AbsolutePoint location="1596,603" />
+      <AbsolutePoint location="1596,2303" />
+      <AbsolutePoint location="213,2303" />
+      <AbsolutePoint location="213,2530" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_DS_2.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="607,566" />
+      <AbsolutePoint location="607,573" />
+      <AbsolutePoint location="1626,573" />
+      <AbsolutePoint location="1626,2003" />
+      <AbsolutePoint location="22,2003" />
+      <AbsolutePoint location="22,2548" />
+      <AbsolutePoint location="30,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_DS_4.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1184,548" />
+      <AbsolutePoint location="1734,548" />
+      <AbsolutePoint location="1734,1973" />
+      <AbsolutePoint location="-22,1973" />
+      <AbsolutePoint location="-22,2563" />
+      <AbsolutePoint location="30,2563" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_SEM_2.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="626,766" />
+      <AbsolutePoint location="626,773" />
+      <AbsolutePoint location="1656,773" />
+      <AbsolutePoint location="1656,2073" />
+      <AbsolutePoint location="-37,2073" />
+      <AbsolutePoint location="-37,2473" />
+      <AbsolutePoint location="97,2473" />
+      <AbsolutePoint location="97,2530" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/Form_SEM_4.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="161,830" />
+      <AbsolutePoint location="161,818" />
+      <AbsolutePoint location="1704,818" />
+      <AbsolutePoint location="1704,2703" />
+      <AbsolutePoint location="7,2703" />
+      <AbsolutePoint location="7,2488" />
+      <AbsolutePoint location="82,2488" />
+      <AbsolutePoint location="82,2530" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/users.xhtml,/user/admin/main.xhtml,users-main,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="112,2530" />
+      <AbsolutePoint location="112,2473" />
+      <AbsolutePoint location="1671,2473" />
+      <AbsolutePoint location="1671,1573" />
+      <AbsolutePoint location="1045,1573" />
+      <AbsolutePoint location="1045,1566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/users.xhtml,/user/admin/groups.xhtml,user-groups,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="142,2530" />
+      <AbsolutePoint location="142,2518" />
+      <AbsolutePoint location="1181,2518" />
+      <AbsolutePoint location="1181,2466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/users.xhtml,/user/admin/roles.xhtml,user-roles,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="127,2566" />
+      <AbsolutePoint location="127,2603" />
+      <AbsolutePoint location="1475,2603" />
+      <AbsolutePoint location="1475,2466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/users.xhtml,/user/admin/users.xhtml,users-search,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="127,2530" />
+      <AbsolutePoint location="127,2488" />
+      <AbsolutePoint location="246,2488" />
+      <AbsolutePoint location="246,2531" />
+      <AbsolutePoint location="224,2531" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/users.xhtml,/user/admin/newsletters.xhtml,newsletters,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="224,2563" />
+      <AbsolutePoint location="330,2563" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/projectList.xhtml,/project.xhtml,goToProject,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="107,2330" />
+      <AbsolutePoint location="107,2317" />
+      <AbsolutePoint location="378,2317" />
+      <AbsolutePoint location="378,1948" />
+      <AbsolutePoint location="318,1948" />
+      <AbsolutePoint location="318,1848" />
+      <AbsolutePoint location="286,1848" />
+      <AbsolutePoint location="286,1513" />
+      <AbsolutePoint location="1529,1513" />
+      <AbsolutePoint location="1529,194" />
+      <AbsolutePoint location="384,194" />
+      <AbsolutePoint location="384,930" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/invoiceSubProjectList.xhtml,invoiceSubProjectList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="394,948" />
+      <AbsolutePoint location="394,2648" />
+      <AbsolutePoint location="598,2648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/physicalObjectSubProjectList.xhtml,physicalObjectSubProjectList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="418,930" />
+      <AbsolutePoint location="418,787" />
+      <AbsolutePoint location="1190,787" />
+      <AbsolutePoint location="1190,1791" />
+      <AbsolutePoint location="1244,1791" />
+      <AbsolutePoint location="1244,2113" />
+      <AbsolutePoint location="1015,2113" />
+      <AbsolutePoint location="1015,2183" />
+      <AbsolutePoint location="924,2183" />
+      <AbsolutePoint location="924,2630" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/forms/Section_A.xhtml,tde,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,948" />
+      <AbsolutePoint location="122,948" />
+      <AbsolutePoint location="122,1030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/subProjectList.xhtml,tdy,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="394,966" />
+      <AbsolutePoint location="394,1030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/forms/Section_ST.xhtml,section_st,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="459,957" />
+      <AbsolutePoint location="525,957" />
+      <AbsolutePoint location="525,1048" />
+      <AbsolutePoint location="630,1048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/forms/printTDE.xhtml,printTDE,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="375,930" />
+      <AbsolutePoint location="375,2330" />
+      <AbsolutePoint location="421,2330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/contractors.xhtml,load-contractors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="459,937" />
+      <AbsolutePoint location="584,937" />
+      <AbsolutePoint location="584,1072" />
+      <AbsolutePoint location="1009,1072" />
+      <AbsolutePoint location="1009,1066" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/nomList.xhtml,nomList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,958" />
+      <AbsolutePoint location="248,958" />
+      <AbsolutePoint location="248,1148" />
+      <AbsolutePoint location="163,1148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/monthlySubProjectList.xhtml,sectionNList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="459,948" />
+      <AbsolutePoint location="536,948" />
+      <AbsolutePoint location="536,1130" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/monthly3SubProjectList.xhtml,sectionPList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="399,930" />
+      <AbsolutePoint location="399,503" />
+      <AbsolutePoint location="828,503" />
+      <AbsolutePoint location="828,1130" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/monthly3ReportList.xhtml,sectionOList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="374,930" />
+      <AbsolutePoint location="374,148" />
+      <AbsolutePoint location="1500,148" />
+      <AbsolutePoint location="1500,1103" />
+      <AbsolutePoint location="1032,1103" />
+      <AbsolutePoint location="1032,1130" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/reports/reportPhysical.xhtml,loaded_reportPhysical,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="385,930" />
+      <AbsolutePoint location="385,1266" />
+      <AbsolutePoint location="536,1266" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/reportKatartisisSubList.xhtml,loaded_katartisisReport,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="409,930" />
+      <AbsolutePoint location="409,699" />
+      <AbsolutePoint location="879,699" />
+      <AbsolutePoint location="879,1837" />
+      <AbsolutePoint location="857,1837" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/reports/reportInvoicesSubProjectList.xhtml,invoiceReportsSubProjectList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="394,930" />
+      <AbsolutePoint location="394,396" />
+      <AbsolutePoint location="1196,396" />
+      <AbsolutePoint location="1196,1795" />
+      <AbsolutePoint location="1313,1795" />
+      <AbsolutePoint location="1313,2228" />
+      <AbsolutePoint location="914,2228" />
+      <AbsolutePoint location="914,2587" />
+      <AbsolutePoint location="1400,2587" />
+      <AbsolutePoint location="1400,2630" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/project.xhtml,/projectList.xhtml,project-deleted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="416,930" />
+      <AbsolutePoint location="416,2330" />
+      <AbsolutePoint location="107,2330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/invoiceSubProjectList.xhtml,/invoiceList.xhtml,invoiceList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="598,2648" />
+      <AbsolutePoint location="598,948" />
+      <AbsolutePoint location="704,948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/physicalObjectSubProjectList.xhtml,/physicalObjectList.xhtml,physical_object_loaded,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="924,2648" />
+      <AbsolutePoint location="924,948" />
+      <AbsolutePoint location="1028,948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="189,1066" />
+      <AbsolutePoint location="189,1196" />
+      <AbsolutePoint location="722,1196" />
+      <AbsolutePoint location="722,1230" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="165,1066" />
+      <AbsolutePoint location="165,1220" />
+      <AbsolutePoint location="1022,1220" />
+      <AbsolutePoint location="1022,1230" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="137,1066" />
+      <AbsolutePoint location="137,1073" />
+      <AbsolutePoint location="570,1073" />
+      <AbsolutePoint location="570,1273" />
+      <AbsolutePoint location="123,1273" />
+      <AbsolutePoint location="123,1330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="107,1066" />
+      <AbsolutePoint location="107,1118" />
+      <AbsolutePoint location="585,1118" />
+      <AbsolutePoint location="585,1348" />
+      <AbsolutePoint location="515,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="204,1066" />
+      <AbsolutePoint location="204,1173" />
+      <AbsolutePoint location="838,1173" />
+      <AbsolutePoint location="838,1348" />
+      <AbsolutePoint location="816,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="137,1030" />
+      <AbsolutePoint location="137,973" />
+      <AbsolutePoint location="1141,973" />
+      <AbsolutePoint location="1141,1331" />
+      <AbsolutePoint location="1110,1331" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="122,1066" />
+      <AbsolutePoint location="122,1088" />
+      <AbsolutePoint location="1515,1088" />
+      <AbsolutePoint location="1515,1373" />
+      <AbsolutePoint location="122,1373" />
+      <AbsolutePoint location="122,1430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_A.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="77,1030" />
+      <AbsolutePoint location="77,873" />
+      <AbsolutePoint location="1165,873" />
+      <AbsolutePoint location="1165,1418" />
+      <AbsolutePoint location="456,1418" />
+      <AbsolutePoint location="456,1430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/subProjectList.xhtml,/forms/Section_L.xhtml,section_l,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="470,1030" />
+      <AbsolutePoint location="470,1448" />
+      <AbsolutePoint location="813,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/subProjectList.xhtml,/katartisis/cycles.xhtml,cycles,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="461,1030" />
+      <AbsolutePoint location="461,48" />
+      <AbsolutePoint location="930,48" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_ST.xhtml,/forms/Section_Z.xhtml,section_z,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="725,1048" />
+      <AbsolutePoint location="725,1548" />
+      <AbsolutePoint location="723,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/contractors.xhtml,/editContractor.xhtml,editContractor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1009,1048" />
+      <AbsolutePoint location="1009,2248" />
+      <AbsolutePoint location="1017,2248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/nomList.xhtml,/forms/Section_M.xhtml,section_m,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="96,1148" />
+      <AbsolutePoint location="96,1448" />
+      <AbsolutePoint location="1023,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthlySubProjectList.xhtml,/monthlyReportList.xhtml,monthlyList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="441,1148" />
+      <AbsolutePoint location="441,1748" />
+      <AbsolutePoint location="428,1748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthly3SubProjectList.xhtml,/monthly3SubReportList.xhtml,monthly3List,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="745,1166" />
+      <AbsolutePoint location="745,1204" />
+      <AbsolutePoint location="1583,1204" />
+      <AbsolutePoint location="1583,1668" />
+      <AbsolutePoint location="1044,1668" />
+      <AbsolutePoint location="1044,1730" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthly3ReportList.xhtml,/forms/Section_O.xhtml,section_o,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1032,1148" />
+      <AbsolutePoint location="1032,1548" />
+      <AbsolutePoint location="423,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthly3ReportList.xhtml,/forms/pforms/Section_O.xhtml,section_o_view,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1121,1166" />
+      <AbsolutePoint location="1121,2248" />
+      <AbsolutePoint location="630,2248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisContractors.xhtml,loaded_katartisisContractors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="857,1848" />
+      <AbsolutePoint location="930,1848" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisPhysical.xhtml,loaded_katartisisPhysical,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="761,1866" />
+      <AbsolutePoint location="761,1988" />
+      <AbsolutePoint location="171,1988" />
+      <AbsolutePoint location="171,1966" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisRegion.xhtml,loaded_katartisisRegion,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="728,1866" />
+      <AbsolutePoint location="728,1930" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisPrefecture.xhtml,loaded_katartisisPrefecture,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="791,1866" />
+      <AbsolutePoint location="791,1948" />
+      <AbsolutePoint location="930,1948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisTotalImerides.xhtml,loaded_katartisisTotalImerides,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="810,1866" />
+      <AbsolutePoint location="810,2088" />
+      <AbsolutePoint location="187,2088" />
+      <AbsolutePoint location="187,2066" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisDSContractors.xhtml,loaded_katartisisDSContractors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="776,1866" />
+      <AbsolutePoint location="776,2030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisDSPhysical.xhtml,loaded_katartisisDSPhysical,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="851,1866" />
+      <AbsolutePoint location="851,2048" />
+      <AbsolutePoint location="930,2048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisDSPrefecture.xhtml,loaded_katartisisDSPrefecture,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="840,1866" />
+      <AbsolutePoint location="840,2088" />
+      <AbsolutePoint location="1656,2088" />
+      <AbsolutePoint location="1656,2748" />
+      <AbsolutePoint location="1551,2748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisDSTotal.xhtml,loaded_katartisisDSTotal,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="713,1866" />
+      <AbsolutePoint location="713,1918" />
+      <AbsolutePoint location="868,1918" />
+      <AbsolutePoint location="868,2103" />
+      <AbsolutePoint location="169,2103" />
+      <AbsolutePoint location="169,2130" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisSemContractors.xhtml,loaded_katartisisSemContractors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="743,1866" />
+      <AbsolutePoint location="743,1888" />
+      <AbsolutePoint location="922,1888" />
+      <AbsolutePoint location="922,1988" />
+      <AbsolutePoint location="1734,1988" />
+      <AbsolutePoint location="1734,2718" />
+      <AbsolutePoint location="495,2718" />
+      <AbsolutePoint location="495,2730" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisSemPhysical.xhtml,loaded_katartisisSemPhysical,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="824,1866" />
+      <AbsolutePoint location="824,1873" />
+      <AbsolutePoint location="1288,1873" />
+      <AbsolutePoint location="1288,2218" />
+      <AbsolutePoint location="1611,2218" />
+      <AbsolutePoint location="1611,2673" />
+      <AbsolutePoint location="934,2673" />
+      <AbsolutePoint location="934,2730" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisSemPrefecture.xhtml,loaded_katartisisSemPrefecture,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="823,1830" />
+      <AbsolutePoint location="823,1752" />
+      <AbsolutePoint location="907,1752" />
+      <AbsolutePoint location="907,1918" />
+      <AbsolutePoint location="1719,1918" />
+      <AbsolutePoint location="1719,2437" />
+      <AbsolutePoint location="1596,2437" />
+      <AbsolutePoint location="1596,2818" />
+      <AbsolutePoint location="1096,2818" />
+      <AbsolutePoint location="1096,2830" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisSemRegion.xhtml,loaded_katartisisSemRegion,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="819,1830" />
+      <AbsolutePoint location="819,1588" />
+      <AbsolutePoint location="1463,1588" />
+      <AbsolutePoint location="1463,1793" />
+      <AbsolutePoint location="1342,1793" />
+      <AbsolutePoint location="1342,2173" />
+      <AbsolutePoint location="1524,2173" />
+      <AbsolutePoint location="1524,2373" />
+      <AbsolutePoint location="1368,2373" />
+      <AbsolutePoint location="1368,2552" />
+      <AbsolutePoint location="1641,2552" />
+      <AbsolutePoint location="1641,2830" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisSemTotal.xhtml,loaded_katartisisSemTotal,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="825,1866" />
+      <AbsolutePoint location="825,2948" />
+      <AbsolutePoint location="318,2948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisDSMunicipality.xhtml,loaded_katartisisDSMunicipality,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="857,1858" />
+      <AbsolutePoint location="879,1858" />
+      <AbsolutePoint location="879,2114" />
+      <AbsolutePoint location="413,2114" />
+      <AbsolutePoint location="413,2245" />
+      <AbsolutePoint location="287,2245" />
+      <AbsolutePoint location="287,2830" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisParticipants.xhtml,loaded_katartisisElectives,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="743,1848" />
+      <AbsolutePoint location="743,2848" />
+      <AbsolutePoint location="635,2848" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reportKatartisisSubList.xhtml,/reports/reportKatartisisParticipants.xhtml,loaded_katartisisSpeakers,&lt;empty&gt;" routingType="1">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="743,1848" />
+      <AbsolutePoint location="743,2848" />
+      <AbsolutePoint location="635,2848" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/reports/reportInvoicesSubProjectList.xhtml,/reports/reportInvoices.xhtml,reportInvoicesList,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1400,2648" />
+      <AbsolutePoint location="1400,1248" />
+      <AbsolutePoint location="142,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="718,1230" />
+      <AbsolutePoint location="718,1205" />
+      <AbsolutePoint location="174,1205" />
+      <AbsolutePoint location="174,1066" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="815,1239" />
+      <AbsolutePoint location="930,1239" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="722,1248" />
+      <AbsolutePoint location="722,1348" />
+      <AbsolutePoint location="123,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="722,1248" />
+      <AbsolutePoint location="722,1348" />
+      <AbsolutePoint location="422,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="708,1266" />
+      <AbsolutePoint location="708,1330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="815,1259" />
+      <AbsolutePoint location="825,1259" />
+      <AbsolutePoint location="825,1331" />
+      <AbsolutePoint location="930,1331" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="732,1230" />
+      <AbsolutePoint location="732,1189" />
+      <AbsolutePoint location="1549,1189" />
+      <AbsolutePoint location="1549,1721" />
+      <AbsolutePoint location="1206,1721" />
+      <AbsolutePoint location="1206,1778" />
+      <AbsolutePoint location="984,1778" />
+      <AbsolutePoint location="984,1768" />
+      <AbsolutePoint location="549,1768" />
+      <AbsolutePoint location="549,1587" />
+      <AbsolutePoint location="248,1587" />
+      <AbsolutePoint location="248,1519" />
+      <AbsolutePoint location="117,1519" />
+      <AbsolutePoint location="117,1466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_B.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="722,1248" />
+      <AbsolutePoint location="722,1448" />
+      <AbsolutePoint location="426,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1115,1248" />
+      <AbsolutePoint location="1222,1248" />
+      <AbsolutePoint location="1222,1018" />
+      <AbsolutePoint location="161,1018" />
+      <AbsolutePoint location="161,1030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="930,1235" />
+      <AbsolutePoint location="815,1235" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1022,1248" />
+      <AbsolutePoint location="1022,1348" />
+      <AbsolutePoint location="123,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1022,1248" />
+      <AbsolutePoint location="1022,1348" />
+      <AbsolutePoint location="422,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1022,1248" />
+      <AbsolutePoint location="1022,1348" />
+      <AbsolutePoint location="723,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1020,1266" />
+      <AbsolutePoint location="1020,1330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1022,1248" />
+      <AbsolutePoint location="1022,1448" />
+      <AbsolutePoint location="122,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_C.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1112,1266" />
+      <AbsolutePoint location="1112,1428" />
+      <AbsolutePoint location="833,1428" />
+      <AbsolutePoint location="833,1568" />
+      <AbsolutePoint location="518,1568" />
+      <AbsolutePoint location="518,1466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="138,1330" />
+      <AbsolutePoint location="138,1318" />
+      <AbsolutePoint location="1561,1318" />
+      <AbsolutePoint location="1561,918" />
+      <AbsolutePoint location="107,918" />
+      <AbsolutePoint location="107,1030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="216,1352" />
+      <AbsolutePoint location="252,1352" />
+      <AbsolutePoint location="252,1621" />
+      <AbsolutePoint location="859,1621" />
+      <AbsolutePoint location="859,1243" />
+      <AbsolutePoint location="815,1243" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="123,1348" />
+      <AbsolutePoint location="123,1248" />
+      <AbsolutePoint location="1022,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="216,1344" />
+      <AbsolutePoint location="330,1344" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="112,1366" />
+      <AbsolutePoint location="112,1428" />
+      <AbsolutePoint location="723,1428" />
+      <AbsolutePoint location="723,1366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="30,1348" />
+      <AbsolutePoint location="-6,1348" />
+      <AbsolutePoint location="-6,1469" />
+      <AbsolutePoint location="819,1469" />
+      <AbsolutePoint location="819,1358" />
+      <AbsolutePoint location="930,1358" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="103,1366" />
+      <AbsolutePoint location="103,1430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_D.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="143,1366" />
+      <AbsolutePoint location="143,1418" />
+      <AbsolutePoint location="411,1418" />
+      <AbsolutePoint location="411,1430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="422,1330" />
+      <AbsolutePoint location="422,1288" />
+      <AbsolutePoint location="1485,1288" />
+      <AbsolutePoint location="1485,988" />
+      <AbsolutePoint location="152,988" />
+      <AbsolutePoint location="152,1030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="422,1348" />
+      <AbsolutePoint location="422,1248" />
+      <AbsolutePoint location="722,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="422,1348" />
+      <AbsolutePoint location="422,1248" />
+      <AbsolutePoint location="1022,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,1348" />
+      <AbsolutePoint location="216,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="422,1348" />
+      <AbsolutePoint location="723,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="515,1363" />
+      <AbsolutePoint location="587,1363" />
+      <AbsolutePoint location="587,1390" />
+      <AbsolutePoint location="1026,1390" />
+      <AbsolutePoint location="1026,1366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="413,1330" />
+      <AbsolutePoint location="413,1287" />
+      <AbsolutePoint location="72,1287" />
+      <AbsolutePoint location="72,1317" />
+      <AbsolutePoint location="-13,1317" />
+      <AbsolutePoint location="-13,1448" />
+      <AbsolutePoint location="30,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_E.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="441,1366" />
+      <AbsolutePoint location="441,1430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="738,1330" />
+      <AbsolutePoint location="738,1273" />
+      <AbsolutePoint location="1467,1273" />
+      <AbsolutePoint location="1467,888" />
+      <AbsolutePoint location="92,888" />
+      <AbsolutePoint location="92,1030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="723,1330" />
+      <AbsolutePoint location="723,1266" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="630,1337" />
+      <AbsolutePoint location="572,1337" />
+      <AbsolutePoint location="572,1575" />
+      <AbsolutePoint location="840,1575" />
+      <AbsolutePoint location="840,1739" />
+      <AbsolutePoint location="909,1739" />
+      <AbsolutePoint location="909,1690" />
+      <AbsolutePoint location="1218,1690" />
+      <AbsolutePoint location="1218,1258" />
+      <AbsolutePoint location="1115,1258" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="723,1348" />
+      <AbsolutePoint location="123,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="630,1358" />
+      <AbsolutePoint location="515,1358" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="630,1331" />
+      <AbsolutePoint location="544,1331" />
+      <AbsolutePoint location="544,1487" />
+      <AbsolutePoint location="1152,1487" />
+      <AbsolutePoint location="1152,1337" />
+      <AbsolutePoint location="1110,1337" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="723,1348" />
+      <AbsolutePoint location="723,1448" />
+      <AbsolutePoint location="122,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_H.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="816,1363" />
+      <AbsolutePoint location="824,1363" />
+      <AbsolutePoint location="824,1474" />
+      <AbsolutePoint location="431,1474" />
+      <AbsolutePoint location="431,1466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1003,1330" />
+      <AbsolutePoint location="1003,1305" />
+      <AbsolutePoint location="287,1305" />
+      <AbsolutePoint location="287,1042" />
+      <AbsolutePoint location="215,1042" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="930,1348" />
+      <AbsolutePoint location="849,1348" />
+      <AbsolutePoint location="849,1254" />
+      <AbsolutePoint location="815,1254" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1030,1330" />
+      <AbsolutePoint location="1030,1266" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1020,1366" />
+      <AbsolutePoint location="1020,1384" />
+      <AbsolutePoint location="132,1384" />
+      <AbsolutePoint location="132,1366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1014,1330" />
+      <AbsolutePoint location="1014,1299" />
+      <AbsolutePoint location="433,1299" />
+      <AbsolutePoint location="433,1330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="930,1337" />
+      <AbsolutePoint location="816,1337" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1110,1348" />
+      <AbsolutePoint location="1143,1348" />
+      <AbsolutePoint location="1143,1481" />
+      <AbsolutePoint location="128,1481" />
+      <AbsolutePoint location="128,1466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_I.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1110,1358" />
+      <AbsolutePoint location="1128,1358" />
+      <AbsolutePoint location="1128,1520" />
+      <AbsolutePoint location="421,1520" />
+      <AbsolutePoint location="421,1466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="132,1430" />
+      <AbsolutePoint location="132,1390" />
+      <AbsolutePoint location="557,1390" />
+      <AbsolutePoint location="557,1190" />
+      <AbsolutePoint location="236,1190" />
+      <AbsolutePoint location="236,1048" />
+      <AbsolutePoint location="215,1048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="122,1448" />
+      <AbsolutePoint location="122,1248" />
+      <AbsolutePoint location="722,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="122,1466" />
+      <AbsolutePoint location="122,1486" />
+      <AbsolutePoint location="535,1486" />
+      <AbsolutePoint location="535,1613" />
+      <AbsolutePoint location="833,1613" />
+      <AbsolutePoint location="833,1732" />
+      <AbsolutePoint location="902,1732" />
+      <AbsolutePoint location="902,1717" />
+      <AbsolutePoint location="1579,1717" />
+      <AbsolutePoint location="1579,1298" />
+      <AbsolutePoint location="1021,1298" />
+      <AbsolutePoint location="1021,1266" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="158,1430" />
+      <AbsolutePoint location="158,1366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="122,1448" />
+      <AbsolutePoint location="122,1348" />
+      <AbsolutePoint location="422,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="122,1448" />
+      <AbsolutePoint location="122,1348" />
+      <AbsolutePoint location="723,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="113,1466" />
+      <AbsolutePoint location="113,1526" />
+      <AbsolutePoint location="1122,1526" />
+      <AbsolutePoint location="1122,1305" />
+      <AbsolutePoint location="1041,1305" />
+      <AbsolutePoint location="1041,1330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_K.xhtml,/forms/Section_Th.xhtml,section_th,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="214,1448" />
+      <AbsolutePoint location="330,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_A.xhtml,section_a,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="522,1448" />
+      <AbsolutePoint location="626,1448" />
+      <AbsolutePoint location="626,1184" />
+      <AbsolutePoint location="224,1184" />
+      <AbsolutePoint location="224,1054" />
+      <AbsolutePoint location="215,1054" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_B.xhtml,section_b,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,1466" />
+      <AbsolutePoint location="426,1492" />
+      <AbsolutePoint location="854,1492" />
+      <AbsolutePoint location="854,1248" />
+      <AbsolutePoint location="815,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_C.xhtml,section_c,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,1448" />
+      <AbsolutePoint location="426,1248" />
+      <AbsolutePoint location="1022,1248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_D.xhtml,section_d,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,1438" />
+      <AbsolutePoint location="248,1438" />
+      <AbsolutePoint location="248,1356" />
+      <AbsolutePoint location="216,1356" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_E.xhtml,section_e,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,1430" />
+      <AbsolutePoint location="426,1366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_H.xhtml,section_h,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,1448" />
+      <AbsolutePoint location="426,1348" />
+      <AbsolutePoint location="723,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_I.xhtml,section_i,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="426,1448" />
+      <AbsolutePoint location="426,1348" />
+      <AbsolutePoint location="1020,1348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Th.xhtml,/forms/Section_K.xhtml,section_k,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,1457" />
+      <AbsolutePoint location="214,1457" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/forms/Section_Z.xhtml,/forms/Section_ST.xhtml,section_st,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="723,1548" />
+      <AbsolutePoint location="723,1048" />
+      <AbsolutePoint location="725,1048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/invoiceList.xhtml,/invoice_contractor.xhtml,add_invoiceContractor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="704,948" />
+      <AbsolutePoint location="704,1648" />
+      <AbsolutePoint location="429,1648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/invoiceList.xhtml,/invoice_vendor.xhtml,add_invoiceVendor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="704,948" />
+      <AbsolutePoint location="704,1648" />
+      <AbsolutePoint location="718,1648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/invoice_contractor.xhtml,/invoiceList.xhtml,saved_invoiceContractor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="429,1648" />
+      <AbsolutePoint location="429,948" />
+      <AbsolutePoint location="704,948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/invoice_vendor.xhtml,/invoiceList.xhtml,saved_invoiceVendor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="718,1648" />
+      <AbsolutePoint location="718,948" />
+      <AbsolutePoint location="704,948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/physicalObjectList.xhtml,/physicalObjectList.xhtml,saved_physicalObject,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1028,930" />
+      <AbsolutePoint location="1028,852" />
+      <AbsolutePoint location="1141,852" />
+      <AbsolutePoint location="1141,948" />
+      <AbsolutePoint location="1126,948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/editContractor.xhtml,/editOK.xhtml,edited-contractor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1105,2255" />
+      <AbsolutePoint location="1230,2255" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthlyReportList.xhtml,/forms/Section_N.xhtml,section_n,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="526,1748" />
+      <AbsolutePoint location="543,1748" />
+      <AbsolutePoint location="543,1602" />
+      <AbsolutePoint location="123,1602" />
+      <AbsolutePoint location="123,1566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthly3SubReportList.xhtml,/forms/Section_P.xhtml,section_p,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="930,1762" />
+      <AbsolutePoint location="813,1762" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/monthly3SubReportList.xhtml,/forms/pforms/Section_P.xhtml,section_p_view,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1044,1748" />
+      <AbsolutePoint location="1044,1848" />
+      <AbsolutePoint location="446,1848" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/login.xhtml,/login.xhtml,logout,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1298,930" />
+      <AbsolutePoint location="1298,873" />
+      <AbsolutePoint location="1397,873" />
+      <AbsolutePoint location="1397,948" />
+      <AbsolutePoint location="1345,948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/login.xhtml,/login.xhtml,error-login,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1287,930" />
+      <AbsolutePoint location="1287,805" />
+      <AbsolutePoint location="1426,805" />
+      <AbsolutePoint location="1426,958" />
+      <AbsolutePoint location="1345,958" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/login.xhtml,/mainmenu.xhtml,trainer-ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1287,948" />
+      <AbsolutePoint location="1287,2248" />
+      <AbsolutePoint location="105,2248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/login.xhtml,/mainmenu.xhtml,person-ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1287,948" />
+      <AbsolutePoint location="1287,2248" />
+      <AbsolutePoint location="105,2248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/login.xhtml,/mainmenu.xhtml,admin-ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1287,948" />
+      <AbsolutePoint location="1287,2248" />
+      <AbsolutePoint location="105,2248" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/mainmenu.xhtml,/user/admin/main.xhtml,users-main,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="105,2230" />
+      <AbsolutePoint location="105,2183" />
+      <AbsolutePoint location="888,2183" />
+      <AbsolutePoint location="888,2402" />
+      <AbsolutePoint location="1430,2402" />
+      <AbsolutePoint location="1430,2228" />
+      <AbsolutePoint location="1325,2228" />
+      <AbsolutePoint location="1325,1787" />
+      <AbsolutePoint location="1175,1787" />
+      <AbsolutePoint location="1175,1560" />
+      <AbsolutePoint location="1119,1560" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/mainmenu.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="105,2248" />
+      <AbsolutePoint location="105,2448" />
+      <AbsolutePoint location="415,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/mainmenu.xhtml,/polls/polls.xhtml,polls,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="105,2248" />
+      <AbsolutePoint location="105,1548" />
+      <AbsolutePoint location="1459,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/loginportal.xhtml,/user/admin/users.xhtml,users-main,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="30,1848" />
+      <AbsolutePoint location="-37,1848" />
+      <AbsolutePoint location="-37,2018" />
+      <AbsolutePoint location="1578,2018" />
+      <AbsolutePoint location="1578,2803" />
+      <AbsolutePoint location="-7,2803" />
+      <AbsolutePoint location="-7,2518" />
+      <AbsolutePoint location="67,2518" />
+      <AbsolutePoint location="67,2530" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/loginportal.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="121,1830" />
+      <AbsolutePoint location="121,1818" />
+      <AbsolutePoint location="1332,1818" />
+      <AbsolutePoint location="1332,2190" />
+      <AbsolutePoint location="248,2190" />
+      <AbsolutePoint location="248,2448" />
+      <AbsolutePoint location="330,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/loginportal.xhtml,/polls/polls.xhtml,polls,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="121,1848" />
+      <AbsolutePoint location="121,1548" />
+      <AbsolutePoint location="1459,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="435,2430" />
+      <AbsolutePoint location="435,2421" />
+      <AbsolutePoint location="1015,2421" />
+      <AbsolutePoint location="1015,2366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="415,2430" />
+      <AbsolutePoint location="415,2388" />
+      <AbsolutePoint location="1320,2388" />
+      <AbsolutePoint location="1320,2366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,2458" />
+      <AbsolutePoint location="206,2458" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="415,2466" />
+      <AbsolutePoint location="415,2488" />
+      <AbsolutePoint location="1641,2488" />
+      <AbsolutePoint location="1641,1948" />
+      <AbsolutePoint location="1568,1948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="500,2458" />
+      <AbsolutePoint location="599,2458" />
+      <AbsolutePoint location="599,2173" />
+      <AbsolutePoint location="1303,2173" />
+      <AbsolutePoint location="1303,2048" />
+      <AbsolutePoint location="1380,2048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="500,2433" />
+      <AbsolutePoint location="535,2433" />
+      <AbsolutePoint location="535,2318" />
+      <AbsolutePoint location="1473,2318" />
+      <AbsolutePoint location="1473,2166" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,2433" />
+      <AbsolutePoint location="261,2433" />
+      <AbsolutePoint location="261,2218" />
+      <AbsolutePoint location="1273,2218" />
+      <AbsolutePoint location="1273,1837" />
+      <AbsolutePoint location="1380,1837" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/plaisio.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="405,2430" />
+      <AbsolutePoint location="405,2388" />
+      <AbsolutePoint location="230,2388" />
+      <AbsolutePoint location="230,2630" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/polls/polls.xhtml,/polls/editPoll.xhtml,edit_poll,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1382,1566" />
+      <AbsolutePoint location="1382,1630" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/polls/polls.xhtml,/polls/viewPoll.xhtml,view_poll,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1448,1566" />
+      <AbsolutePoint location="1448,1748" />
+      <AbsolutePoint location="1396,1748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/polls/polls.xhtml,/polls/pollStats.xhtml,stats_poll,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1459,1548" />
+      <AbsolutePoint location="1459,2148" />
+      <AbsolutePoint location="866,2148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1011,2366" />
+      <AbsolutePoint location="1011,2414" />
+      <AbsolutePoint location="424,2414" />
+      <AbsolutePoint location="424,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1108,2348" />
+      <AbsolutePoint location="1230,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1019,2348" />
+      <AbsolutePoint location="1019,2448" />
+      <AbsolutePoint location="118,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1019,2348" />
+      <AbsolutePoint location="1019,1948" />
+      <AbsolutePoint location="1474,1948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1019,2330" />
+      <AbsolutePoint location="1019,2280" />
+      <AbsolutePoint location="1568,2280" />
+      <AbsolutePoint location="1568,2066" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1024,2366" />
+      <AbsolutePoint location="1024,2421" />
+      <AbsolutePoint location="1559,2421" />
+      <AbsolutePoint location="1559,2166" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="930,2348" />
+      <AbsolutePoint location="876,2348" />
+      <AbsolutePoint location="876,2228" />
+      <AbsolutePoint location="430,2228" />
+      <AbsolutePoint location="430,1956" />
+      <AbsolutePoint location="322,1956" />
+      <AbsolutePoint location="322,1856" />
+      <AbsolutePoint location="310,1856" />
+      <AbsolutePoint location="310,104" />
+      <AbsolutePoint location="1541,104" />
+      <AbsolutePoint location="1541,1830" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/funders.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1019,2348" />
+      <AbsolutePoint location="1019,2648" />
+      <AbsolutePoint location="155,2648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1320,2330" />
+      <AbsolutePoint location="1320,2287" />
+      <AbsolutePoint location="577,2287" />
+      <AbsolutePoint location="577,2448" />
+      <AbsolutePoint location="500,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1230,2357" />
+      <AbsolutePoint location="1108,2357" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1230,2338" />
+      <AbsolutePoint location="1130,2338" />
+      <AbsolutePoint location="1130,2203" />
+      <AbsolutePoint location="231,2203" />
+      <AbsolutePoint location="231,2433" />
+      <AbsolutePoint location="206,2433" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1364,2330" />
+      <AbsolutePoint location="1364,1954" />
+      <AbsolutePoint location="1380,1954" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1370,2330" />
+      <AbsolutePoint location="1370,2145" />
+      <AbsolutePoint location="1320,2145" />
+      <AbsolutePoint location="1320,2058" />
+      <AbsolutePoint location="1380,2058" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1398,2330" />
+      <AbsolutePoint location="1398,2166" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1387,2330" />
+      <AbsolutePoint location="1387,2184" />
+      <AbsolutePoint location="1260,2184" />
+      <AbsolutePoint location="1260,1831" />
+      <AbsolutePoint location="1380,1831" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/vendors.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1335,2366" />
+      <AbsolutePoint location="1335,2503" />
+      <AbsolutePoint location="1671,2503" />
+      <AbsolutePoint location="1671,2688" />
+      <AbsolutePoint location="246,2688" />
+      <AbsolutePoint location="246,2666" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="118,2430" />
+      <AbsolutePoint location="118,2414" />
+      <AbsolutePoint location="395,2414" />
+      <AbsolutePoint location="395,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="118,2448" />
+      <AbsolutePoint location="118,2348" />
+      <AbsolutePoint location="1019,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="204,2430" />
+      <AbsolutePoint location="204,2275" />
+      <AbsolutePoint location="1326,2275" />
+      <AbsolutePoint location="1326,2330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="118,2448" />
+      <AbsolutePoint location="118,1948" />
+      <AbsolutePoint location="1474,1948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="118,2448" />
+      <AbsolutePoint location="118,2048" />
+      <AbsolutePoint location="1475,2048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="118,2448" />
+      <AbsolutePoint location="118,2148" />
+      <AbsolutePoint location="1473,2148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="118,2448" />
+      <AbsolutePoint location="118,1848" />
+      <AbsolutePoint location="1484,1848" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/deiktes.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="206,2457" />
+      <AbsolutePoint location="226,2457" />
+      <AbsolutePoint location="226,2630" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,1959" />
+      <AbsolutePoint location="1370,1959" />
+      <AbsolutePoint location="1370,2120" />
+      <AbsolutePoint location="326,2120" />
+      <AbsolutePoint location="326,2490" />
+      <AbsolutePoint location="404,2490" />
+      <AbsolutePoint location="404,2466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,1948" />
+      <AbsolutePoint location="1352,1948" />
+      <AbsolutePoint location="1352,2189" />
+      <AbsolutePoint location="1549,2189" />
+      <AbsolutePoint location="1549,2398" />
+      <AbsolutePoint location="1029,2398" />
+      <AbsolutePoint location="1029,2366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,1942" />
+      <AbsolutePoint location="1254,1942" />
+      <AbsolutePoint location="1254,2184" />
+      <AbsolutePoint location="1210,2184" />
+      <AbsolutePoint location="1210,2375" />
+      <AbsolutePoint location="1310,2375" />
+      <AbsolutePoint location="1310,2366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1474,1948" />
+      <AbsolutePoint location="1474,2448" />
+      <AbsolutePoint location="118,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1479,1966" />
+      <AbsolutePoint location="1479,2030" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1474,1948" />
+      <AbsolutePoint location="1474,2148" />
+      <AbsolutePoint location="1473,2148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1484,1930" />
+      <AbsolutePoint location="1484,1866" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/evolution.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1474,1948" />
+      <AbsolutePoint location="1474,2648" />
+      <AbsolutePoint location="155,2648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1571,2048" />
+      <AbsolutePoint location="1628,2048" />
+      <AbsolutePoint location="1628,2781" />
+      <AbsolutePoint location="302,2781" />
+      <AbsolutePoint location="302,2484" />
+      <AbsolutePoint location="398,2484" />
+      <AbsolutePoint location="398,2466" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2048" />
+      <AbsolutePoint location="1475,2348" />
+      <AbsolutePoint location="1019,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2048" />
+      <AbsolutePoint location="1475,2348" />
+      <AbsolutePoint location="1320,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2048" />
+      <AbsolutePoint location="1475,2448" />
+      <AbsolutePoint location="118,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2030" />
+      <AbsolutePoint location="1475,1966" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1483,2066" />
+      <AbsolutePoint location="1483,2130" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,2031" />
+      <AbsolutePoint location="1320,2031" />
+      <AbsolutePoint location="1320,1858" />
+      <AbsolutePoint location="1380,1858" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/expenses.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2048" />
+      <AbsolutePoint location="1475,2648" />
+      <AbsolutePoint location="155,2648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1444,2166" />
+      <AbsolutePoint location="1444,2269" />
+      <AbsolutePoint location="193,2269" />
+      <AbsolutePoint location="193,2422" />
+      <AbsolutePoint location="389,2422" />
+      <AbsolutePoint location="389,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1554,2166" />
+      <AbsolutePoint location="1554,2407" />
+      <AbsolutePoint location="1298,2407" />
+      <AbsolutePoint location="1298,2369" />
+      <AbsolutePoint location="1222,2369" />
+      <AbsolutePoint location="1222,2245" />
+      <AbsolutePoint location="1119,2245" />
+      <AbsolutePoint location="1119,2353" />
+      <AbsolutePoint location="1108,2353" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1409,2166" />
+      <AbsolutePoint location="1409,2330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1473,2148" />
+      <AbsolutePoint location="1473,2448" />
+      <AbsolutePoint location="118,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1473,2148" />
+      <AbsolutePoint location="1473,1948" />
+      <AbsolutePoint location="1474,1948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1473,2130" />
+      <AbsolutePoint location="1473,2066" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1473,2148" />
+      <AbsolutePoint location="1473,1848" />
+      <AbsolutePoint location="1484,1848" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/progress.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1483,2166" />
+      <AbsolutePoint location="1483,2383" />
+      <AbsolutePoint location="1348,2383" />
+      <AbsolutePoint location="1348,2628" />
+      <AbsolutePoint location="1182,2628" />
+      <AbsolutePoint location="1182,2828" />
+      <AbsolutePoint location="239,2828" />
+      <AbsolutePoint location="239,2666" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1484,1848" />
+      <AbsolutePoint location="1484,2448" />
+      <AbsolutePoint location="415,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1484,1848" />
+      <AbsolutePoint location="1484,2348" />
+      <AbsolutePoint location="1019,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1484,1848" />
+      <AbsolutePoint location="1484,2348" />
+      <AbsolutePoint location="1320,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1448,1830" />
+      <AbsolutePoint location="1448,1768" />
+      <AbsolutePoint location="1044,1768" />
+      <AbsolutePoint location="1044,1795" />
+      <AbsolutePoint location="921,1795" />
+      <AbsolutePoint location="921,1863" />
+      <AbsolutePoint location="859,1863" />
+      <AbsolutePoint location="859,2036" />
+      <AbsolutePoint location="921,2036" />
+      <AbsolutePoint location="921,2113" />
+      <AbsolutePoint location="983,2113" />
+      <AbsolutePoint location="983,2148" />
+      <AbsolutePoint location="1047,2148" />
+      <AbsolutePoint location="1047,2183" />
+      <AbsolutePoint location="1114,2183" />
+      <AbsolutePoint location="1114,2427" />
+      <AbsolutePoint location="617,2427" />
+      <AbsolutePoint location="617,2236" />
+      <AbsolutePoint location="199,2236" />
+      <AbsolutePoint location="199,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1495,1866" />
+      <AbsolutePoint location="1495,1930" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,1848" />
+      <AbsolutePoint location="1305,1848" />
+      <AbsolutePoint location="1305,2037" />
+      <AbsolutePoint location="1380,2037" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1474,1866" />
+      <AbsolutePoint location="1474,1890" />
+      <AbsolutePoint location="1232,1890" />
+      <AbsolutePoint location="1232,2105" />
+      <AbsolutePoint location="1462,2105" />
+      <AbsolutePoint location="1462,2130" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/invoicetypes.xhtml,/config/subprojecttypes.xhtml,subprojecttypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1484,1848" />
+      <AbsolutePoint location="1484,2648" />
+      <AbsolutePoint location="155,2648" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/plaisio.xhtml,plaisio,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="248,2630" />
+      <AbsolutePoint location="248,2463" />
+      <AbsolutePoint location="330,2463" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/funders.xhtml,funders,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="270,2666" />
+      <AbsolutePoint location="270,2790" />
+      <AbsolutePoint location="1154,2790" />
+      <AbsolutePoint location="1154,2628" />
+      <AbsolutePoint location="1019,2628" />
+      <AbsolutePoint location="1019,2366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/vendors.xhtml,vendors,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="256,2630" />
+      <AbsolutePoint location="256,2593" />
+      <AbsolutePoint location="1378,2593" />
+      <AbsolutePoint location="1378,2366" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/deiktes.xhtml,deiktes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="231,2630" />
+      <AbsolutePoint location="231,2457" />
+      <AbsolutePoint location="241,2457" />
+      <AbsolutePoint location="241,2463" />
+      <AbsolutePoint location="206,2463" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/evolution.xhtml,evolution,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="155,2648" />
+      <AbsolutePoint location="155,1948" />
+      <AbsolutePoint location="1474,1948" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/expenses.xhtml,expenses,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="155,2648" />
+      <AbsolutePoint location="155,2048" />
+      <AbsolutePoint location="1475,2048" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/progress.xhtml,progress,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="275,2666" />
+      <AbsolutePoint location="275,2775" />
+      <AbsolutePoint location="1223,2775" />
+      <AbsolutePoint location="1223,2579" />
+      <AbsolutePoint location="1355,2579" />
+      <AbsolutePoint location="1355,2390" />
+      <AbsolutePoint location="1488,2390" />
+      <AbsolutePoint location="1488,2166" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/config/subprojecttypes.xhtml,/config/invoicetypes.xhtml,invoicetypes,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="261,2630" />
+      <AbsolutePoint location="261,2628" />
+      <AbsolutePoint location="625,2628" />
+      <AbsolutePoint location="625,2250" />
+      <AbsolutePoint location="358,2250" />
+      <AbsolutePoint location="358,1928" />
+      <AbsolutePoint location="292,1928" />
+      <AbsolutePoint location="292,1728" />
+      <AbsolutePoint location="1484,1728" />
+      <AbsolutePoint location="1484,1830" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/main.xhtml,users-approved,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1030,1530" />
+      <AbsolutePoint location="1030,1493" />
+      <AbsolutePoint location="1167,1493" />
+      <AbsolutePoint location="1167,1542" />
+      <AbsolutePoint location="1119,1542" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/main.xhtml,users-rejected,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1024,1530" />
+      <AbsolutePoint location="1024,1475" />
+      <AbsolutePoint location="1137,1475" />
+      <AbsolutePoint location="1137,1531" />
+      <AbsolutePoint location="1119,1531" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/main.xhtml,roles-accepted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1018,1530" />
+      <AbsolutePoint location="1018,1469" />
+      <AbsolutePoint location="1161,1469" />
+      <AbsolutePoint location="1161,1536" />
+      <AbsolutePoint location="1119,1536" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/main.xhtml,roles-rejected,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1024,1548" />
+      <AbsolutePoint location="1024,1520" />
+      <AbsolutePoint location="920,1520" />
+      <AbsolutePoint location="920,1548" />
+      <AbsolutePoint location="1024,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/groups.xhtml,user-groups,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1016,1566" />
+      <AbsolutePoint location="1016,1628" />
+      <AbsolutePoint location="625,1628" />
+      <AbsolutePoint location="625,1928" />
+      <AbsolutePoint location="446,1928" />
+      <AbsolutePoint location="446,2328" />
+      <AbsolutePoint location="1163,2328" />
+      <AbsolutePoint location="1163,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/roles.xhtml,user-roles,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1119,1554" />
+      <AbsolutePoint location="1182,1554" />
+      <AbsolutePoint location="1182,1773" />
+      <AbsolutePoint location="1376,1773" />
+      <AbsolutePoint location="1376,2257" />
+      <AbsolutePoint location="1450,2257" />
+      <AbsolutePoint location="1450,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1041,1566" />
+      <AbsolutePoint location="1041,1618" />
+      <AbsolutePoint location="1749,1618" />
+      <AbsolutePoint location="1749,3003" />
+      <AbsolutePoint location="22,3003" />
+      <AbsolutePoint location="22,2578" />
+      <AbsolutePoint location="67,2578" />
+      <AbsolutePoint location="67,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/main.xhtml,/user/admin/newsletters.xhtml,newsletters,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1024,1548" />
+      <AbsolutePoint location="1024,2548" />
+      <AbsolutePoint location="446,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/groups.xhtml,group-added,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1167,2430" />
+      <AbsolutePoint location="1167,2406" />
+      <AbsolutePoint location="1293,2406" />
+      <AbsolutePoint location="1293,2433" />
+      <AbsolutePoint location="1283,2433" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/groups.xhtml,groups-saved,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1172,2430" />
+      <AbsolutePoint location="1172,2414" />
+      <AbsolutePoint location="1322,2414" />
+      <AbsolutePoint location="1322,2448" />
+      <AbsolutePoint location="1283,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/groups.xhtml,group-changed,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1181,2448" />
+      <AbsolutePoint location="1181,2420" />
+      <AbsolutePoint location="1070,2420" />
+      <AbsolutePoint location="1070,2448" />
+      <AbsolutePoint location="1181,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/groups.xhtml,group-deleted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1181,2448" />
+      <AbsolutePoint location="1181,2420" />
+      <AbsolutePoint location="1070,2420" />
+      <AbsolutePoint location="1070,2448" />
+      <AbsolutePoint location="1181,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/roles.xhtml,user-roles,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1283,2457" />
+      <AbsolutePoint location="1380,2457" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/main.xhtml,users-main,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1181,2448" />
+      <AbsolutePoint location="1181,1548" />
+      <AbsolutePoint location="1024,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1119,2430" />
+      <AbsolutePoint location="1119,2373" />
+      <AbsolutePoint location="315,2373" />
+      <AbsolutePoint location="315,2673" />
+      <AbsolutePoint location="-22,2673" />
+      <AbsolutePoint location="-22,2603" />
+      <AbsolutePoint location="82,2603" />
+      <AbsolutePoint location="82,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/groups.xhtml,/user/admin/newsletters.xhtml,newsletters,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1080,2448" />
+      <AbsolutePoint location="1074,2448" />
+      <AbsolutePoint location="1074,2728" />
+      <AbsolutePoint location="446,2728" />
+      <AbsolutePoint location="446,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/main.xhtml,users-main,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1456,2430" />
+      <AbsolutePoint location="1456,2245" />
+      <AbsolutePoint location="1358,2245" />
+      <AbsolutePoint location="1358,1779" />
+      <AbsolutePoint location="1224,1779" />
+      <AbsolutePoint location="1224,1548" />
+      <AbsolutePoint location="1119,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/groups.xhtml,user-groups,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1380,2462" />
+      <AbsolutePoint location="1283,2462" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/roles.xhtml,role-added,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2448" />
+      <AbsolutePoint location="1475,2420" />
+      <AbsolutePoint location="1370,2420" />
+      <AbsolutePoint location="1370,2448" />
+      <AbsolutePoint location="1475,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/roles.xhtml,role-deleted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2448" />
+      <AbsolutePoint location="1475,2420" />
+      <AbsolutePoint location="1370,2420" />
+      <AbsolutePoint location="1370,2448" />
+      <AbsolutePoint location="1475,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/roles.xhtml,role-changed,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2448" />
+      <AbsolutePoint location="1475,2420" />
+      <AbsolutePoint location="1370,2420" />
+      <AbsolutePoint location="1370,2448" />
+      <AbsolutePoint location="1475,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/roles.xhtml,roles-saved,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2448" />
+      <AbsolutePoint location="1475,2420" />
+      <AbsolutePoint location="1370,2420" />
+      <AbsolutePoint location="1370,2448" />
+      <AbsolutePoint location="1475,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/roles.xhtml,roleprives-saved,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1475,2448" />
+      <AbsolutePoint location="1475,2420" />
+      <AbsolutePoint location="1370,2420" />
+      <AbsolutePoint location="1370,2448" />
+      <AbsolutePoint location="1475,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1570,2448" />
+      <AbsolutePoint location="1719,2448" />
+      <AbsolutePoint location="1719,2903" />
+      <AbsolutePoint location="-37,2903" />
+      <AbsolutePoint location="-37,2618" />
+      <AbsolutePoint location="97,2618" />
+      <AbsolutePoint location="97,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/roles.xhtml,/user/admin/newsletters.xhtml,newsletters,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1400,2466" />
+      <AbsolutePoint location="1400,2568" />
+      <AbsolutePoint location="450,2568" />
+      <AbsolutePoint location="450,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/newsletters.xhtml,/user/admin/main.xhtml,users-main,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="515,2530" />
+      <AbsolutePoint location="515,2258" />
+      <AbsolutePoint location="462,2258" />
+      <AbsolutePoint location="462,2125" />
+      <AbsolutePoint location="824,2125" />
+      <AbsolutePoint location="824,2061" />
+      <AbsolutePoint location="906,2061" />
+      <AbsolutePoint location="906,1928" />
+      <AbsolutePoint location="660,1928" />
+      <AbsolutePoint location="660,1887" />
+      <AbsolutePoint location="586,1887" />
+      <AbsolutePoint location="586,1617" />
+      <AbsolutePoint location="1007,1617" />
+      <AbsolutePoint location="1007,1566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/newsletters.xhtml,/user/admin/groups.xhtml,user-groups,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="446,2548" />
+      <AbsolutePoint location="446,2448" />
+      <AbsolutePoint location="1181,2448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/newsletters.xhtml,/user/admin/roles.xhtml,user-roles,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="546,2530" />
+      <AbsolutePoint location="546,2293" />
+      <AbsolutePoint location="1444,2293" />
+      <AbsolutePoint location="1444,2430" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/newsletters.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="330,2548" />
+      <AbsolutePoint location="224,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/admin/newsletters.xhtml,/user/admin/newsletters.xhtml,edit_newsletter,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="551,2530" />
+      <AbsolutePoint location="551,2348" />
+      <AbsolutePoint location="568,2348" />
+      <AbsolutePoint location="568,2548" />
+      <AbsolutePoint location="562,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editUser.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="714,2330" />
+      <AbsolutePoint location="714,2281" />
+      <AbsolutePoint location="296,2281" />
+      <AbsolutePoint location="296,2537" />
+      <AbsolutePoint location="224,2537" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editUser.xhtml,/user/editUser.xhtml,save_user_error,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="719,2330" />
+      <AbsolutePoint location="719,2280" />
+      <AbsolutePoint location="833,2280" />
+      <AbsolutePoint location="833,2348" />
+      <AbsolutePoint location="799,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editUser.xhtml,/user/editUser.xhtml,save_user_ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="714,2348" />
+      <AbsolutePoint location="714,2320" />
+      <AbsolutePoint location="620,2320" />
+      <AbsolutePoint location="620,2348" />
+      <AbsolutePoint location="714,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editTrainer.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="721,2566" />
+      <AbsolutePoint location="721,2588" />
+      <AbsolutePoint location="142,2588" />
+      <AbsolutePoint location="142,2566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editTrainer.xhtml,/user/editTrainer.xhtml,save_trainer_ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="721,2548" />
+      <AbsolutePoint location="721,2520" />
+      <AbsolutePoint location="620,2520" />
+      <AbsolutePoint location="620,2548" />
+      <AbsolutePoint location="721,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editTrainer.xhtml,/user/editTrainer.xhtml,save_trainer_error,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="721,2548" />
+      <AbsolutePoint location="721,2520" />
+      <AbsolutePoint location="620,2520" />
+      <AbsolutePoint location="620,2548" />
+      <AbsolutePoint location="721,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editContractor.xhtml,/user/admin/users.xhtml,users,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="133,2748" />
+      <AbsolutePoint location="133,2548" />
+      <AbsolutePoint location="127,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editContractor.xhtml,/user/editContractor.xhtml,save_contractor_ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="144,2730" />
+      <AbsolutePoint location="144,2718" />
+      <AbsolutePoint location="259,2718" />
+      <AbsolutePoint location="259,2748" />
+      <AbsolutePoint location="237,2748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/editContractor.xhtml,/user/editContractor.xhtml,save_contractor_error,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="133,2730" />
+      <AbsolutePoint location="133,2690" />
+      <AbsolutePoint location="-21,2690" />
+      <AbsolutePoint location="-21,2820" />
+      <AbsolutePoint location="246,2820" />
+      <AbsolutePoint location="246,2758" />
+      <AbsolutePoint location="237,2758" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/passwordRecovery.xhtml,/user/passwordRecovery.xhtml,pwdrecovery_failure,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1345,1130" />
+      <AbsolutePoint location="1345,1118" />
+      <AbsolutePoint location="1500,1118" />
+      <AbsolutePoint location="1500,1148" />
+      <AbsolutePoint location="1460,1148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/passwordRecovery.xhtml,/user/passwordRecoveryOK.xhtml,pwdrecovery_ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1402,1166" />
+      <AbsolutePoint location="1402,1330" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/user/register.xhtml,/user/registerOK.xhtml,register_ok,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1395,1248" />
+      <AbsolutePoint location="1499,1248" />
+      <AbsolutePoint location="1499,1448" />
+      <AbsolutePoint location="1412,1448" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="*,/user/editUser.xhtml,edit_user,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1255,1548" />
+      <AbsolutePoint location="1255,2348" />
+      <AbsolutePoint location="714,2348" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="*,/user/editContractor.xhtml,edit_contractor,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1255,1548" />
+      <AbsolutePoint location="1255,2748" />
+      <AbsolutePoint location="133,2748" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="*,/user/editTrainer.xhtml,edit_trainer,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1255,1548" />
+      <AbsolutePoint location="1255,2548" />
+      <AbsolutePoint location="721,2548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/polls/editPoll.xhtml,/polls/polls.xhtml,polls,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1392,1630" />
+      <AbsolutePoint location="1392,1566" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/polls/viewPoll.xhtml,/polls/pollSubmitted.xhtml,poll_submitted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1313,1748" />
+      <AbsolutePoint location="1313,2148" />
+      <AbsolutePoint location="582,2148" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/polls/pollStats.xhtml,/polls/polls.xhtml,polls,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="866,2148" />
+      <AbsolutePoint location="866,1548" />
+      <AbsolutePoint location="1459,1548" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/*,/katartisis/events_forms.xhtml,form_submitted,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1163,2166" />
+      <AbsolutePoint location="1163,2203" />
+      <AbsolutePoint location="1611,2203" />
+      <AbsolutePoint location="1611,1503" />
+      <AbsolutePoint location="-7,1503" />
+      <AbsolutePoint location="-7,1703" />
+      <AbsolutePoint location="124,1703" />
+      <AbsolutePoint location="124,1730" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/*,/katartisis/events_forms.xhtml,form_approved,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1239,2130" />
+      <AbsolutePoint location="1239,1824" />
+      <AbsolutePoint location="169,1824" />
+      <AbsolutePoint location="169,1766" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+  <JSFFlowNavigationCase id="/katartisis/forms/*,/katartisis/events_forms.xhtml,form_rejected,&lt;empty&gt;" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1163,2130" />
+      <AbsolutePoint location="1163,2103" />
+      <AbsolutePoint location="892,2103" />
+      <AbsolutePoint location="892,1718" />
+      <AbsolutePoint location="252,1718" />
+      <AbsolutePoint location="252,1730" />
+    </AutomaticBendpoints>
+  </JSFFlowNavigationCase>
+</JSFFlowViewLayout>
+

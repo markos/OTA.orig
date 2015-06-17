@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: Section_O.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script type="text/javascript" src="#{basePath}misc/datepicker.js"></script>
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<script language="javascript" src="#{basePath}/misc/sprintf.js"></script>
+			<script language="javascript" src="#{basePath}/misc/formatters.js"></script>
+			<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<script src="#{basePath}/misc/tiny_mce/tiny_mce.js" type="text/javascript"></script>
+   			<script type="text/javascript">
+        		tinyMCE.init({
+        			mode : "textareas",
+        			theme : "simple",
+ 				});
+			</script>
+		</ui:define>	
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/monthly3ReportList.jsf">Τριμηνιαία Δελτία Έργου</a></li>
+		</ui:define>
+	<ui:define name="main-content">
+		<f:view>
+			<h:form id="ΤριμηνιαιαΔελτια">
+			<div id="login-form" style="width:850px; padding-top:20px;">	
+		
+			<h:panelGrid columns="1" styleClass="data-table" style="text-align:center; margin:0 auto; width:100%;">
+			
+				<h:commandButton value="Αποθήκευση" action="#{otaBean.saveSectionO}"/>
+		
+				<h:outputText value="ΤΡΙMHNIAIΟ ΔΕΛΤΙΟ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ ΕΡΓΟΥ" style="font-weight:bold;font-size:14px;"/>
+				
+				<h:outputText value="ΕΠΙΧΕΙΡHΣΙΑΚΟ ΠΡΟΓΡΑΜΜΑ : " style="font-weight:bold;"/>
+				<h:outputText value="#{otaBean.sec_a.epix_program}  (1)"/>
+				
+				<h:panelGrid columns="4"  style="text-align:center;" width="100%" columnClasses="fixed-column">
+					<h:outputText value="ΠΡΟΤΕΡΑΙΟΤΗΤΑ" style="font-weight:bold;"/>
+					<h:outputText value="ΜΕΤΡΟ" style="font-weight:bold;"/>
+					<h:outputText value="ΥΠΟΜΕΤΡΟ" style="font-weight:bold;"/>
+					<h:outputText value="ΚΩΔ. Ε/Ε ΣΤΟ ΜΕΤΡΟ/ΥΠΟΜΕΤΡΟ" style="font-weight:bold;"/>
+					
+					<h:outputText value="#{otaBean.sec_a.axon}  (2)"/>
+					<h:outputText value="#{otaBean.sec_a.metro}  (3)"/>
+					<h:outputText value="#{otaBean.sec_a.subMetro}  (4)"/>
+					<h:outputText value="#{otaBean.sec_a.code_project_metro}  (5)"/>
+				</h:panelGrid>
+				
+				<h:outputText value="ΤΡΙMHNIAIΟ ΔΕΛΤΙΟ ΕΚΤΕΛΕΣΗΣ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ ΕΡΓΟΥ" style="font-weight:bold;font-size:14px;"/>
+				
+				<h:panelGrid columns="2" style="text-align:center;" width="100%">
+					<h:outputText value="A/A ΤΡΙΜΗΝΙΑΙΟΥ ΔΕΛΤΙΟΥ" style="font-weight:bold; width:100"/>
+					<h:outputText value="ΠΕΡΙΟΔΟΣ ΑΝΑΦΟΡΑΣ" style="font-weight:bold;"/>
+					
+					<h:outputText value="#{otaBean.sec_o.index}  (6)"/>
+					<h:panelGrid columns="2" width="100%" style="text-align:left;">
+						<h:outputText value="ΤΡΙΜΗΝΟ : #{otaBean.sec_o.quarter} (7)"/>
+						<h:outputText value="ΕΤΟΣ : #{otaBean.sec_o.year} (8)"/>
+					</h:panelGrid>
+				</h:panelGrid>
+				
+				<h:panelGroup>
+					<h:outputText value="ΗΜΕΡΟΜΗΝΙΑ ΣΥΜΠΛΗΡΩΣΗΣ : " style="font-weight:bold;"/><h:outputText value="#{otaBean.sec_o.date_n}  (9)"/>
+				</h:panelGroup>
+				
+				<h:panelGroup style="width:100%">
+					<div style="float:left; text-align:left; margin-left:5px;">
+						<h:outputText value="Α1.1 ΤΙΤΛΟΣ Ε/Ε : " style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_a.title_el}  (10)" style="font-size:12px;"/>
+						<br/><br/>
+						<h:outputText value="Α1.2 ΚΩΔΙΚΟΣ MIS : " style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.sec_a.code_ergorama} (11)"/>
+					</div>
+				</h:panelGroup>
+				
+				
+				<h:panelGrid columns="1" style="text-align:left" width="100%">
+
+					<h:panelGroup>
+					<table class="data-table">						
+						<tr>
+							<td style="width:200px;"><h:outputText value="Α2 ΦΟΡΕΑΣ ΥΛΟΠΟΙΗΣΗΣ" style="font-weight:bold;"/></td>
+							<td style="width:350px; text-align:left;"><h:outputText value="#{otaBean.sec_a.implementationVendor_name}  (12)" style="font-size:12px;"/></td>						
+							<td style="width:100px; text-align:right;"><h:outputText value="ΚΩΔΙΚΟΣ : " style="font-weight:bold;width:100px;"/></td>
+							<td style="width:200px; text-align:left;"><h:outputText value="#{otaBean.sec_a.implementationVendor_code}" style="width:300px;"/></td>
+						</tr>
+					</table>
+					</h:panelGroup>
+					
+					<h:outputText value="ΣΤΟΙΧΕΙΑ ΝΟΜΙΜΟΥ ΕΚΠΡΟΣΩΠΟΥ ΦΟΡΕΑ ΥΛΟΠΟΙΗΣΗΣ" style="font-weight:bold;"/>
+					
+					<h:panelGrid columns="2" styleClass="data-table" width="100%" cellspacing="0" cellpadding="3" style="margin:0 auto;">
+						<h:outputText style="font-weight:bold;" value="Α2.1 ΟΝΟΜΑΤΕΠΩΝΥΜΟ"/>
+						<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_lastName} #{otaBean.sec_a.implementationVendor_representative_firstName}" />
+						
+						<h:outputText style="font-weight:bold;" value="Α2.2 ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/>
+						<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_position}"/>
+						
+						<h:outputText style="font-weight:bold;" value="Α2.3.1 ΔΙΕΥΘΥΝΣΗ"/>
+						<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_address}" />
+						
+						<h:outputText style="font-weight:bold;" value=" A2.3.2 ΠΟΛΗ"/>
+						<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_city}" />
+						
+						<h:outputText style="font-weight:bold;" value=" A2.3.3 T.K."/>
+						<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_postalCode}" />
+						
+						<h:panelGrid columns="4" style="text-align:right;" width="100%" cellpadding="0" cellspacing="0">
+							<h:outputText style="font-weight:bold;" value="Α2.4 ΤΗΛΕΦΩΝΟ"/>
+							<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_telephone}" />
+							<h:outputText style="font-weight:bold;" value="A2.5 FAX"/>
+							<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_fax}" />
+						</h:panelGrid>
+						
+						<h:outputText style="font-weight:bold;" value="Α2.6 EMAIL"/>
+						<h:outputText value="#{otaBean.sec_a.implementationVendor_representative_email}" />
+					</h:panelGrid>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="1" styleClass="data-table" style="text-align:left; margin:0 auto;" width="100%">					
+					<h:outputText value="A3 ΣΤΟΙΧΕΙΑ ΣΥΝΤΑΞΑΝΤΑ ΤΟ ΤΡΙΜΗΝΙΑΙΟ ΔΕΛΤΙΟ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ (ΥΠΕΥΘΥΝΟΥ ΕΡΓΟΥ) (13)" style="font-weight:bold;"/>
+					
+					<h:panelGrid columns="2" width="100%" cellspacing="0" cellpadding="3" style="text-align:left;">
+						<h:outputText style="font-weight:bold;" value="Α3.1 ΟΝΟΜΑΤΕΠΩΝΥΜΟ"/>
+						<h:inputText value="#{otaBean.sec_o.author_fullName}" />
+						
+						<h:outputText style="font-weight:bold;" value="Α3.2 ΘΕΣΗ ΣΤΟ ΦΟΡΕΑ"/>
+						<h:inputText value="#{otaBean.sec_o.author_position}"/>
+						
+						<h:outputText style="font-weight:bold;" value="Α3.3 ΔΙΕΥΘΥΝΣΗ"/>
+						<h:inputText value="#{otaBean.sec_o.author_address}" />
+						
+						<h:panelGrid columns="4" style="text-align:right;" width="100%" cellpadding="0" cellspacing="0">
+							<h:outputText style="font-weight:bold;" value="Α32.4 ΤΗΛΕΦΩΝΟ"/>
+							<h:inputText value="#{otaBean.sec_o.author_telephone}"  size="10"/>
+							<h:outputText style="font-weight:bold;" value="A32.5 FAX"/>
+							<h:inputText value="#{otaBean.sec_o.author_fax}"  size="10"/>
+						</h:panelGrid>
+						
+						<h:outputText style="font-weight:bold;" value="Α3.6 EMAIL"/>
+						<h:inputText value="#{otaBean.sec_o.author_email}" />
+					</h:panelGrid>
+				</h:panelGrid>
+				
+				<h:panelGrid columns="1"  style="margin:0 auto;">
+					<h:outputText value="A4 ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΕΡΓΟΥ (14)" style="font-weight:bold;"/>
+					
+						<h:dataTable id="placestable" value="#{otaBean.m3_tde_places}" var="plItem" styleClass="data-table" style="margin:0 auto; text-align:center;" width="100%" binding="#{otaBean.tmp_dataTable}">
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+								<h:outputText value="#{plItem.regionName}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+								<h:outputText rendered="#{plItem.regionCode != -1}" value="#{plItem.regionCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΝΟΜΟΣ"/></f:facet>
+								<h:outputText value="#{plItem.prefectureName}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+								<h:outputText rendered="#{plItem.prefectureCode != '-1'}" value="#{plItem.prefectureCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΔΗΜΟΣ/ΚΟΙΝΟΤΗΤΑ"/></f:facet>
+								<h:outputText value="#{plItem.municipalityName}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+								<h:outputText rendered="#{plItem.municipalityCode != '-1'}" value="#{plItem.municipalityCode}"/>
+								<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ"/></f:facet>
+								<h:outputText id="inputPlaceAmount" value="#{plItem.budget}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText value="#{otaBean.sectionO_PlacesBudget}" style="font-weight:bold;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΝ ΠΟΣΟ"/></f:facet>
+								<h:inputText id="inputPlaceActual" value="#{plItem.realBudget}" size="10" styleClass="currency" onchange="currencyFormatter('ΤριμηνιαιαΔελτια:placestable:#{otaBean.tmp_dataTable.rowIndex}:budget');"><f:converter converterId="bigDecimalConverter"/></h:inputText>
+								<f:facet name="footer"><h:outputText value="#{otaBean.sectionO_PlacesRealBudget}" style="font-weight:bold;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+						</h:dataTable>
+				</h:panelGrid>
+				
+				<h:panelGroup>
+					<h:outputText value="B. ΠΡΟΒΛΗΜΑΤΑ ΠΟΥ ΕΧΟΥΝ ΠΑΡΟΥΣΙΑΣΤΕΙ  ΜΕΧΡΙ ΚΑΙ ΤΗΝ ΛΗΓΟΥΣΑ ΠΕΡΙΟΔΟ ΣΧΕΤΙΚΑ ΜΕ ΤΗΝ ΕΚΤΕΛΕΣΗ ΤΟΥ ΕΡΓΟΥ ΚΑΙ ΔΕΝ ΕΧΟΥΝ ΑΚΟΜΑ ΕΠΙΛΥΘΕΙ ΠΛΗΡΩΣ. ΔΙΟΡΘΩΤΙΚΑ ΜΕΤΡΑ ΠΟΥ ΛΗΦΘΗΚΑΝ Ή ΠΟΥ ΘΑ ΛΗΦΘΟΥΝ (15)" style="font-weight:bold;"/>
+					<h:commandButton image="/images/add.png" action="#{otaBean.addSection_O__Problem}" style="border:0px;" />
+				</h:panelGroup>
+				
+				<h:dataTable id="problemsTable" value="#{otaBean.m3_tde_problems}" var="prItem" styleClass="data-table" style="margin:0 auto;" binding="#{otaBean.tmp_dataTable2}">
+					<h:column>
+						<f:facet name="header"><h:outputText value="Α/Α ΠΡΟΒΛΗΜΑ"/></f:facet>
+						<h:outputText value="#{otaBean.tmp_dataTable2.rowIndex+1}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header"><h:outputText value="ΠΕΡΙΓΡΑΦΗ ΠΡΟΒΛΗΜΑΤΟΣ"/></f:facet>
+						<h:inputTextarea value="#{prItem.description_problem}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header"><h:outputText value="ΠΕΡΙΓΡΑΦΗ ΛΥΣΗΣ"/></f:facet>
+						<h:inputTextarea value="#{prItem.description_solution}"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header"><h:outputText value="ΗΜ/ΝΙΑ ΕΠΙΛΥΣΗΣ"/></f:facet>
+						<h:inputText id="ΗμερομηνιαΕπιλυσης" value="#{prItem.solutionDate}" size="10"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:inputText>
+						<h:graphicImage url="/images/dateDialog.png" onclick="displayDatePicker('ΤριμηνιαιαΔελτια:problemsTable:#{otaBean.tmp_dataTable2.rowIndex}:ΗμερομηνιαΕπιλυσης', this,'dmy');"/>
+					</h:column>
+					<h:column>
+						<f:facet name="header"><h:outputText value=""/></f:facet>
+						<h:commandButton image="/images/remove.png" action="#{otaBean.deleteSection_O__Problem}" style="border:0px;"/>
+					</h:column>
+				</h:dataTable>
+				
+				<h:commandButton value="Αποθήκευση" action="#{otaBean.saveSectionO}"/>
+				
+				<h:outputText value="Γ. ΠΟΣΟΤΙΚΑ ΣΤΟΙΧΕΙΑ ΣΤΟΧΩΝ ΕΡΓΟΥ ΠΟΥ ΣΥΜΒΑΛΛΟΥΝ ΣΤΟ ΜΕΤΡΟ (16)" style="font-weight:bold;"/>
+				
+					<h:dataTable value="#{otaBean.m3_tde_deiktes}" var="dItem" styleClass="data-table" style="text-align:center" binding="#{otaBean.tmp_dataTable3}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΩΔΙΚΟΣ ΔΕΙΚΤΗ"/></f:facet>
+							<h:outputText value="#{dItem.code}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ"/></f:facet>
+							<h:outputText value="#{dItem.name}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΜΟΝ. ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{dItem.measuringSystem}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+							<h:outputText value="#{dItem.target}" styleClass="currency"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΝΕΑ ΕΚΤΙΜΩΜΕΝΗ ΤΙΜΗ"/></f:facet>
+							<h:inputText value="#{dItem.newTarget}" size="10" styleClass="currency"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΟΠΟΙΗΣΗ ΕΩΣ ΚΑΙ ΤΡΙΜΗΝΟ ΑΝΑΦΟΡΑΣ"/></f:facet>
+							<h:inputText value="#{dItem.realValue}" size="10"/>
+						</h:column>
+					</h:dataTable>
+				
+				<h:outputText value="Δ. ΣΧΟΛΙΑ ΚΑΙ ΠΑΡΑΤΗΡΗΣΕΙΣ (17)" style="font-weight:bold;"/>
+				
+				<h:inputTextarea value="#{otaBean.sec_o.comments}" style="width:100%" rows="6"/>
+				
+				<h:outputText value="Ε. ΟΙΚΟΝΟΜΙΚΑ ΣΤΟΙΧΕΙΑ (18)" style="font-weight:bold;"/>
+				
+				<h:outputFormat escape="false" value="#{otaBean.reportE1HTML}"/>
+				
+				<h:outputText value="ΠΑΡΑΡΤΗΜΑ (Εμφανίζονται κατά εξάμηνο Α και Β οι συνολικές δαπάνες για τα παρελθόντα έτη και συμπληρώνονται οι προβλέψεις από το τρέχον έτος και μετά. Για το τρέχον έτος γίνεται  διάκριση σε δύο εξάμηνα, για τα οποία συμπληρώνονται αναλόγως είτε οι συνολικές δαπάνες, είτε οι προβλέψεις.)"/>
+				
+				<h:panelGroup>
+					<h:outputText value="ΣΥΝΟΛΙΚΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ ΕΡΓΟΥ ΑΝΑ ΥΠΟΕΡΓΟ" style="font-weight:bold;"/>
+				
+					<h:dataTable value="#{otaBean.subProjects}" var="subItem" styleClass="data-table" style="margin:0 auto;" width="100%" binding="#{otaBean.tmp_dataTable4}">
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΩΔ." style="width:100px;"/></f:facet>
+							<h:outputText value="#{subItem.given_id}" style="width:100px;"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ"/></f:facet>
+							<h:outputText value="#{subItem.title}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΤΡΕΧΩΝ ΕΠΙΛΕΞΙΜΟΣ ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ" style="width:100px;" /></f:facet>
+							<h:outputText value="#{subItem.budget}"  style="width:100px;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					
+					<h:panelGrid columns="2">
+						<h:outputText value="ΣΥΝΟΛΙΚΟΣ ΕΠΙΛΕΞΙΜΟΣ ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ" style="font-weight:bold;"/>
+						<h:outputText value="#{otaBean.section_o_total_budget}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+					</h:panelGrid>
+					
+				</h:panelGroup>
+				
+				<h:outputText value="ΔΑΠΑΝΕΣ Η ΠΡΟΒΛΕΨΕΙΣ ΔΑΠΑΝΩΝ" style="font-weight:bold;"/>
+			</h:panelGrid>
+			
+			<table width="100%" style="border:1px solid #cccccc;" class="data-table" cellpadding="3">
+				<tr>
+					<th><h:outputText value="ΚΩΔ ΥΠΟΕΡΓΟΥ"/></th>
+					<c:forEach var="year" items="#{otaBean.framework.years}">
+						<th colspan="2"><h:outputText value="#{year}" style="font-weight:bold;"/></th>
+					</c:forEach>
+					<th><h:outputText value="ΣΥΝΟΛΙΚΟ ΕΚΤΙΜΩΜΕΝΟ ΚΟΣΤΟΣ"/></th>
+				</tr>
+				<tr>
+					<td />
+					<c:forEach var="year" items="#{otaBean.framework.years}">
+						<th><h:outputText value="Α" style="font-weight:bold;"/></th>
+						<th><h:outputText value="Β" style="font-weight:bold;"/></th>
+					</c:forEach>
+					<td />
+				</tr>
+				<c:forEach var="prj" items="#{otaBean.subProjects}">
+				<tr>
+					<td><h:outputText value="#{prj.given_id}"/></td>
+					<c:forEach var="year" items="#{otaBean.framework.years}">
+						<c:set var="semA" value="${year}A"/>
+						<c:set var="semB" value="${year}B"/>
+						<td><h:inputText rendered="#{prj.semesterMatrix[semA] == true}" value="#{prj.semesterBudgetMatrix[semA]}" size="8" style="font-size: 85%;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+						<td><h:inputText rendered="#{prj.semesterMatrix[semB] == true}" value="#{prj.semesterBudgetMatrix[semB]}" size="8" style="font-size: 85%;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:inputText></td>
+					</c:forEach>
+					<td><h:outputText value="#{prj.budget}" style="font-weight:bold;font-size: 90%;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></td>
+				</tr>
+				</c:forEach>
+				<tr>
+					<th><h:outputText value="Σύνολα"/></th>
+					<c:forEach var="year" items="#{otaBean.framework.years}">
+						<th colspan="2" style="width:50px;">
+							<h:outputText value="#{otaBean.yearBudgetMatrix[year]}" style="font-size: 85%;" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</th>
+					</c:forEach>
+					<th><h:outputText style="font-weight:bold;" value="#{otaBean.sec_o.totalBudget}" styleClass="currency"><f:converter converterId="bigDecimalConverter"/></h:outputText></th>
+				</tr>
+			</table>
+			
+			</div>
+			</h:form>
+		</f:view>		
+	</ui:define>
+	</ui:composition>		
+</body>
+</html>

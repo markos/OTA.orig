@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: reportKatartisisDSTotal.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>My Facelets Page</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<!--<link rel="stylesheet" type="text/css" href="styles.css">-->
+	</head>
+	<body style="text-align:center;">
+		
+	<ui:composition template="/template.xhtml">
+		<ui:param name="title" value="Katartisis v0.1 - Είσοδος"/>
+		<ui:param name="basePath" value="/OTA/"/>
+		<ui:define name="main-page-title">Γενικό Πλαίσιο Διαχείρισης Έργων</ui:define>
+		<ui:define name="javascript_box">
+			<script language="javascript" src="#{basePath}misc/mootools1.2.js"></script>
+			<c:if test="#{userLoginBean.adminKatartisis == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+			<style>
+				.data-cell {
+					border:1px solid #ccc;
+				}
+				
+				.data-cell td {
+					border:1px solid #ccc;
+				}
+			</style>			
+		</ui:define>
+		<ui:define name="breadcrump">
+			<li><a href="/OTA/mainmenu.jsf">Αρχικό μενού</a></li>
+			<li><a href="/OTA/projectList.jsf">Λίστα Έργων</a></li>
+			<li><a href="/OTA/project.jsf">Επεξεργασία Έργου</a></li>
+			<li><a href="/OTA/reportKatartisisSubList.jsf">Αναφορές Υποέργων Κατάρτισης</a></li>
+		</ui:define>
+		<ui:define name="main-content">
+			<f:view>
+				<div id="login-form" style="width:850px; padding-top:20px;">
+					<center>
+					
+					<h:outputText value="Συγκεντρωτική Κατάσταση ΔΣ"/>
+					<a href="/OTA/reports/printable/reportKatartisisDSTotal.jsf" target="_blank">Εκτύπωση</a>
+					
+					<br/>
+					
+					<h:panelGrid columns="9" styleClass="dynamicTable1" style="border:1px solid; width:850px; text-align:center;">
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΑΙΡΕΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΣΥΜΜΕΤΕΧΟΝΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΟΣΟΣΤΟ ΣΥΜΜΕΤΟΧΗΣ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΔΗΜΑΡΧΩΝ, ΠΡΟΕΔΡΩΝ ΚΟΙΝΟΤΗΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΔΗΜΟΤ, ΚΟΙΝΟΤ. ΣΥΜΒΟΥΛΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΤΟΠΙΚΩΝ ΣΥΜΒΟΥΛΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΑΝΔΡΕΣ/ΓΥΝΑΙΚΕΣ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΠΛΗΘΟΣ ΕΙΣΗΓΗΤΩΝ"/>
+						<h:outputLabel style="font-weight: bold;" value="ΕΙΣΗΓΗΤΕΣ(ΑΝΔΡΕΣ/ΓΥΝΑΙΚΕΣ)"/>
+						
+						<h:outputText value="#{reportBean.electives_total}"/>
+						<h:outputText value="#{reportBean.participants_total}"/>
+						<h:outputText value="#{reportBean.total_percentage}"><f:convertNumber type="percent"/></h:outputText>
+						<h:outputText value="#{reportBean.mayors_total}"/>
+						<h:outputText value="#{reportBean.councilmembers_total}"/>
+						<h:outputText value="#{reportBean.localcouncilmembers_total}"/>
+						<h:outputText value="#{reportBean.men_total}/#{reportBean.women_total}"/>
+						<h:outputText value="#{reportBean.speakers_total}"/>
+						<h:outputText value="#{reportBean.men_speakers_total}/#{reportBean.women_speakers_total}"/>
+					</h:panelGrid>
+
+					</center>
+				</div>
+			</f:view>		
+		</ui:define>
+	</ui:composition>
+		
+		
+		</body>
+</html>

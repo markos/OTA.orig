@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jstl/core"
+	xmlns:f="http://java.sun.com/jsf/core" xml:lang="en" lang="en">
+	<head>
+		<title>Τριμηνιαίο Δελτίο</title>
+		<meta http-equiv="keywords" content="enter,your,keywords,here" />
+		<meta http-equiv="description"
+			content="A short description of this page." />
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<c:if test="#{userLoginBean.adminTDE == false}"><script>window.location= "/OTA/mainmenu.jsf";</script></c:if>
+
+		<style>
+			body,td,th {
+				font-family:Arial, Helvetica, sans-serif;
+				font-size:11px;
+			}
+			
+			.row-class-table {
+				border-bottom:1px solid #cccccc;
+			}
+			
+			.cell-border {
+				border:1px solid #ccc;
+			}
+			
+			.data-table table {
+				border:1px solid #cccccc;
+			}
+			
+			.data-table td {
+				border:1px solid #cccccc;
+			}
+			
+			.fixed-column {
+				width:20%;
+			}
+			
+			/* DATE PICKER PLUGIN */
+			 /* the div that holds the date picker calendar */
+			.dpDiv {
+			}
+			
+			
+			/* the table (within the div) that holds the date picker calendar */
+			.dpTable {
+				font-family: Tahoma, Arial, Helvetica, sans-serif;
+				font-size: 12px;
+				text-align: center;
+				color: #505050;
+				background-color: #ece9d8;
+				border: 1px solid #AAAAAA;
+				}
+			
+			
+			/* a table row that holds date numbers (either blank or 1-31) */
+			.dpTR {
+				}
+			
+			
+			/* the top table row that holds the month, year, and forward/backward buttons */
+			.dpTitleTR {
+				}
+			
+			
+			/* the second table row, that holds the names of days of the week (Mo, Tu, We, etc.) */
+			.dpDayTR {
+				}
+			
+			
+			/* the bottom table row, that has the "This Month" and "Close" buttons */
+			.dpTodayButtonTR {
+				}
+			
+			
+			/* a table cell that holds a date number (either blank or 1-31) */
+			.dpTD {
+				border: 1px solid #ece9d8;
+				}
+			
+			
+			/* a table cell that holds a highlighted day (usually either today's date or the current date field value) */
+			.dpDayHighlightTD {
+				background-color: #CCCCCC;
+				border: 1px solid #AAAAAA;
+				}
+			
+			
+			/* the date number table cell that the mouse pointer is currently over (you can use contrasting colors to make it apparent which cell is being hovered over) */
+			.dpTDHover {
+				background-color: #aca998;
+				border: 1px solid #888888;
+				cursor: pointer;
+				color: red;
+				}
+			
+			
+			/* the table cell that holds the name of the month and the year */
+			.dpTitleTD {
+				}
+			
+			
+			/* a table cell that holds one of the forward/backward buttons */
+			.dpButtonTD {
+				}
+			
+			
+			/* the table cell that holds the "This Month" or "Close" button at the bottom */
+			.dpTodayButtonTD {
+				}
+			
+			
+			/* a table cell that holds the names of days of the week (Mo, Tu, We, etc.) */
+			.dpDayTD {
+				background-color: #CCCCCC;
+				border: 1px solid #AAAAAA;
+				color: white;
+				}
+			
+			
+			/* additional style information for the text that indicates the month and year */
+			.dpTitleText {
+				font-size: 12px;
+				color: gray;
+				font-weight: bold;
+				}
+			
+			
+			/* additional style information for the cell that holds a highlighted day (usually either today's date or the current date field value) */ 
+			.dpDayHighlight {
+				color: 4060ff;
+				font-weight: bold;
+				}
+			
+			
+			/* the forward/backward buttons at the top */
+			.dpButton {
+				font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+				font-size: 10px;
+				color: gray;
+				background: #d8e8ff;
+				font-weight: bold;
+				padding: 0px;
+				}
+			
+			
+			/* the "This Month" and "Close" buttons at the bottom */
+			.dpTodayButton {
+				font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+				font-size: 10px;
+				color: gray;
+				background: #d8e8ff;
+				font-weight: bold;
+				}
+		</style>
+	</head>
+	<body style="text-align:center;" background="">
+		
+		<f:view>	
+			<h:panelGrid columns="1" style="margin-top: 40px; text-align:center; margin:0 auto; border:1px solid;" cellpadding="10" cellspacing="0" columnClasses="row-class-table" width="900">		
+				<h:outputText value="ΤΡΙMHNIAIΟ ΔΕΛΤΙΟ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;font-size:14px;"/>
+				
+				<h:outputText value="ΕΠΙΧΕΙΡHΣΙΑΚΟ ΠΡΟΓΡΑΜΜΑ : " style="font-weight:bold;"/>
+				<h:outputText value="#{otaBean.sec_a.epix_program}  (1)"/>
+				
+				<h:panelGrid columns="5"  style="text-align:center;" width="100%" columnClasses="fixed-column">
+					<h:outputText value="ΠΡΟΤΕΡΑΙΟΤΗΤΑ" style="font-weight:bold;"/>
+					<h:outputText value="ΜΕΤΡΟ" style="font-weight:bold;"/>
+					<h:outputText value="ΥΠΟΜΕΤΡΟ" style="font-weight:bold;"/>
+					<h:outputText value="ΕΡΓΟ" style="font-weight:bold;"/>
+					<h:outputText value="ΚΩΔΙΚΟΣ MIS" style="font-weight:bold;"/>
+					
+					<h:outputText value="#{otaBean.sec_a.axon}  (2)"/>
+					<h:outputText value="#{otaBean.sec_a.metro}  (3)"/>
+					<h:outputText value="#{otaBean.sec_a.subMetro}  (4)"/>
+					<h:outputText value="#{otaBean.sec_a.title_el}  (5)"/>
+					<h:outputText value="#{otaBean.sec_a.code_ergorama}  (5α)"/>
+				</h:panelGrid>
+				
+				<h:outputText value="ΤΡΙMHNIAIΟ ΔΕΛΤΙΟ ΠΑΡΑΚΟΛΟΥΘΗΣΗΣ ΦΥΣΙΚΗΣ ΠΡΟΟΔΟΥ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;font-size:14px;"/>
+				
+				<h:panelGrid columns="2" style="text-align:center;" width="100%">
+					<h:outputText value="A/A ΤΡΙΜΗΝΙΑΙΟΥ ΔΕΛΤΙΟΥ" style="font-weight:bold; width:100"/>
+					<h:outputText value="ΠΕΡΙΟΔΟΣ ΑΝΑΦΟΡΑΣ" style="font-weight:bold;"/>
+					
+					<h:outputText value="000  (6)"/>
+					<h:panelGrid columns="2" width="100%" style="text-align:left;">
+						<h:outputText value="ΤΡΙΜΗΝΟ : #{otaBean.sec_p.quarter} (7)"/>
+						<h:outputText value="ΕΤΟΣ : #{otaBean.sec_p.year} (8)"/>
+					</h:panelGrid>
+				</h:panelGrid>
+				
+				<h:panelGroup>
+					<h:outputText value="ΗΜΕΡΟΜΗΝΙΑ ΣΥΜΠΛΗΡΩΣΗΣ : " style="font-weight:bold;"/><h:outputText value="#{otaBean.sec_p.publicationDate}  (9)"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+				</h:panelGroup>
+				
+				<h:panelGrid columns="1" style="text-align:left" width="100%" cellpadding="10">
+					<h:outputText value="Α1.1 ΤΙΤΛΟΣ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+					<h:outputText value="#{otaBean.sec_l.title}  (10)" style="font-weight:bold;font-size:12px;"/>
+					
+					<h:panelGrid columns="2" width="100%">
+						<h:outputText value="Α1.2 ΚΩΔΙΚΟΣ ΥΠΟΕΡΓΟΥ :" style="font-weight:bold;"/>
+						<h:panelGrid columns="1" style="text-align:right;" width="100%" cellpadding="0" cellspacing="0">
+							<h:outputText value="#{otaBean.sec_l.given_id} (11)"/>
+						</h:panelGrid>
+					</h:panelGrid>
+					
+					<h:outputText value="A1.3 ΣΥΝΤΟΜΗ ΤΕΧΝΙΚΗ ΠΕΡΙΓΡΑΦΗ (12)" style="font-weight:bold;"/>
+					
+					<h:outputFormat escape="false" value="#{otaBean.sec_l.subProjectShortDescription}"/>
+					
+					<h:panelGrid columns="1" style="margin:0 auto;" width="100%">
+						<h:outputText value="A1.4 ΣΤΟΙΧΕΙΑ ΧΩΡΟΘΕΤΗΣΗΣ ΥΠΟΕΡΓΟΥ (13)" style="font-weight:bold;"/>
+					
+						<h:dataTable value="#{otaBean.m3_tdy_places}" var="plItem" styleClass="data-table" style="margin:0 auto; text-align:center;" width="100%" >
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΕΡΙΦΕΡΕΙΑ"/></f:facet>
+								<h:outputText value="#{plItem.regionName}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+								<h:outputText value="#{plItem.regionCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΝΟΜΟΣ"/></f:facet>
+								<h:outputText value="#{plItem.prefectureName}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+								<h:outputText value="#{plItem.prefectureCode}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΔΗΜΟΣ/ΚΟΙΝΟΤΗΤΑ"/></f:facet>
+								<h:outputText value="#{plItem.municipality.name}"/>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+								<h:outputText value="#{plItem.municipalityCode}"/>
+								<f:facet name="footer"><h:outputText value="ΣΥΝΟΛΟ" style="font-weight:bold;"/></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΟΣΟ"/></f:facet>
+								<h:outputText value="#{plItem.budget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText value="#{otaBean.sectionP_PlacesBudget}" style="font-weight:bold;"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+							<h:column>
+								<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΝ ΠΟΣΟ"/></f:facet>
+								<h:outputText value="#{plItem.realBudget}" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+								<f:facet name="footer"><h:outputText value="#{otaBean.sectionP_PlacesRealBudget}" style="font-weight:bold;"><f:converter converterId="bigDecimalConverter"/></h:outputText></f:facet>
+							</h:column>
+						</h:dataTable>
+					</h:panelGrid>
+					
+					<h:panelGrid columns="1" style="margin:0 auto;" width="100%">
+						<h:outputText value="Β ΦΥΣΙΚΗ ΠΡΟΟΔΟΣ ΥΠΟΕΡΓΟΥ (14)" style="font-weight:bold;"/>
+					
+						<h:panelGrid columns="2" width="100%" style="text-align:center;">
+							<h:outputText value="ΠΡΟΓΡΑΜΜΑΤΙΣΜΕΝΗ ΠΟΡΕΙΑ ΤΟΥ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+							<h:outputText value="ΠΡΟΒΛΕΠΟΜΕΝΗ ΠΟΡΕΙΑ ΤΟΥ ΥΠΟΕΡΓΟΥ" style="font-weight:bold;"/>
+							
+							<h:panelGrid columns="2" width="100%" style="text-align:center">
+								<h:outputText value="ΕΝΑΡΞΗ" style="font-weight:bold;"/>
+								<h:outputText value="ΛΗΞΗ" style="font-weight:bold;"/>
+								
+								<h:outputText value="#{otaBean.sec_l.date_start}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+								<h:outputText value="#{otaBean.sec_l.date_end}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+							</h:panelGrid>
+							
+							<h:panelGrid columns="2" width="100%" style="text-align:center">
+								<h:outputText value="ΕΝΑΡΞΗ" style="font-weight:bold;"/>
+								<h:outputText value="ΛΗΞΗ" style="font-weight:bold;"/>
+								
+								<h:panelGroup>
+									<h:outputText value="#{otaBean.sec_p.date_start_}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+								</h:panelGroup>
+								<h:panelGroup>
+									<h:outputText value="#{otaBean.sec_p.date_end_}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+								</h:panelGroup>
+							</h:panelGrid>
+							
+						</h:panelGrid>
+						
+					</h:panelGrid>
+					
+					<h:outputText value="B1. ΠΟΙΟΤΙΚΑ ΣΤΟΙΧΕΙΑ" style="font-weight:bold;"/>
+					
+					<h:outputText value="B1.1 ΣΥΝΤΟΜΗ  ΠΕΡΙΓΡΑΦΗ ΣΥΝΟΛΙΚΗΣ ΠΡΟΟΔΟΥ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΜΕΧΡΙ ΚΑΙ ΤΟ ΤΡΙΜΗΝΟ ΑΝΑΦΟΡΑΣ (15)" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_p.shortDescription_Progress_Physical}" style="width:100%"/>
+
+					<h:outputText value="B1.2 ΣΥΝΤΟΜΗ ΠΕΡΙΓΡΑΦΗ ΤΩΝ ΠΡΟΓΡΑΜΜΑΤΙΣΜΕΝΩΝ ΕΡΓΑΣΙΩΝ ΓΙΑ ΤΟ ΕΠΟΜΕΝΟ ΤΡΙΜΗΝΟ (16)" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_p.shortDescription_ProgrammedTasks}"  style="width:100%"/>
+					
+					<h:outputText value="B1.3 ΠΑΡΑΤΗΡΗΣΕΙΣ (17)" style="font-weight:bold;"/>
+					<h:outputFormat escape="false" value="#{otaBean.sec_p.comments}" style="width:100%"/>					
+					
+					<h:panelGroup>
+						<h:outputText value="B2. ΠΙΣΤΟΠΟΙΗΣΕΙΣ ΥΠΟΕΡΓΟΥ ΣΤΟ ΤΡΙΜΗΝΟ ΑΝΑΦΟΡΑΣ (18)" style="font-weight:bold;"/>
+					</h:panelGroup>
+					
+					<h:dataTable value="#{otaBean.m3_tdy_certifications}" var="cItem" width="100%" styleClass="data-table" style="text-align:center;" >
+						<h:column>
+							<f:facet name="header"><h:outputText value="Α/Α ΛΟΓΑΡΙΑΣΜΟΥ"/></f:facet>
+							<h:outputText value="#{cItem.aa}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΗΜ/ΝΙΑ ΠΙΣΤΟΠΟΙΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{cItem.certificationDate}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΟΣΟ ΠΙΣΤΟΠΟΙΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{cItem.amount}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					
+					<h:outputText value="Β3. ΠΟΣΟΤΙΚΑ ΣΤΟΙΧΕΙΑ ΠΡΟΟΔΟΥ  ΔΙΑΚΡΙΤΩΝ ΤΜΗΜΑΤΩΝ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΥΠΟΕΡΓΟΥ (ΟΜΑΔΕΣ ΕΡΓΑΣΙΩΝ Κ.Τ.Λ.) (19)" style="font-weight:bold;"/>
+					
+					<h:dataTable value="#{otaBean.m3_tdy_progress}" var="progItem" styleClass="data-table" style="text-align:center" width="100%" >
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΩΔ. Δ.Τ."/></f:facet>
+							<h:outputText value="#{progItem.code}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΕΡΙΓΡΑΦΗ ΔΙΑΚΡΙΤΟΥ ΤΜΗΜΑΤΟΣ Φ.Α."/></f:facet>
+							<h:outputText value="#{progItem.description}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΟΫΠΟΛΟΓΙΣΜΟΣ"/></f:facet>
+							<h:outputText value="#{progItem.budget}"><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΜΟΝ. ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{progItem.measuringUnit}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΕΓΚΕΚΡΙΜΕΝΗ ΤΙΜΗ"/></f:facet>
+							<h:outputText value="#{progItem.quantity}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΙΣΑ ΤΙΜΗ ΕΩΣ ΚΑΙ ΤΡΙΜΗΝΟ ΑΝΑΦΟΡΑΣ"/></f:facet>
+							<h:outputText value="#{progItem.actual_quantity}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΙΣΑ ΔΑΠΑΝΗ ΕΩΣ ΚΑΙ ΤΡΙΜΗΝΟ ΑΝΑΦΟΡΑΣ"/></f:facet>
+							<h:outputText value="#{progItem.actual_budget}" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>						
+					</h:dataTable>
+					
+					<h:outputText value="Β4. ΣΤΟΙΧΕΙΑ ΥΛΟΠΟΙΗΣΗΣ ΦΥΣΙΚΟΥ ΑΝΤΙΚΕΙΜΕΝΟΥ ΜΕ ΜΕΤΡΗΣΙΜΟΥΣ ΔΕΙΚΤΕΣ ΠΟΥ ΣΥΜΒΑΛΛΟΥΝ ΣΤΟΥΣ ΣΤΟΧΟΥΣ ΤΟΥ ΜΕΤΡΟΥ (20)" style="font-weight:bold;"/>
+					
+					<h:dataTable value="#{otaBean.m3_tdy_deiktes}" var="dItem" styleClass="data-table" style="text-align:center" width="100%" >
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΩΔΙΚΟΣ ΔΕΙΚΤΗ"/></f:facet>
+							<h:outputText value="#{dItem.code}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΟΝΟΜΑΣΙΑ ΔΕΙΚΤΗ"/></f:facet>
+							<h:outputText value="#{dItem.name}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΜΟΝ. ΜΕΤΡΗΣΗΣ"/></f:facet>
+							<h:outputText value="#{dItem.measuringSystem}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΤΙΜΗ ΣΤΟΧΟΣ"/></f:facet>
+							<h:outputText value="#{dItem.target}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΝΕΑ ΕΚΤΙΜΩΜΕΝΗ ΤΙΜΗ"/></f:facet>
+							<h:outputText value="#{dItem.newTarget}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΟΠΟΙΗΣΗ ΕΩΣ ΚΑΙ ΤΡΙΜΗΝΟ ΑΝΑΦΟΡΑΣ"/></f:facet>
+							<h:outputText value="#{dItem.realValue}" />
+						</h:column>
+					</h:dataTable>
+					
+					<h:outputText value="Β5. ΔΙΟΙΚΗΤΙΚΕΣ ΚΑΤΑΣΤΑΣΕΙΣ ΕΞΕΛΙΞΗΣ ΥΠΟΕΡΓΟΥ (21)" style="font-weight:bold;"/>
+					
+					<h:outputText value="ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ ΥΠΟΕΡΓΟΥ : "/>
+					
+					<h:dataTable value="#{otaBean.m3_tdy_evolution}" var="eItem" styleClass="data-table" style="text-align:center" width="100%" >
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΚΩΔ."/></f:facet>
+							<h:outputText value="#{eItem.code}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΔΙΟΙΚ. ΚΑΤΑΣΤΑΣΗ ΕΞΕΛΙΞΗΣ ΥΠΟΕΡΓΟΥ"/></f:facet>
+							<h:outputText value="#{eItem.description}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΑΡΧΙΚΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ"/></f:facet>
+							<h:outputText value="#{eItem.date_initial}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜΑΤΙΚΕΣ ΗΜΕΡΟΜΗΝΙΕΣ"/></f:facet>
+							<h:outputText value="#{eItem.date_real}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΣΗΜΕΡΙΝΟΣ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ"/></f:facet>
+							<h:outputText value="#{eItem.date_current}" ><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΣΧΕΤΙΚΟΣ ΕΠΙΛΕΞΙΜΟΣ Π/Υ ΥΠΟΕΡΓΟΥ"/></f:facet>
+							<h:outputText value="#{eItem.budget}" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+					
+					<h:outputText value="ΠΑΡΑΡΤΗΜΑ" style="font-size:14px; font-weight:bold;"/>
+					
+					<h:outputText value="ΠΡΟΟΔΟΣ ΔΡΑΣΤΗΡΙΟΤΗΤΩΝ (22)" style="font-weight:bold;"/>
+					
+					<h:dataTable value="#{otaBean.physicalObjects}" var="phItem" styleClass="data-table" style="text-align:center" width="100%" >
+						<h:column>
+							<f:facet name="header"><h:outputText value="A/Α"/></f:facet>
+							<h:outputText value="#{otaBean.tmp_dataTable2.rowIndex + 1}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΔΡΑΣΤΗΡΙΟΤΗΤΑ"/></f:facet>
+							<h:outputText value="#{phItem.activity}"/>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΟΓΡ. ΗΜ/ΝΙΑ ΕΝΑΡΞΗΣ"/></f:facet>
+							<h:outputText value="#{phItem.date_programmedStart}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΟΓΡ. ΗΜ/ΝΙΑ ΛΗΞΗΣ"/></f:facet>
+							<h:outputText value="#{phItem.date_programmedStart}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜ./ΤΡΕΧΟΥΣΑ ΗΜ/ΝΙΑ ΕΝΑΡΞΗΣ"/></f:facet>
+							<h:outputText value="#{phItem.date_actualStart}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+						<h:column>
+							<f:facet name="header"><h:outputText value="ΠΡΑΓΜ./ΤΡΕΧΟΥΣΑ ΗΜ/ΝΙΑ ΛΗΞΗΣ"/></f:facet>
+							<h:outputText value="#{phItem.date_actualEnd}"><f:convertDateTime type="date" pattern="dd/MM/yyyy"/></h:outputText>
+						</h:column>
+					</h:dataTable>
+				</h:panelGrid>
+			</h:panelGrid>
+		</f:view>
+	</body>
+</html>

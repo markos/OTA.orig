@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee   http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+ <context-param>
+  <param-name>javax.faces.CONFIG_FILES</param-name>
+  <param-value>/WEB-INF/faces-config.xml</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+  <param-value>.xhtml</param-value>
+ </context-param>
+ <context-param>
+  <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+  <param-value>client</param-value>
+ </context-param>
+ <context-param>
+  <param-name>facelets.SKIP_COMMENTS</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <context-param>
+  <param-name>com.sun.faces.disableUnicodeEscaping</param-name>
+  <param-value>true</param-value>
+ </context-param>
+ <servlet>
+  <servlet-name>Faces Servlet</servlet-name>
+  <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet>
+  <description>This is the description of my J2EE component</description>
+  <display-name>This is the display name of my J2EE component</display-name>
+  <servlet-name>FileUploader</servlet-name>
+  <servlet-class>gr.codex.userdb.manager.FileUploader</servlet-class>
+ </servlet>
+ <servlet>
+  <description>JAX-WS endpoint - AuthenticateService</description>
+  <display-name>AuthenticateService</display-name>
+  <servlet-name>AuthenticateService</servlet-name>
+  <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class>
+  <load-on-startup>1</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+  <servlet-name>AuthenticateService</servlet-name>
+  <url-pattern>/AuthenticatePort</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>FileUploader</servlet-name>
+  <url-pattern>/servlet/FileUploader</url-pattern>
+ </servlet-mapping>
+ <servlet-mapping>
+  <servlet-name>Faces Servlet</servlet-name>
+  <url-pattern>*.jsf</url-pattern>
+ </servlet-mapping>
+ <session-config>
+  <session-timeout>200</session-timeout>
+ </session-config>
+ <welcome-file-list>
+  <welcome-file>index.jsf</welcome-file>
+ </welcome-file-list>
+ <error-page>
+  <error-code>500</error-code>
+  <location>/500.html</location>
+ </error-page>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/404.html</location>
+ </error-page>
+ <login-config>
+  <auth-method>BASIC</auth-method>
+ </login-config>
+ <!--Tomcat 5 Workaround: Listener used to initialize JSF on startup
+		Remove comment tags to enable listener.
+		<listener>
+		<listener-class>com.sun.faces.config.ConfigureListener</listener-class>
+		</listener>
+		
+		Tomcat 5 Workaround: Listener implementation to handle web application lifecycle event
+		Remove comment tags to enable listener.
+		<listener>
+		<listener-class>com.sun.faces.application.WebappLifecycleListener</listener-class>
+		</listener>
+	-->
+</web-app>

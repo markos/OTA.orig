@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   Copyright (C) 2008,2009 Central Union Of Municipalities & Communities Of Greece (http://www.kedke.gr)
+   Copyright (C) 2008,2009 Profile S.A. (http://www.profile.gr)
+   Copyright (C) 2008,2009 Codex O.E. (http://www.codex.gr)
+   
+   This file is part of the Integrated Management System for Public Projects (IMSPP).
+
+   IMSPP is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   IMSPP is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with IMSPP.  If not, see <http://www.gnu.org/licenses/>.
+   
+   Authors:
+     Konstantinos Margaritis <markos@codex.gr>
+     Theodore Karkoulis <t.karkoulis@gmail.com>
+
+$Id: A2.xhtml 1518 2009-11-10 11:38:47Z markos $
+ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	<head>
+		<title>Α2: ΟΝΟΜΑΣΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΕΚΠΑΙΔΕΥΤΩΝ</title>
+		<style>
+			body {
+				font-family:Arial;
+			}
+			
+			.dynamicTable1 {
+				font-size:12px;
+			}
+			
+			.dynamicTable1 td, th {
+				border-bottom:1px solid;
+				border-right:1px solid;
+				font-size:12px;
+			}
+		</style>
+	</head>
+	<body>
+	<center>
+
+	<ui:include src="/katartisis/pforms/header.xhtml" />
+	<h:outputText style="display:none;" value="#{katartisisFormBean.form_sem_2}"/>
+	<br/>
+	
+	<table width="850">
+		<tr>
+			<td align="center">
+				<h:outputText value="ΕΝΤΥΠΟ ΣΕΜ Α2: ΟΝΟΜΑΣΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΕΚΠΑΙΔΕΥΤΩΝ" style="font-size:18px; font-family:Arial;"/>
+			</td>
+		</tr>
+	</table>
+
+	<br/>
+
+	<table width="850" cellpadding="5" cellspacing="0">	
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΚΑΤΗΓΟΡΙΑ ΔΡΑΣΗΣ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.cycle.name}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΣΤΑΔΙΟ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_2.phase}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΝΟΜΟΣ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.event.municipality.prefecture.name}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΧΩΡΟΣ ΔΙΕΞΑΓΩΓΗΣ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;text-align:center;"><h:outputText value="#{katartisisUIBean.event.place}" style="font-size:12px;"/></td>
+		</tr>
+		<tr>
+			<td width="200" style="border-bottom:1px solid;border-top:1px solid;border-left:1px solid;border-right:1px solid;"><h:outputText value="ΔΙΕΥΘΥΝΣΗ:" style="font-size:12px;font-weight:bold;"/></td>
+			<td width="650" style="border-top:1px solid;border-right:1px solid;border-bottom:1px solid;text-align:center;"><h:outputText value="#{katartisisFormBean.form_sem_1.KEK_address}" style="font-size:12px;"/></td>
+		</tr>
+	</table>
+	
+	<br/><br/>
+	
+	<h:dataTable value="#{katartisisFormBean.form_sem_2.speakers}" var="spkItem" cellspacing="0"  cellpadding="10" styleClass="dynamicTable1" style="border:1px solid; width:850px; text-align:center;" >
+		<h:column id="column2">
+			<f:facet name="header"><h:outputText value="ΕΠΩΝΥΜΟ - ΟΝΟΜΑ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.lastName} #{spkItem.firstName}" style="font-size:12px;"/>
+		</h:column>
+		<h:column id="column3">
+			<f:facet name="header"><h:outputText value="Α.Φ.Μ." style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.vatID}" style="font-size:12px;" />
+		</h:column>
+		<h:column id="column4">
+			<f:facet name="header"><h:outputText value="ΔΙΕΥΘΥΝΣΗ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.address}" style="font-size:12px;" />
+		</h:column>
+		<h:column id="column5">
+			<f:facet name="header"><h:outputText value="ΤΗΛΕΦΩΝΟ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.telephone}" style="font-size:12px;"/>
+		</h:column>
+		<h:column id="column6">
+			<f:facet name="header"><h:outputText value="ΕΠΙΠΕΔΟ ΣΠΟΥΔΩΝ ΚΑΙ ΕΠΑΓΓΕΛΜΑΤΙΚΗ ΕΜΠΕΙΡΙΑ (κατηγ Α- Ε)" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.speakerEducation}" style="font-size:12px;"/>
+		</h:column>
+		<h:column id="column7">
+			<f:facet name="header"><h:outputText value="Α.Μ. Ε.ΚΕ.ΠΙΣ." style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.code}" style="font-size:12px;"/>
+		</h:column>
+		<h:column id="column8">
+			<f:facet name="header"><h:outputText value="ΘΕΜΑΤΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ ΠΙΣΤΟΠΟΙΗΣΗΣ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.speakerCertTopic}" style="font-size:12px;"/>
+		</h:column>
+		<h:column id="column9">
+			<f:facet name="header"><h:outputText value="ΩΡΙΑΙΑ ΑΝΤΙΜΙΣΘΙΑ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.speakerHourlyRateGross}" style="font-size:12px;" ><f:converter converterId="bigDecimalConverter"/></h:outputText>
+		</h:column>
+		<h:column id="column10">
+			<f:facet name="header"><h:outputText value="ΑΣΦΑΛΙΣΤΙΚΟΣ ΦΟΡΕΑΣ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.speakerInsurance}" style="font-size:12px;"/>
+		</h:column>
+		<h:column id="column11">
+			<f:facet name="header"><h:outputText value="Α.Μ. ΑΣΦΑΛΙΣΤΙΚΟΥ ΦΟΡΕΑ" style="font-size:12px;"/></f:facet>
+			<h:outputText value="#{spkItem.speakerInsuranceID}" style="font-size:12px;"/>
+		</h:column>
+	</h:dataTable>
+	
+	<br/>
+	<ui:include src="/katartisis/pforms/footer.xhtml" />
+	</center>
+	</body>
+ </html>
